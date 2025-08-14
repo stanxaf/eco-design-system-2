@@ -41,20 +41,94 @@ To use a custom theme for all the components, all you need to do is modify the C
 [`globals.css`](./src/app/globals.css). More information on these practices can be found
 on [ui.shadcn.com/docs](https://ui.shadcn.com/docs).
 
-#### MCP
+### 🎯 **Important: Keeping Your Design System Updated**
+
+When you make UI changes (colors, fonts, design tokens), you need to update **both** files to ensure consistency:
+
+1. **`src/app/globals.css`** - for your local development
+2. **`registry.json`** - for the registry system and external tools
+
+**Always run this command after any UI changes:**
+```bash
+npm run registry:build
+```
+
+This ensures that v0, Cursor, and other tools see your latest design system updates.
+
+### **Complete Workflow for UI Changes**
+
+#### **Step 1: Make Your Changes**
+```bash
+# Edit design tokens
+code src/app/globals.css
+
+# Edit registry configuration
+code registry.json
+```
+
+#### **Step 2: Update Both Files**
+- ✅ Update `globals.css` with new colors/fonts
+- ✅ Update `registry.json` cssVars section to match
+- ✅ Keep both files in sync
+
+#### **Step 3: Rebuild & Deploy**
+```bash
+npm run registry:build  # Regenerates all registry files
+npm run build          # Builds your application
+```
+
+### **What to Update When**
+
+| Change Type | Files to Update | Command to Run |
+|-------------|----------------|----------------|
+| **Colors & Design Tokens** | `globals.css` + `registry.json` | `npm run registry:build` |
+| **Fonts** | `layout.tsx` + `globals.css` | `npm run registry:build` |
+| **Components** | Component files | `npm run registry:build` |
+| **Layouts & Pages** | Layout/page files | `npm run registry:build` |
+
+### **Common Pitfalls to Avoid**
+
+❌ **Don't:**
+- Only update `globals.css` without rebuilding registry
+- Only update `registry.json` without updating `globals.css`
+- Forget to run `npm run registry:build` after changes
+- Deploy without rebuilding registry
+
+✅ **Do:**
+- Keep both files in sync
+- Always rebuild after changes
+- Test locally before deploying
+- Use consistent naming conventions
+
+### **Testing Your Changes**
+
+```bash
+# Local testing
+npm run dev
+# Check your app locally, toggle themes, verify colors
+
+# Registry testing
+npm run registry:build
+# Visit registry page, check theme toggle, verify component previews
+
+# v0 integration testing
+# Use "Open in v0" buttons, verify new colors are applied
+```
+
+#### **MCP Integration**
 
 To use this registry with MCP, you must also edit [`registry.json`](./registry.json)'s first
 `registry-item` named `theme`. This `registry:theme` item not only contains the tailwind configuration, but it also
 contains your design tokens / CSS variables.
 
-The `shadcn/ui` CLI's MCP command will use the entire `registy.json` file, so it must be put in the `/public` folder 
-with all of your `registry:item`s. This will enable you to use your registry in tools like Cursor & Windsurf. 
+The `shadcn/ui` CLI's MCP command will use the entire `registry.json` file, so it must be put in the `/public` folder
+with all of your `registry:item`s. This will enable you to use your registry in tools like Cursor & Windsurf.
 
-#### Fonts
+#### **Fonts**
 
 To use custom fonts, you can either use [
-`next/font/google`](https://nextjs.org/docs/pages/getting-started/fonts#google-fonts) or the 
-[`@font-face`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) CSS rule in your 
+`next/font/google`](https://nextjs.org/docs/pages/getting-started/fonts#google-fonts) or the
+[`@font-face`](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) CSS rule in your
 [`globals.css`](./src/app/globals.css).
 
 ```css
@@ -67,9 +141,16 @@ To use custom fonts, you can either use [
 }
 ```
 
-If you use `@font-face`, ensure you modify [`globals.css`](src/app/globals.css) tailwind configuration to map 
+If you use `@font-face`, ensure you modify [`globals.css`](src/app/globals.css) tailwind configuration to map
 your custom font variables to Tailwind fonts. Refer to this
 [Tailwind documentation](https://tailwindcss.com/docs/font-family#customizing-your-theme)
+
+### **For Team Development**
+
+- **Communication**: Document design system changes, share registry links for reviews
+- **Version Control**: Commit both files together, use descriptive commit messages
+- **Consistency**: Use CSS variables for all colors, maintain clear naming conventions
+- **Accessibility**: Ensure sufficient contrast ratios, test both themes
 
 ## Running locally
 
