@@ -27,6 +27,12 @@ export default async function RegistryItemPage({
     notFound();
   }
 
+  // Get the base URL for the registry
+  const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL ||
+                  process.env.NEXT_PUBLIC_SITE_URL ||
+                  process.env.VERCEL_URL ||
+                  "localhost:3000";
+
   return (
     <div className="container p-5 md:p-10">
       <div className="mb-6 flex items-center justify-between">
@@ -45,7 +51,7 @@ export default async function RegistryItemPage({
 
       <ComponentCard
         component={component}
-        baseUrl={process.env.VERCEL_PROJECT_PRODUCTION_URL ?? ""}
+        baseUrl={baseUrl}
         prompt={getPrompt()}
       />
     </div>
