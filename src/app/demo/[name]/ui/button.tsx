@@ -6,5 +6,6 @@ export const button = {
     Primary: <Button variant="default">Primary</Button>,
     Secondary: <Button variant="secondary">Secondary</Button>,
     Outline: <Button variant="outline">Outline</Button>,
+    Small: <Button variant="outline" size="sm">Small</Button>,
   },
 };
