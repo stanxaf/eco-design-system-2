@@ -27,7 +27,7 @@ export const popover = {
                 <input
                   id="width"
                   defaultValue="100%"
-                  className="col-span-2 h-8 px-3 text-sm border border-input bg-background"
+                  className="col-span-2 h-8 px-3 text-sm border border-input bg-background rounded-md"
                 />
               </div>
               <div className="grid grid-cols-3 items-center gap-4">
@@ -35,7 +35,7 @@ export const popover = {
                 <input
                   id="maxWidth"
                   defaultValue="300px"
-                  className="col-span-2 h-8 px-3 text-sm border border-input bg-background"
+                  className="col-span-2 h-8 px-3 text-sm border border-input bg-background rounded-md"
                 />
               </div>
               <div className="grid grid-cols-3 items-center gap-4">
@@ -43,7 +43,7 @@ export const popover = {
                 <input
                   id="height"
                   defaultValue="25px"
-                  className="col-span-2 h-8 px-3 text-sm border border-input bg-background"
+                  className="col-span-2 h-8 px-3 text-sm border border-input bg-background rounded-md"
                 />
               </div>
               <div className="grid grid-cols-3 items-center gap-4">
@@ -51,7 +51,7 @@ export const popover = {
                 <input
                   id="maxHeight"
                   defaultValue="none"
-                  className="col-span-2 h-8 px-3 text-sm border border-input bg-background"
+                  className="col-span-2 h-8 px-3 text-sm border border-input bg-background rounded-md"
                 />
               </div>
             </div>
