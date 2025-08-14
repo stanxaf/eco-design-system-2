@@ -264,4 +264,10 @@
   ::file-selector-button {
     border-color: var(--color-border, currentColor);
   }
+
+  body {
+    font-size: var(--text-base);
+    color: var(--color-foreground);
+    line-height: 1.5;
+  }
 }
