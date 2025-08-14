@@ -59,22 +59,22 @@ export function BrandSidebar({
   const mainNavItems: NavItem[] = [
     {
       title: "Home",
-      href: "#",
+      href: "/",
       icon: <Home className="size-4" />,
     },
     {
       title: "Projects",
-      href: "#projects",
+      href: "/projects",
       icon: <LayoutGrid className="size-4" />,
     },
     {
       title: "Databases",
-      href: "#databases",
+      href: "/databases",
       icon: <Database className="size-4" />,
     },
     {
       title: "Tables",
-      href: "#tables",
+      href: "/tables",
       icon: <Table className="size-4" />,
       badge: {
         text: "Beta",
@@ -82,7 +82,7 @@ export function BrandSidebar({
     },
     {
       title: "AI",
-      href: "#ai",
+      href: "/ai",
       icon: <MessageSquareText className="size-4" />,
       badge: {
         text: "Alpha",
@@ -93,22 +93,22 @@ export function BrandSidebar({
   const toolsNavItems: NavItem[] = [
     {
       title: "Alerts",
-      href: "#alerts",
+      href: "/alerts",
       icon: <AlertTriangle className="size-4" />,
     },
     {
       title: "Analytics",
-      href: "#analytics",
+      href: "/analytics",
       icon: <BarChart2 className="size-4" />,
     },
     {
       title: "History",
-      href: "#history",
+      href: "/history",
       icon: <Clock className="size-4" />,
     },
     {
       title: "More",
-      href: "#more",
+      href: "/more",
       icon: <MoreHorizontal className="size-4" />,
     },
   ];
@@ -135,7 +135,7 @@ export function BrandSidebar({
                     asChild
                     isActive={
                       pathname === item.href ||
-                      (pathname === "" && item.href === "/")
+                      (item.href === "/" && (pathname === "/" || pathname === ""))
                     }
                     tooltip={item.title}
                   >
@@ -163,7 +163,10 @@ export function BrandSidebar({
                 <SidebarMenuItem key={item.href}>
                   <SidebarMenuButton
                     asChild
-                    isActive={pathname === item.href}
+                    isActive={
+                      pathname === item.href ||
+                      (item.href === "/" && (pathname === "/" || pathname === ""))
+                    }
                     tooltip={item.title}
                   >
                     <Link href={item.href}>

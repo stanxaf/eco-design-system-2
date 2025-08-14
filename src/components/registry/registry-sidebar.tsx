@@ -143,21 +143,29 @@ export function RegistrySidebar() {
               <CollapsibleContent>
                 <SidebarGroupContent>
                   <SidebarMenu>
-                    {gettingStartedItems.map((item) => (
-                      <SidebarMenuItem key={item.path}>
-                        <SidebarMenuButton
-                          asChild
-                          isActive={pathname === item.path}
-                        >
-                          <Link
-                            onClick={() => setOpenMobile(false)}
-                            href={item.path}
+                    {gettingStartedItems.map((item) => {
+                      // More robust active state detection
+                      const isActive =
+                        pathname === item.path ||
+                        (item.path === "/" && (pathname === "/" || pathname === "" || pathname === "/registry")) ||
+                        (item.path === "/tokens" && pathname === "/tokens");
+
+                      return (
+                        <SidebarMenuItem key={item.path}>
+                          <SidebarMenuButton
+                            asChild
+                            isActive={isActive}
                           >
-                            {item.title}
-                          </Link>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                    ))}
+                            <Link
+                              onClick={() => setOpenMobile(false)}
+                              href={item.path}
+                            >
+                              {item.title}
+                            </Link>
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      );
+                    })}
                   </SidebarMenu>
                 </SidebarGroupContent>
               </CollapsibleContent>
@@ -185,7 +193,7 @@ export function RegistrySidebar() {
                       <SidebarMenuItem key={item.name}>
                         <SidebarMenuButton
                           asChild
-                          isActive={pathname === item.name}
+                          isActive={pathname === `/registry/${item.name}`}
                         >
                           <Link
                             onClick={() => setOpenMobile(false)}
@@ -223,7 +231,7 @@ export function RegistrySidebar() {
                       <SidebarMenuItem key={item.name}>
                         <SidebarMenuButton
                           asChild
-                          isActive={pathname === item.name}
+                          isActive={pathname === `/registry/${item.name}`}
                         >
                           <Link
                             onClick={() => setOpenMobile(false)}
@@ -260,7 +268,7 @@ export function RegistrySidebar() {
                       <SidebarMenuItem key={item.name}>
                         <SidebarMenuButton
                           asChild
-                          isActive={pathname === item.name}
+                          isActive={pathname === `/registry/${item.name}`}
                         >
                           <Link
                             onClick={() => setOpenMobile(false)}
