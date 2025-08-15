@@ -10,6 +10,8 @@ import {
   MessageSquareText,
   MoreHorizontal,
   Table,
+  PanelLeftOpen,
+  PanelRightOpen,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -54,7 +56,7 @@ export function BrandSidebar({
   className,
 }: SidebarProps) {
   const pathname = usePathname();
-  const { state } = useSidebar();
+  const { state, toggleSidebar } = useSidebar();
   const isCollapsed = state === "collapsed";
 
   const mainNavItems: NavItem[] = [
@@ -205,6 +207,33 @@ export function BrandSidebar({
                 </div>
               </div>
             </div>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        {/* Pin Sidebar Toggle - Separate Group */}
+        <SidebarSeparator />
+        <SidebarGroup>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  onClick={toggleSidebar}
+                  tooltip={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+                >
+                  {isCollapsed ? (
+                    <>
+                      <PanelLeftOpen className="size-4" />
+                      <span>Expand sidebar</span>
+                    </>
+                  ) : (
+                    <>
+                      <PanelRightOpen className="size-4" />
+                      <span>Collapse sidebar</span>
+                    </>
+                  )}
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </div>
