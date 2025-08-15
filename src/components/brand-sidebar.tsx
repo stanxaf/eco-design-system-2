@@ -9,14 +9,12 @@ import {
   LayoutGrid,
   MessageSquareText,
   MoreHorizontal,
-  Plus,
   Table,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type * as React from "react";
 
-import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/logo";
 import {
   Sidebar,
@@ -32,6 +30,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 interface NavItem {
   title: string;
@@ -116,7 +115,7 @@ export function BrandSidebar({
 
   return (
     <Sidebar variant="sidebar" collapsible="icon" className="mt-16">
-      <SidebarHeader>
+      <SidebarHeader className="sticky top-0 z-10 bg-sidebar-background border-b border-sidebar-border">
         <div className={cn(!isCollapsed ? "py-2 px-2" : "py-2 px-0")}>
           <Logo collapsed={isCollapsed}/>
         </div>
@@ -181,6 +180,33 @@ export function BrandSidebar({
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+
+      {/* Sidebar Footer - Sticky */}
+      <div className="sticky bottom-0 z-10 bg-sidebar-background border-t border-sidebar-border">
+        <SidebarGroup>
+          <SidebarGroupContent>
+            <div className={cn(!isCollapsed ? "py-2 px-1" : "py-2 px-0")}>
+              <div className="space-y-3">
+                {/* User Info */}
+                <div className="flex items-center space-x-2">
+                  <Avatar className="size-8">
+                    <AvatarImage src="/api/user/avatar" alt="User avatar" />
+                    <AvatarFallback className="bg-primary text-primary-foreground">
+                      <span className="text-xs font-medium">ME</span>
+                    </AvatarFallback>
+                  </Avatar>
+                  {!isCollapsed && (
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium text-sidebar-foreground truncate">User Name</p>
+                      <p className="text-xs text-sidebar-foreground truncate">user@example.com</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </div>
     </Sidebar>
   );
 }
