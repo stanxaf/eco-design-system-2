@@ -26,6 +26,7 @@ import {
   SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarRail,
   SidebarSeparator,
   useSidebar,
 } from "@/components/ui/sidebar";
@@ -115,6 +116,7 @@ export function BrandSidebar({
 
   return (
     <Sidebar variant="sidebar" collapsible="icon">
+      <SidebarRail />
       <SidebarHeader className="sticky top-0 z-10 bg-sidebar border-b border-sidebar-border">
         <div className={cn(!isCollapsed ? "py-2 px-2" : "py-2 px-0")}>
           <Logo collapsed={isCollapsed}/>
