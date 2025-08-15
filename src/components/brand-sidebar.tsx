@@ -185,7 +185,7 @@ export function BrandSidebar({
       <div className="sticky bottom-0 z-10 bg-sidebar border-t border-sidebar-border">
         <SidebarGroup>
           <SidebarGroupContent>
-            <div className={cn(!isCollapsed ? "px-1" : "px-0")}>
+            <div className={cn(!isCollapsed ? "py-1 px-1" : "py-1 px-0")}>
               <div className="space-y-3">
                 {/* User Info */}
                 <div className="flex items-center space-x-2">
