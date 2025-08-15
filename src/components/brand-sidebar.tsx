@@ -115,7 +115,7 @@ export function BrandSidebar({
 
   return (
     <Sidebar variant="sidebar" collapsible="icon" className="mt-16">
-      <SidebarHeader className="sticky top-0 z-10 bg-sidebar-background border-b border-sidebar-border">
+      <SidebarHeader className="sticky top-0 z-10 bg-sidebar border-b border-sidebar-border">
         <div className={cn(!isCollapsed ? "py-2 px-2" : "py-2 px-0")}>
           <Logo collapsed={isCollapsed}/>
         </div>
@@ -182,7 +182,7 @@ export function BrandSidebar({
       </SidebarContent>
 
       {/* Sidebar Footer - Sticky */}
-      <div className="sticky bottom-0 z-10 bg-sidebar-background border-t border-sidebar-border">
+      <div className="sticky bottom-0 z-10 bg-sidebar border-t border-sidebar-border">
         <SidebarGroup>
           <SidebarGroupContent>
             <div className={cn(!isCollapsed ? "py-2 px-1" : "py-2 px-0")}>
