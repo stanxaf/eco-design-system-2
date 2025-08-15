@@ -17,6 +17,7 @@ import { usePathname } from "next/navigation";
 import type * as React from "react";
 
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/logo";
 import {
   Sidebar,
   SidebarContent,
@@ -116,11 +117,8 @@ export function BrandSidebar({
   return (
     <Sidebar variant="sidebar" collapsible="icon" className="mt-16">
       <SidebarHeader>
-        <div className={cn(isCollapsed ? "py-2" : "p-2")}>
-          <Button className={cn(isCollapsed ? "h-8 w-8 p-0" : "w-full")}>
-            <Plus className={cn("size-4", !isCollapsed && "mr-1")} />
-            {!isCollapsed && <span>Create</span>}
-          </Button>
+        <div className={cn(!isCollapsed ? "py-2 px-2" : "py-2 px-0")}>
+          <Logo collapsed={isCollapsed}/>
         </div>
       </SidebarHeader>
 
