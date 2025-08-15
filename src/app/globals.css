@@ -186,6 +186,9 @@
 }
 
 @theme inline {
+  --color-neutral-white: var(--neutral-white);
+  --color-neutral-black: var(--neutral-black);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
