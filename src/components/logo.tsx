@@ -2,9 +2,10 @@ import { cn } from "@/lib/utils";
 
 interface LogoProps {
   collapsed?: boolean;
+  inSidebar?: boolean;
 }
 
-export function Logo({ collapsed = false }: LogoProps) {
+export function Logo({ collapsed = false, inSidebar = false }: LogoProps) {
   return (
     <div className={cn("flex items-center gap-2", collapsed && "justify-center")}>
         <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -12,7 +13,7 @@ export function Logo({ collapsed = false }: LogoProps) {
         <path d="M11.5276 0C8.58665 0.0237508 5.77574 1.19599 3.71319 3.25887C1.65063 5.32175 0.505392 8.10631 0.52936 11H6.91949C6.91949 9.79713 7.40512 8.64353 8.26957 7.79297C9.13402 6.94242 10.3064 6.46457 11.5289 6.46457C12.7515 6.46457 13.924 6.94242 14.7884 7.79297C15.6529 8.64353 16.1385 9.79713 16.1385 11H22.5286C22.5405 9.56708 22.2654 8.14588 21.719 6.81758C21.1726 5.48927 20.3657 4.27985 19.3443 3.25839C18.3229 2.23694 17.107 1.42347 15.766 0.864387C14.4251 0.305308 12.9839 0.0115822 11.5276 0Z" fill="#1497E3"/>
         </svg>
 
-      {!collapsed && <span className="font-regular text-sm text-sidebar-foreground">Product Name</span>}
+      {!collapsed && <span className={cn("font-regular text-sm", inSidebar ? "text-sidebar-foreground" : "text-foreground")}>Product Name</span>}
     </div>
   );
 }

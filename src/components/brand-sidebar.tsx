@@ -119,7 +119,7 @@ export function BrandSidebar({
       <SidebarRail />
       <SidebarHeader className="sticky top-0 z-10 bg-sidebar border-b border-sidebar-border">
         <div className={cn(!isCollapsed ? "py-2 px-2" : "py-2 px-0")}>
-          <Logo collapsed={isCollapsed}/>
+          <Logo collapsed={isCollapsed} inSidebar={true}/>
         </div>
       </SidebarHeader>
 
