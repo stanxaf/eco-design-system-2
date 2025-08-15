@@ -114,7 +114,7 @@ export function BrandSidebar({
   ];
 
   return (
-    <Sidebar variant="sidebar" collapsible="icon" className="mt-16">
+    <Sidebar variant="sidebar" collapsible="icon">
       <SidebarHeader className="sticky top-0 z-10 bg-sidebar border-b border-sidebar-border">
         <div className={cn(!isCollapsed ? "py-2 px-2" : "py-2 px-0")}>
           <Logo collapsed={isCollapsed}/>
@@ -190,7 +190,6 @@ export function BrandSidebar({
                 {/* User Info */}
                 <div className="flex items-center space-x-2">
                   <Avatar className="size-8">
-                    <AvatarImage src="/api/user/avatar" alt="User avatar" />
                     <AvatarFallback className="bg-primary text-primary-foreground">
                       <span className="text-xs font-medium">ME</span>
                     </AvatarFallback>

@@ -1,3 +1,5 @@
+"use client";
+
 import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import React, { type ReactNode } from "react";
 
@@ -6,6 +8,7 @@ import { BrandSidebar } from "@/components/brand-sidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 import "@/app/globals.css";
 
@@ -29,6 +32,8 @@ export default function ShellLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
+  const isMobile = useIsMobile();
+
   return (
     <html
       lang="en"
@@ -41,7 +46,7 @@ export default function ShellLayout({
     >
       <body>
         <SidebarProvider>
-          <BrandHeader />
+          {isMobile && <BrandHeader />}
           <BrandSidebar />
           <main className="mt-16 flex w-full justify-center">
             <div className="container">{children}</div>
