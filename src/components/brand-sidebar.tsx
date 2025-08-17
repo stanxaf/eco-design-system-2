@@ -211,7 +211,7 @@ export function BrandSidebar({
         </SidebarGroup>
 
         {/* Pin Sidebar Toggle - Separate Group */}
-        <SidebarSeparator />
+        {/* <SidebarSeparator /> */}
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
