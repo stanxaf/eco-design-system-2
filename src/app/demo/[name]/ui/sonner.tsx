@@ -1,7 +1,7 @@
 import {
   ActionSonner,
   ErrorSonner,
-  Sonner,
+  SonnerToast,
   SuccessfulSonner,
   WarningSonner,
 } from "@/app/demo/[name]/ui/sonner-toasts";
@@ -9,7 +9,7 @@ import {
 export const sonner = {
   name: "sonner",
   components: {
-    Default: <Sonner />,
+    Default: <SonnerToast />,
     Success: <SuccessfulSonner />,
     Warning: <WarningSonner />,
     Error: <ErrorSonner />,
