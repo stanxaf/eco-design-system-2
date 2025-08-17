@@ -186,7 +186,7 @@ export function BrandSidebar({
       </SidebarContent>
 
       {/* Sidebar Footer - Sticky */}
-      <div className="sticky bottom-0 z-10 bg-sidebar border-t border-sidebar-border">
+      <div className="sticky z-10 bg-sidebar border-t border-sidebar-border">
         <SidebarGroup>
           <SidebarGroupContent>
             <div className={cn(!isCollapsed ? "py-1 px-1" : "py-1 px-0")}>
@@ -211,31 +211,32 @@ export function BrandSidebar({
         </SidebarGroup>
 
         {/* Pin Sidebar Toggle - Separate Group */}
-        {/* <SidebarSeparator /> */}
-        <SidebarGroup>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  onClick={toggleSidebar}
-                  tooltip={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-                >
-                  {isCollapsed ? (
-                    <>
-                      <PanelLeftOpen className="size-4" />
-                      <span>Expand sidebar</span>
-                    </>
-                  ) : (
-                    <>
-                      <PanelRightOpen className="size-4" />
-                      <span>Collapse sidebar</span>
-                    </>
-                  )}
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+        <div className="border-t border-sidebar-border">
+          <SidebarGroup>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    onClick={toggleSidebar}
+                    tooltip={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+                  >
+                    {isCollapsed ? (
+                      <>
+                        <PanelLeftOpen className="size-4" />
+                        <span>Expand sidebar</span>
+                      </>
+                    ) : (
+                      <>
+                        <PanelRightOpen className="size-4" />
+                        <span>Collapse sidebar</span>
+                      </>
+                    )}
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        </div>
       </div>
     </Sidebar>
   );
