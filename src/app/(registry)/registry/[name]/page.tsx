@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { ComponentCard } from "@/components/registry/component-card";
+import { ComponentDocs } from "@/components/registry/docs";
 import { Button } from "@/components/ui/button";
 import { getRegistryItem, getRegistryItems } from "@/lib/registry";
 import { getPrompt } from "@/lib/utils";
@@ -35,7 +36,7 @@ export default async function RegistryItemPage({
 
   return (
     <div className="container p-5 md:p-10">
-      <div className="mb-6 flex items-center justify-between">
+      <div className="mb-1 flex items-center justify-between">
         <div>
           <Button variant="ghost" size="sm" asChild className="mb-4">
             <Link href="/">
@@ -54,6 +55,8 @@ export default async function RegistryItemPage({
         baseUrl={baseUrl}
         prompt={getPrompt()}
       />
+
+      <ComponentDocs component={component} />
     </div>
   );
 }
