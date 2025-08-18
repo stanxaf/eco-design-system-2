@@ -36,7 +36,7 @@ export default function RootLayout({
       )}
     >
       <body>
-        <main className="mt-16 flex w-full justify-center">
+        <main className="flex w-full justify-center">
           <div className="container">{children}</div>
         </main>
       </body>
