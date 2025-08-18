@@ -50,10 +50,9 @@ export function ComponentCard({
 
   return (
     <section>
-      <Card id="starting-kit" className="border-foreground/25">
-        <CardHeader>
+      <Card id="starting-kit" className="bg-transparent p-0 border-none gap-1">
+        <CardHeader className="p-0">
           <div className="flex flex-col gap-4">
-            <CardTitle className="font-medium text-lg">Preview</CardTitle>
 
             <div className="flex w-full flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-16">
               <CardDescription>{component.description}</CardDescription>
@@ -91,7 +90,7 @@ export function ComponentCard({
           </div>
         </CardHeader>
 
-        <CardContent className="flex flex-col items-center justify-center gap-4 rounded-md px-6">
+        <CardContent className="flex flex-col items-center justify-center gap-4 rounded-md px-0">
           <div
             className={
               "h-[800px] w-full overflow-hidden rounded-md border border-border p-4"
