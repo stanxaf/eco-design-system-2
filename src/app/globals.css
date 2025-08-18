@@ -122,6 +122,12 @@
   --input: var(--slate-300);
   --ring: var(--blue-400);
 
+  /* Interactive element borders */
+  --border-interactive: var(--slate-300);
+  /* --border-interactive-hover: var(--gray-400);
+  --border-interactive-focus: var(--blue-500);
+  --border-interactive-disabled: var(--gray-200); */
+
   --chart-1: var(--blue-500);
   --chart-2: var(--blue-400);
   --chart-3: var(--blue-300);
@@ -168,6 +174,12 @@
   --border: var(--gray-800);
   --input: var(--slate-700);
   --ring: var(--blue-600);
+
+  /* Interactive element borders */
+  --border-interactive: var(--slate-700);
+  /*--border-interactive-hover: var(--gray-600);
+  --border-interactive-focus: var(--blue-400);
+  --border-interactive-disabled: var(--gray-800); */
 
   --chart-1: var(--blue-500);
   --chart-2: var(--blue-400);
@@ -294,6 +306,12 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
+  /* Interactive element borders */
+  --color-border-interactive: var(--border-interactive);
+  /* --color-border-interactive-hover: var(--border-interactive-hover);
+  --color-border-interactive-focus: var(--border-interactive-focus);
+  --color-border-interactive-disabled: var(--border-interactive-disabled); */
+
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
 
@@ -355,5 +373,11 @@
     font-size: var(--text-base);
     color: var(--color-foreground);
     line-height: 1.5;
+  }
+}
+
+@layer utilities {
+  .border-interactive {
+    border-color: var(--border-interactive);
   }
 }
