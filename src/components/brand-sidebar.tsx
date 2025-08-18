@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type * as React from "react";
+import * as React from "react";
 
 import { Logo } from "@/components/logo";
 import {
@@ -65,8 +65,13 @@ export function BrandSidebar({
   className,
 }: SidebarProps) {
   const pathname = usePathname();
-  const { state, toggleSidebar } = useSidebar();
+  const { state, toggleSidebar, setOpen } = useSidebar();
   const isCollapsed = state === "collapsed";
+
+  // Set sidebar to collapsed by default on component mount
+  React.useEffect(() => {
+    setOpen(false);
+  }, []); // Empty dependency array - only run once on mount
 
   const mainNavItems: NavItem[] = [
     {

@@ -291,12 +291,12 @@ function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
       onClick={toggleSidebar}
       title="Toggle Sidebar"
       className={cn(
-        "-translate-x-1/2 group-data-[side=left]:-right-4 absolute inset-y-0 z-20 hidden w-4 transition-all ease-linear after:absolute after:inset-y-0 after:left-1/2 after:w-[2px] hover:after:bg-sidebar-border group-data-[side=right]:left-0 sm:flex",
-        "in-data-[side=left]:cursor-w-resize in-data-[side=right]:cursor-e-resize",
-        "[[data-side=left][data-state=collapsed]_&]:cursor-e-resize [[data-side=right][data-state=collapsed]_&]:cursor-w-resize",
-        "group-data-[collapsible=offcanvas]:translate-x-0 hover:group-data-[collapsible=offcanvas]:bg-sidebar group-data-[collapsible=offcanvas]:after:left-full",
-        "[[data-side=left][data-collapsible=offcanvas]_&]:-right-2",
-        "[[data-side=right][data-collapsible=offcanvas]_&]:-left-2",
+        "absolute inset-y-0 z-20 hidden w-6 transition-colors duration-200 ease-out sm:flex",
+        "group-data-[side=left]:right-0 group-data-[side=right]:left-0",
+        "hover:bg-sidebar-border/20",
+        "after:absolute after:inset-y-0 after:w-0.5 after:bg-sidebar-border/0 hover:after:bg-sidebar-border/60",
+        "group-data-[side=left]:after:right-0 group-data-[side=right]:after:left-0",
+        "cursor-e-resize group-data-[side=left]:cursor-w-resize",
         className,
       )}
       {...props}
