@@ -12,6 +12,10 @@ import {
   Table,
   PanelLeftOpen,
   PanelRightOpen,
+  User,
+  CreditCard,
+  Bell,
+  LogOut,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -34,6 +38,11 @@ import {
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 interface NavItem {
   title: string;
@@ -189,22 +198,69 @@ export function BrandSidebar({
       <div className="sticky z-10 bg-sidebar border-t border-sidebar-border">
         <SidebarGroup>
           <SidebarGroupContent>
-            <div className={cn(!isCollapsed ? "py-1 px-1" : "py-1 px-0")}>
+            <div className={cn(!isCollapsed ? "py-0 px-0" : "py-0 px-0")}>
               <div className="space-y-3">
-                {/* User Info */}
-                <div className="flex items-center space-x-2">
-                  <Avatar className="size-8">
-                    <AvatarFallback className="bg-primary text-primary-foreground">
-                      <span className="text-xs font-medium">ME</span>
-                    </AvatarFallback>
-                  </Avatar>
-                  {!isCollapsed && (
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-sidebar-foreground truncate">User Name</p>
-                      <p className="text-xs text-sidebar-foreground truncate">user@example.com</p>
+                {/* User Info with Profile Popover */}
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <button className="flex items-center space-x-2 w-full rounded-md hover:bg-sidebar-hover transition-colors">
+                      <Avatar className="size-8">
+                        <AvatarFallback className="bg-primary text-primary-foreground">
+                          <span className="text-xs font-medium">ME</span>
+                        </AvatarFallback>
+                      </Avatar>
+                      {!isCollapsed && (
+                        <div className="flex-1 min-w-0 text-left">
+                          <p className="text-sm font-medium text-sidebar-foreground truncate">User Name</p>
+                          {/* <p className="text-xs text-sidebar-foreground truncate">user@example.com</p> */}
+                        </div>
+                      )}
+                      {!isCollapsed && (
+                        <MoreHorizontal className="size-4 text-sidebar-foreground/60" />
+                      )}
+                    </button>
+                  </PopoverTrigger>
+                  <PopoverContent
+                    className="w-60 p-0"
+                    align="start"
+                    side="right"
+                    sideOffset={8}
+                  >
+                    {/* Profile Header */}
+                    <div className="flex items-center space-x-2 p-2 border-b border-border">
+                      <Avatar className="size-8">
+                        <AvatarFallback className="bg-primary text-primary-foreground">
+                          <span className="text-sm font-medium">ME</span>
+                        </AvatarFallback>
+                      </Avatar>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-foreground">Full Name</p>
+                        <p className="text-xs text-muted-foreground">user@example.com</p>
+                      </div>
                     </div>
-                  )}
-                </div>
+
+                    {/* Profile Menu Items */}
+                    <div className="p-1">
+                                             <button className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-accent transition-colors text-left group">
+                         <User className="size-4 text-muted-foreground group-hover:text-white transition-colors" />
+                         <span className="text-sm text-foreground group-hover:text-white transition-colors">Account</span>
+                       </button>
+                       <button className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-accent transition-colors text-left group">
+                         <CreditCard className="size-4 text-muted-foreground group-hover:text-white transition-colors" />
+                         <span className="text-sm text-foreground group-hover:text-white transition-colors">Billing</span>
+                       </button>
+                       <button className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-accent transition-colors text-left group">
+                         <Bell className="size-4 text-muted-foreground group-hover:text-white transition-colors" />
+                         <span className="text-sm text-foreground group-hover:text-white transition-colors">Notifications</span>
+                       </button>
+                      <div className="border-t border-border my-1" />
+                                             <button className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-accent transition-colors text-left group">
+                         <LogOut className="size-4 text-red-600 group-hover:text-white transition-colors" />
+                         <span className="text-sm text-red-600 group-hover:text-white transition-colors">Log out</span>
+                       </button>
+                    </div>
+                  </PopoverContent>
+                </Popover>
               </div>
             </div>
           </SidebarGroupContent>
