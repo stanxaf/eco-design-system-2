@@ -21,11 +21,11 @@ export default function Home() {
       <div className="mb-8">
         <div className="space-y-2">
           <h1 className="font-bold text-3xl tracking-tight md:text-4xl">
-            Registry
+            Eco UI Component Registry
           </h1>
           <p className="text-muted-foreground">
-            Distribute your design system tokens, custom components, hooks,
-            pages, and other files to any React project.
+            A fully themed component registry built with Tailwind CSS v4 and based on ShadCN.
+            Intended for use in v0.dev and React projects. Provides a consistent set of UI components aligned with DTN's design system. Components reference shared global styles and tokens and are meant to be copied, extended, or adapted into any compatible codebase.
           </p>
         </div>
       </div>
@@ -133,6 +133,21 @@ export default function Home() {
 
       <div className="mb-4 rounded-lg border bg-card p-6">
         <div className="flex flex-col gap-2">
+          <h2 className="font-semibold text-xl">Requirements</h2>
+          <p className="mb-4 text-muted-foreground">
+            To use this component registry in your project, ensure the following are set up:
+          </p>
+          <ul className="list-disc pl-6 text-muted-foreground text-sm space-y-1">
+            <li>Tailwind CSS v4 must be installed and configured in your project</li>
+            <li>The registry's <code className="font-mono text-xs">globals.css</code> (or equivalent token/theme file) must be imported</li>
+            <li>You must be using a React-based environment (e.g., Next.js, Vite + React)</li>
+            <li>To explore or copy components on v0.dev, use the “Open in v0” button</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="mb-4 rounded-lg border bg-card p-6">
+        <div className="flex flex-col gap-2">
           <h2 className="font-semibold text-xl">MCP</h2>
           <p className="mb-4 text-muted-foreground">
             Integrate this registry with AI IDEs using Model Context Protocol
@@ -156,17 +171,11 @@ export default function Home() {
         <div className="flex flex-col gap-2">
           <h2 className="font-semibold text-xl">About</h2>
           <p className="text-muted-foreground">
-            This registry serves as a central repository for all UI components
-            and blocks used in your applications. It helps maintain consistency
-            across your products and speeds up development by providing
-            ready-to-use components. Each component and block is documented with
-            examples. You can browse components by category, search for specific
-            components, and view examples of how they are used in different
-            contexts.
+            This registry provides a shared set of UI components and layout blocks for use in v0.dev and React-based projects. It supports consistency across applications and speeds up interface development by offering prebuilt, theme-aligned components. Components and blocks are organized by type and can be previewed, copied, or opened in v0 for further editing.
           </p>
           <p className="mt-2 text-muted-foreground">
             To get begin, select a{" "}
-            <a href="/starters" className="underline">
+            <a href="/registry/dashboard" className="underline">
               starter
             </a>{" "}
             and click the <span className="font-bold">Open in v0</span> button.
@@ -175,7 +184,7 @@ export default function Home() {
           </p>
 
           <p className="mt-4 text-[#1B1F23] dark:text-white">
-            <a href="https://github.com/vercel/registry-starter">
+            <a href="https://github.com/stanxaf/eco-design-system-2">
               <svg
                 viewBox="0 0 1024 1024"
                 xmlns="http://www.w3.org/2000/svg"
