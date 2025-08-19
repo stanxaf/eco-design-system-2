@@ -34,7 +34,7 @@ export default function Home() {
         <CardHeader className="space-y-1">
           <div className="flex items-center justify-between">
             <CardTitle>Blocks</CardTitle>
-            <div className="rounded-md bg-primary p-1">
+            <div className="rounded-md bg-foreground p-1">
               <Blocks className="size-5 text-primary-foreground" />
             </div>
           </div>
@@ -134,7 +134,7 @@ export default function Home() {
       <div className="mb-4 rounded-lg border bg-card p-6">
         <div className="flex flex-col gap-2">
           <h2 className="font-semibold text-xl">Requirements</h2>
-          <p className="mb-4 text-muted-foreground">
+          <p className="text-muted-foreground">
             To use this component registry in your project, ensure the following are set up:
           </p>
           <ul className="list-disc pl-6 text-muted-foreground text-sm space-y-1">
