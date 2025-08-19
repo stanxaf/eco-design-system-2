@@ -133,21 +133,6 @@ export default function Home() {
 
       <div className="mb-4 rounded-lg border bg-card p-6">
         <div className="flex flex-col gap-2">
-          <h2 className="font-semibold text-xl">Requirements</h2>
-          <p className="text-muted-foreground">
-            To use this component registry in your project, ensure the following are set up:
-          </p>
-          <ul className="list-disc pl-6 text-muted-foreground text-sm space-y-1">
-            <li>Tailwind CSS v4 must be installed and configured in your project</li>
-            <li>The registry's <code className="font-mono text-xs">globals.css</code> (or equivalent token/theme file) must be imported</li>
-            <li>You must be using a React-based environment (e.g., Next.js, Vite + React)</li>
-            <li>To explore or copy components on v0.dev, use the “Open in v0” button</li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="mb-4 rounded-lg border bg-card p-6">
-        <div className="flex flex-col gap-2">
           <h2 className="font-semibold text-xl">MCP</h2>
           <p className="mb-4 text-muted-foreground">
             Integrate this registry with AI IDEs using Model Context Protocol
