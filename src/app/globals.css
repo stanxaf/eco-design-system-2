@@ -124,9 +124,6 @@
 
   /* Interactive element borders */
   --border-interactive: var(--slate-300);
-  /* --border-interactive-hover: var(--gray-400);
-  --border-interactive-focus: var(--blue-500);
-  --border-interactive-disabled: var(--gray-200); */
 
   --chart-1: var(--blue-500);
   --chart-2: var(--blue-400);
@@ -177,9 +174,6 @@
 
   /* Interactive element borders */
   --border-interactive: var(--slate-700);
-  --border-interactive-hover: var(--gray-600);
-  --border-interactive-focus: var(--blue-400);
-  --border-interactive-disabled: var(--gray-800);
 
   --chart-1: var(--blue-500);
   --chart-2: var(--blue-400);
@@ -310,9 +304,6 @@
 
   /* Interactive element borders */
   --color-border-interactive: var(--border-interactive);
-  /* --color-border-interactive-hover: var(--border-interactive-hover);
-  --color-border-interactive-focus: var(--border-interactive-focus);
-  --color-border-interactive-disabled: var(--border-interactive-disabled); */
 
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
@@ -363,9 +354,6 @@
 
   /* Utility classes */
   --border-interactive: var(--border-interactive);
-  --border-interactive-hover: var(--border-interactive-hover);
-  --border-interactive-focus: var(--border-interactive-focus);
-  --border-interactive-disabled: var(--border-interactive-disabled);
 
 }
 
