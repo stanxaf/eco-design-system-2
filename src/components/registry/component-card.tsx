@@ -35,7 +35,28 @@ export function ComponentCard({
 
   // Ensure we have a valid base URL
   const validBaseUrl = baseUrl || (typeof window !== 'undefined' ? window.location.origin : 'localhost:3000');
-  const registryUrl = `https://${validBaseUrl}/r/${component.name}.json`;
+
+  // Determine the correct subdirectory based on component type
+  let subDir = 'styles'; // default for UI components
+  if (component.type === 'registry:component' ||
+      component.name.includes('brand-') ||
+      component.name.includes('logo') ||
+      component.name.includes('hero') ||
+      component.name.includes('promo') ||
+      component.name.includes('product-') ||
+      component.name.includes('login')) {
+    subDir = 'components';
+  } else if (component.type === 'registry:block' ||
+             component.name.includes('blank') ||
+             component.name.includes('dashboard') ||
+             component.name.includes('store')) {
+    subDir = 'blocks';
+  } else if (component.type === 'registry:theme' ||
+             component.name.includes('theme')) {
+    subDir = 'themes';
+  }
+
+  const registryUrl = `https://${validBaseUrl}/r/${subDir}/${component.name}.json`;
   const npxCommand = `npx shadcn@latest add ${registryUrl}`;
 
   const copyToClipboard = async () => {
