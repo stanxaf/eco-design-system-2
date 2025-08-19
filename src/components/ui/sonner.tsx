@@ -2,6 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { type CSSProperties } from "react";
+import { useEffect, useState } from "react";
 
 // Fallback toast component when sonner fails to load
 const FallbackToaster = () => {
@@ -21,23 +22,29 @@ const FallbackToaster = () => {
   );
 };
 
-// Try to import sonner, but gracefully handle failures
-let Sonner: any;
-
-try {
-  // Dynamic import to avoid build-time failures
-  const sonnerModule = await import("sonner");
-  Sonner = sonnerModule.Toaster;
-} catch (error) {
-  console.warn("Sonner package failed to load, using fallback toast implementation");
-  Sonner = null;
-}
-
 const Toaster = ({ ...props }: any) => {
   const { theme = "system" } = useTheme();
+  const [Sonner, setSonner] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // If sonner failed to load, use fallback
-  if (!Sonner) {
+  useEffect(() => {
+    const loadSonner = async () => {
+      try {
+        const sonnerModule = await import("sonner");
+        setSonner(() => sonnerModule.Toaster);
+      } catch (error) {
+        console.warn("Sonner package failed to load, using fallback toast implementation");
+        setSonner(null);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadSonner();
+  }, []);
+
+  // Show fallback while loading or if sonner failed to load
+  if (isLoading || !Sonner) {
     return <FallbackToaster />;
   }
 
