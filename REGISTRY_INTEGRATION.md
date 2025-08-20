@@ -210,24 +210,41 @@ npm install -g @shadcn/ui
 ### Step 2: Initialize Registry
 
 ```bash
-# For newer versions of shadcn CLI
-npx shadcn@latest init --yes --registry https://your-registry-url.com/r/registry.json
-
-# If the above doesn't work, try this alternative approach
+# Initialize shadcn normally first
 npx shadcn@latest init --yes
-# Then manually update your components.json to point to your registry
+
+# Then manually edit the generated components.json to add your registry
+# Your components.json should look like this:
+
+```json
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "src/index.css",
+    "baseColor": "slate",
+    "cssVariables": true
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils"
+  },
+  "registry": "https://eco-design-system-2.vercel.app/r/registry.json"
+}
+```
 ```
 
 ### Step 3: Add Components
 
 ```bash
-# For newer versions of shadcn CLI
-npx shadcn@latest add button --registry https://eco-design-system-2.vercel.app/r/registry.json
-npx shadcn@latest add card --registry https://eco-design-system-2.vercel.app/r/registry.json
-
-# Alternative: Add components without registry flag (uses components.json)
+# After setting up components.json with your registry, add components normally:
 npx shadcn@latest add button
 npx shadcn@latest add card
+npx shadcn@latest add dialog
+# etc.
 ```
 
 ## 📦 Available Components
@@ -261,8 +278,8 @@ Modify the CSS variables in your CSS file to customize colors:
 
 ```css
 :root {
-  --primary: #your-brand-color;
-  --secondary: #your-secondary-color;
+  --primary: #007BD9;  /* Example: DTN Blue */
+  --secondary: #F4F4F5;  /* Example: Light Gray */
   /* ... other colors */
 }
 ```
@@ -342,12 +359,17 @@ npm install @types/react @types/react-dom
 
 **"unknown option '--registry'" Error:**
 ```bash
-# Try the newer syntax
-npx shadcn@latest init --yes --registry https://eco-design-system-2.vercel.app/r/registry.json
+# The --registry flag isn't supported in your version of shadcn CLI
+# Use this approach instead:
 
-# Or use the alternative approach
+# 1. Initialize normally
 npx shadcn@latest init --yes
-# Then manually edit components.json to add your registry URL
+
+# 2. Edit components.json to add your registry
+# Add: "registry": "https://eco-design-system-2.vercel.app/r/registry.json"
+
+# 3. Then add components normally
+npx shadcn@latest add button
 ```
 
 **"Validation failed: type: Required" Error:**
@@ -361,8 +383,8 @@ npm run registry:build
 npx shadcn@latest init --yes --registry https://eco-design-system-2.vercel.app/r/registry.json
 ```
 
-**Alternative Registry Setup:**
-If you want to try the registry approach, manually create a `components.json`:
+**Registry Setup (Recommended):**
+Since the `--registry` flag isn't supported, use this approach:
 
 ```json
 {
