@@ -2,9 +2,9 @@
 
 This guide explains how to integrate the DTN Design System Registry with your React project using Tailwind CSS v3+.
 
-## 🚀 Quick Start (Recommended)
+## 🚀 Quick Start (Recommended - Works with ALL React Frameworks)
 
-The fastest way to get started is to copy components directly from the source. This bypasses registry complexity and gives you immediate results.
+The **manual installation approach** is the most reliable method that works with **ANY React framework** (Create React App, Vite, Next.js, etc.). This bypasses registry complexity and gives you immediate results.
 
 ### Prerequisites
 
@@ -189,14 +189,21 @@ export function TestComponent() {
 }
 ```
 
-## 🔧 Advanced Installation (Registry CLI)
+## 🔧 Registry CLI Installation (Next.js Projects Only)
 
-> **✅ Note:** The registry CLI approach should now work properly with the corrected registry format. If you still encounter issues, use the **Quick Start (Manual Installation)** approach above as a fallback.
+> **⚠️ IMPORTANT LIMITATION:** The shadcn CLI **ONLY supports Next.js projects** by default. It will NOT work with:
+> - ❌ Create React App (CRA)
+> - ❌ Vite React projects
+> - ❌ Other React frameworks
+> - ❌ Non-React projects
+>
+> **For non-Next.js projects, use the Manual Installation approach above.**
 
-If you prefer to use the registry CLI approach, follow these steps:
+If you have a **Next.js project** and want to use the registry CLI approach, follow these steps:
 
 ### Prerequisites
 
+- **Next.js project** (this is a hard requirement)
 - Node.js 20+
 - Access to the registry URL
 - Proper environment variables configured
@@ -235,6 +242,22 @@ npx shadcn@latest init --yes
   "registry": "https://eco-design-system-2.vercel.app/r/registry.json"
 }
 ```
+
+### Framework Detection Issues
+
+If you get this error:
+```
+✖ Verifying framework.
+We could not detect a supported framework at [your-project-path].
+```
+
+**This means your project is NOT a Next.js project.** The shadcn CLI only supports:
+- ✅ **Next.js** (fully supported)
+- ❌ **Create React App** (not supported)
+- ❌ **Vite** (not supported)
+- ❌ **Other frameworks** (not supported)
+
+**Solution:** Use the Manual Installation approach above instead.
 ```
 
 ### Step 3: Add Components
@@ -372,6 +395,15 @@ npx shadcn@latest init --yes
 npx shadcn@latest add button
 ```
 
+**"We could not detect a supported framework" Error:**
+```bash
+# This means your project is NOT a Next.js project
+# The shadcn CLI only supports Next.js by default
+
+# Solution: Use Manual Installation instead
+cp -r /path/to/eco-design-system-2/src/components/ui/* src/components/ui/
+```
+
 **"Validation failed: type: Required" Error:**
 This error has been fixed in the registry. If you still see this error, try rebuilding the registry:
 
@@ -484,6 +516,29 @@ This allows AI assistants to access and suggest components from your design syst
 ## 📄 License
 
 This design system is proprietary to DTN. Please ensure compliance with your organization's usage policies.
+
+## 🎯 **Final Recommendation for DTN**
+
+Given the **shadcn CLI limitations** and DTN's diverse project landscape:
+
+### **✅ Use Manual Installation (Recommended)**
+- **Works with ALL React frameworks** (CRA, Vite, Next.js, etc.)
+- **No framework detection issues**
+- **Immediate results** - components work right away
+- **Perfect for hundreds of projects** in different environments
+
+### **❌ Avoid Registry CLI for Non-Next.js Projects**
+- **Only works with Next.js**
+- **Framework detection errors** for CRA/Vite projects
+- **More complex setup** with potential failures
+- **Limited compatibility** across your project ecosystem
+
+### **🚀 Get Started Now**
+```bash
+# Copy components directly (works everywhere)
+cp -r /path/to/eco-design-system-2/src/components/ui/* src/components/ui/
+cp /path/to/eco-design-system-2/src/components/brand-*.tsx src/components/brand/
+```
 
 ---
 
