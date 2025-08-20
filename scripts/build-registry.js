@@ -7,16 +7,24 @@ const path = require('path');
 const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL ||
                 process.env.NEXT_PUBLIC_SITE_URL ||
                 process.env.VERCEL_URL ||
-                'localhost:3000';
+                'https://eco-design-system-2.vercel.app';
 
 // Ensure the base URL has the correct protocol
-const fullBaseUrl = baseUrl.startsWith('http') ? baseUrl : `http://${baseUrl}`;
+const fullBaseUrl = baseUrl.startsWith('http') ? baseUrl : `https://${baseUrl}`;
 
 console.log(`Building registry with base URL: ${fullBaseUrl}`);
 
 // Read the original registry.json
 const registryPath = path.join(process.cwd(), 'registry.json');
 const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+
+// Ensure the registry has the required type field
+if (!registry.type) {
+  registry.type = 'registry';
+}
+
+// Update the homepage to match the deployed URL
+registry.homepage = fullBaseUrl;
 
 // Create the proper shadcn registry directory structure
 const publicRDir = path.join(process.cwd(), 'public', 'r');

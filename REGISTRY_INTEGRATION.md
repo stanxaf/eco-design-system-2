@@ -191,7 +191,7 @@ export function TestComponent() {
 
 ## 🔧 Advanced Installation (Registry CLI)
 
-> **⚠️ Note:** The registry CLI approach currently has compatibility issues with this registry format. If you encounter errors, use the **Quick Start (Manual Installation)** approach above instead.
+> **✅ Note:** The registry CLI approach should now work properly with the corrected registry format. If you still encounter issues, use the **Quick Start (Manual Installation)** approach above as a fallback.
 
 If you prefer to use the registry CLI approach, follow these steps:
 
@@ -222,8 +222,8 @@ npx shadcn@latest init --yes
 
 ```bash
 # For newer versions of shadcn CLI
-npx shadcn@latest add button --registry https://your-registry-url.com/r/registry.json
-npx shadcn@latest add card --registry https://your-registry-url.com/r/registry.json
+npx shadcn@latest add button --registry https://eco-design-system-2.vercel.app/r/registry.json
+npx shadcn@latest add card --registry https://eco-design-system-2.vercel.app/r/registry.json
 
 # Alternative: Add components without registry flag (uses components.json)
 npx shadcn@latest add button
@@ -343,7 +343,7 @@ npm install @types/react @types/react-dom
 **"unknown option '--registry'" Error:**
 ```bash
 # Try the newer syntax
-npx shadcn@latest init --yes --registry https://your-registry-url.com/r/registry.json
+npx shadcn@latest init --yes --registry https://eco-design-system-2.vercel.app/r/registry.json
 
 # Or use the alternative approach
 npx shadcn@latest init --yes
@@ -351,11 +351,14 @@ npx shadcn@latest init --yes
 ```
 
 **"Validation failed: type: Required" Error:**
-This indicates the registry format is incompatible. Use the manual installation approach instead:
+This error has been fixed in the registry. If you still see this error, try rebuilding the registry:
 
 ```bash
-# Skip the registry CLI entirely and use manual copy
-# Follow the "Quick Start" section above
+# In the registry project, run:
+npm run registry:build
+
+# Then try the CLI again:
+npx shadcn@latest init --yes --registry https://eco-design-system-2.vercel.app/r/registry.json
 ```
 
 **Alternative Registry Setup:**
@@ -432,6 +435,29 @@ To update components:
 
 1. **Manual Copy**: Copy updated files from the registry source
 2. **Registry CLI**: Run `npx shadcn@latest add [component] --registry [url]`
+
+## 🤖 MCP Integration (AI IDEs)
+
+For AI-powered IDEs like Cursor, you can integrate this registry using Model Context Protocol (MCP):
+
+### Cursor Integration
+
+Add this to your `.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "shadcn": {
+      "command": "npx -y shadcn@canary registry:mcp",
+      "env": {
+        "REGISTRY_URL": "https://eco-design-system-2.vercel.app/r/registry.json"
+      }
+    }
+  }
+}
+```
+
+This allows AI assistants to access and suggest components from your design system registry.
 
 ## 📄 License
 

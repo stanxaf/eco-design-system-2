@@ -1,7 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "type": "registry",
   "name": "Registry Starter",
-  "homepage": "https://registry-starter.vercel.app",
+  "homepage": "https://eco-design-system-2.vercel.app",
   "items": [
     {
       "name": "theme",
