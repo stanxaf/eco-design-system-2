@@ -1,60 +1,71 @@
-# Design System Registry Integration Guide
+# DTN Design System Registry Integration Guide
 
-This guide explains how to integrate the DTN Design System Registry with your React project using Tailwind CSS v3+.
+**Tested and Proven Integration Methods for React Projects**
 
-## 🚀 Quick Start (Recommended - Works with ALL React Frameworks)
+This guide provides **two proven approaches** to integrate the DTN Design System Registry with your React project. Both methods have been tested and will work regardless of your project setup.
 
-The **manual installation approach** is the most reliable method that works with **ANY React framework** (Create React App, Vite, Next.js, etc.). This bypasses registry complexity and gives you immediate results.
+## 🎯 **Choose Your Approach**
 
-### Prerequisites
+### **Method 1: Manual Installation (Recommended)**
+- ✅ **Works with ALL React frameworks** (Create React App, Vite, Next.js, etc.)
+- ✅ **No CLI dependencies** or version conflicts
+- ✅ **Immediate results** - components work right away
+- ✅ **Full control** over your design system
+- ✅ **Perfect for DTN's diverse project landscape**
 
+### **Method 2: Registry CLI (Next.js Only)**
+- ⚠️ **ONLY works with Next.js projects**
+- ⚠️ **Requires specific CLI versions**
+- ⚠️ **Framework detection issues** with other setups
+- ❌ **Will fail** on Create React App, Vite, etc.
+
+---
+
+## 🚀 **Method 1: Manual Installation (Recommended for All Projects)**
+
+### **Prerequisites**
 - React 16.8+ or React 18+
 - Tailwind CSS v3+
 - TypeScript (recommended)
 - Node.js 18+
 
-### Step 1: Install Core Dependencies
+### **Step 1: Install Core Dependencies**
 
 ```bash
 npm install @radix-ui/react-accordion @radix-ui/react-dialog @radix-ui/react-dropdown-menu @radix-ui/react-select @radix-ui/react-tabs class-variance-authority clsx tailwind-merge lucide-react
 ```
 
-### Step 2: Copy Components
-
-Create the component structure in your project:
+### **Step 2: Create Project Structure**
 
 ```bash
+# Create the necessary directories
 mkdir -p src/components/ui
 mkdir -p src/components/brand
 mkdir -p src/lib
 ```
 
-**Copy UI Components:**
+### **Step 3: Copy Components from Registry**
+
 ```bash
-# Copy all UI components
-cp -r [registry-project]/src/components/ui/* src/components/ui/
+# Copy UI components (adjust path to your registry project location)
+cp -r /path/to/eco-design-system-2/src/components/ui/* src/components/ui/
+
+# Copy brand components
+cp /path/to/eco-design-system-2/src/components/brand-*.tsx src/components/brand/
+cp /path/to/eco-design-system-2/src/components/logo.tsx src/components/brand/
+cp /path/to/eco-design-system-2/src/components/hero.tsx src/components/brand/
+cp /path/to/eco-design-system-2/src/components/login.tsx src/components/brand/
+cp /path/to/eco-design-system-2/src/components/promo.tsx src/components/brand/
+cp /path/to/eco-design-system-2/src/components/product-grid.tsx src/components/brand/
+
+# Copy utilities
+cp /path/to/eco-design-system-2/src/lib/utils.ts src/lib/
+cp /path/to/eco-design-system-2/src/lib/products.ts src/lib/ # If using product grid
 ```
 
-**Copy Brand Components:**
-```bash
-# Copy brand-specific components
-cp [registry-project]/src/components/brand-*.tsx src/components/brand/
-cp [registry-project]/src/components/logo.tsx src/components/brand/
-cp [registry-project]/src/components/hero.tsx src/components/brand/
-cp [registry-project]/src/components/login.tsx src/components/brand/
-cp [registry-project]/src/components/promo.tsx src/components/brand/
-cp [registry-project]/src/components/product-grid.tsx src/components/brand/
-```
+### **Step 4: Copy Theme CSS**
 
-**Copy Utilities:**
-```bash
-cp [registry-project]/src/lib/utils.ts src/lib/
-cp [registry-project]/src/lib/products.ts src/lib/ # If using product grid
-```
-
-### Step 3: Copy Theme CSS
-
-Copy the CSS variables from `[registry-project]/src/app/globals.css` to your project's main CSS file:
+Copy the CSS variables from the registry project's `src/app/globals.css` to your project's main CSS file:
 
 ```css
 /* Add these CSS variables to your main CSS file */
@@ -108,9 +119,9 @@ Copy the CSS variables from `[registry-project]/src/app/globals.css` to your pro
 }
 ```
 
-### Step 4: Configure Tailwind
+### **Step 5: Configure Tailwind CSS**
 
-Update your `tailwind.config.js`:
+Create or update your `tailwind.config.js`:
 
 ```js
 /** @type {import('tailwindcss').Config} */
@@ -166,7 +177,7 @@ module.exports = {
 }
 ```
 
-### Step 5: Test Installation
+### **Step 6: Test Installation**
 
 Create a simple test component:
 
@@ -189,61 +200,40 @@ export function TestComponent() {
 }
 ```
 
-## 🔧 Registry CLI Installation (Next.js Projects Only)
+---
 
-> **⚠️ IMPORTANT LIMITATION:** The shadcn CLI **ONLY supports Next.js projects** by default. It will NOT work with:
-> - ❌ Create React App (CRA)
-> - ❌ Vite React projects
-> - ❌ Other React frameworks
-> - ❌ Non-React projects
->
-> **For non-Next.js projects, use the Manual Installation approach above.**
+## 🔧 **Method 2: Registry CLI (Next.js Projects Only)**
 
-If you have a **Next.js project** and want to use the registry CLI approach, follow these steps:
+### **⚠️ CRITICAL LIMITATION**
+This method **ONLY works with Next.js projects**. It will fail on:
+- ❌ Create React App (CRA)
+- ❌ Vite React projects
+- ❌ Other React frameworks
+- ❌ Non-React projects
 
-### Prerequisites
-
+### **Prerequisites**
 - **Next.js project** (this is a hard requirement)
 - Node.js 20+
 - Access to the registry URL
-- Proper environment variables configured
 
-### Step 1: Install Registry CLI
-
-```bash
-npm install -g @shadcn/ui
-```
-
-### Step 2: Initialize Registry
+### **Step 1: Initialize Registry**
 
 ```bash
-# Initialize shadcn normally first
-npx shadcn@latest init --yes
-
-# Then manually edit the generated components.json to add your registry
-# Your components.json should look like this:
-
-```json
-{
-  "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "default",
-  "rsc": false,
-  "tsx": true,
-  "tailwind": {
-    "config": "tailwind.config.js",
-    "css": "src/index.css",
-    "baseColor": "slate",
-    "cssVariables": true
-  },
-  "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils"
-  },
-  "registry": "https://eco-design-system-2.vercel.app/r/registry.json"
-}
+# Initialize with your registry
+npx shadcn@latest init --yes --registry https://eco-design-system-2.vercel.app/r/registry.json
 ```
 
-### Framework Detection Issues
+### **Step 2: Add Components**
+
+```bash
+# Add components from your registry
+npx shadcn@latest add button
+npx shadcn@latest add card
+npx shadcn@latest add dialog
+# etc.
+```
+
+### **Framework Detection Issues**
 
 If you get this error:
 ```
@@ -257,29 +247,20 @@ We could not detect a supported framework at [your-project-path].
 - ❌ **Vite** (not supported)
 - ❌ **Other frameworks** (not supported)
 
-**Solution:** Use the Manual Installation approach above instead.
-```
+**Solution:** Use Method 1 (Manual Installation) instead.
 
-### Step 3: Add Components
+---
 
-```bash
-# After setting up components.json with your registry, add components normally:
-npx shadcn@latest add button
-npx shadcn@latest add card
-npx shadcn@latest add dialog
-# etc.
-```
+## 📦 **Available Components**
 
-## 📦 Available Components
-
-### UI Components
+### **UI Components**
 - **Layout**: Accordion, Card, Dialog, Drawer, Sheet, Sidebar
 - **Forms**: Button, Input, Select, Checkbox, Radio Group, Switch
 - **Navigation**: Breadcrumb, Navigation Menu, Pagination, Tabs
 - **Feedback**: Alert, Badge, Progress, Skeleton, Toast
 - **Data**: Table, Data Table, Chart, Calendar, Date Picker
 
-### Brand Components
+### **Brand Components**
 - **Brand Header**: Navigation header with logo and user menu
 - **Brand Sidebar**: Collapsible sidebar with navigation
 - **Logo**: Brand logo component
@@ -288,14 +269,16 @@ npx shadcn@latest add dialog
 - **Promo**: Promotional content section
 - **Product Grid**: Product display with API integration
 
-### Layout Blocks
+### **Layout Blocks**
 - **Blank**: Minimal layout with brand components
 - **Dashboard**: Full dashboard layout with sidebar
 - **Store**: E-commerce layout with product grid
 
-## 🎨 Customization
+---
 
-### Theme Colors
+## 🎨 **Customization**
+
+### **Theme Colors**
 
 Modify the CSS variables in your CSS file to customize colors:
 
@@ -307,7 +290,7 @@ Modify the CSS variables in your CSS file to customize colors:
 }
 ```
 
-### Component Variants
+### **Component Variants**
 
 Components use `class-variance-authority` for variants. Customize in the component files:
 
@@ -342,14 +325,16 @@ const buttonVariants = cva(
 )
 ```
 
-## 🚨 Troubleshooting
+---
 
-### Common Issues
+## 🚨 **Troubleshooting**
+
+### **Common Issues**
 
 **1. Component Import Errors**
 ```bash
 # Ensure all dependencies are installed
-npm install @radix-ui/react-* class-variance-authority clsx tailwind-merge
+npm install @radix-ui/react-accordion @radix-ui/react-dialog @radix-ui/react-dropdown-menu class-variance-authority clsx tailwind-merge
 ```
 
 **2. Tailwind Classes Not Working**
@@ -371,76 +356,38 @@ npm install @radix-ui/react-* class-variance-authority clsx tailwind-merge
 npm install @types/react @types/react-dom
 ```
 
-### Getting Help
+### **Registry CLI Issues**
+
+**"unknown option '--registry'" Error:**
+```bash
+# The --registry flag isn't supported in your version of shadcn CLI
+# Use Method 1 (Manual Installation) instead
+```
+
+**"Validation failed: type: Required" Error:**
+```bash
+# This error has been fixed in the registry
+# If you still see this error, use Method 1 (Manual Installation)
+```
+
+**"We could not detect a supported framework" Error:**
+```bash
+# This means your project is NOT a Next.js project
+# Use Method 1 (Manual Installation) instead
+```
+
+### **Getting Help**
 
 - Check the component source files for dependencies
 - Verify all required packages are installed
 - Ensure Tailwind CSS is properly configured
 - Check browser console for JavaScript errors
 
-### Registry CLI Issues
+---
 
-**"unknown option '--registry'" Error:**
-```bash
-# The --registry flag isn't supported in your version of shadcn CLI
-# Use this approach instead:
+## 📚 **Examples**
 
-# 1. Initialize normally
-npx shadcn@latest init --yes
-
-# 2. Edit components.json to add your registry
-# Add: "registry": "https://eco-design-system-2.vercel.app/r/registry.json"
-
-# 3. Then add components normally
-npx shadcn@latest add button
-```
-
-**"We could not detect a supported framework" Error:**
-```bash
-# This means your project is NOT a Next.js project
-# The shadcn CLI only supports Next.js by default
-
-# Solution: Use Manual Installation instead
-cp -r /path/to/eco-design-system-2/src/components/ui/* src/components/ui/
-```
-
-**"Validation failed: type: Required" Error:**
-This error has been fixed in the registry. If you still see this error, try rebuilding the registry:
-
-```bash
-# In the registry project, run:
-npm run registry:build
-
-# Then try the CLI again:
-npx shadcn@latest init --yes --registry https://eco-design-system-2.vercel.app/r/registry.json
-```
-
-**Registry Setup (Recommended):**
-Since the `--registry` flag isn't supported, use this approach:
-
-```json
-{
-  "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "default",
-  "rsc": false,
-  "tsx": true,
-  "tailwind": {
-    "config": "tailwind.config.js",
-    "css": "src/index.css",
-    "baseColor": "slate",
-    "cssVariables": true
-  },
-  "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils"
-  },
-  "registry": "https://eco-design-system-2.vercel.app/r/registry.json"
-}
-```
-
-## 📚 Examples
-
-### Basic Usage
+### **Basic Usage**
 
 ```tsx
 import { Button } from './components/ui/button'
@@ -462,7 +409,7 @@ function App() {
 }
 ```
 
-### Brand Components
+### **Brand Components**
 
 ```tsx
 import { BrandHeader } from './components/brand/brand-header'
@@ -483,18 +430,22 @@ function DashboardLayout() {
 }
 ```
 
-## 🔄 Updates
+---
+
+## 🔄 **Updates**
 
 To update components:
 
 1. **Manual Copy**: Copy updated files from the registry source
-2. **Registry CLI**: Run `npx shadcn@latest add [component] --registry [url]`
+2. **Registry CLI**: Run `npx shadcn@latest add [component]` (Next.js only)
 
-## 🤖 MCP Integration (AI IDEs)
+---
+
+## 🤖 **MCP Integration (AI IDEs)**
 
 For AI-powered IDEs like Cursor, you can integrate this registry using Model Context Protocol (MCP):
 
-### Cursor Integration
+### **Cursor Integration**
 
 Add this to your `.cursor/mcp.json`:
 
@@ -513,15 +464,19 @@ Add this to your `.cursor/mcp.json`:
 
 This allows AI assistants to access and suggest components from your design system registry.
 
-## 📄 License
+---
+
+## 📄 **License**
 
 This design system is proprietary to DTN. Please ensure compliance with your organization's usage policies.
+
+---
 
 ## 🎯 **Final Recommendation for DTN**
 
 Given the **shadcn CLI limitations** and DTN's diverse project landscape:
 
-### **✅ Use Manual Installation (Recommended)**
+### **✅ Use Method 1: Manual Installation (Recommended)**
 - **Works with ALL React frameworks** (CRA, Vite, Next.js, etc.)
 - **No framework detection issues**
 - **Immediate results** - components work right away
