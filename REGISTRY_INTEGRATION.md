@@ -44,28 +44,52 @@ mkdir -p src/components/brand
 mkdir -p src/lib
 ```
 
-### **Step 3: Copy Components from Registry**
+### **Step 3: Get Components from Registry**
 
+You have two options to get the components:
+
+#### **Option A: Download from Registry (Recommended)**
 ```bash
-# Copy UI components (adjust path to your registry project location)
-cp -r /path/to/eco-design-system-2/src/components/ui/* src/components/ui/
+# Clone the registry repository
+git clone https://github.com/your-org/eco-design-system-2.git
+cd eco-design-system-2
 
-# Copy brand components
-cp /path/to/eco-design-system-2/src/components/brand-*.tsx src/components/brand/
-cp /path/to/eco-design-system-2/src/components/logo.tsx src/components/brand/
-cp /path/to/eco-design-system-2/src/components/hero.tsx src/components/brand/
-cp /path/to/eco-design-system-2/src/components/login.tsx src/components/brand/
-cp /path/to/eco-design-system-2/src/components/promo.tsx src/components/brand/
-cp /path/to/eco-design-system-2/src/components/product-grid.tsx src/components/brand/
+# Copy components to your project
+cp -r src/components/ui/* /path/to/your-project/src/components/ui/
+cp src/components/brand-*.tsx /path/to/your-project/src/components/brand/
+cp src/components/logo.tsx /path/to/your-project/src/components/brand/
+cp src/components/hero.tsx /path/to/your-project/src/components/brand/
+cp src/components/login.tsx /path/to/your-project/src/components/brand/
+cp src/components/promo.tsx /path/to/your-project/src/components/brand/
+cp src/components/product-grid.tsx /path/to/your-project/src/components/brand/
 
 # Copy utilities
-cp /path/to/eco-design-system-2/src/lib/utils.ts src/lib/
-cp /path/to/eco-design-system-2/src/lib/products.ts src/lib/ # If using product grid
+cp src/lib/utils.ts /path/to/your-project/src/lib/
+cp src/lib/products.ts /path/to/your-project/src/lib/
 ```
 
-### **Step 4: Copy Theme CSS**
+#### **Option B: Use Registry CLI (Next.js Only)**
+```bash
+# Initialize with registry
+npx shadcn@latest init --yes --registry https://eco-design-system-2.vercel.app/r/registry.json
 
-Copy the CSS variables from the registry project's `src/app/globals.css` to your project's main CSS file:
+# Add components
+npx shadcn@latest add button
+npx shadcn@latest add card
+```
+
+### **Step 4: Get Theme CSS**
+
+You can get the theme CSS in two ways:
+
+#### **Option A: Copy from Downloaded Registry**
+```bash
+# After cloning the registry, copy the CSS
+cp eco-design-system-2/src/app/globals.css your-project/src/app/globals.css
+```
+
+#### **Option B: Copy CSS Variables Manually**
+Copy these CSS variables to your project's main CSS file:
 
 ```css
 /* Add these CSS variables to your main CSS file */
