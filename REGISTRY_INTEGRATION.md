@@ -64,7 +64,7 @@ cp src/components/promo.tsx /path/to/your-project/src/components/brand/ && \
 cp src/components/product-grid.tsx /path/to/your-project/src/components/brand/ && \
 cp src/lib/utils.ts /path/to/your-project/src/lib/ && \
 cp src/lib/products.ts /path/to/your-project/src/lib/
-
+```
 > **Note:** If you prefer to use the Registry CLI approach (Next.js projects only), see **Method 2: Registry CLI** below.
 
 ### **Step 4: Get Theme CSS**
