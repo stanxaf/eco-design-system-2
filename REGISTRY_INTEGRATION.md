@@ -54,29 +54,18 @@ You have two options to get the components:
 git clone https://github.com/your-org/eco-design-system-2.git
 cd eco-design-system-2
 
-# Copy components to your project
-cp -r src/components/ui/* /path/to/your-project/src/components/ui/
-cp src/components/brand-*.tsx /path/to/your-project/src/components/brand/
-cp src/components/logo.tsx /path/to/your-project/src/components/brand/
-cp src/components/hero.tsx /path/to/your-project/src/components/brand/
-cp src/components/login.tsx /path/to/your-project/src/components/brand/
-cp src/components/promo.tsx /path/to/your-project/src/components/brand/
-cp src/components/product-grid.tsx /path/to/your-project/src/components/brand/
-
-# Copy utilities
-cp src/lib/utils.ts /path/to/your-project/src/lib/
+# All-in-one copy command (adjust paths to your project)
+cp -r src/components/ui/* /path/to/your-project/src/components/ui/ && \
+cp src/components/brand-*.tsx /path/to/your-project/src/components/brand/ && \
+cp src/components/logo.tsx /path/to/your-project/src/components/brand/ && \
+cp src/components/hero.tsx /path/to/your-project/src/components/brand/ && \
+cp src/components/login.tsx /path/to/your-project/src/components/brand/ && \
+cp src/components/promo.tsx /path/to/your-project/src/components/brand/ && \
+cp src/components/product-grid.tsx /path/to/your-project/src/components/brand/ && \
+cp src/lib/utils.ts /path/to/your-project/src/lib/ && \
 cp src/lib/products.ts /path/to/your-project/src/lib/
-```
 
-#### **Option B: Use Registry CLI (Next.js Only)**
-```bash
-# Initialize with registry
-npx shadcn@latest init --yes --registry https://eco-design-system-2.vercel.app/r/registry.json
-
-# Add components
-npx shadcn@latest add button
-npx shadcn@latest add card
-```
+> **Note:** If you prefer to use the Registry CLI approach (Next.js projects only), see **Method 2: Registry CLI** below.
 
 ### **Step 4: Get Theme CSS**
 
