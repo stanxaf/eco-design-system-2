@@ -191,6 +191,8 @@ export function TestComponent() {
 
 ## 🔧 Advanced Installation (Registry CLI)
 
+> **⚠️ Note:** The registry CLI approach currently has compatibility issues with this registry format. If you encounter errors, use the **Quick Start (Manual Installation)** approach above instead.
+
 If you prefer to use the registry CLI approach, follow these steps:
 
 ### Prerequisites
@@ -208,14 +210,24 @@ npm install -g @shadcn/ui
 ### Step 2: Initialize Registry
 
 ```bash
-npx shadcn@latest init --registry https://your-registry-url.com/r/registry.json
+# For newer versions of shadcn CLI
+npx shadcn@latest init --yes --registry https://your-registry-url.com/r/registry.json
+
+# If the above doesn't work, try this alternative approach
+npx shadcn@latest init --yes
+# Then manually update your components.json to point to your registry
 ```
 
 ### Step 3: Add Components
 
 ```bash
+# For newer versions of shadcn CLI
 npx shadcn@latest add button --registry https://your-registry-url.com/r/registry.json
 npx shadcn@latest add card --registry https://your-registry-url.com/r/registry.json
+
+# Alternative: Add components without registry flag (uses components.json)
+npx shadcn@latest add button
+npx shadcn@latest add card
 ```
 
 ## 📦 Available Components
@@ -325,6 +337,49 @@ npm install @types/react @types/react-dom
 - Verify all required packages are installed
 - Ensure Tailwind CSS is properly configured
 - Check browser console for JavaScript errors
+
+### Registry CLI Issues
+
+**"unknown option '--registry'" Error:**
+```bash
+# Try the newer syntax
+npx shadcn@latest init --yes --registry https://your-registry-url.com/r/registry.json
+
+# Or use the alternative approach
+npx shadcn@latest init --yes
+# Then manually edit components.json to add your registry URL
+```
+
+**"Validation failed: type: Required" Error:**
+This indicates the registry format is incompatible. Use the manual installation approach instead:
+
+```bash
+# Skip the registry CLI entirely and use manual copy
+# Follow the "Quick Start" section above
+```
+
+**Alternative Registry Setup:**
+If you want to try the registry approach, manually create a `components.json`:
+
+```json
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "src/index.css",
+    "baseColor": "slate",
+    "cssVariables": true
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils"
+  },
+  "registry": "https://eco-design-system-2.vercel.app/r/registry.json"
+}
+```
 
 ## 📚 Examples
 
