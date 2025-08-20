@@ -369,6 +369,149 @@ npm install @radix-ui/react-accordion @radix-ui/react-dialog @radix-ui/react-dro
 npm install @types/react @types/react-dom
 ```
 
+### **Complete Dependency Installation**
+
+If you're getting multiple import errors, install ALL required dependencies at once:
+
+```bash
+# Core UI dependencies
+npm install @radix-ui/react-accordion @radix-ui/react-alert-dialog @radix-ui/react-aspect-ratio @radix-ui/react-avatar @radix-ui/react-checkbox @radix-ui/react-collapsible @radix-ui/react-context-menu @radix-ui/react-dialog @radix-ui/react-dropdown-menu @radix-ui/react-hover-card @radix-ui/react-label @radix-ui/react-menubar @radix-ui/react-navigation-menu @radix-ui/react-popover @radix-ui/react-progress @radix-ui/react-radio-group @radix-ui/react-scroll-area @radix-ui/react-select @radix-ui/react-separator @radix-ui/react-slider @radix-ui/react-slot @radix-ui/react-switch @radix-ui/react-tabs @radix-ui/react-toggle @radix-ui/react-toggle-group @radix-ui/react-tooltip
+
+# Additional dependencies
+npm install react-hook-form @hookform/resolvers zod next-themes embla-carousel-react recharts vaul input-otp cmdk react-day-picker react-resizable-panels sonner
+
+# Core utilities
+npm install class-variance-authority clsx tailwind-merge lucide-react
+```
+
+### **Import Path Resolution Issues**
+
+**Error: "Cannot find module '@/lib/utils'"**
+```bash
+# Solution 1: Create the missing utils.ts file
+mkdir -p src/lib
+# Copy utils.ts from the registry project
+
+# Solution 2: Configure path aliases in tsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
+```
+
+**Error: "Cannot find module '@/components/ui/*'"**
+```bash
+# Ensure components are copied to the correct location
+# Check that src/components/ui/ directory exists
+# Verify all UI components are present
+```
+
+### **Framework Compatibility Issues**
+
+**Error: "Cannot find module 'next/link'"**
+```bash
+# This component uses Next.js specific imports
+# For Create React App, you'll need to:
+# 1. Replace next/link with react-router-dom Link
+# 2. Replace next/image with regular img tags
+# 3. Replace next/navigation with react-router hooks
+```
+
+**Error: "Cannot find module '@/hooks/use-mobile'"**
+```bash
+# This hook is missing from your project
+# Copy it from the registry project or create a simple version
+```
+
+### **Real-World Error Examples & Solutions**
+
+Based on actual testing, here are the exact errors you'll encounter and how to fix them:
+
+**Error: "Module not found: Error: Can't resolve '@/lib/utils'"**
+```bash
+# This means the utils.ts file is missing or path aliases aren't configured
+# Fix: Copy utils.ts from registry project to src/lib/utils.ts
+```
+
+**Error: "Cannot find module '@radix-ui/react-*'"**
+```bash
+# Missing Radix UI packages
+# Fix: Run the complete dependency installation above
+```
+
+**Error: "Cannot find module 'react-hook-form'"**
+```bash
+# Missing form handling library
+# Fix: npm install react-hook-form @hookform/resolvers zod
+```
+
+**Error: "Cannot find module 'next/link'"**
+```bash
+# Next.js specific import in Create React App
+# Fix: Replace with react-router-dom or adapt the component
+```
+
+**Error: "Cannot find module 'embla-carousel-react'"**
+```bash
+# Missing carousel library
+# Fix: npm install embla-carousel-react
+```
+
+**Error: "Cannot find module 'recharts'"**
+```bash
+# Missing chart library
+# Fix: npm install recharts
+```
+
+### **Framework-Specific Adaptations**
+
+**For Create React App (CRA):**
+```bash
+# Install React Router for navigation
+npm install react-router-dom
+
+# Replace Next.js imports in components:
+# - next/link → react-router-dom Link
+# - next/image → regular img tags
+# - next/navigation → react-router hooks
+```
+
+**For Vite:**
+```bash
+# Similar to CRA, but may need different import syntax
+# Check Vite documentation for path alias configuration
+```
+
+**For Next.js:**
+```bash
+# Should work out of the box with registry CLI
+# Use Method 2: Registry CLI approach
+```
+
+### **Quick Fix for Missing Files**
+
+If you're missing utility files:
+```bash
+# Copy missing files from registry
+cp /path/to/registry/src/lib/utils.ts src/lib/
+cp /path/to/registry/src/hooks/use-mobile.ts src/hooks/
+
+# Or create simple versions:
+# src/lib/utils.ts
+export function cn(...classes: string[]) {
+  return classes.filter(Boolean).join(' ');
+}
+
+# src/hooks/use-mobile.ts
+export function useMobile() {
+  return window.innerWidth < 768;
+}
+```
+
 ### **Registry CLI Issues**
 
 **"unknown option '--registry'" Error:**
@@ -511,3 +654,41 @@ cp /path/to/eco-design-system-2/src/components/brand-*.tsx src/components/brand/
 ---
 
 **Need Help?** Contact your design system team or refer to the component source files for implementation details.
+
+---
+
+## 📚 **What We Learned from Real Testing**
+
+### **The Reality of Manual Installation**
+
+This guide was tested with a **Create React App project** and revealed several important insights:
+
+1. **Dependencies are extensive** - You need ~30+ packages for full functionality
+2. **Import paths matter** - `@/` aliases need proper configuration
+3. **Framework differences exist** - Next.js components need adaptation for CRA
+4. **Missing files cause cascading errors** - One missing file breaks many components
+
+### **Why Manual Installation is Complex**
+
+- **Many dependencies** - Not just a few packages
+- **Path resolution** - Import aliases need setup
+- **Framework compatibility** - Components assume Next.js
+- **File dependencies** - Components reference each other
+
+### **When to Use Each Method**
+
+**Use Manual Installation when:**
+- You need **full control** over components
+- You're **customizing** the design system
+- You have **time to troubleshoot** dependencies
+- You want to **learn** how everything works
+
+**Use Registry CLI when:**
+- You have a **Next.js project**
+- You want **quick setup** without manual work
+- You're okay with **less customization**
+- You want **automatic dependency management**
+
+### **The Bottom Line**
+
+Manual installation gives you **full control** but requires **significant setup time**. Registry CLI is **easier** but **limited to Next.js**. Choose based on your project needs and time constraints.
