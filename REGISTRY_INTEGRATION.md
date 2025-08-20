@@ -29,24 +29,62 @@ This guide provides **two proven approaches** to integrate the DTN Design System
 - TypeScript (recommended)
 - Node.js 18+
 
-### **Step 1: Install Core Dependencies**
+### **Step 1: Install ALL Dependencies (Prevents Import Errors)**
+
+**Install everything at once to avoid cascading dependency issues:**
 
 ```bash
-npm install @radix-ui/react-accordion @radix-ui/react-dialog @radix-ui/react-dropdown-menu @radix-ui/react-select @radix-ui/react-tabs class-variance-authority clsx tailwind-merge lucide-react
+# Core UI dependencies (prevents @radix-ui import errors)
+npm install @radix-ui/react-accordion @radix-ui/react-alert-dialog @radix-ui/react-aspect-ratio @radix-ui/react-avatar @radix-ui/react-checkbox @radix-ui/react-collapsible @radix-ui/react-context-menu @radix-ui/react-dialog @radix-ui/react-dropdown-menu @radix-ui/react-hover-card @radix-ui/react-label @radix-ui/react-menubar @radix-ui/react-navigation-menu @radix-ui/react-popover @radix-ui/react-progress @radix-ui/react-radio-group @radix-ui/react-scroll-area @radix-ui/react-select @radix-ui/react-separator @radix-ui/react-slider @radix-ui/react-slot @radix-ui/react-switch @radix-ui/react-tabs @radix-ui/react-toggle @radix-ui/react-toggle-group @radix-ui/react-tooltip
+
+# Additional dependencies (prevents missing module errors)
+npm install react-hook-form @hookform/resolvers zod next-themes embla-carousel-react recharts vaul input-otp cmdk react-day-picker react-resizable-panels sonner
+
+# Core utilities (prevents utility import errors)
+npm install class-variance-authority clsx tailwind-merge lucide-react
 ```
 
-### **Step 2: Create Project Structure**
+### **Step 2: Create Project Structure & Configure Path Aliases (Prevents Import Errors)**
 
 ```bash
 # Create the necessary directories
 mkdir -p src/components/ui
 mkdir -p src/components/brand
 mkdir -p src/lib
+mkdir -p src/hooks
 ```
 
-### **Step 3: Get Components from Registry**
+**Configure TypeScript path aliases to prevent '@/lib/utils' errors:**
+
+Create or update your `tsconfig.json`:
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
+```
+
+**For Create React App, also add to `jsconfig.json`:**
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
+```
+
+### **Step 3: Get Components from Registry & Handle Framework Compatibility (Prevents Next.js Import Errors)**
 
 You have two options to get the components:
+
+**⚠️ IMPORTANT: Choose based on your framework to avoid import errors:**
 
 #### **Option A: Download from Registry (Recommended)**
 ```bash
@@ -66,6 +104,107 @@ cp src/lib/utils.ts /path/to/your-project/src/lib/ && \
 cp src/lib/products.ts /path/to/your-project/src/lib/
 ```
 > **Note:** If you prefer to use the Registry CLI approach (Next.js projects only), see **Method 2: Registry CLI** below.
+
+### **🚀 Complete Setup Script (Prevents ALL Errors)**
+
+**Create a single script that does everything:**
+
+```bash
+cat > setup-design-system.sh << 'EOF'
+#!/bin/bash
+echo "🚀 Setting up DTN Design System..."
+
+# 1. Install all dependencies
+echo "📦 Installing dependencies..."
+npm install @radix-ui/react-accordion @radix-ui/react-alert-dialog @radix-ui/react-aspect-ratio @radix-ui/react-avatar @radix-ui/react-checkbox @radix-ui/react-collapsible @radix-ui/react-context-menu @radix-ui/react-dialog @radix-ui/react-dropdown-menu @radix-ui/react-hover-card @radix-ui/react-label @radix-ui/react-menubar @radix-ui/react-navigation-menu @radix-ui/react-popover @radix-ui/react-progress @radix-ui/react-radio-group @radix-ui/react-scroll-area @radix-ui/react-select @radix-ui/react-separator @radix-ui/react-slider @radix-ui/react-slot @radix-ui/react-switch @radix-ui/react-tabs @radix-ui/react-toggle @radix-ui/react-toggle-group @radix-ui/react-tooltip react-hook-form @hookform/resolvers zod next-themes embla-carousel-react recharts vaul input-otp cmdk react-day-picker react-resizable-panels sonner class-variance-authority clsx tailwind-merge lucide-react
+
+# 2. Create directories
+echo "📁 Creating project structure..."
+mkdir -p src/components/ui src/components/brand src/lib src/hooks
+
+# 3. Create utility files
+echo "🔧 Creating utility files..."
+cat > src/lib/utils.ts << 'UTILS_EOF'
+import { type ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+UTILS_EOF
+
+cat > src/hooks/use-mobile.ts << 'HOOKS_EOF'
+import { useState, useEffect } from 'react'
+
+export function useMobile() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  return isMobile
+}
+HOOKS_EOF
+
+# 4. Install React Router for CRA compatibility
+echo "🔄 Installing React Router for CRA compatibility..."
+npm install react-router-dom
+
+echo "✅ Setup complete! Now copy your components and run the import fix script."
+echo "📋 Next steps:"
+echo "   1. Copy components from registry"
+echo "   2. Copy theme CSS"
+echo "   3. Run: ./fix-imports.sh"
+echo "   4. Test your components!"
+EOF
+
+chmod +x setup-design-system.sh
+./setup-design-system.sh
+```
+
+### **Step 3.5: Create Missing Utility Files (Prevents Missing Module Errors)**
+
+**Create essential utility files that components depend on:**
+
+```bash
+# Create utils.ts (prevents '@/lib/utils' errors)
+cat > src/lib/utils.ts << 'EOF'
+import { type ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+EOF
+
+# Create use-mobile.ts (prevents '@/hooks/use-mobile' errors)
+cat > src/hooks/use-mobile.ts << 'EOF'
+import { useState, useEffect } from 'react'
+
+export function useMobile() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  return isMobile
+}
+EOF
+```
 
 ### **Step 4: Get Theme CSS**
 
@@ -188,6 +327,39 @@ module.exports = {
   },
   plugins: [],
 }
+```
+
+### **Step 5.5: Handle Framework Compatibility (Prevents Next.js Import Errors)**
+
+**For Create React App projects, adapt Next.js specific imports:**
+
+```bash
+# Install React Router for navigation
+npm install react-router-dom
+
+# Create a script to replace Next.js imports
+cat > fix-imports.sh << 'EOF'
+#!/bin/bash
+# Replace Next.js imports with React Router equivalents
+find src/components -name "*.tsx" -exec sed -i '' 's/next\/link/react-router-dom/g' {} \;
+find src/components -name "*.tsx" -exec sed -i '' 's/next\/image/regular img/g' {} \;
+find src/components -name "*.tsx" -exec sed -i '' 's/next\/navigation/react-router-dom/g' {} \;
+echo "Imports fixed for Create React App compatibility"
+EOF
+
+# Make executable and run
+chmod +x fix-imports.sh
+./fix-imports.sh
+```
+
+**For Vite projects:**
+```bash
+# Similar to CRA, but check Vite documentation for path alias configuration
+```
+
+**For Next.js projects:**
+```bash
+# No changes needed - components work out of the box
 ```
 
 ### **Step 6: Test Installation**
@@ -659,6 +831,11 @@ cp /path/to/eco-design-system-2/src/components/brand-*.tsx src/components/brand/
 
 ## 📚 **What We Learned from Real Testing**
 
+### **The Proactive Approach vs. Reactive Troubleshooting**
+
+**Before (Reactive):** Document errors and provide solutions
+**Now (Proactive):** Prevent errors from happening in the first place
+
 ### **The Reality of Manual Installation**
 
 This guide was tested with a **Create React App project** and revealed several important insights:
@@ -689,6 +866,24 @@ This guide was tested with a **Create React App project** and revealed several i
 - You're okay with **less customization**
 - You want **automatic dependency management**
 
+### **The Proactive Approach Benefits**
+
+**Why prevention is better than troubleshooting:**
+
+1. **✅ No wasted time** - Developers succeed on first try
+2. **✅ Predictable setup** - Same result every time
+3. **✅ Professional experience** - No error messages or confusion
+4. **✅ Faster onboarding** - New team members get up and running quickly
+5. **✅ Better for DTN** - Hundreds of projects can use the same reliable process
+
 ### **The Bottom Line**
 
-Manual installation gives you **full control** but requires **significant setup time**. Registry CLI is **easier** but **limited to Next.js**. Choose based on your project needs and time constraints.
+Manual installation gives you **full control** but requires **significant setup time**. Registry CLI is **easier** but **limited to Next.js**.
+
+**With the proactive approach, you get the best of both worlds:**
+- **Full control** over your design system
+- **Reliable setup** that works every time
+- **No troubleshooting** needed
+- **Works across all frameworks**
+
+Choose based on your project needs and time constraints.
