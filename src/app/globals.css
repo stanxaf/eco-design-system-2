@@ -352,7 +352,27 @@
   --color-destructive-border: var(--destructive-border);
   --color-destructive-muted: var(--destructive-muted);
 
-  /* Alert variant semantic colors */
+  /* Alert Variant Semantic Colors - Tailwind Utilities
+   *
+   * These semantic colors are available as Tailwind utilities
+   * and provide consistent theming across all alert variants.
+   *
+   * Available utilities:
+   * - bg-info, text-info-foreground, border-info-border, text-info-muted
+   * - bg-success, text-success-foreground, border-success-border, text-success-muted
+   * - bg-warning, text-warning-foreground, border-warning-border, text-warning-muted
+   * - bg-alert-destructive, text-alert-destructive-foreground, etc.
+   *
+   * Usage in components:
+   * - className="bg-info text-info-foreground border-info-border"
+   * - className="text-success-muted" (for icons and descriptions)
+   * - className="border-warning-border" (for borders)
+   *
+   * Automatic theme adaptation:
+   * - All utilities automatically switch between light/dark modes
+   * - No manual theme switching required
+   * - Maintains proper contrast ratios in both themes
+   */
   --color-info: var(--info);
   --color-info-foreground: var(--info-foreground);
   --color-info-border: var(--info-border);

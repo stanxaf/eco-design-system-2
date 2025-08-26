@@ -58,6 +58,20 @@ function Alert({
   );
 }
 
+/**
+ * AlertTitle component for the main heading of an alert.
+ *
+ * **Usage:**
+ * ```tsx
+ * <AlertTitle>Important Information</AlertTitle>
+ * ```
+ *
+ * **Features:**
+ * - Bold, prominent text styling
+ * - Proper semantic structure
+ * - Accessible heading hierarchy
+ * - Responsive text sizing
+ */
 function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -71,6 +85,22 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+/**
+ * AlertDescription component for the detailed content of an alert.
+ *
+ * **Usage:**
+ * ```tsx
+ * <AlertDescription>
+ *   This is the detailed explanation of the alert message.
+ * </AlertDescription>
+ * ```
+ *
+ * **Features:**
+ * - Muted text color for secondary information
+ * - Proper spacing and typography
+ * - Supports rich content (paragraphs, links, etc.)
+ * - Responsive grid layout
+ */
 function AlertDescription({
   className,
   ...props
