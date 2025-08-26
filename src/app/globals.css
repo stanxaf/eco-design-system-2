@@ -352,6 +352,39 @@
   --color-destructive-border: var(--destructive-border);
   --color-destructive-muted: var(--destructive-muted);
 
+  /* Button Semantic Colors - Tailwind Utilities
+   *
+   * These semantic colors are available as Tailwind utilities
+   * and provide consistent theming across all button variants.
+   *
+   * Available utilities:
+   * - bg-primary, text-primary-foreground (primary button)
+   * - bg-secondary, text-secondary-foreground (secondary button)
+   * - bg-destructive, text-white (destructive button)
+   * - bg-accent, text-accent-foreground (hover states)
+   * - bg-background, border (outline buttons)
+   * - border-interactive (interactive borders)
+   *
+   * Usage in components:
+   * - className="bg-primary text-primary-foreground" (default button)
+   * - className="bg-destructive text-white" (danger button)
+   * - className="border bg-background hover:bg-accent" (outline button)
+   * - className="hover:bg-accent hover:text-accent-foreground" (ghost button)
+   *
+   * Automatic theme adaptation:
+   * - All utilities automatically switch between light/dark modes
+   * - Maintains proper contrast ratios in both themes
+   * - Hover states adapt to current theme
+   * - Focus states use theme-aware ring colors
+   *
+   * Component integration:
+   * - Button component automatically uses these utilities
+   * - Variants map directly to semantic color combinations
+   * - Sizes maintain consistent spacing and proportions
+   * - Icons automatically sized and positioned
+   */
+  --color-primary: var(--primary);
+
   /* Alert Variant Semantic Colors - Tailwind Utilities
    *
    * These semantic colors are available as Tailwind utilities
