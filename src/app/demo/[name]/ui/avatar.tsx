@@ -11,11 +11,18 @@ export const avatar = {
         </AvatarFallback>
       </Avatar>
     ),
-    Fallback: (
-      <Avatar>
-        <AvatarImage src="https://github.com" alt="@shadcn" />
+    Small: (
+      <Avatar size="sm">
         <AvatarFallback className="bg-primary text-primary-foreground">
-          <span className="text-xs">CN</span>
+          <span className="text-xs">SM</span>
+        </AvatarFallback>
+      </Avatar>
+    ),
+    Large: (
+      <Avatar size="lg">
+        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+        <AvatarFallback className="bg-primary text-primary-foreground">
+          <span className="text-xs">LG</span>
         </AvatarFallback>
       </Avatar>
     ),

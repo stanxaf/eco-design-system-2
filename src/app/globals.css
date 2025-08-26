@@ -489,6 +489,31 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  /* Avatar Size System - Tailwind Utilities
+   *
+   * These size utilities provide consistent avatar dimensions across all variants.
+   *
+   * Available sizes:
+   * - size-8: 32px (2rem) - Small avatar for compact layouts
+   * - size-10: 40px (2.5rem) - Medium avatar for standard use
+   * - size-12: 48px (3rem) - Large avatar for prominent display
+   *
+   * Usage in components:
+   * - className="size-8" (32px avatar)
+   * - className="size-10" (40px avatar)
+   * - className="size-12" (48px avatar)
+   *
+   * Automatic scaling:
+   * - All sizes maintain aspect-square ratio
+   * - Responsive design with proper scaling
+   * - Consistent spacing and alignment
+   *
+   * Component integration:
+   * - Avatar component automatically uses these utilities
+   * - Size variants map directly to Tailwind size classes
+   * - Fallback content scales appropriately
+   * - Images maintain proper proportions
+   */
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
   --font-mono: var(--font-mono);
