@@ -1,5 +1,5 @@
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { AlertCircle, Terminal } from "lucide-react";
+import { AlertCircle, Terminal, Info, CheckCircle, AlertTriangle } from "lucide-react";
 
 export const alert = {
   name: "alert",
@@ -19,6 +19,33 @@ export const alert = {
         <AlertTitle>Error</AlertTitle>
         <AlertDescription>
           Your session has expired. Please log in again.
+        </AlertDescription>
+      </Alert>
+    ),
+    Info: (
+      <Alert variant="info">
+        <Info className="size-4" />
+        <AlertTitle>Information</AlertTitle>
+        <AlertDescription>
+          This is an informational message with important details.
+        </AlertDescription>
+      </Alert>
+    ),
+    Success: (
+      <Alert variant="success">
+        <CheckCircle className="size-4" />
+        <AlertTitle>Success</AlertTitle>
+        <AlertDescription>
+          Your changes have been saved successfully.
+        </AlertDescription>
+      </Alert>
+    ),
+    Warning: (
+      <Alert variant="warning">
+        <AlertTriangle className="size-4" />
+        <AlertTitle>Warning</AlertTitle>
+        <AlertDescription>
+          Please review your input before proceeding.
         </AlertDescription>
       </Alert>
     ),
