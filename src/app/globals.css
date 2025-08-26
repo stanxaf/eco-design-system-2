@@ -3,6 +3,54 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@layer base {
+  /* Base Font Size Declaration
+   *
+   * This ensures consistent rem-based sizing across all browsers and platforms.
+   * All rem values in this design system are calculated based on 16px = 1rem.
+   *
+   * Benefits:
+   * - Predictable sizing across all browsers
+   * - Consistent behavior regardless of user preferences
+   * - Professional design system with explicit control
+   * - Accessibility compliance with clear text sizing
+   *
+   * Text size scale (all mathematically accurate):
+   * - --text-xs: 0.6875rem = 11px
+   * - --text-sm: 0.75rem = 12px
+   * - --text-base: 0.8125rem = 13px
+   * - --text-md: 0.875rem = 14px
+   * - --text-lg: 1rem = 16px
+   * - --text-xl: 1.125rem = 18px
+   * - --text-2xl: 1.25rem = 20px
+   * - --text-3xl: 1.5rem = 24px
+   * - --text-4xl: 1.75rem = 28px
+   * - --text-5xl: 2rem = 32px
+   */
+  html {
+    font-size: 16px;
+  }
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border, currentColor);
+  }
+
+  body {
+    font-size: var(--text-base);
+    color: var(--color-foreground);
+    line-height: 1.5;
+    @apply bg-background text-foreground;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+}
+
 :root {
   --neutral-white: #ffffff;
   --neutral-black: #000000;
@@ -478,31 +526,6 @@
 @layer utilities {
   .border-interactive {
     border-color: var(--border-interactive);
-  }
-}
-
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-border, currentColor);
-  }
-
-  body {
-    font-size: var(--text-base);
-    color: var(--color-foreground);
-    line-height: 1.5;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }
 
