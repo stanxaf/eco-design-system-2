@@ -1,13 +1,10 @@
 "use client";
 
-import { useTheme } from "next-themes";
 import { type CSSProperties } from "react";
 import { useEffect, useState } from "react";
 
 // Fallback toast component when sonner fails to load
 const FallbackToaster = () => {
-  const { theme = "system" } = useTheme();
-
   return (
     <div
       className="fixed top-4 right-4 z-50 pointer-events-none"
@@ -23,7 +20,6 @@ const FallbackToaster = () => {
 };
 
 const Toaster = ({ ...props }: any) => {
-  const { theme = "system" } = useTheme();
   const [Sonner, setSonner] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -50,7 +46,7 @@ const Toaster = ({ ...props }: any) => {
 
   return (
     <Sonner
-      theme={theme as any}
+      theme="system"
       className="toaster group"
       toastOptions={{
           classNames: {
