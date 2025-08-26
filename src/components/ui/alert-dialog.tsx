@@ -6,12 +6,61 @@ import type * as React from "react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
+/**
+ * Alert Dialog component system for building accessible modal dialogs.
+ *
+ * **Component Architecture:**
+ * - **AlertDialog**: Root component that manages dialog state
+ * - **AlertDialogTrigger**: Button/element that opens the dialog
+ * - **AlertDialogPortal**: Renders dialog outside normal DOM flow
+ * - **AlertDialogOverlay**: Backdrop overlay with animations
+ * - **AlertDialogContent**: Main dialog container with animations
+ * - **AlertDialogHeader**: Title and description container
+ * - **AlertDialogFooter**: Action buttons container
+ * - **AlertDialogTitle**: Dialog heading with semantic markup
+ * - **AlertDialogDescription**: Dialog content with proper styling
+ * - **AlertDialogAction**: Primary action button (uses button variants)
+ * - **AlertDialogCancel**: Secondary cancel button (outline variant)
+ *
+ * **Features:**
+ * - Modal behavior with focus management
+ * - Smooth animations (fade in/out, zoom in/out)
+ * - Responsive design (mobile-first approach)
+ * - Accessibility via Radix UI primitives
+ * - Button integration with variant system
+ * - Portal rendering for proper z-index handling
+ *
+ * **Usage Example:**
+ * ```tsx
+ * <AlertDialog>
+ *   <AlertDialogTrigger asChild>
+ *     <Button variant="outline">Delete Account</Button>
+ *   </AlertDialogTrigger>
+ *   <AlertDialogContent>
+ *     <AlertDialogHeader>
+ *       <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+ *       <AlertDialogDescription>
+ *         This action cannot be undone.
+ *       </AlertDialogDescription>
+ *     </AlertDialogHeader>
+ *     <AlertDialogFooter>
+ *       <AlertDialogCancel>Cancel</AlertDialogCancel>
+ *       <AlertDialogAction>Delete</AlertDialogAction>
+ *     </AlertDialogFooter>
+ *   </AlertDialogContent>
+ * </AlertDialog>
+ * ```
+ */
 function AlertDialog({
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Root>) {
   return <AlertDialogPrimitive.Root data-slot="alert-dialog" {...props} />;
 }
 
+/**
+ * Trigger component that opens the alert dialog.
+ * Use with asChild to render as any element (Button, Link, etc.).
+ */
 function AlertDialogTrigger({
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Trigger>) {
@@ -20,6 +69,10 @@ function AlertDialogTrigger({
   );
 }
 
+/**
+ * Portal component that renders the dialog outside the normal DOM flow.
+ * Ensures proper z-index stacking and accessibility.
+ */
 function AlertDialogPortal({
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Portal>) {
@@ -28,6 +81,10 @@ function AlertDialogPortal({
   );
 }
 
+/**
+ * Overlay component that provides the backdrop and handles click-outside behavior.
+ * Includes fade animations and proper z-index positioning.
+ */
 function AlertDialogOverlay({
   className,
   ...props
@@ -44,6 +101,10 @@ function AlertDialogOverlay({
   );
 }
 
+/**
+ * Content container for the dialog with animations and responsive positioning.
+ * Automatically includes Portal and Overlay for proper modal behavior.
+ */
 function AlertDialogContent({
   className,
   ...props
@@ -63,6 +124,10 @@ function AlertDialogContent({
   );
 }
 
+/**
+ * Header container for dialog title and description.
+ * Responsive layout: centered on mobile, left-aligned on desktop.
+ */
 function AlertDialogHeader({
   className,
   ...props
@@ -76,6 +141,10 @@ function AlertDialogHeader({
   );
 }
 
+/**
+ * Footer container for action buttons.
+ * Responsive layout: buttons stacked on mobile, side-by-side on desktop.
+ */
 function AlertDialogFooter({
   className,
   ...props
@@ -92,6 +161,10 @@ function AlertDialogFooter({
   );
 }
 
+/**
+ * Dialog title with semantic heading markup and consistent typography.
+ * Uses font-semibold and text-xl for proper visual hierarchy.
+ */
 function AlertDialogTitle({
   className,
   ...props
@@ -105,6 +178,10 @@ function AlertDialogTitle({
   );
 }
 
+/**
+ * Dialog description with muted text styling and proper spacing.
+ * Uses text-muted-foreground and text-base for readability.
+ */
 function AlertDialogDescription({
   className,
   ...props
@@ -118,6 +195,10 @@ function AlertDialogDescription({
   );
 }
 
+/**
+ * Primary action button with default button styling.
+ * Integrates with button component variants and accessibility features.
+ */
 function AlertDialogAction({
   className,
   ...props
@@ -130,6 +211,10 @@ function AlertDialogAction({
   );
 }
 
+/**
+ * Cancel button with outline variant styling.
+ * Provides clear visual distinction from the primary action.
+ */
 function AlertDialogCancel({
   className,
   ...props
