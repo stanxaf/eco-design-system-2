@@ -152,6 +152,49 @@ your custom font variables to Tailwind fonts. Refer to this
 - **Consistency**: Use CSS variables for all colors, maintain clear naming conventions
 - **Accessibility**: Ensure sufficient contrast ratios, test both themes
 
+### **v0 Integration Best Practices**
+
+Based on real-world testing, here are the key lessons for successful v0 integration:
+
+#### **Critical v0 Workflow**
+
+1. **Always Search First**: v0 must search the repository before making changes
+2. **Persist with ReadFile**: v0 often gets redacted content initially - it must persist until it gets actual file content
+3. **Import Registry Files**: When you provide registry components, v0 should use `ImportReadOnlyFile` to bring them in
+4. **Use Existing CSS Variables**: Never create hardcoded colors (like `emerald-500`) - only use design system CSS variables
+5. **Work Within Constraints**: Don't expand component variants unless explicitly requested
+
+#### **Common v0 Failures & Solutions**
+
+❌ **What v0 Does Wrong:**
+- Creates hardcoded color variants instead of using CSS custom properties
+- Gives up on redacted content instead of persisting with ReadFile
+- Ignores provided registry files and tries to recreate components
+- Expands design system beyond documented constraints
+
+✅ **What v0 Should Do:**
+- Search repository first with `SearchRepo`
+- Use `ReadFile` repeatedly until getting actual content (not redacted)
+- Import registry components when provided via `ImportReadOnlyFile`
+- Use only existing CSS variables from `globals.css`
+- Follow registry specifications exactly
+- Preserve existing APIs and TypeScript types
+
+#### **Testing v0 Integration**
+
+```bash
+# Test with simple requests first
+"Show me an alert component"
+
+# Then test with more complex requests
+"Create a badge with different variants"
+
+# Verify v0 follows design system rules
+# - Uses existing CSS variables
+# - Doesn't create new variants
+# - Imports registry files when provided
+```
+
 ## Running locally
 
 ```bash
