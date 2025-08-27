@@ -179,6 +179,11 @@
   --info-border: var(--blue-200);
   --info-muted: var(--blue-600);
 
+  --default: var(--slate-200);
+  --default-foreground: var(--foreground);
+  --default-border: var(--slate-300);
+  --default-muted: var(--slate-600);
+
   --success: var(--green-50);
   --success-foreground: var(--green-700);
   --success-border: var(--green-200);
@@ -249,6 +254,11 @@
   --info-foreground: var(--blue-300);
   --info-border: var(--blue-800);
   --info-muted: var(--blue-400);
+
+  --default: var(--slate-800);
+  --default-foreground: var(--foreground);
+  --default-border: var(--slate-700);
+  --default-muted: var(--slate-400);
 
   --success: var(--green-950);
   --success-foreground: var(--green-300);
@@ -459,6 +469,11 @@
   --color-info-border: var(--info-border);
   --color-info-muted: var(--info-muted);
 
+  --color-default: var(--default);
+  --color-default-foreground: var(--default-foreground);
+  --color-default-border: var(--default-border);
+  --color-default-muted: var(--default-muted);
+
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
   --color-success-border: var(--success-border);
@@ -514,6 +529,41 @@
    * - Fallback content scales appropriately
    * - Images maintain proper proportions
    */
+
+  /* Badge Color System - Alert-Integrated Variants
+   *
+   * These semantic colors are used by the badge component
+   * and provide consistent theming that matches the alert system.
+   *
+   * Available badge variants:
+   * - default: Default color system (--default, --default-foreground) using slate colors
+   * - destructive: Error states (bg-alert-destructive, text-alert-destructive-foreground)
+   * - info: Information states (bg-info, text-info-foreground)
+   * - success: Success states (bg-success, text-success-foreground)
+   * - warning: Warning states (bg-warning, text-warning-foreground)
+   *
+   * Design features:
+   * - All variants use 4px border radius (rounded-sm)
+   * - Default variant uses default color system for consistency with alerts
+   * - Consistent semantic colors matching alert components
+   * - Light backgrounds with appropriate foreground contrast
+   * - Automatic theme adaptation (light/dark mode)
+   *
+   * Usage in components:
+   * - className="bg-default text-default-foreground" (default badge - slate colors)
+   * - className="bg-info text-info-foreground" (info badge - blue colors)
+   * - className="bg-success text-success-foreground" (success badge - green colors)
+   * - className="bg-warning text-warning-foreground" (warning badge - orange colors)
+   * - className="bg-alert-destructive text-alert-destructive-foreground" (destructive badge - red colors)
+   *
+   * Component integration:
+   * - Badge component automatically uses these utilities
+   * - Variants map directly to semantic color combinations
+   * - Maintains visual consistency with alert components
+   * - Supports asChild rendering for polymorphic behavior
+   * - Default variant provides neutral slate styling for general use
+   */
+
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
   --font-mono: var(--font-mono);

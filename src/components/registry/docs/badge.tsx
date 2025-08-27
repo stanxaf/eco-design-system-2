@@ -25,15 +25,31 @@ export function BadgeDocs() {
                 <Badge variant="default">Default</Badge>
                 <div>
                   <p className="text-sm font-medium">Default</p>
-                  <p className="text-sm text-muted-foreground">Primary badge style</p>
+                  <p className="text-sm text-muted-foreground">General information with slate colors</p>
                 </div>
               </div>
 
               <div className="flex items-center space-x-4">
-                <Badge variant="secondary">Secondary</Badge>
+                <Badge variant="info">Info</Badge>
                 <div>
-                  <p className="text-sm font-medium">Secondary</p>
-                  <p className="text-sm text-muted-foreground">Subtle secondary style</p>
+                  <p className="text-sm font-medium">Info</p>
+                  <p className="text-sm text-muted-foreground">Information and updates</p>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-4">
+                <Badge variant="success">Success</Badge>
+                <div>
+                  <p className="text-sm font-medium">Success</p>
+                  <p className="text-sm text-muted-foreground">Successful operations</p>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-4">
+                <Badge variant="warning">Warning</Badge>
+                <div>
+                  <p className="text-sm font-medium">Warning</p>
+                  <p className="text-sm text-muted-foreground">Warnings and caution</p>
                 </div>
               </div>
 
@@ -41,23 +57,7 @@ export function BadgeDocs() {
                 <Badge variant="destructive">Destructive</Badge>
                 <div>
                   <p className="text-sm font-medium">Destructive</p>
-                  <p className="text-sm text-muted-foreground">For errors or warnings</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <Badge variant="outline">Outline</Badge>
-                <div>
-                  <p className="text-sm font-medium">Outline</p>
-                  <p className="text-sm text-muted-foreground">Bordered badge style</p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <Badge className="bg-blue-500 hover:bg-blue-600">Custom</Badge>
-                <div>
-                  <p className="text-sm font-medium">Custom Colors</p>
-                  <p className="text-sm text-muted-foreground">Using custom Tailwind classes</p>
+                  <p className="text-sm text-muted-foreground">Errors and dangerous situations</p>
                 </div>
               </div>
             </CardContent>
@@ -79,12 +79,20 @@ export function BadgeDocs() {
               </div>
 
               <div>
-                <h4 className="font-medium mb-2">Badge Variants</h4>
+                <h4 className="font-medium mb-2">Secondary Badge</h4>
+                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+{`<Badge variant="info">Info</Badge>`}
+                </pre>
+              </div>
+
+              <div>
+                <h4 className="font-medium mb-2">All Variants</h4>
                 <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Badge variant="default">Default</Badge>
-<Badge variant="secondary">Secondary</Badge>
-<Badge variant="destructive">Destructive</Badge>
-<Badge variant="outline">Outline</Badge>`}
+<Badge variant="info">Info</Badge>
+<Badge variant="success">Success</Badge>
+<Badge variant="warning">Warning</Badge>
+<Badge variant="destructive">Destructive</Badge>`}
                 </pre>
               </div>
 
@@ -100,7 +108,7 @@ export function BadgeDocs() {
               <div>
                 <h4 className="font-medium mb-2">With Icons</h4>
                 <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<Badge variant="outline">
+{`<Badge variant="info">
   <Check className="mr-1 h-3 w-3" />
   Completed
 </Badge>`}
@@ -150,12 +158,13 @@ export function BadgeDocs() {
               </div>
 
               <div>
-                <h4 className="font-medium mb-2">Variant Usage</h4>
+                <h4 className="font-medium mb-2">Color System</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li><strong>Default:</strong> General purpose, primary actions</li>
-                  <li><strong>Secondary:</strong> Less prominent information</li>
-                  <li><strong>Destructive:</strong> Errors, warnings, or dangerous actions</li>
-                  <li><strong>Outline:</strong> Subtle emphasis without background</li>
+                  <li><strong>Default:</strong> Slate colors for general information and neutral states</li>
+                  <li><strong>Info:</strong> Blue colors for informational content and updates</li>
+                  <li><strong>Success:</strong> Green colors for successful operations and confirmations</li>
+                  <li><strong>Warning:</strong> Orange colors for warnings and cautionary messages</li>
+                  <li><strong>Destructive:</strong> Red colors for errors and dangerous situations</li>
                 </ul>
               </div>
             </CardContent>
