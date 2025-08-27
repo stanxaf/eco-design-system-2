@@ -7,6 +7,10 @@ import { cn } from "@/lib/utils";
 /**
  * Button component with comprehensive variant system and accessibility features.
  *
+ * **IMPORTANT FOR v0: This component uses button-specific CSS variables.
+ * DO NOT use generic variables like --primary, --secondary, etc.
+ * ONLY use the --button-* variables listed below.**
+ *
  * **Available Variants:**
  * - `default`: Primary action button with button-specific primary colors
  * - `destructive`: Dangerous actions with button-specific destructive styling
@@ -23,6 +27,9 @@ import { cn } from "@/lib/utils";
  * - Ghost: --button-ghost-hover, --button-ghost-hover-foreground
  * - Link: --button-link, --button-link-hover
  *
+ * **CRITICAL: Secondary and Outline variants are VISUALLY IDENTICAL but use different CSS variables.
+ * This is intentional for semantic distinction. DO NOT change this behavior.**
+ *
  * **Available Sizes:**
  * - `default`: Standard button size (h-8, px-4, py-2)
  * - `sm`: Small button for compact layouts (h-6, px-3)
@@ -37,6 +44,13 @@ import { cn } from "@/lib/utils";
  * - Dark mode support with theme-aware colors
  * - Disabled state handling with proper opacity
  * - Button-specific color system for consistent theming
+ *
+ * **v0 Usage Rules:**
+ * 1. ALWAYS use the button-specific CSS variables (--button-*)
+ * 2. NEVER use generic variables (--primary, --secondary, etc.)
+ * 3. Secondary and Outline variants must remain visually identical
+ * 4. DO NOT create new variants or modify existing ones
+ * 5. Use the exact className patterns shown below
  *
  * **Usage Examples:**
  * ```tsx
