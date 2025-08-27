@@ -199,6 +199,73 @@
   --alert-destructive-border: var(--red-200);
   --alert-destructive-muted: var(--red-600);
 
+  /* Button Component Variables - Light Mode */
+  --button-primary: var(--primary);
+  --button-primary-foreground: var(--primary-foreground);
+  --button-primary-hover: var(--blue-600);
+
+  --button-secondary: var(--secondary);
+  --button-secondary-foreground: var(--secondary-foreground);
+  --button-secondary-hover: var(--gray-200);
+  --button-secondary-border: var(--border-interactive);
+
+  --button-destructive: var(--destructive);
+  --button-destructive-foreground: var(--destructive-foreground);
+  --button-destructive-hover: var(--red-600);
+
+  --button-outline: var(--secondary);
+  --button-outline-foreground: var(--secondary-foreground);
+  --button-outline-hover: var(--gray-200);
+  --button-outline-border: var(--border-interactive);
+
+  --button-ghost-hover: var(--accent);
+  --button-ghost-hover-foreground: var(--accent-foreground);
+
+  --button-link: var(--primary);
+  --button-link-hover: var(--blue-600);
+
+  /* Button Component Color System - Comprehensive Documentation
+   *
+   * These button-specific semantic colors provide consistent theming
+   * across all button variants with dedicated hover states and proper
+   * theme adaptation.
+   *
+   * Available button variants:
+   * - default: Primary action button (--button-primary, --button-primary-foreground, --button-primary-hover)
+   * - destructive: Dangerous actions (--button-destructive, --button-destructive-foreground, --button-destructive-hover)
+   * - outline: Secondary actions (--button-outline, --button-outline-border, --button-outline-hover, --button-outline-hover-foreground)
+   * - secondary: Alternative primary actions (--button-secondary, --button-secondary-foreground, --button-secondary-hover)
+   * - ghost: Subtle actions (--button-ghost-hover, --button-ghost-hover-foreground)
+   * - link: Text-based actions (--button-link, --button-link-hover)
+   *
+   * Color mapping:
+   * - Light mode: Optimized for light backgrounds with proper contrast
+   * - Dark mode: Optimized for dark backgrounds with proper contrast
+   * - All variants automatically adapt to light/dark themes
+   * - Hover states use dedicated button-specific colors
+   *
+   * Usage in components:
+   * - className="bg-button-primary text-button-primary-foreground hover:bg-button-primary-hover" (default button)
+   * - className="bg-button-destructive text-button-destructive-foreground hover:bg-button-destructive-hover" (destructive button)
+   * - className="bg-button-outline border-button-outline-border hover:bg-button-outline-hover hover:text-button-outline-hover-foreground" (outline button)
+   * - className="hover:bg-button-ghost-hover hover:text-button-ghost-hover-foreground" (ghost button)
+   * - className="text-button-link hover:text-button-link-hover" (link button)
+   *
+   * Component features:
+   * - Dedicated button color system for consistent theming
+   * - Automatic theme adaptation via CSS custom properties
+   * - Proper contrast ratios in both light and dark modes
+   * - Hover states optimized for button interactions
+   * - Focus states use theme-aware ring colors
+   *
+   * Component integration:
+   * - Button component automatically uses these utilities
+   * - Variants map directly to button-specific color combinations
+   * - Sizes maintain consistent spacing and proportions
+   * - Icons automatically sized and positioned
+   * - Supports polymorphic rendering with asChild prop
+   */
+
   --chart-1: var(--blue-500);
   --chart-2: var(--blue-400);
   --chart-3: var(--blue-300);
@@ -274,6 +341,31 @@
   --alert-destructive-foreground: var(--red-300);
   --alert-destructive-border: var(--red-800);
   --alert-destructive-muted: var(--red-400);
+
+  /* Button Component Variables - Dark Mode */
+  --button-primary: var(--primary);
+  --button-primary-foreground: var(--primary-foreground);
+  --button-primary-hover: var(--blue-400);
+
+  --button-secondary: var(--secondary);
+  --button-secondary-foreground: var(--secondary-foreground);
+  --button-secondary-hover: var(--gray-800);
+  --button-secondary-border: var(--border-interactive);
+
+  --button-destructive: var(--destructive);
+  --button-destructive-foreground: var(--destructive-foreground);
+  --button-destructive-hover: var(--red-400);
+
+  --button-outline: var(--secondary);
+  --button-outline-foreground: var(--secondary-foreground);
+  --button-outline-hover: var(--gray-800);
+  --button-outline-border: var(--border-interactive);
+
+  --button-ghost-hover: var(--accent);
+  --button-ghost-hover-foreground: var(--accent-foreground);
+
+  --button-link: var(--primary);
+  --button-link-hover: var(--blue-400);
 
   --chart-1: var(--blue-500);
   --chart-2: var(--blue-400);
@@ -410,37 +502,6 @@
   --color-destructive-border: var(--destructive-border);
   --color-destructive-muted: var(--destructive-muted);
 
-  /* Button Semantic Colors - Tailwind Utilities
-   *
-   * These semantic colors are available as Tailwind utilities
-   * and provide consistent theming across all button variants.
-   *
-   * Available utilities:
-   * - bg-primary, text-primary-foreground (primary button)
-   * - bg-secondary, text-secondary-foreground (secondary button)
-   * - bg-destructive, text-white (destructive button)
-   * - bg-accent, text-accent-foreground (hover states)
-   * - bg-background, border (outline buttons)
-   * - border-interactive (interactive borders)
-   *
-   * Usage in components:
-   * - className="bg-primary text-primary-foreground" (default button)
-   * - className="bg-destructive text-white" (danger button)
-   * - className="border bg-background hover:bg-accent" (outline button)
-   * - className="hover:bg-accent hover:text-accent-foreground" (ghost button)
-   *
-   * Automatic theme adaptation:
-   * - All utilities automatically switch between light/dark modes
-   * - Maintains proper contrast ratios in both themes
-   * - Hover states adapt to current theme
-   * - Focus states use theme-aware ring colors
-   *
-   * Component integration:
-   * - Button component automatically uses these utilities
-   * - Variants map directly to semantic color combinations
-   * - Sizes maintain consistent spacing and proportions
-   * - Icons automatically sized and positioned
-   */
   --color-primary: var(--primary);
 
   /* Alert Variant Color System - Comprehensive Documentation
@@ -539,6 +600,30 @@
   --color-alert-destructive-foreground: var(--alert-destructive-foreground);
   --color-alert-destructive-border: var(--alert-destructive-border);
   --color-alert-destructive-muted: var(--alert-destructive-muted);
+
+  /* Button Component Color Mappings - Tailwind Utilities */
+  --color-button-primary: var(--button-primary);
+  --color-button-primary-foreground: var(--button-primary-foreground);
+  --color-button-primary-hover: var(--button-primary-hover);
+
+  --color-button-secondary: var(--button-secondary);
+  --color-button-secondary-foreground: var(--button-secondary-foreground);
+  --color-button-secondary-hover: var(--button-secondary-hover);
+
+  --color-button-destructive: var(--button-destructive);
+  --color-button-destructive-foreground: var(--button-destructive-foreground);
+  --color-button-destructive-hover: var(--button-destructive-hover);
+
+  --color-button-outline: var(--button-outline);
+  --color-button-outline-border: var(--button-outline-border);
+  --color-button-outline-hover: var(--button-outline-hover);
+  --color-button-outline-hover-foreground: var(--button-outline-hover-foreground);
+
+  --color-button-ghost-hover: var(--button-ghost-hover);
+  --color-button-ghost-hover-foreground: var(--button-ghost-hover-foreground);
+
+  --color-button-link: var(--button-link);
+  --color-button-link-hover: var(--button-link-hover);
 
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);

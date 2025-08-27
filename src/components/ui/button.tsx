@@ -8,12 +8,20 @@ import { cn } from "@/lib/utils";
  * Button component with comprehensive variant system and accessibility features.
  *
  * **Available Variants:**
- * - `default`: Primary action button with primary colors
- * - `destructive`: Dangerous actions with destructive styling
- * - `outline`: Secondary actions with border and background hover
- * - `secondary`: Alternative primary actions with secondary colors
- * - `ghost`: Subtle actions with background hover only
- * - `link`: Text-based actions that look like links
+ * - `default`: Primary action button with button-specific primary colors
+ * - `destructive`: Dangerous actions with button-specific destructive styling
+ * - `secondary`: Alternative primary actions with button-specific secondary colors (has border)
+ * - `outline`: Identical to secondary - use for secondary actions with borders
+ * - `ghost`: Subtle actions with button-specific hover colors (no border)
+ * - `link`: Text-based actions with button-specific link colors (no border)
+ *
+ * **CSS Variables Used:**
+ * - Primary: --button-primary, --button-primary-foreground, --button-primary-hover
+ * - Secondary: --button-secondary, --button-secondary-foreground, --button-secondary-hover, --button-secondary-border
+ * - Outline: --button-outline, --button-outline-foreground, --button-outline-hover, --button-outline-border
+ * - Destructive: --button-destructive, --button-destructive-foreground, --button-destructive-hover
+ * - Ghost: --button-ghost-hover, --button-ghost-hover-foreground
+ * - Link: --button-link, --button-link-hover
  *
  * **Available Sizes:**
  * - `default`: Standard button size (h-8, px-4, py-2)
@@ -28,6 +36,7 @@ import { cn } from "@/lib/utils";
  * - Responsive design with proper hover states
  * - Dark mode support with theme-aware colors
  * - Disabled state handling with proper opacity
+ * - Button-specific color system for consistent theming
  *
  * **Usage Examples:**
  * ```tsx
@@ -64,16 +73,16 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground hover:bg-primary/90",
+          "bg-button-primary text-button-primary-foreground hover:bg-button-primary-hover",
         destructive:
-          "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+          "bg-button-destructive text-button-destructive-foreground hover:bg-button-destructive-hover focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
         outline:
-          "border bg-background hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
+          "bg-button-outline border border-button-outline-border text-button-outline-foreground hover:bg-button-outline-hover",
         secondary:
-          "bg-secondary border border-interactive text-secondary-foreground hover:bg-secondary/80",
+          "bg-button-secondary border border-button-secondary-border text-button-secondary-foreground hover:bg-button-secondary-hover",
         ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
-        link: "text-primary underline-offset-4 hover:underline",
+          "hover:bg-button-ghost-hover hover:text-button-ghost-hover-foreground",
+        link: "text-button-link underline-offset-4 hover:text-button-link-hover hover:underline",
       },
       size: {
         default: "h-8 px-4 py-2 has-[>svg]:px-3",

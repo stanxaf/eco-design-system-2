@@ -195,6 +195,31 @@ Based on real-world testing, here are the key lessons for successful v0 integrat
 # - Imports registry files when provided
 ```
 
+#### **Button Component Specific Rules for v0:**
+
+- **Secondary vs Outline**: These variants look identical but use different CSS variables
+- **CSS Variables**: Always use button-specific variables (--button-* not --primary, --secondary)
+- **Border Handling**: Secondary and outline variants both have borders
+- **No Hardcoded Colors**: Use only the button-specific CSS variables defined in globals.css
+
+#### **Button CSS Variables Reference for v0:**
+
+```css
+/* Available button variables for v0 to use */
+--button-primary, --button-primary-foreground, --button-primary-hover
+--button-secondary, --button-secondary-foreground, --button-secondary-hover, --button-secondary-border
+--button-outline, --button-outline-foreground, --button-outline-hover, --button-outline-border
+--button-destructive, --button-destructive-foreground, --button-destructive-hover
+--button-ghost-hover, --button-ghost-hover-foreground
+--button-link, --button-link-hover
+```
+
+**v0 Button Usage Examples:**
+- ✅ `className="bg-button-primary text-button-primary-foreground hover:bg-button-primary-hover"`
+- ❌ `className="bg-primary text-primary-foreground"` (don't use generic variables)
+- ✅ `className="bg-button-secondary border border-button-secondary-border text-button-secondary-foreground"`
+- ❌ `className="bg-secondary border border-gray-300"` (don't hardcode colors)
+
 ## Running locally
 
 ```bash

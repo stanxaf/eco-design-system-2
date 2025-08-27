@@ -21,6 +21,10 @@ export function ButtonDocs() {
               <CardDescription>Different button styles and sizes</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
+              <div className="text-sm text-muted-foreground p-3 bg-muted rounded-md">
+                <strong>Note:</strong> The "Secondary" and "Outline" variants are visually identical
+                and use the same button-specific CSS variables. Choose based on semantic meaning.
+              </div>
               <div>
                 <h4 className="font-medium mb-3">Variants</h4>
                 <div className="flex flex-wrap gap-3">
@@ -171,11 +175,11 @@ export function ButtonDocs() {
                 <h4 className="font-medium mb-2">Variant Usage</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
                   <li><strong>Default:</strong> Primary actions, form submissions</li>
-                  <li><strong>Secondary:</strong> Alternative actions, less important</li>
+                  <li><strong>Secondary:</strong> Alternative actions, less important (has border)</li>
                   <li><strong>Destructive:</strong> Dangerous actions (delete, remove)</li>
-                  <li><strong>Outline:</strong> Secondary actions with borders</li>
-                  <li><strong>Ghost:</strong> Subtle actions, navigation</li>
-                  <li><strong>Link:</strong> Inline actions that look like links</li>
+                  <li><strong>Outline:</strong> Identical to Secondary - use for secondary actions with borders</li>
+                  <li><strong>Ghost:</strong> Subtle actions, navigation (no border)</li>
+                  <li><strong>Link:</strong> Inline actions that look like links (no border)</li>
                 </ul>
               </div>
 

@@ -8,4 +8,6 @@ export const button = {
     Outline: <Button variant="outline">Outline</Button>,
     Small: <Button variant="outline" size="sm">Small</Button>,
   },
+  // Note: Secondary and Outline variants are visually identical
+  // but use different CSS variables for semantic distinction
 };
