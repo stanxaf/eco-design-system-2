@@ -195,12 +195,48 @@ Based on real-world testing, here are the key lessons for successful v0 integrat
 # - Imports registry files when provided
 ```
 
+#### **Troubleshooting v0 JSON Usage:**
+
+**If v0 ignores the registry JSON files:**
+1. **Direct v0 to registry**: "Check the public/r/ directory for button.json"
+2. **Ask v0 to search**: "Search for button component in the registry files"
+3. **Verify registry structure**: "Look in public/r/styles/ and public/r/components/"
+4. **Force registry usage**: "Don't create a new button, use the one from the registry JSON"
+
+**Common v0 mistakes:**
+- ❌ Creating new components instead of using JSON
+- ❌ Ignoring the provided registry files
+- ❌ Using hardcoded colors instead of CSS variables
+- ❌ Expanding variants beyond what's documented
+
+**Correct v0 behavior:**
+- ✅ Imports JSON file with `ImportReadOnlyFile`
+- ✅ Uses exact component code from JSON
+- ✅ References CSS variables from the code
+- ✅ Works within documented constraints
+
 #### **Button Component Specific Rules for v0:**
 
 - **Secondary vs Outline**: These variants look identical but use different CSS variables
 - **CSS Variables**: Always use button-specific variables (--button-* not --primary, --secondary)
 - **Border Handling**: Secondary and outline variants both have borders
 - **No Hardcoded Colors**: Use only the button-specific CSS variables defined in globals.css
+
+#### **Critical: Use Registry JSON Files**
+
+When working with components, v0 **MUST**:
+1. **Find and import registry JSON files** from the `public/r/` directory using `ImportReadOnlyFile` command
+2. **Use the exact component code** from the JSON file
+3. **NEVER recreate components** from scratch
+4. **Follow the CSS variables** exactly as defined in the JSON
+
+**Example workflow:**
+```
+1. v0 searches for button.json in public/r/styles/ or public/r/components/
+2. v0 runs: ImportReadOnlyFile button.json
+3. v0 uses the exact Button component from the file
+4. v0 does NOT create a new Button component
+```
 
 #### **Button CSS Variables Reference for v0:**
 
@@ -219,6 +255,29 @@ Based on real-world testing, here are the key lessons for successful v0 integrat
 - ❌ `className="bg-primary text-primary-foreground"` (don't use generic variables)
 - ✅ `className="bg-button-secondary border border-button-secondary-border text-button-secondary-foreground"`
 - ❌ `className="bg-secondary border border-gray-300"` (don't hardcode colors)
+
+#### **JSON File Structure for v0:**
+
+When v0 receives a component JSON file, it contains:
+```json
+{
+  "name": "button",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "src/components/ui/button.tsx",
+      "content": "// Complete component code here",
+      "type": "registry:component"
+    }
+  ]
+}
+```
+
+**v0 MUST:**
+- Extract the `content` field from the JSON
+- Use that exact code as the component implementation
+- Reference the CSS variables used in the code
+- NOT create alternative implementations
 
 ## Running locally
 
