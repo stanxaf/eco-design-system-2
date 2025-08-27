@@ -443,26 +443,77 @@
    */
   --color-primary: var(--primary);
 
-  /* Alert Variant Semantic Colors - Tailwind Utilities
+  /* Alert Variant Color System - Comprehensive Documentation
    *
-   * These semantic colors are available as Tailwind utilities
-   * and provide consistent theming across all alert variants.
+   * These semantic colors are used by the alert component
+   * and provide consistent theming across all variants.
    *
-   * Available utilities:
-   * - bg-info, text-info-foreground, border-info-border, text-info-muted
-   * - bg-success, text-success-foreground, border-success-border, text-success-muted
-   * - bg-warning, text-warning-foreground, border-warning-border, text-warning-muted
-   * - bg-alert-destructive, text-alert-destructive-foreground, etc.
+   * Available alert variants:
+   * - default: Default color system (--default, --default-foreground, --default-border) using slate colors
+   * - destructive: Error states (--alert-destructive, --alert-destructive-foreground, --alert-destructive-border)
+   * - info: Information states (--info, --info-foreground, --info-border)
+   * - success: Success states (--success, --success-foreground, --success-border)
+   * - warning: Warning states (--warning, --warning-foreground, --warning-border)
+   *
+   * Color mapping:
+   * - Light mode: slate-200 background with foreground text and slate-300 border
+   * - Dark mode: slate-800 background with foreground text and slate-700 border
+   * - All variants automatically adapt to light/dark themes
    *
    * Usage in components:
-   * - className="bg-info text-info-foreground border-info-border"
-   * - className="text-success-muted" (for icons and descriptions)
-   * - className="border-warning-border" (for borders)
+   * - className="bg-default text-default-foreground border-default-border" (default alert - slate colors)
+   * - className="bg-info text-info-foreground border-info-border" (info alert - blue colors)
+   * - className="bg-success text-success-foreground border-success-border" (success alert - green colors)
+   * - className="bg-warning text-warning-foreground border-warning-border" (warning alert - orange colors)
+   * - className="bg-alert-destructive text-alert-destructive-foreground border-alert-destructive-border" (destructive alert - red colors)
    *
-   * Automatic theme adaptation:
-   * - All utilities automatically switch between light/dark modes
-   * - No manual theme switching required
-   * - Maintains proper contrast ratios in both themes
+   * Component features:
+   * - Close button functionality with showCloseButton prop
+   * - Automatic theme adaptation via CSS custom properties
+   * - Consistent semantic colors matching badge components
+   * - Proper accessibility with role="alert"
+   * - Responsive grid layout with icon support
+   *
+   * Component integration:
+   * - Alert component automatically uses these utilities
+   * - Variants map directly to semantic color combinations
+   * - Maintains visual consistency with badge components
+   * - Supports close button functionality
+   * - Automatic theme adaptation via CSS custom properties
+   */
+
+  /* Badge Color System - Alert-Integrated Variants
+   *
+   * These semantic colors are used by the badge component
+   * and provide consistent theming that matches the alert system.
+   *
+   * Available badge variants:
+   * - default: Default color system (--default, --default-foreground) using slate colors
+   * - destructive: Error states (bg-alert-destructive, text-alert-destructive-foreground)
+   * - info: Information states (bg-info, text-info-foreground)
+   * - success: Success states (bg-success, text-success-foreground)
+   * - warning: Warning states (bg-warning, text-warning-foreground)
+   *
+   * Design features:
+   * - All variants use 4px border radius (rounded-sm)
+   * - Default variant uses default color system for consistency with alerts
+   * - Consistent semantic colors matching alert components
+   * - Light backgrounds with appropriate foreground contrast
+   * - Automatic theme adaptation (light/dark mode)
+   *
+   * Usage in components:
+   * - className="bg-default text-default-foreground" (default badge - slate colors)
+   * - className="bg-info text-info-foreground" (info badge - blue colors)
+   * - className="bg-success text-success-foreground" (success badge - green colors)
+   * - className="bg-warning text-warning-foreground" (warning badge - orange colors)
+   * - className="bg-alert-destructive text-alert-destructive-foreground" (destructive badge - red colors)
+   *
+   * Component integration:
+   * - Badge component automatically uses these utilities
+   * - Variants map directly to semantic color combinations
+   * - Maintains visual consistency with alert components
+   * - Supports asChild rendering for polymorphic behavior
+   * - Default variant provides neutral slate styling for general use
    */
   --color-info: var(--info);
   --color-info-foreground: var(--info-foreground);
@@ -504,66 +555,6 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Avatar Size System - Tailwind Utilities
-   *
-   * These size utilities provide consistent avatar dimensions across all variants.
-   *
-   * Available sizes:
-   * - size-8: 32px (2rem) - Small avatar for compact layouts
-   * - size-10: 40px (2.5rem) - Medium avatar for standard use
-   * - size-12: 48px (3rem) - Large avatar for prominent display
-   *
-   * Usage in components:
-   * - className="size-8" (32px avatar)
-   * - className="size-10" (40px avatar)
-   * - className="size-12" (48px avatar)
-   *
-   * Automatic scaling:
-   * - All sizes maintain aspect-square ratio
-   * - Responsive design with proper scaling
-   * - Consistent spacing and alignment
-   *
-   * Component integration:
-   * - Avatar component automatically uses these utilities
-   * - Size variants map directly to Tailwind size classes
-   * - Fallback content scales appropriately
-   * - Images maintain proper proportions
-   */
-
-  /* Badge Color System - Alert-Integrated Variants
-   *
-   * These semantic colors are used by the badge component
-   * and provide consistent theming that matches the alert system.
-   *
-   * Available badge variants:
-   * - default: Default color system (--default, --default-foreground) using slate colors
-   * - destructive: Error states (bg-alert-destructive, text-alert-destructive-foreground)
-   * - info: Information states (bg-info, text-info-foreground)
-   * - success: Success states (bg-success, text-success-foreground)
-   * - warning: Warning states (bg-warning, text-warning-foreground)
-   *
-   * Design features:
-   * - All variants use 4px border radius (rounded-sm)
-   * - Default variant uses default color system for consistency with alerts
-   * - Consistent semantic colors matching alert components
-   * - Light backgrounds with appropriate foreground contrast
-   * - Automatic theme adaptation (light/dark mode)
-   *
-   * Usage in components:
-   * - className="bg-default text-default-foreground" (default badge - slate colors)
-   * - className="bg-info text-info-foreground" (info badge - blue colors)
-   * - className="bg-success text-success-foreground" (success badge - green colors)
-   * - className="bg-warning text-warning-foreground" (warning badge - orange colors)
-   * - className="bg-alert-destructive text-alert-destructive-foreground" (destructive badge - red colors)
-   *
-   * Component integration:
-   * - Badge component automatically uses these utilities
-   * - Variants map directly to semantic color combinations
-   * - Maintains visual consistency with alert components
-   * - Supports asChild rendering for polymorphic behavior
-   * - Default variant provides neutral slate styling for general use
-   */
-
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
   --font-mono: var(--font-mono);
@@ -596,6 +587,31 @@
   /* Utility classes */
   --border-interactive: var(--border-interactive);
 
+  /* Avatar Size System - Tailwind Utilities
+   *
+   * These size utilities provide consistent avatar dimensions across all variants.
+   *
+   * Available sizes:
+   * - size-8: 32px (2rem) - Small avatar for compact layouts
+   * - size-10: 40px (2.5rem) - Medium avatar for standard use
+   * - size-12: 48px (3rem) - Large avatar for prominent display
+   *
+   * Usage in components:
+   * - className="size-8" (32px avatar)
+   * - className="size-10" (40px avatar)
+   * - className="size-12" (48px avatar)
+   *
+   * Automatic scaling:
+   * - All sizes maintain aspect-square ratio
+   * - Responsive design with proper scaling
+   * - Consistent spacing and alignment
+   *
+   * Component integration:
+   * - Avatar component automatically uses these utilities
+   * - Size variants map directly to Tailwind size classes
+   * - Fallback content scales appropriately
+   * - Images maintain proper proportions
+   */
 }
 
 @layer utilities {
