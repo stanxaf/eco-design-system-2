@@ -8,7 +8,7 @@ export const checkbox = {
         <Checkbox id="terms" />
         <label
           htmlFor="terms"
-          className="font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          className="font-regular text-xs leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
         >
           Accept terms and conditions
         </label>

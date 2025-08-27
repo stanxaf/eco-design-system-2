@@ -4,6 +4,7 @@ import type { Component } from "@/lib/registry";
 import { AvatarDocs } from "./avatar";
 import { BadgeDocs } from "./badge";
 import { ButtonDocs } from "./button";
+import { CheckboxDocs } from "./checkbox";
 import { AlertDocs } from "./alert";
 import { GenericDocs } from "./generic";
 
@@ -17,6 +18,7 @@ export function ComponentDocs({ component }: ComponentDocsProps) {
     avatar: AvatarDocs,
     badge: BadgeDocs,
     button: ButtonDocs,
+    checkbox: CheckboxDocs,
     alert: AlertDocs,
   };
 
