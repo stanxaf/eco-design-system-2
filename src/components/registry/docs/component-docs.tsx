@@ -5,6 +5,7 @@ import { AvatarDocs } from "./avatar";
 import { BadgeDocs } from "./badge";
 import { ButtonDocs } from "./button";
 import { CheckboxDocs } from "./checkbox";
+import { TextareaDocs } from "./textarea";
 import { AlertDocs } from "./alert";
 import { GenericDocs } from "./generic";
 
@@ -19,6 +20,7 @@ export function ComponentDocs({ component }: ComponentDocsProps) {
     badge: BadgeDocs,
     button: ButtonDocs,
     checkbox: CheckboxDocs,
+    textarea: TextareaDocs,
     alert: AlertDocs,
   };
 

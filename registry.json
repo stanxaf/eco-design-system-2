@@ -1179,7 +1179,6 @@
       "title": "Textarea",
       "description": "A textarea component for multi-line text input.",
       "registryDependencies": [
-        "textarea",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [

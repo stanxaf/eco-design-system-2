@@ -3,6 +3,7 @@ export { BadgeDocs } from './badge';
 export { ButtonDocs } from './button';
 export { CheckboxDocs } from './checkbox';
 export { ComboboxDocs } from './combobox';
+export { TextareaDocs } from './textarea';
 export { AlertDocs } from './alert';
 export { GenericDocs } from './generic';
 export { ComponentDocs } from './component-docs';
