@@ -29,7 +29,7 @@
    */
   html {
     font-size: 16px;
-    font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    font-family: var(--font-sans);
   }
 
   *,
@@ -58,6 +58,11 @@
 
   --brand-blue: #1497e3;
   --brand-green: #68c949;
+
+  /* Font family definitions - ensure these are available for isolated component rendering */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   --gray-50: #fafafa;
   --gray-100: #f4f4f5;
