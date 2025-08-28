@@ -763,7 +763,6 @@
       "title": "Switch",
       "description": "A control that allows the user to toggle between checked and not checked.",
       "registryDependencies": [
-        "switch",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
