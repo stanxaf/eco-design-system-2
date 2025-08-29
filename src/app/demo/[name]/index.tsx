@@ -43,7 +43,7 @@ import { hoverCard } from "@/app/demo/[name]/ui/hover-card";
 import { input } from "@/app/demo/[name]/ui/input";
 import { inputOtp } from "@/app/demo/[name]/ui/input-otp";
 import { label } from "@/app/demo/[name]/ui/label";
-import { menuBar } from "@/app/demo/[name]/ui/menu-bar";
+
 import { menubar } from "@/app/demo/[name]/ui/menubar";
 import { navigationMenu } from "@/app/demo/[name]/ui/navigation-menu";
 import { pagination } from "@/app/demo/[name]/ui/pagination";
@@ -118,8 +118,8 @@ export const demos: { [name: string]: Demo } = {
   input,
   "input-otp": inputOtp,
   label,
-  "menu-bar": menuBar,
-  menubar,
+
+  "menubar": menubar,
   "navigation-menu": navigationMenu,
   pagination,
   popover,
