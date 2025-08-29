@@ -1,16 +1,18 @@
 "use client";
 
 import type { Component } from "@/lib/registry";
+import { AlertDocs } from "./alert";
 import { AvatarDocs } from "./avatar";
 import { BadgeDocs } from "./badge";
 import { ButtonDocs } from "./button";
 import { CheckboxDocs } from "./checkbox";
+import { ComboboxDocs } from "./combobox";
 import { SwitchDocs } from "./switch";
 import { TextareaDocs } from "./textarea";
-import { AlertDocs } from "./alert";
 import { SkeletonDocs } from "./skeleton";
 import { SelectDocs } from "./select";
 import { RadioGroupDocs } from "./radio-group";
+import { DataTablePaginationDocs } from "./data-table-pagination";
 import { GenericDocs } from "./generic";
 
 interface ComponentDocsProps {
@@ -24,12 +26,14 @@ export function ComponentDocs({ component }: ComponentDocsProps) {
     badge: BadgeDocs,
     button: ButtonDocs,
     checkbox: CheckboxDocs,
+    combobox: ComboboxDocs,
     switch: SwitchDocs,
     textarea: TextareaDocs,
     alert: AlertDocs,
     skeleton: SkeletonDocs,
     select: SelectDocs,
     "radio-group": RadioGroupDocs,
+    "data-table-pagination": DataTablePaginationDocs,
   };
 
   // Get the appropriate documentation component

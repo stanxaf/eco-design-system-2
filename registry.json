@@ -1061,6 +1061,21 @@
       ]
     },
     {
+      "name": "data-table-pagination",
+      "type": "registry:ui",
+      "title": "Data Table Pagination",
+      "description": "An enhanced pagination component for data tables with items per page selection, item count display, and page navigation.",
+      "registryDependencies": [
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/data-table-pagination.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "popover",
       "type": "registry:ui",
       "title": "Popover",

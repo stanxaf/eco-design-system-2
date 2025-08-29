@@ -1,3 +1,4 @@
+export { AlertDocs } from './alert';
 export { AvatarDocs } from './avatar';
 export { BadgeDocs } from './badge';
 export { ButtonDocs } from './button';
@@ -5,9 +6,9 @@ export { CheckboxDocs } from './checkbox';
 export { ComboboxDocs } from './combobox';
 export { SwitchDocs } from './switch';
 export { TextareaDocs } from './textarea';
-export { AlertDocs } from './alert';
 export { SkeletonDocs } from './skeleton';
 export { SelectDocs } from './select';
 export { RadioGroupDocs } from './radio-group';
+export { DataTablePaginationDocs } from './data-table-pagination';
 export { GenericDocs } from './generic';
 export { ComponentDocs } from './component-docs';

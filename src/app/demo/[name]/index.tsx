@@ -33,6 +33,7 @@ import { collapsible } from "@/app/demo/[name]/ui/collapsible";
 import { command } from "@/app/demo/[name]/ui/command";
 import { contextMenu } from "@/app/demo/[name]/ui/context-menu";
 import { dataTable } from "@/app/demo/[name]/ui/data-table";
+import { dataTablePagination } from "@/app/demo/[name]/ui/data-table-pagination";
 import { datePicker } from "@/app/demo/[name]/ui/date-picker";
 import { dialog } from "@/app/demo/[name]/ui/dialog";
 import { drawer } from "@/app/demo/[name]/ui/drawer";
@@ -109,6 +110,7 @@ export const demos: { [name: string]: Demo } = {
   dialog,
   "date-picker": datePicker,
   "data-table": dataTable,
+  "data-table-pagination": dataTablePagination,
   drawer,
   "dropdown-menu": dropdownMenu,
   form,
