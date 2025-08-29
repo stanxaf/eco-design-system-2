@@ -7,6 +7,7 @@ import { BadgeDocs } from "./badge";
 import { ButtonDocs } from "./button";
 import { CheckboxDocs } from "./checkbox";
 import { ComboboxDocs } from "./combobox";
+import { NavigationMenuDocs } from "./navigation-menu";
 import { SwitchDocs } from "./switch";
 import { TextareaDocs } from "./textarea";
 import { SkeletonDocs } from "./skeleton";
@@ -27,6 +28,7 @@ export function ComponentDocs({ component }: ComponentDocsProps) {
     button: ButtonDocs,
     checkbox: CheckboxDocs,
     combobox: ComboboxDocs,
+    "navigation-menu": NavigationMenuDocs,
     switch: SwitchDocs,
     textarea: TextareaDocs,
     alert: AlertDocs,
