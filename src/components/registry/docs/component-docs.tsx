@@ -10,6 +10,7 @@ import { TextareaDocs } from "./textarea";
 import { AlertDocs } from "./alert";
 import { SkeletonDocs } from "./skeleton";
 import { SelectDocs } from "./select";
+import { RadioGroupDocs } from "./radio-group";
 import { GenericDocs } from "./generic";
 
 interface ComponentDocsProps {
@@ -28,6 +29,7 @@ export function ComponentDocs({ component }: ComponentDocsProps) {
     alert: AlertDocs,
     skeleton: SkeletonDocs,
     select: SelectDocs,
+    "radio-group": RadioGroupDocs,
   };
 
   // Get the appropriate documentation component
