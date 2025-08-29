@@ -9,6 +9,7 @@ import { SwitchDocs } from "./switch";
 import { TextareaDocs } from "./textarea";
 import { AlertDocs } from "./alert";
 import { SkeletonDocs } from "./skeleton";
+import { SelectDocs } from "./select";
 import { GenericDocs } from "./generic";
 
 interface ComponentDocsProps {
@@ -26,6 +27,7 @@ export function ComponentDocs({ component }: ComponentDocsProps) {
     textarea: TextareaDocs,
     alert: AlertDocs,
     skeleton: SkeletonDocs,
+    select: SelectDocs,
   };
 
   // Get the appropriate documentation component

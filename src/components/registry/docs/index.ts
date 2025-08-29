@@ -7,5 +7,6 @@ export { SwitchDocs } from './switch';
 export { TextareaDocs } from './textarea';
 export { AlertDocs } from './alert';
 export { SkeletonDocs } from './skeleton';
+export { SelectDocs } from './select';
 export { GenericDocs } from './generic';
 export { ComponentDocs } from './component-docs';
