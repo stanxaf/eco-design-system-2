@@ -24,7 +24,12 @@ export default async function DemoPage({
     notFound();
   }
 
-  const { components } = demos[name];
+  const demo = demos[name];
+  if (!demo) {
+    notFound();
+  }
+
+  const { components } = demo;
 
   return (
     <div className="flex h-[100vh] w-full flex-col gap-4">

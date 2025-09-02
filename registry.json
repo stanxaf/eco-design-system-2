@@ -1202,6 +1202,52 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "icons",
+      "type": "registry:ui",
+      "title": "Icons",
+      "description": "FontAwesome icon components demonstrating SSR compatibility and various icon styles. Includes comprehensive icon library for v0 compatibility with 30+ commonly used icons.",
+      "registryDependencies": [
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "dependencies": [
+        "@fortawesome/fontawesome-svg-core",
+        "@fortawesome/free-solid-svg-icons",
+        "@fortawesome/free-regular-svg-icons",
+        "@fortawesome/react-fontawesome"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/icons.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/lib/fontawesome.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "fa-icon",
+      "type": "registry:ui",
+      "title": "FontAwesome Icon",
+      "description": "Optimized FontAwesome icon component for v0 compatibility with comprehensive icon library, easy-to-use interface, and built-in error handling.",
+      "registryDependencies": [
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "dependencies": [
+        "@fortawesome/fontawesome-svg-core",
+        "@fortawesome/free-solid-svg-icons",
+        "@fortawesome/free-regular-svg-icons",
+        "@fortawesome/react-fontawesome"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/fa-icon.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }

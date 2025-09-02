@@ -42,6 +42,7 @@ import { form } from "@/app/demo/[name]/ui/form";
 import { hoverCard } from "@/app/demo/[name]/ui/hover-card";
 import { input } from "@/app/demo/[name]/ui/input";
 import { inputOtp } from "@/app/demo/[name]/ui/input-otp";
+import { icons } from "@/app/demo/[name]/ui/icons";
 import { label } from "@/app/demo/[name]/ui/label";
 
 import { menubar } from "@/app/demo/[name]/ui/menubar";
@@ -117,6 +118,7 @@ export const demos: { [name: string]: Demo } = {
   "hover-card": hoverCard,
   input,
   "input-otp": inputOtp,
+  icons,
   label,
 
   "menubar": menubar,

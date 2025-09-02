@@ -1,22 +1,28 @@
 "use client";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  AlertTriangle,
-  BarChart2,
-  Clock,
-  Database,
-  Home,
-  LayoutGrid,
-  MessageSquareText,
-  MoreHorizontal,
-  Table,
-  PanelLeftOpen,
-  PanelRightOpen,
-  User,
-  CreditCard,
-  Bell,
-  LogOut,
-} from "lucide-react";
+  faHome,
+  faUser,
+  faCreditCard,
+  faBell,
+  faClock,
+  faFolder,
+  faComment,
+} from "@fortawesome/free-regular-svg-icons";
+import {
+  faDatabase,
+  faTable,
+  faExclamationTriangle,
+  faChartLine,
+  faEllipsis,
+  faRightFromBracket,
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
+
+// Import FontAwesome configuration for v0 compatibility
+import "@/lib/fontawesome";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as React from "react";
@@ -77,22 +83,22 @@ export function BrandSidebar({
     {
       title: "Home",
       href: "/",
-      icon: <Home className="size-4" />,
+      icon: <FontAwesomeIcon icon={faHome} className="w-4 h-4" />,
     },
     {
       title: "Projects",
       href: "/projects",
-      icon: <LayoutGrid className="size-4" />,
+      icon: <FontAwesomeIcon icon={faFolder} className="w-4 h-4" />,
     },
     {
       title: "Databases",
       href: "/databases",
-      icon: <Database className="size-4" />,
+      icon: <FontAwesomeIcon icon={faDatabase} className="w-4 h-4" />,
     },
     {
       title: "Tables",
       href: "/tables",
-      icon: <Table className="size-4" />,
+      icon: <FontAwesomeIcon icon={faTable} className="w-4 h-4" />,
       badge: {
         text: "Beta",
       },
@@ -100,7 +106,7 @@ export function BrandSidebar({
     {
       title: "AI",
       href: "/ai",
-      icon: <MessageSquareText className="size-4" />,
+      icon: <FontAwesomeIcon icon={faComment} className="w-4 h-4" />,
       badge: {
         text: "Alpha",
       },
@@ -111,22 +117,22 @@ export function BrandSidebar({
     {
       title: "Alerts",
       href: "/alerts",
-      icon: <AlertTriangle className="size-4" />,
+      icon: <FontAwesomeIcon icon={faExclamationTriangle} className="w-4 h-4" />,
     },
     {
       title: "Analytics",
       href: "/analytics",
-      icon: <BarChart2 className="size-4" />,
+      icon: <FontAwesomeIcon icon={faChartLine} className="w-4 h-4" />,
     },
     {
       title: "History",
       href: "/history",
-      icon: <Clock className="size-4" />,
+      icon: <FontAwesomeIcon icon={faClock} className="w-4 h-4" />,
     },
     {
       title: "More",
       href: "/more",
-      icon: <MoreHorizontal className="size-4" />,
+      icon: <FontAwesomeIcon icon={faEllipsis} className="w-4 h-4" />,
     },
   ];
 
@@ -221,7 +227,7 @@ export function BrandSidebar({
                         </div>
                       )}
                       {!isCollapsed && (
-                        <MoreHorizontal className="size-4 text-sidebar-foreground/60" />
+                        <FontAwesomeIcon icon={faEllipsis} className="w-4 h-4 text-sidebar-foreground/60" />
                       )}
                     </button>
                   </PopoverTrigger>
@@ -247,20 +253,20 @@ export function BrandSidebar({
                     {/* Profile Menu Items */}
                     <div className="p-1">
                                              <button className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-accent transition-colors text-left group">
-                         <User className="size-4 text-muted-foreground group-hover:text-white transition-colors" />
+                         <FontAwesomeIcon icon={faUser} className="w-4 h-4 text-muted-foreground group-hover:text-white transition-colors" />
                          <span className="text-sm text-foreground group-hover:text-white transition-colors">Account</span>
                        </button>
                        <button className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-accent transition-colors text-left group">
-                         <CreditCard className="size-4 text-muted-foreground group-hover:text-white transition-colors" />
+                         <FontAwesomeIcon icon={faCreditCard} className="w-4 h-4 text-muted-foreground group-hover:text-white transition-colors" />
                          <span className="text-sm text-foreground group-hover:text-white transition-colors">Billing</span>
                        </button>
                        <button className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-accent transition-colors text-left group">
-                         <Bell className="size-4 text-muted-foreground group-hover:text-white transition-colors" />
+                         <FontAwesomeIcon icon={faBell} className="w-4 h-4 text-muted-foreground group-hover:text-white transition-colors" />
                          <span className="text-sm text-foreground group-hover:text-white transition-colors">Notifications</span>
                        </button>
                       <div className="border-t border-border my-1" />
                                              <button className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-accent transition-colors text-left group">
-                         <LogOut className="size-4 text-red-600 group-hover:text-white transition-colors" />
+                         <FontAwesomeIcon icon={faRightFromBracket} className="w-4 h-4 text-red-600 group-hover:text-white transition-colors" />
                          <span className="text-sm text-red-600 group-hover:text-white transition-colors">Log out</span>
                        </button>
                     </div>
@@ -283,12 +289,12 @@ export function BrandSidebar({
                   >
                     {isCollapsed ? (
                       <>
-                        <PanelLeftOpen className="size-4" />
+                        <FontAwesomeIcon icon={faChevronRight} className="w-4 h-4" />
                         <span>Expand sidebar</span>
                       </>
                     ) : (
                       <>
-                        <PanelRightOpen className="size-4" />
+                        <FontAwesomeIcon icon={faChevronLeft} className="w-4 h-4" />
                         <span>Collapse sidebar</span>
                       </>
                     )}
