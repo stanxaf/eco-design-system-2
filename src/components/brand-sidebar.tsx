@@ -20,9 +20,6 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
-
-// Import FontAwesome configuration for v0 compatibility
-import "@/lib/fontawesome";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as React from "react";

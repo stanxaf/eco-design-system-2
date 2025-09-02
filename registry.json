@@ -1221,10 +1221,6 @@
         {
           "path": "src/components/ui/icons.tsx",
           "type": "registry:component"
-        },
-        {
-          "path": "src/lib/fontawesome.ts",
-          "type": "registry:lib"
         }
       ]
     },
