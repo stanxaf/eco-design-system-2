@@ -1221,6 +1221,10 @@
         {
           "path": "src/components/ui/icons.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "src/components/icons.tsx",
+          "type": "registry:component"
         }
       ]
     },
@@ -1241,6 +1245,27 @@
       "files": [
         {
           "path": "src/components/ui/fa-icon.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "icons-registry",
+      "type": "registry:ui",
+      "title": "Icons Registry",
+      "description": "FontAwesome icons registry following best practices - centralized icon mapping for easy replacement of Lucide icons with FontAwesome equivalents. Perfect for v0 compatibility.",
+      "registryDependencies": [
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "dependencies": [
+        "@fortawesome/fontawesome-svg-core",
+        "@fortawesome/free-solid-svg-icons",
+        "@fortawesome/free-regular-svg-icons",
+        "@fortawesome/react-fontawesome"
+      ],
+      "files": [
+        {
+          "path": "src/components/icons.tsx",
           "type": "registry:component"
         }
       ]
