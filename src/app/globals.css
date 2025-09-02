@@ -205,7 +205,7 @@
   --alert-destructive-border: var(--red-200);
   --alert-destructive-muted: var(--red-600);
 
-  /* Button Component Variables - Light Mode */
+  /* Button Component Variables */
   --button-primary: var(--primary);
   --button-primary-foreground: var(--primary-foreground);
   --button-primary-hover: var(--blue-600);
