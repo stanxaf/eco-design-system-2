@@ -177,7 +177,7 @@
         "badge",
         "button",
         "sidebar",
-        "icons",
+        "https://eco-design-system-2.vercel.app/r/styles/icons.json",
         "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
         "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
         "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
@@ -258,7 +258,7 @@
         "badge",
         "button",
         "sidebar",
-        "icons",
+        "https://eco-design-system-2.vercel.app/r/styles/icons.json",
         "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
@@ -976,7 +976,6 @@
       "title": "Input OTP",
       "description": "A one-time password input component.",
       "registryDependencies": [
-        "input-otp",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
