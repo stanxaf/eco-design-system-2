@@ -5,6 +5,7 @@ export { ButtonDocs } from "./button";
 export { CheckboxDocs } from "./checkbox";
 export { ComboboxDocs } from "./combobox";
 export { DataTablePaginationDocs } from "./data-table-pagination";
+export { InputOTPDocs } from "./input-otp";
 export { NavigationMenuDocs } from "./navigation-menu";
 export { RadioGroupDocs } from "./radio-group";
 export { SelectDocs } from "./select";

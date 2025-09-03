@@ -7,6 +7,7 @@ import { BadgeDocs } from "./badge";
 import { ButtonDocs } from "./button";
 import { CheckboxDocs } from "./checkbox";
 import { ComboboxDocs } from "./combobox";
+import { InputOTPDocs } from "./input-otp";
 import { NavigationMenuDocs } from "./navigation-menu";
 import { SwitchDocs } from "./switch";
 import { TextareaDocs } from "./textarea";
@@ -28,6 +29,7 @@ export function ComponentDocs({ component }: ComponentDocsProps) {
     button: ButtonDocs,
     checkbox: CheckboxDocs,
     combobox: ComboboxDocs,
+    "input-otp": InputOTPDocs,
     "navigation-menu": NavigationMenuDocs,
     switch: SwitchDocs,
     textarea: TextareaDocs,
