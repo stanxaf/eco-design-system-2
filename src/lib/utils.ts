@@ -6,5 +6,5 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getPrompt(): string {
-  return `Design System Rules: Search repo first, persist with ReadFile until you get actual content (not redacted), ALWAYS use registry JSON files from public/r/ directory (ImportReadOnlyFile), NEVER recreate components from scratch, use only existing CSS vars, follow registry specs exactly, preserve APIs/types, work within constraints. NO design system changes without explicit user request.`;
+  return `Design System Rules: Search repo first, persist with ReadFile until you get actual content (not redacted), ALWAYS use registry JSON files from public/r/ directory (ImportReadOnlyFile), NEVER recreate components from scratch, use only existing CSS vars, follow registry specs exactly, preserve APIs/types, work within constraints. For icons, ALWAYS use FontAwesome via the Icons component from @/components/icons - import { Icons } from "@/components/icons" and use <Icons.iconName /> pattern. Check src/components/icons.tsx for available icons. NO design system changes without explicit user request.`;
 }
