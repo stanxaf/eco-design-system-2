@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CodeBlock } from "@/components/ui/code-block";
+import { Typography } from "@/components/ui/typography";
 
 export default function TypographyPage() {
   return (
@@ -20,25 +21,139 @@ export default function TypographyPage() {
 
         <h1 className="font-bold text-3xl tracking-tight">Typography</h1>
         <p className="mt-1 text-muted-foreground">
-          Styles for headings, paragraphs, lists...etc. We do not ship any typography styles by default. This page is an example of how you can use utility classes to style your text.
+          Styles for headings, paragraphs, lists...etc. We provide both utility classes and Typography components for consistent styling across all DTN projects.
         </p>
       </div>
 
-      {/* Typography Showcase */}
+      {/* Typography Components Showcase */}
+      <div className="mb-12">
+        <div className="space-y-8">
+          {/* H1 Component */}
+          <section>
+            <label className="mb-2 block text-muted-foreground">Typography.H1</label>
+            <Card className="rounded-b-none">
+              <CardContent>
+                <Typography.H1>
+                  Quick brown fox jumped over the lazy dog's back
+                </Typography.H1>
+              </CardContent>
+            </Card>
+            <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
+{`<Typography.H1>
+  Quick brown fox jumped over the lazy dog's back
+</Typography.H1>`}
+            </CodeBlock>
+          </section>
+
+          {/* H2 Component */}
+          <section>
+            <label className="mb-2 block text-muted-foreground">Typography.H2</label>
+            <Card className="rounded-b-none">
+              <CardContent>
+                <Typography.H2>
+                  Quick brown fox jumped over the lazy dog's back
+                </Typography.H2>
+              </CardContent>
+            </Card>
+            <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
+{`<Typography.H2>
+  Quick brown fox jumped over the lazy dog's back
+</Typography.H2>`}
+            </CodeBlock>
+          </section>
+
+          {/* H3 Component */}
+          <section>
+            <label className="mb-2 block text-muted-foreground">Typography.H3</label>
+            <Card className="rounded-b-none">
+              <CardContent>
+                <Typography.H3>
+                  Quick brown fox jumped over the lazy dog's back
+                </Typography.H3>
+              </CardContent>
+            </Card>
+            <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
+{`<Typography.H3>
+  Quick brown fox jumped over the lazy dog's back
+</Typography.H3>`}
+            </CodeBlock>
+          </section>
+
+          {/* H4 Component */}
+          <section>
+            <label className="mb-2 block text-muted-foreground">Typography.H4</label>
+            <Card className="rounded-b-none">
+              <CardContent>
+                <Typography.H4>
+                  Quick brown fox jumped over the lazy dog's back
+                </Typography.H4>
+              </CardContent>
+            </Card>
+            <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
+{`<Typography.H4>
+  Quick brown fox jumped over the lazy dog's back
+</Typography.H4>`}
+            </CodeBlock>
+          </section>
+
+          {/* H5 Component */}
+          <section>
+            <label className="mb-2 block text-muted-foreground">Typography.H5</label>
+            <Card className="rounded-b-none">
+              <CardContent>
+                <Typography.H5>
+                  Quick brown fox jumped over the lazy dog's back
+                </Typography.H5>
+              </CardContent>
+            </Card>
+            <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
+{`<Typography.H5>
+  Quick brown fox jumped over the lazy dog's back
+</Typography.H5>`}
+            </CodeBlock>
+          </section>
+
+          {/* H6 Component */}
+          <section>
+            <label className="mb-2 block text-muted-foreground">Typography.H6</label>
+            <Card className="rounded-b-none">
+              <CardContent>
+                <Typography.H6>
+                  Quick brown fox jumped over the lazy dog's back
+                </Typography.H6>
+              </CardContent>
+            </Card>
+            <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
+{`<Typography.H6>
+  Quick brown fox jumped over the lazy dog's back
+</Typography.H6>`}
+            </CodeBlock>
+          </section>
+        </div>
+      </div>
+
+      {/* Utility Classes Showcase */}
+      <div className="mb-8">
+        <h2 className="font-semibold text-xl">Utility Classes</h2>
+        <p className="mb-2 text-muted-foreground">
+          Alternative approach using Tailwind utility classes for custom styling needs.
+        </p>
+      </div>
+
       <div className="space-y-8">
         {/* H1 */}
         <section>
           <label className="mb-2 block text-muted-foreground">H1</label>
           <Card className="rounded-b-none">
             <CardContent>
-              <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight text-balance">
-                Quick brown fox jumped over the
+              <h1 className="font-bold text-2xl leading-6">
+                Quick brown fox jumped over the lazy dog's back
               </h1>
             </CardContent>
           </Card>
           <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight text-balance">
-  Quick brown fox jumped over the
+{`<h1 className="font-bold text-2xl leading-6">
+  Quick brown fox jumped over the lazy dog's back
 </h1>`}
           </CodeBlock>
         </section>
@@ -48,13 +163,13 @@ export default function TypographyPage() {
           <label className="mb-2 block text-muted-foreground">H2</label>
           <Card className="rounded-b-none">
             <CardContent>
-              <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+              <h2 className="font-bold text-2xl leading-6">
                 Quick brown fox jumped over the lazy dog's back
               </h2>
             </CardContent>
           </Card>
           <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
+{`<h2 className="font-bold text-2xl leading-6">
   Quick brown fox jumped over the lazy dog's back
 </h2>`}
           </CodeBlock>
@@ -65,13 +180,13 @@ export default function TypographyPage() {
           <label className="mb-2 block text-muted-foreground">H3</label>
           <Card className="rounded-b-none">
             <CardContent>
-              <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+              <h3 className="font-bold text-xl leading-5">
                 Quick brown fox jumped over the lazy dog's back 1234567890
               </h3>
             </CardContent>
           </Card>
           <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+{`<h3 className="font-bold text-xl leading-5">
   Quick brown fox jumped over the lazy dog's back 1234567890
 </h3>`}
           </CodeBlock>
@@ -82,13 +197,13 @@ export default function TypographyPage() {
           <label className="mb-2 block text-muted-foreground">H4</label>
           <Card className="rounded-b-none">
             <CardContent>
-              <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
+              <h4 className="font-bold text-lg leading-5">
                 Quick brown fox jumped over the lazy dog's back 1234567890
               </h4>
             </CardContent>
           </Card>
           <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
+{`<h4 className="font-bold text-lg leading-5">
   Quick brown fox jumped over the lazy dog's back 1234567890
 </h4>`}
           </CodeBlock>
@@ -99,13 +214,13 @@ export default function TypographyPage() {
           <label className="mb-2 block text-muted-foreground">H5</label>
           <Card className="rounded-b-none">
             <CardContent>
-              <h5 className="scroll-m-20 text-lg font-semibold tracking-tight">
+              <h5 className="font-bold text-base leading-5">
                 Quick brown fox jumped over the lazy dog's back 1234567890
               </h5>
             </CardContent>
           </Card>
           <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<h5 className="scroll-m-20 text-lg font-semibold tracking-tight">
+{`<h5 className="font-bold text-base leading-5">
   Quick brown fox jumped over the lazy dog's back 1234567890
 </h5>`}
           </CodeBlock>
@@ -116,13 +231,13 @@ export default function TypographyPage() {
           <label className="mb-2 block text-muted-foreground">H6</label>
           <Card className="rounded-b-none">
             <CardContent>
-              <h6 className="scroll-m-20 text-base font-semibold tracking-tight">
+              <h6 className="font-bold text-sm leading-4">
                 Quick brown fox jumped over the lazy dog's back 1234567890
               </h6>
             </CardContent>
           </Card>
           <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<h6 className="scroll-m-20 text-base font-semibold tracking-tight">
+{`<h6 className="font-bold text-sm leading-4">
   Quick brown fox jumped over the lazy dog's back 1234567890
 </h6>`}
           </CodeBlock>

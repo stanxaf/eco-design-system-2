@@ -1241,6 +1241,21 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "typography",
+      "type": "registry:ui",
+      "title": "Typography",
+      "description": "Consistent heading components based on Figma design system specifications. Provides H1-H6 components with standardized font sizes, weights, and line heights for all DTN projects.",
+      "registryDependencies": [
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/typography.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
