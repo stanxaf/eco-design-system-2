@@ -5,7 +5,6 @@ import {
   MobileSidebarTrigger,
   RegistrySidebar,
 } from "@/components/registry/registry-sidebar";
-import { Toaster } from "@/components/ui/sonner";
 
 export default function RegistryLayout({
   children,
@@ -17,7 +16,6 @@ export default function RegistryLayout({
       <MobileSidebarTrigger />
       <RegistrySidebar />
       <main className="flex w-full justify-center">{children}</main>
-      <Toaster />
     </SidebarProvider>
   );
 }

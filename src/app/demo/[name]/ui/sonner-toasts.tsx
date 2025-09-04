@@ -74,15 +74,14 @@ export function ActionSonner() {
       variant="outline"
       onClick={() => {
         try {
-          toast("Toast with an Action", {
-            description: "A description with some more information",
+          toast("A description with some more information", {
             action: {
               label: "Action",
               onClick: () => console.log("Action!"),
             },
           });
         } catch (error) {
-          fallbackToast("Toast with an Action", "info");
+          fallbackToast("A description with some more information", "info");
         }
       }}
     >

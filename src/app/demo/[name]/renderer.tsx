@@ -1,7 +1,6 @@
 "use client";
 
 import { type ReactNode, useEffect } from "react";
-import { Toaster } from "@/components/ui/sonner";
 
 export function Renderer({ children }: { children: ReactNode }) {
   useEffect(() => {
@@ -27,10 +26,5 @@ export function Renderer({ children }: { children: ReactNode }) {
     return () => window.removeEventListener("storage", onStorage);
   }, []);
 
-  return (
-    <>
-      {children}
-      <Toaster />
-    </>
-  );
+  return <>{children}</>;
 }
