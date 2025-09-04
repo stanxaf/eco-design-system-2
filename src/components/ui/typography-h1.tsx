@@ -11,14 +11,14 @@ interface TypographyH1Props extends HTMLAttributes<HTMLHeadingElement> {
  *
  * **IMPORTANT FOR v0: This is a standalone typography component.**
  * Use this component for main page titles and primary headings.
- * 
+ *
  * **Font Setup Required:**
  * This component uses Inter font. Add this to your layout.tsx:
  * ```tsx
  * import { Inter } from "next/font/google";
- * 
+ *
  * const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
- * 
+ *
  * export default function RootLayout({ children }) {
  *   return (
  *     <html className={inter.variable}>
@@ -37,7 +37,7 @@ interface TypographyH1Props extends HTMLAttributes<HTMLHeadingElement> {
  * **v0 Usage:**
  * ```tsx
  * import { TypographyH1 } from "@/components/ui/typography-h1";
- * 
+ *
  * <TypographyH1>Main Page Title</TypographyH1>
  * <TypographyH1 className="text-blue-500">Custom Styled Title</TypographyH1>
  * ```

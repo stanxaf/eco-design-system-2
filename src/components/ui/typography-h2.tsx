@@ -16,9 +16,9 @@ interface TypographyH2Props extends HTMLAttributes<HTMLHeadingElement> {
  * This component uses Inter font. Add this to your layout.tsx:
  * ```tsx
  * import { Inter } from "next/font/google";
- * 
+ *
  * const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
- * 
+ *
  * export default function RootLayout({ children }) {
  *   return (
  *     <html className={inter.variable}>
