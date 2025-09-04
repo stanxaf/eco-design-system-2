@@ -44,6 +44,9 @@ export function getUIPrimitives() {
     .filter(
       (component) => component.type === "registry:ui",
     )
+    .filter(
+      (component) => !["menubar"].includes(component.name),
+    )
     .sort((a, b) => a.title.localeCompare(b.title));
 }
 
@@ -51,6 +54,9 @@ export function getComponents() {
   return getRegistryItems()
     .filter(
       (component) => component.type === "registry:component",
+    )
+    .filter(
+      (component) => !["hero", "product-grid", "promo", "store"].includes(component.name),
     )
     .sort((a, b) => a.title.localeCompare(b.title));
 }
