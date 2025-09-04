@@ -521,6 +521,27 @@
       ]
     },
     {
+      "name": "date-picker",
+      "type": "registry:ui",
+      "title": "Date Picker",
+      "description": "A date picker component with single date and date range selection capabilities.",
+      "registryDependencies": [
+        "button",
+        "calendar",
+        "popover",
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "dependencies": [
+        "date-fns"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/date-picker.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "card",
       "type": "registry:ui",
       "title": "Card",
@@ -553,6 +574,29 @@
       ]
     },
     {
+      "name": "data-table",
+      "type": "registry:ui",
+      "title": "Data Table",
+      "description": "Powerful table and datagrids built using TanStack Table with sorting, filtering, pagination, and row selection.",
+      "registryDependencies": [
+        "button",
+        "checkbox",
+        "dropdown-menu",
+        "input",
+        "table",
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "dependencies": [
+        "@tanstack/react-table"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/data-table.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "checkbox",
       "type": "registry:ui",
       "title": "Checkbox",
@@ -580,40 +624,6 @@
         {
           "path": "src/components/ui/combobox.tsx",
           "type": "registry:component"
-        }
-      ]
-    },
-    {
-      "name": "data-table",
-      "type": "registry:ui",
-      "title": "Data Table",
-      "description": "Powerful table and datagrids built using TanStack Table.",
-      "registryDependencies": [
-        "data-table",
-        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
-      ],
-      "files": [
-        {
-          "path": "src/layouts/minimal-layout.tsx",
-          "type": "registry:file",
-          "target": "app/layout.tsx"
-        }
-      ]
-    },
-    {
-      "name": "date-picker",
-      "type": "registry:ui",
-      "title": "Date Picker",
-      "description": "Displays the path to the current resource using a hierarchy of links.",
-      "registryDependencies": [
-        "date-picker",
-        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
-      ],
-      "files": [
-        {
-          "path": "src/layouts/minimal-layout.tsx",
-          "type": "registry:file",
-          "target": "app/layout.tsx"
         }
       ]
     },
