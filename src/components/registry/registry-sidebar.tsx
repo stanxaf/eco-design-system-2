@@ -44,7 +44,7 @@ const componentItems = getComponents();
 const blockItems = getBlocks();
 
 export const gettingStartedItems = [
-  { title: "Home", path: "/" },
+  { title: "Intro", path: "/" },
   { title: "Design Tokens", path: "/tokens" },
 ];
 
