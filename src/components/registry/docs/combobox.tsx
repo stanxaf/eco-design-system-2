@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 
+import { CodeBlock } from "@/components/ui/code-block";
 const frameworks = [
   {
     value: "next.js",
@@ -219,7 +220,7 @@ export function ComboboxDocs() {
             <CardContent className="space-y-4">
               <div>
                 <h4 className="font-medium mb-2">Basic Combobox</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`const [open, setOpen] = useState(false);
 const [value, setValue] = useState("");
 
@@ -254,12 +255,12 @@ const [value, setValue] = useState("");
     </Command>
   </PopoverContent>
 </Popover>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Combobox with Form</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<FormField
   control={form.control}
   name="language"
@@ -301,12 +302,12 @@ const [value, setValue] = useState("");
     </FormItem>
   )}
 />`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Responsive Combobox</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`const isDesktop = useMediaQuery("(min-width: 768px)");
 
 if (isDesktop) {
@@ -334,7 +335,7 @@ return (
     </DrawerContent>
   </Drawer>
 );`}
-                </pre>
+                </CodeBlock>
               </div>
             </CardContent>
           </Card>

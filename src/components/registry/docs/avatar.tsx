@@ -5,6 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
+import { CodeBlock } from "@/components/ui/code-block";
 export function AvatarDocs() {
   return (
     <div className="mt-8">
@@ -103,62 +104,62 @@ export function AvatarDocs() {
             <CardContent className="space-y-4">
               <div>
                 <h4 className="font-medium mb-2">Basic Avatar (Default Medium)</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Avatar>
   <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
   <AvatarFallback>CN</AvatarFallback>
 </Avatar>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Small Size (32px)</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Avatar size="sm">
   <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
   <AvatarFallback>CN</AvatarFallback>
 </Avatar>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Medium Size (40px)</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Avatar size="md">
   <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
   <AvatarFallback>CN</AvatarFallback>
 </Avatar>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Large Size (48px)</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Avatar size="lg">
   <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
   <AvatarFallback>CN</AvatarFallback>
 </Avatar>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Fallback Only</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Avatar size="md">
   <AvatarFallback>JD</AvatarFallback>
 </Avatar>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Size Comparison</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<div className="flex items-center gap-4">
   <Avatar size="sm"><AvatarFallback>SM</AvatarFallback></Avatar>
   <Avatar size="md"><AvatarFallback>MD</AvatarFallback></Avatar>
   <Avatar size="lg"><AvatarFallback>LG</AvatarFallback></Avatar>
 </div>`}
-                </pre>
+                </CodeBlock>
               </div>
             </CardContent>
           </Card>

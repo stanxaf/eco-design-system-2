@@ -4,6 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Component } from "@/lib/registry";
 
+import { CodeBlock } from "@/components/ui/code-block";
 interface GenericDocsProps {
   component: Component;
 }
@@ -31,14 +32,14 @@ export function GenericDocs({ component }: GenericDocsProps) {
                     <p className="text-sm text-muted-foreground mb-2">
                       Type: {file.type} | Target: {file.target}
                     </p>
-                    <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                    <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
                       {`// ${file.path}
 // Type: ${file.type}
 // Target: ${file.target}
 
 // File content would be displayed here
 // This component doesn't have specific documentation yet`}
-                    </pre>
+                    </CodeBlock>
                   </div>
                 ))
               ) : (

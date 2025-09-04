@@ -5,6 +5,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
+import { CodeBlock } from "@/components/ui/code-block";
 export function RadioGroupDocs() {
   return (
     <div className="mt-8">
@@ -140,7 +141,7 @@ export function RadioGroupDocs() {
             <CardContent className="space-y-4">
               <div>
                 <h4 className="font-medium mb-2">Basic Radio Group</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<RadioGroup defaultValue="option-one">
   <div className="flex items-center space-x-2">
     <RadioGroupItem value="option-one" id="option-one" />
@@ -151,12 +152,12 @@ export function RadioGroupDocs() {
     <Label htmlFor="option-two">Option Two</Label>
   </div>
 </RadioGroup>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Horizontal Layout</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<RadioGroup defaultValue="small" className="flex flex-row space-x-6">
   <div className="flex items-center space-x-2">
     <RadioGroupItem value="small" id="size-small" />
@@ -167,12 +168,12 @@ export function RadioGroupDocs() {
     <Label htmlFor="size-medium">Medium</Label>
   </div>
 </RadioGroup>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">With Descriptions</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<RadioGroup defaultValue="light">
   <div className="flex items-start space-x-2">
     <RadioGroupItem value="light" id="theme-light" className="mt-1" />
@@ -184,12 +185,12 @@ export function RadioGroupDocs() {
     </div>
   </div>
 </RadioGroup>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Controlled Radio Group</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`const [value, setValue] = useState("option-one");
 
 <RadioGroup value={value} onValueChange={setValue}>
@@ -202,12 +203,12 @@ export function RadioGroupDocs() {
     <Label htmlFor="option-two">Option Two</Label>
   </div>
 </RadioGroup>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Disabled and Invalid States</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`{/* Disabled Radio Group */}
 <RadioGroup defaultValue="enabled" disabled>
   <div className="flex items-center space-x-2">
@@ -218,19 +219,19 @@ export function RadioGroupDocs() {
 
 {/* Invalid Radio Item */}
 <RadioGroupItem value="invalid" id="invalid-option" aria-invalid="true" />`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Custom Styling</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<RadioGroup defaultValue="custom" className="grid grid-cols-2 gap-4">
   <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-muted/50">
     <RadioGroupItem value="custom" id="custom-option" />
     <Label htmlFor="custom-option">Custom Option</Label>
   </div>
 </RadioGroup>`}
-                </pre>
+                </CodeBlock>
               </div>
             </CardContent>
           </Card>

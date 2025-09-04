@@ -8,7 +8,11 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export async function copyToClipboard(value: string) {
-  await navigator.clipboard.writeText(value);
+  try {
+    await navigator.clipboard.writeText(value);
+  } catch (err) {
+    console.error("Failed to copy text: ", err);
+  }
 }
 
 export function MCPTabs({ rootUrl }: { rootUrl: string }) {

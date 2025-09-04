@@ -5,6 +5,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 
+import { CodeBlock } from "@/components/ui/code-block";
 export function CheckboxDocs() {
   return (
     <div className="mt-8">
@@ -82,15 +83,15 @@ export function CheckboxDocs() {
             <CardContent className="space-y-4">
               <div>
                 <h4 className="font-medium mb-2">Basic Checkbox</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Checkbox id="checkbox" />
 <Label htmlFor="checkbox">Checkbox label</Label>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Controlled Checkbox</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`const [checked, setChecked] = useState(false);
 
 <Checkbox
@@ -99,12 +100,12 @@ export function CheckboxDocs() {
   onCheckedChange={setChecked}
 />
 <Label htmlFor="controlled">Controlled checkbox</Label>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Checkbox with Form</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<form className="space-y-4">
   <div className="flex items-center space-x-2">
     <Checkbox id="terms" required />
@@ -112,12 +113,12 @@ export function CheckboxDocs() {
   </div>
   <Button type="submit">Submit</Button>
 </form>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Component Implementation</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`function Checkbox({
   className,
   ...props
@@ -140,7 +141,7 @@ export function CheckboxDocs() {
     </CheckboxPrimitive.Root>
   );
 }`}
-                </pre>
+                </CodeBlock>
               </div>
             </CardContent>
           </Card>

@@ -3,6 +3,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator } from "@/components/ui/input-otp";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { CodeBlock } from "@/components/ui/code-block";
 import { useState } from "react";
 
 export function InputOTPDocs() {
@@ -139,7 +140,7 @@ export function InputOTPDocs() {
             <CardContent className="space-y-4">
               <div>
                 <h4 className="font-medium mb-2">Basic OTP</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 
 function BasicOTP() {
@@ -158,12 +159,12 @@ function BasicOTP() {
     </InputOTP>
   );
 }`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">With Separator</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`import {
   InputOTP,
   InputOTPGroup,
@@ -190,12 +191,12 @@ function OTPWithSeparator() {
     </InputOTP>
   );
 }`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Custom Length</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<InputOTP maxLength={4} value={value} onChange={setValue}>
   <InputOTPGroup>
     <InputOTPSlot index={0} />
@@ -204,12 +205,12 @@ function OTPWithSeparator() {
     <InputOTPSlot index={3} />
   </InputOTPGroup>
 </InputOTP>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Multiple Separators</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<InputOTP maxLength={8} value={value} onChange={setValue}>
   <InputOTPGroup>
     <InputOTPSlot index={0} />
@@ -228,7 +229,7 @@ function OTPWithSeparator() {
     <InputOTPSlot index={7} />
   </InputOTPGroup>
 </InputOTP>`}
-                </pre>
+                </CodeBlock>
               </div>
             </CardContent>
           </Card>

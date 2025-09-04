@@ -4,6 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
+import { CodeBlock } from "@/components/ui/code-block";
 export function SkeletonDocs() {
   return (
     <div className="mt-8">
@@ -116,28 +117,28 @@ export function SkeletonDocs() {
             <CardContent className="space-y-4">
               <div>
                 <h4 className="font-medium mb-2">Basic Skeleton</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Skeleton className="h-4 w-[200px]" />`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Avatar Skeleton</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Skeleton className="h-12 w-12 rounded-full" />`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Card Skeleton</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Skeleton className="h-[125px] w-[250px] rounded-xl" />`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Content Layout</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<div className="flex items-center space-x-4">
   <Skeleton className="h-12 w-12 rounded-full" />
   <div className="space-y-2">
@@ -145,23 +146,23 @@ export function SkeletonDocs() {
     <Skeleton className="h-4 w-[200px]" />
   </div>
 </div>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Form Layout</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<div className="space-y-3">
   <Skeleton className="h-10 w-[300px]" />
   <Skeleton className="h-10 w-[200px]" />
   <Skeleton className="h-10 w-[150px]" />
 </div>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Table Rows</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<div className="space-y-2">
   <div className="flex space-x-4">
     <Skeleton className="h-4 w-[100px]" />
@@ -170,16 +171,16 @@ export function SkeletonDocs() {
   </div>
   {/* Repeat for more rows */}
 </div>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Custom Styling</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Skeleton
   className="h-20 w-full bg-gradient-to-r from-muted to-muted/50"
 />`}
-                </pre>
+                </CodeBlock>
               </div>
             </CardContent>
           </Card>

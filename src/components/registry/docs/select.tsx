@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
+import { CodeBlock } from "@/components/ui/code-block";
 export function SelectDocs() {
   return (
     <div className="mt-8">
@@ -173,7 +174,7 @@ export function SelectDocs() {
             <CardContent className="space-y-4">
               <div>
                 <h4 className="font-medium mb-2">Basic Select</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Select>
   <SelectTrigger className="w-[180px]">
     <SelectValue placeholder="Select an option" />
@@ -184,12 +185,12 @@ export function SelectDocs() {
     <SelectItem value="option3">Option 3</SelectItem>
   </SelectContent>
 </Select>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">With Groups and Labels</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Select>
   <SelectTrigger className="w-[200px]">
     <SelectValue placeholder="Select a category" />
@@ -208,12 +209,12 @@ export function SelectDocs() {
     </SelectGroup>
   </SelectContent>
 </Select>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Default Size</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Select>
   <SelectTrigger className="w-[180px]">
     <SelectValue placeholder="Default" />
@@ -223,12 +224,12 @@ export function SelectDocs() {
     <SelectItem value="option2">Option 2</SelectItem>
   </SelectContent>
 </Select>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">With Icons</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Select>
   <SelectTrigger className="w-[200px]">
     <SelectValue placeholder="Select framework" />
@@ -242,12 +243,12 @@ export function SelectDocs() {
     </SelectItem>
   </SelectContent>
 </Select>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Controlled Select</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`const [value, setValue] = useState("");
 
 <Select value={value} onValueChange={setValue}>
@@ -259,12 +260,12 @@ export function SelectDocs() {
     <SelectItem value="option2">Option 2</SelectItem>
   </SelectContent>
 </Select>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Disabled and Invalid States</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`{/* Disabled Select */}
 <Select disabled>
   <SelectTrigger className="w-[180px]">
@@ -284,7 +285,7 @@ export function SelectDocs() {
     <SelectItem value="option1">Option 1</SelectItem>
   </SelectContent>
 </Select>`}
-                </pre>
+                </CodeBlock>
               </div>
             </CardContent>
           </Card>

@@ -3,6 +3,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { CodeBlock } from "@/components/ui/code-block";
 import { AlertCircle, Terminal, Info, CheckCircle, AlertTriangle } from "lucide-react";
 
 export function AlertDocs() {
@@ -120,7 +121,7 @@ export function AlertDocs() {
             <CardContent className="space-y-4">
               <div>
                 <h4 className="font-medium mb-2">Basic Alert</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Alert>
   <Terminal className="size-4" />
   <AlertTitle>Heads up!</AlertTitle>
@@ -128,23 +129,23 @@ export function AlertDocs() {
     You can add components to your app using the cli.
   </AlertDescription>
 </Alert>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Alert Variants</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Alert variant="default">Default Alert</Alert>
 <Alert variant="destructive">Error Alert</Alert>
 <Alert variant="info">Info Alert</Alert>
 <Alert variant="success">Success Alert</Alert>
 <Alert variant="warning">Warning Alert</Alert>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Alert with Icon</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Alert variant="info">
   <Info className="size-4" />
   <AlertTitle>Information</AlertTitle>
@@ -152,35 +153,36 @@ export function AlertDocs() {
     This is an informational message.
   </AlertDescription>
 </Alert>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Alert Components</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 
+import { CodeBlock } from "@/components/ui/code-block";
 // Alert: Main container
 // AlertTitle: Bold title text
 // AlertDescription: Descriptive text below title`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Custom Styling</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Alert className="border-2 border-dashed">
   <AlertTitle>Custom Style</AlertTitle>
   <AlertDescription>
     Alert with custom border styling.
   </AlertDescription>
 </Alert>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Alert with Close Button</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Alert showCloseButton onClose={() => handleClose()}>
   <Info className="size-4" />
   <AlertTitle>Dismissible Alert</AlertTitle>
@@ -188,18 +190,18 @@ export function AlertDocs() {
     This alert can be closed by the user.
   </AlertDescription>
 </Alert>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Close Button Props</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`interface AlertProps {
   showCloseButton?: boolean;  // Show/hide close button
   onClose?: () => void;       // Function called when close button is clicked
   // ... other props
 }`}
-                </pre>
+                </CodeBlock>
               </div>
             </CardContent>
           </Card>

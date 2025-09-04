@@ -32,6 +32,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CodeBlock } from "@/components/ui/code-block";
 
 export function DataTablePaginationDocs() {
   return (
@@ -192,7 +193,7 @@ export function DataTablePaginationDocs() {
           <div className="space-y-4">
             <div>
               <h3 className="text-lg font-semibold mb-2">Basic Usage</h3>
-              <pre className="bg-muted p-4 rounded-lg text-sm overflow-x-auto">
+              <CodeBlock className="bg-muted p-4 rounded-lg text-sm overflow-x-auto">
 {`import { DataTablePagination } from "@/components/ui/data-table-pagination";
 
 <DataTablePagination
@@ -203,12 +204,12 @@ export function DataTablePaginationDocs() {
   onPageChange={(page) => setCurrentPage(page)}
   onItemsPerPageChange={(itemsPerPage) => setItemsPerPage(itemsPerPage)}
 />`}
-              </pre>
+              </CodeBlock>
             </div>
 
             <div>
               <h3 className="text-lg font-semibold mb-2">With Variants</h3>
-              <pre className="bg-muted p-4 rounded-lg text-sm overflow-x-auto">
+              <CodeBlock className="bg-muted p-4 rounded-lg text-sm overflow-x-auto">
 {`// Advanced variant (default)
 <DataTablePagination
   variant="advanced"
@@ -230,12 +231,12 @@ export function DataTablePaginationDocs() {
   onPageChange={setCurrentPage}
   onItemsPerPageChange={setItemsPerPage}
 />`}
-              </pre>
+              </CodeBlock>
             </div>
 
             <div>
               <h3 className="text-lg font-semibold mb-2">Custom Items Per Page Options</h3>
-              <pre className="bg-muted p-4 rounded-lg text-sm overflow-x-auto">
+              <CodeBlock className="bg-muted p-4 rounded-lg text-sm overflow-x-auto">
 {`<DataTablePagination
   variant="advanced"
   currentPage={5}
@@ -246,7 +247,7 @@ export function DataTablePaginationDocs() {
   onPageChange={setCurrentPage}
   onItemsPerPageChange={setItemsPerPage}
 />`}
-              </pre>
+              </CodeBlock>
             </div>
           </div>
         </TabsContent>

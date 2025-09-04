@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 
+import { CodeBlock } from "@/components/ui/code-block";
 export function TextareaDocs() {
   return (
     <div className="mt-8">
@@ -110,25 +111,25 @@ export function TextareaDocs() {
             <CardContent className="space-y-4">
               <div>
                 <h4 className="font-medium mb-2">Basic Textarea</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Textarea placeholder="Enter your text here..." />`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Textarea with Label</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Label htmlFor="bio">Bio</Label>
 <Textarea
   id="bio"
   placeholder="Tell us about yourself..."
 />`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Controlled Textarea</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`const [value, setValue] = useState("");
 
 <Textarea
@@ -136,23 +137,23 @@ export function TextareaDocs() {
   onChange={(e) => setValue(e.target.value)}
   placeholder="Controlled textarea"
 />`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Textarea with Validation</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Textarea
   aria-invalid={hasError}
   placeholder="Enter required information"
   className={hasError ? "border-destructive" : ""}
 />`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Component Implementation</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {
   return (
     <textarea
@@ -165,7 +166,7 @@ export function TextareaDocs() {
     />
   );
 }`}
-                </pre>
+                </CodeBlock>
               </div>
             </CardContent>
           </Card>

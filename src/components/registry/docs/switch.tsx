@@ -5,6 +5,7 @@ import { Switch } from "@/components/ui/switch";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 
+import { CodeBlock } from "@/components/ui/code-block";
 export function SwitchDocs() {
   return (
     <div className="mt-8">
@@ -82,15 +83,15 @@ export function SwitchDocs() {
             <CardContent className="space-y-4">
               <div>
                 <h4 className="font-medium mb-2">Basic Switch</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Switch id="switch" />
 <Label htmlFor="switch">Switch label</Label>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Controlled Switch</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`const [checked, setChecked] = useState(false);
 
 <Switch
@@ -99,12 +100,12 @@ export function SwitchDocs() {
   onCheckedChange={setChecked}
 />
 <Label htmlFor="controlled">Controlled switch</Label>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Switch with Form</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<form className="space-y-4">
   <div className="flex items-center space-x-2">
     <Switch id="terms" required />
@@ -112,12 +113,12 @@ export function SwitchDocs() {
   </div>
   <Button type="submit">Submit</Button>
 </form>`}
-                </pre>
+                </CodeBlock>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Component Implementation</h4>
-                <pre className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`function Switch({
   className,
   ...props
@@ -140,7 +141,7 @@ export function SwitchDocs() {
     </SwitchPrimitive.Root>
   );
 }`}
-                </pre>
+                </CodeBlock>
               </div>
             </CardContent>
           </Card>
