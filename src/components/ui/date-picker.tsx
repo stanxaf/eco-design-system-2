@@ -84,8 +84,8 @@ export function DatePicker({
           {date ? format(date, "PPP") : <span>{placeholder}</span>}
         </Button>
       </PopoverTrigger>
-      <PopoverContent 
-        className="w-auto p-0" 
+      <PopoverContent
+        className="w-auto p-0"
         align="start"
         data-slot="date-picker-content"
       >
@@ -127,6 +127,8 @@ export function DateRangePicker({
             className,
           )}
           disabled={disabled}
+          data-slot="date-range-picker-trigger"
+          aria-label="Select date range"
         >
           <CalendarIcon className="mr-2 h-4 w-4" />
           {dateRange?.from ? (
@@ -143,7 +145,11 @@ export function DateRangePicker({
           )}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-auto p-0" align="start">
+      <PopoverContent
+        className="w-auto p-0"
+        align="start"
+        data-slot="date-range-picker-content"
+      >
         <Calendar
           mode="range"
           defaultMonth={dateRange?.from}
@@ -151,6 +157,7 @@ export function DateRangePicker({
           onSelect={onDateRangeChange}
           numberOfMonths={2}
           initialFocus
+          data-slot="date-range-picker-calendar"
         />
       </PopoverContent>
     </Popover>
