@@ -20,7 +20,7 @@ interface TypographyH4Props extends HTMLAttributes<HTMLHeadingElement> {
  * **v0 Usage:**
  * ```tsx
  * import { TypographyH4 } from "@/components/ui/typography-h4";
- * 
+ *
  * <TypographyH4>Component Header</TypographyH4>
  * <TypographyH4 className="text-blue-500">Custom Styled Header</TypographyH4>
  * ```

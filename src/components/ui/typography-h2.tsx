@@ -20,7 +20,7 @@ interface TypographyH2Props extends HTMLAttributes<HTMLHeadingElement> {
  * **v0 Usage:**
  * ```tsx
  * import { TypographyH2 } from "@/components/ui/typography-h2";
- * 
+ *
  * <TypographyH2>Section Header</TypographyH2>
  * <TypographyH2 className="text-blue-500">Custom Styled Header</TypographyH2>
  * ```

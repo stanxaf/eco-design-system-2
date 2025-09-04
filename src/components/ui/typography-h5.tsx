@@ -20,7 +20,7 @@ interface TypographyH5Props extends HTMLAttributes<HTMLHeadingElement> {
  * **v0 Usage:**
  * ```tsx
  * import { TypographyH5 } from "@/components/ui/typography-h5";
- * 
+ *
  * <TypographyH5>Small Header</TypographyH5>
  * <TypographyH5 className="text-blue-500">Custom Styled Header</TypographyH5>
  * ```

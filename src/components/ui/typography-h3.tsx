@@ -20,7 +20,7 @@ interface TypographyH3Props extends HTMLAttributes<HTMLHeadingElement> {
  * **v0 Usage:**
  * ```tsx
  * import { TypographyH3 } from "@/components/ui/typography-h3";
- * 
+ *
  * <TypographyH3>Subsection Header</TypographyH3>
  * <TypographyH3 className="text-blue-500">Custom Styled Header</TypographyH3>
  * ```

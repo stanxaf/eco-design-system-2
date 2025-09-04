@@ -20,7 +20,7 @@ interface TypographyH6Props extends HTMLAttributes<HTMLHeadingElement> {
  * **v0 Usage:**
  * ```tsx
  * import { TypographyH6 } from "@/components/ui/typography-h6";
- * 
+ *
  * <TypographyH6>Smallest Header</TypographyH6>
  * <TypographyH6 className="text-blue-500">Custom Styled Header</TypographyH6>
  * ```
