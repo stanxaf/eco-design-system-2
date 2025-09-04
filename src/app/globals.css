@@ -50,6 +50,58 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  /* Typography Component System
+   *
+   * This design system provides consistent typography components for all DTN projects.
+   * Use these components instead of raw HTML elements for consistent styling.
+   *
+   * Available Typography Components:
+   * - Typography.H1: Main page titles (text-2xl, font-bold, leading-6)
+   * - Typography.H2: Section headers (text-2xl, font-bold, leading-6)
+   * - Typography.H3: Subsection headers (text-xl, font-bold, leading-5)
+   * - Typography.H4: Component headers (text-lg, font-bold, leading-5)
+   * - Typography.H5: Small headers (text-base, font-bold, leading-5)
+   * - Typography.H6: Smallest headers (text-sm, font-bold, leading-4)
+   *
+   * Individual Components (for v0 compatibility):
+   * - TypographyH1: Main page titles
+   * - TypographyH2: Section headers
+   * - TypographyH3: Subsection headers
+   * - TypographyH4: Component headers
+   * - TypographyH5: Small headers
+   * - TypographyH6: Smallest headers
+   *
+   * Usage Examples:
+   * ```tsx
+   * // Compound component
+   * import { Typography } from "@/components/ui/typography";
+   * <Typography.H1>Main Page Title</Typography.H1>
+   * <Typography.H2>Section Header</Typography.H2>
+   *
+   * // Individual components
+   * import { TypographyH1 } from "@/components/ui/typography-h1";
+   * <TypographyH1>Main Page Title</TypographyH1>
+   *
+   * // Utility classes (fallback)
+   * <h1 className="font-bold text-2xl leading-6">Main Title</h1>
+   * <h2 className="font-bold text-2xl leading-6">Section Header</h2>
+   * <h3 className="font-bold text-xl leading-5">Subsection</h3>
+   * ```
+   *
+   * Registry URLs for v0:
+   * - Main: https://eco-design-system-2.vercel.app/r/styles/typography.json
+   * - H1: https://eco-design-system-2.vercel.app/r/styles/typography-h1.json
+   * - H2: https://eco-design-system-2.vercel.app/r/styles/typography-h2.json
+   * - H3: https://eco-design-system-2.vercel.app/r/styles/typography-h3.json
+   * - H4: https://eco-design-system-2.vercel.app/r/styles/typography-h4.json
+   * - H5: https://eco-design-system-2.vercel.app/r/styles/typography-h5.json
+   * - H6: https://eco-design-system-2.vercel.app/r/styles/typography-h6.json
+   *
+   * All components use standard Tailwind CSS utilities for maximum compatibility.
+   * Font weights are consistently set to 700 (font-bold) across all heading levels.
+   * Line heights are optimized for readability and visual hierarchy.
+   */
 }
 
 :root {
