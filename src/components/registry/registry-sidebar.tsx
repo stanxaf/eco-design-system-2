@@ -46,6 +46,7 @@ const blockItems = getBlocks();
 export const gettingStartedItems = [
   { title: "Intro", path: "/" },
   { title: "Design Tokens", path: "/tokens" },
+  { title: "Typography", path: "/typography" },
 ];
 
 export function MobileSidebarTrigger() {
@@ -148,7 +149,8 @@ export function RegistrySidebar() {
                       const isActive =
                         pathname === item.path ||
                         (item.path === "/" && (pathname === "/" || pathname === "" || pathname === "/registry")) ||
-                        (item.path === "/tokens" && pathname === "/tokens");
+                        (item.path === "/tokens" && pathname === "/tokens") ||
+                        (item.path === "/typography" && pathname === "/typography");
 
                       return (
                         <SidebarMenuItem key={item.path}>
