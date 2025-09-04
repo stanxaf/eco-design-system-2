@@ -9,15 +9,25 @@ interface TypographyH5Props extends HTMLAttributes<HTMLHeadingElement> {
 /**
  * Typography H5 component for small headers.
  *
+ * **IMPORTANT FOR v0: This is a standalone typography component.**
+ * Use this component for small headers and quinary headings.
+ *
  * **Styling:**
  * - Font size: text-base (16px)
  * - Font weight: font-bold (700)
  * - Line height: leading-5 (1.25)
  *
- * **Usage:**
+ * **v0 Usage:**
  * ```tsx
+ * import { TypographyH5 } from "@/components/ui/typography-h5";
+ * 
  * <TypographyH5>Small Header</TypographyH5>
  * <TypographyH5 className="text-blue-500">Custom Styled Header</TypographyH5>
+ * ```
+ *
+ * **Alternative Utility Classes:**
+ * ```tsx
+ * <h5 className="font-bold text-base leading-5">Small Header</h5>
  * ```
  */
 export function TypographyH5({ className, children, ...props }: TypographyH5Props) {
