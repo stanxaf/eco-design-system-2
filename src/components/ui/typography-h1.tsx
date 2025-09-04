@@ -8,12 +8,12 @@ interface TypographyH1Props extends HTMLAttributes<HTMLHeadingElement> {
 
 /**
  * Typography H1 component for main page titles.
- * 
+ *
  * **Styling:**
  * - Font size: text-2xl (24px)
  * - Font weight: font-bold (700)
  * - Line height: leading-6 (1.5)
- * 
+ *
  * **Usage:**
  * ```tsx
  * <TypographyH1>Main Page Title</TypographyH1>

@@ -8,12 +8,12 @@ interface TypographyH6Props extends HTMLAttributes<HTMLHeadingElement> {
 
 /**
  * Typography H6 component for smallest headers.
- * 
+ *
  * **Styling:**
  * - Font size: text-sm (14px)
  * - Font weight: font-bold (700)
  * - Line height: leading-4 (1)
- * 
+ *
  * **Usage:**
  * ```tsx
  * <TypographyH6>Smallest Header</TypographyH6>

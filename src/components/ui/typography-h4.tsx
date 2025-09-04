@@ -8,12 +8,12 @@ interface TypographyH4Props extends HTMLAttributes<HTMLHeadingElement> {
 
 /**
  * Typography H4 component for component headers.
- * 
+ *
  * **Styling:**
  * - Font size: text-lg (18px)
  * - Font weight: font-bold (700)
  * - Line height: leading-5 (1.25)
- * 
+ *
  * **Usage:**
  * ```tsx
  * <TypographyH4>Component Header</TypographyH4>

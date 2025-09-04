@@ -8,12 +8,12 @@ interface TypographyH2Props extends HTMLAttributes<HTMLHeadingElement> {
 
 /**
  * Typography H2 component for section headers.
- * 
+ *
  * **Styling:**
  * - Font size: text-2xl (24px)
  * - Font weight: font-bold (700)
  * - Line height: leading-6 (1.5)
- * 
+ *
  * **Usage:**
  * ```tsx
  * <TypographyH2>Section Header</TypographyH2>

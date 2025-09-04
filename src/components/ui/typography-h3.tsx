@@ -8,12 +8,12 @@ interface TypographyH3Props extends HTMLAttributes<HTMLHeadingElement> {
 
 /**
  * Typography H3 component for subsection headers.
- * 
+ *
  * **Styling:**
  * - Font size: text-xl (20px)
  * - Font weight: font-bold (700)
  * - Line height: leading-5 (1.25)
- * 
+ *
  * **Usage:**
  * ```tsx
  * <TypographyH3>Subsection Header</TypographyH3>

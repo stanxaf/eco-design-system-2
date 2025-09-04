@@ -8,12 +8,12 @@ interface TypographyH5Props extends HTMLAttributes<HTMLHeadingElement> {
 
 /**
  * Typography H5 component for small headers.
- * 
+ *
  * **Styling:**
  * - Font size: text-base (16px)
  * - Font weight: font-bold (700)
  * - Line height: leading-5 (1.25)
- * 
+ *
  * **Usage:**
  * ```tsx
  * <TypographyH5>Small Header</TypographyH5>
