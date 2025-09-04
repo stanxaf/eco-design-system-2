@@ -12,8 +12,25 @@ interface TypographyH3Props extends HTMLAttributes<HTMLHeadingElement> {
  * **IMPORTANT FOR v0: This is a standalone typography component.**
  * Use this component for subsection headers and tertiary headings.
  *
- * **Styling:**
- * - Font size: text-xl (20px)
+ * **Font Setup Required:**
+* This component uses Inter font. Add this to your layout.tsx:
+* ```tsx
+* import { Inter } from "next/font/google";
+* 
+* const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+* 
+* export default function RootLayout({ children }) {
+*   return (
+*     <html className={inter.variable}>
+*       <body>{children}</body>
+*     </html>
+*   );
+* }
+* ```
+*
+* **Styling:**
+ * - Font: Inter (via --font-sans CSS variable)
+* - Font size: text-xl (20px)
  * - Font weight: font-bold (700)
  * - Line height: leading-5 (1.25)
  *
@@ -27,14 +44,14 @@ interface TypographyH3Props extends HTMLAttributes<HTMLHeadingElement> {
  *
  * **Alternative Utility Classes:**
  * ```tsx
- * <h3 className="font-bold text-xl leading-5">Subsection Header</h3>
+ * <h3 className="font-sans font-bold text-xl leading-5">Subsection Header</h3>
  * ```
  */
 export function TypographyH3({ className, children, ...props }: TypographyH3Props) {
   return (
     <h3
       className={cn(
-        "font-bold text-xl leading-5",
+        "font-sans font-bold text-xl leading-5",
         className
       )}
       {...props}

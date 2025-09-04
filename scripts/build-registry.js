@@ -130,6 +130,18 @@ componentFiles.forEach(file => {
     });
   }
 
+  // Add file content for component files
+  if (component.files) {
+    component.files.forEach(file => {
+      if (file.type === 'registry:component' && file.path) {
+        const sourcePath = path.join(process.cwd(), file.path);
+        if (fs.existsSync(sourcePath)) {
+          file.content = fs.readFileSync(sourcePath, 'utf8');
+        }
+      }
+    });
+  }
+
   // Write the updated component to the correct subdirectory
   const targetFilePath = path.join(targetDir, file);
   fs.writeFileSync(targetFilePath, JSON.stringify(component, null, 2));

@@ -1246,10 +1246,14 @@
       "name": "typography",
       "type": "registry:ui",
       "title": "Typography",
-      "description": "Consistent heading components based on Figma design system specifications. Provides H1-H6 components with standardized font sizes, weights, and line heights for all DTN projects.",
+      "description": "Consistent heading components based on Figma design system specifications. Provides H1-H6 components with standardized font sizes, weights, and line heights for all DTN projects. Uses Inter font for optimal readability.",
       "registryDependencies": [
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
+      "dependencies": {
+        "next": "^14.0.0",
+        "react": "^18.0.0"
+      },
       "files": [
         {
           "path": "src/components/ui/typography.tsx",
@@ -1261,10 +1265,14 @@
       "name": "typography-h1",
       "type": "registry:ui",
       "title": "Typography H1",
-      "description": "Typography H1 component for main page titles with consistent styling.",
+      "description": "Typography H1 component for main page titles with consistent styling. Uses Inter font for optimal readability.",
       "registryDependencies": [
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
+      "dependencies": {
+        "next": "^14.0.0",
+        "react": "^18.0.0"
+      },
       "files": [
         {
           "path": "src/components/ui/typography-h1.tsx",
@@ -1276,10 +1284,14 @@
       "name": "typography-h2",
       "type": "registry:ui",
       "title": "Typography H2",
-      "description": "Typography H2 component for section headers with consistent styling.",
+      "description": "Typography H2 component for section headers with consistent styling. Uses Inter font for optimal readability.",
       "registryDependencies": [
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
+      "dependencies": {
+        "next": "^14.0.0",
+        "react": "^18.0.0"
+      },
       "files": [
         {
           "path": "src/components/ui/typography-h2.tsx",
@@ -1291,10 +1303,14 @@
       "name": "typography-h3",
       "type": "registry:ui",
       "title": "Typography H3",
-      "description": "Typography H3 component for subsection headers with consistent styling.",
+      "description": "Typography H3 component for subsection headers with consistent styling. Uses Inter font for optimal readability.",
       "registryDependencies": [
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
+      "dependencies": {
+        "next": "^14.0.0",
+        "react": "^18.0.0"
+      },
       "files": [
         {
           "path": "src/components/ui/typography-h3.tsx",
@@ -1306,10 +1322,14 @@
       "name": "typography-h4",
       "type": "registry:ui",
       "title": "Typography H4",
-      "description": "Typography H4 component for component headers with consistent styling.",
+      "description": "Typography H4 component for component headers with consistent styling. Uses Inter font for optimal readability.",
       "registryDependencies": [
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
+      "dependencies": {
+        "next": "^14.0.0",
+        "react": "^18.0.0"
+      },
       "files": [
         {
           "path": "src/components/ui/typography-h4.tsx",
@@ -1321,10 +1341,14 @@
       "name": "typography-h5",
       "type": "registry:ui",
       "title": "Typography H5",
-      "description": "Typography H5 component for small headers with consistent styling.",
+      "description": "Typography H5 component for small headers with consistent styling. Uses Inter font for optimal readability.",
       "registryDependencies": [
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
+      "dependencies": {
+        "next": "^14.0.0",
+        "react": "^18.0.0"
+      },
       "files": [
         {
           "path": "src/components/ui/typography-h5.tsx",
@@ -1336,10 +1360,14 @@
       "name": "typography-h6",
       "type": "registry:ui",
       "title": "Typography H6",
-      "description": "Typography H6 component for smallest headers with consistent styling.",
+      "description": "Typography H6 component for smallest headers with consistent styling. Uses Inter font for optimal readability.",
       "registryDependencies": [
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
+      "dependencies": {
+        "next": "^14.0.0",
+        "react": "^18.0.0"
+      },
       "files": [
         {
           "path": "src/components/ui/typography-h6.tsx",

@@ -12,7 +12,24 @@ interface TypographyH2Props extends HTMLAttributes<HTMLHeadingElement> {
  * **IMPORTANT FOR v0: This is a standalone typography component.**
  * Use this component for section headers and secondary headings.
  *
+ * **Font Setup Required:**
+ * This component uses Inter font. Add this to your layout.tsx:
+ * ```tsx
+ * import { Inter } from "next/font/google";
+ * 
+ * const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+ * 
+ * export default function RootLayout({ children }) {
+ *   return (
+ *     <html className={inter.variable}>
+ *       <body>{children}</body>
+ *     </html>
+ *   );
+ * }
+ * ```
+ *
  * **Styling:**
+ * - Font: Inter (via --font-sans CSS variable)
  * - Font size: text-2xl (24px)
  * - Font weight: font-bold (700)
  * - Line height: leading-6 (1.5)
@@ -27,14 +44,14 @@ interface TypographyH2Props extends HTMLAttributes<HTMLHeadingElement> {
  *
  * **Alternative Utility Classes:**
  * ```tsx
- * <h2 className="font-bold text-2xl leading-6">Section Header</h2>
+ * <h2 className="font-sans font-bold text-2xl leading-6">Section Header</h2>
  * ```
  */
 export function TypographyH2({ className, children, ...props }: TypographyH2Props) {
   return (
     <h2
       className={cn(
-        "font-bold text-2xl leading-6",
+        "font-sans font-bold text-2xl leading-6",
         className
       )}
       {...props}

@@ -12,8 +12,25 @@ interface TypographyH4Props extends HTMLAttributes<HTMLHeadingElement> {
  * **IMPORTANT FOR v0: This is a standalone typography component.**
  * Use this component for component headers and quaternary headings.
  *
- * **Styling:**
- * - Font size: text-lg (18px)
+ * **Font Setup Required:**
+* This component uses Inter font. Add this to your layout.tsx:
+* ```tsx
+* import { Inter } from "next/font/google";
+* 
+* const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+* 
+* export default function RootLayout({ children }) {
+*   return (
+*     <html className={inter.variable}>
+*       <body>{children}</body>
+*     </html>
+*   );
+* }
+* ```
+*
+* **Styling:**
+ * - Font: Inter (via --font-sans CSS variable)
+* - Font size: text-lg (18px)
  * - Font weight: font-bold (700)
  * - Line height: leading-5 (1.25)
  *
@@ -27,14 +44,14 @@ interface TypographyH4Props extends HTMLAttributes<HTMLHeadingElement> {
  *
  * **Alternative Utility Classes:**
  * ```tsx
- * <h4 className="font-bold text-lg leading-5">Component Header</h4>
+ * <h4 className="font-sans font-bold text-lg leading-5">Component Header</h4>
  * ```
  */
 export function TypographyH4({ className, children, ...props }: TypographyH4Props) {
   return (
     <h4
       className={cn(
-        "font-bold text-lg leading-5",
+        "font-sans font-bold text-lg leading-5",
         className
       )}
       {...props}
