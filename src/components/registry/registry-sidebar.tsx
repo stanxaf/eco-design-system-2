@@ -4,7 +4,7 @@ import {
   Blocks,
   ChevronDown,
   Component,
-  Home,
+  Layers,
   Menu,
   Search,
   ToyBrick,
@@ -131,9 +131,9 @@ export function RegistrySidebar() {
               <CollapsibleTrigger className="w-full">
                 <SidebarGroupLabel className="flex cursor-pointer items-center justify-between">
                   <div className="flex min-w-0 items-center">
-                    <Home className="size-4 flex-shrink-0" />
+                    <Layers className="size-4 flex-shrink-0" />
                     <span className="ml-2 opacity-100 transition-all duration-200">
-                      Getting Started
+                      Foundations
                     </span>
                   </div>
                   <ChevronDown className="size-4 flex-shrink-0 opacity-100 transition-all duration-200 group-data-[state=open]/collapsible:rotate-180" />
@@ -179,7 +179,7 @@ export function RegistrySidebar() {
                   <div className="flex min-w-0 items-center">
                     <Blocks className="size-4 flex-shrink-0" />
                     <span className="ml-2 transition-all duration-200">
-                      Blocks
+                      Recipes
                     </span>
                   </div>
                   <ChevronDown className="size-4 flex-shrink-0 transition-all duration-200 group-data-[state=open]/collapsible:rotate-180" />
