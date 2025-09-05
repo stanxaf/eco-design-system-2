@@ -4,6 +4,53 @@
 @custom-variant dark (&:is(.dark *));
 
 @layer base {
+  /* =============================================================================
+   * ECO DESIGN SYSTEM - v0 INTEGRATION GUIDE
+   * =============================================================================
+   *
+   * This design system is optimized for v0.dev integration and provides
+   * comprehensive documentation for DTN weather data company projects.
+   *
+   * QUICK START FOR v0 DEVELOPERS:
+   * 1. Import components from registry URLs (see registry section below)
+   * 2. Use Tailwind utilities with our custom color system
+   * 3. Follow component usage patterns documented in each section
+   * 4. All components work in version 0 of the design system
+   *
+   * REGISTRY INTEGRATION:
+   * - Main Registry: https://eco-design-system-2.vercel.app/r/registry.json
+   * - Styles: https://eco-design-system-2.vercel.app/r/styles/
+   * - Components: https://eco-design-system-2.vercel.app/r/components/
+   * - Blocks: https://eco-design-system-2.vercel.app/r/blocks/
+   *
+   * IMPORT PATTERNS:
+   * ```tsx
+   * // Individual components (recommended for v0)
+   * import { Button } from "@/components/ui/button"
+   * import { TypographyH1 } from "@/components/ui/typography-h1"
+   *
+   * // Compound components (for complex layouts)
+   * import { Typography } from "@/components/ui/typography"
+   *
+   * // Utility classes (fallback)
+   * <div className="bg-primary text-primary-foreground p-4 rounded-lg">
+   * ```
+   *
+   * THEME CUSTOMIZATION:
+   * - All colors are CSS custom properties for easy theming
+   * - Light/dark mode support built-in
+   * - Customizable via CSS variables in :root and .dark selectors
+   * - Brand colors: --brand-blue (#1497e3), --brand-green (#68c949)
+   *
+   * COMPONENT FEATURES:
+   * - All components support asChild prop for polymorphic rendering
+   * - Consistent sizing and spacing system
+   * - Accessibility-first design
+   * - TypeScript support with proper type definitions
+   * - Responsive design with mobile-first approach
+   *
+   * ============================================================================= */
+
   /* Base Font Size Declaration
    *
    * This ensures consistent rem-based sizing across all browsers and platforms.
@@ -52,10 +99,58 @@
     @apply border-border outline-ring/50;
   }
 
-  /* Typography Component System
+  /* =============================================================================
+   * v0 REGISTRY URLS - CENTRALIZED REFERENCE
+   * =============================================================================
+   *
+   * All registry URLs for easy v0 integration. Copy these directly into v0.
+   *
+   * MAIN REGISTRY:
+   * https://eco-design-system-2.vercel.app/r/registry.json
+   *
+   * STYLES (Typography, Colors, etc.):
+   * - Typography: https://eco-design-system-2.vercel.app/r/styles/typography.json
+   * - Typography H1: https://eco-design-system-2.vercel.app/r/styles/typography-h1.json
+   * - Typography H2: https://eco-design-system-2.vercel.app/r/styles/typography-h2.json
+   * - Typography H3: https://eco-design-system-2.vercel.app/r/styles/typography-h3.json
+   * - Typography H4: https://eco-design-system-2.vercel.app/r/styles/typography-h4.json
+   * - Typography H5: https://eco-design-system-2.vercel.app/r/styles/typography-h5.json
+   * - Typography H6: https://eco-design-system-2.vercel.app/r/styles/typography-h6.json
+   * - Button: https://eco-design-system-2.vercel.app/r/styles/button.json
+   * - Alert: https://eco-design-system-2.vercel.app/r/styles/alert.json
+   * - Badge: https://eco-design-system-2.vercel.app/r/styles/badge.json
+   * - Card: https://eco-design-system-2.vercel.app/r/styles/card.json
+   * - Input: https://eco-design-system-2.vercel.app/r/styles/input.json
+   * - Select: https://eco-design-system-2.vercel.app/r/styles/select.json
+   *
+   * COMPONENTS (Interactive Elements):
+   * - All components: https://eco-design-system-2.vercel.app/r/components/
+   * - Button: https://eco-design-system-2.vercel.app/r/components/button.json
+   * - Alert: https://eco-design-system-2.vercel.app/r/components/alert.json
+   * - Badge: https://eco-design-system-2.vercel.app/r/components/badge.json
+   * - Card: https://eco-design-system-2.vercel.app/r/components/card.json
+   * - Input: https://eco-design-system-2.vercel.app/r/components/input.json
+   * - Select: https://eco-design-system-2.vercel.app/r/components/select.json
+   *
+   * BLOCKS (Complete Layouts):
+   * - All blocks: https://eco-design-system-2.vercel.app/r/blocks/
+   * - Dashboard: https://eco-design-system-2.vercel.app/r/blocks/dashboard.json
+   * - Clean Dashboard: https://eco-design-system-2.vercel.app/r/blocks/clean-dashboard.json
+   * - Simple Dashboard: https://eco-design-system-2.vercel.app/r/blocks/simple-dashboard.json
+   * - Store: https://eco-design-system-2.vercel.app/r/blocks/store.json
+   * - Login: https://eco-design-system-2.vercel.app/r/components/login.json
+   * - Hero: https://eco-design-system-2.vercel.app/r/components/hero.json
+   * - Product Grid: https://eco-design-system-2.vercel.app/r/components/product-grid.json
+   *
+   * THEME:
+   * - Theme: https://eco-design-system-2.vercel.app/r/themes/theme.json
+   *
+   * ============================================================================= */
+
+  /* Typography Component System - v0 Optimized
    *
    * This design system provides consistent typography components for all DTN projects.
-   * Use these components instead of raw HTML elements for consistent styling.
+   * Optimized for v0.dev integration with comprehensive usage examples.
    *
    * Available Typography Components:
    * - Typography.H1: Main page titles (text-2xl, font-bold, leading-6)
@@ -65,7 +160,7 @@
    * - Typography.H5: Small headers (text-base, font-bold, leading-5)
    * - Typography.H6: Smallest headers (text-sm, font-bold, leading-4)
    *
-   * Individual Components (for v0 compatibility):
+   * Individual Components (RECOMMENDED for v0):
    * - TypographyH1: Main page titles
    * - TypographyH2: Section headers
    * - TypographyH3: Subsection headers
@@ -73,35 +168,42 @@
    * - TypographyH5: Small headers
    * - TypographyH6: Smallest headers
    *
-   * Usage Examples:
+   * v0 Usage Examples:
    * ```tsx
-   * // Compound component
+   * // Individual components (RECOMMENDED for v0)
+   * import { TypographyH1 } from "@/components/ui/typography-h1";
+   * import { TypographyH2 } from "@/components/ui/typography-h2";
+   * import { TypographyH3 } from "@/components/ui/typography-h3";
+   *
+   * <TypographyH1>Main Page Title</TypographyH1>
+   * <TypographyH2>Section Header</TypographyH2>
+   * <TypographyH3>Subsection Header</TypographyH3>
+   *
+   * // Compound component (for complex layouts)
    * import { Typography } from "@/components/ui/typography";
    * <Typography.H1>Main Page Title</Typography.H1>
    * <Typography.H2>Section Header</Typography.H2>
    *
-   * // Individual components
-   * import { TypographyH1 } from "@/components/ui/typography-h1";
-   * <TypographyH1>Main Page Title</TypographyH1>
-   *
-   * // Utility classes (fallback)
+   * // Utility classes (fallback for custom styling)
    * <h1 className="font-bold text-2xl leading-6">Main Title</h1>
    * <h2 className="font-bold text-2xl leading-6">Section Header</h2>
    * <h3 className="font-bold text-xl leading-5">Subsection</h3>
    * ```
    *
-   * Registry URLs for v0:
-   * - Main: https://eco-design-system-2.vercel.app/r/styles/typography.json
-   * - H1: https://eco-design-system-2.vercel.app/r/styles/typography-h1.json
-   * - H2: https://eco-design-system-2.vercel.app/r/styles/typography-h2.json
-   * - H3: https://eco-design-system-2.vercel.app/r/styles/typography-h3.json
-   * - H4: https://eco-design-system-2.vercel.app/r/styles/typography-h4.json
-   * - H5: https://eco-design-system-2.vercel.app/r/styles/typography-h5.json
-   * - H6: https://eco-design-system-2.vercel.app/r/styles/typography-h6.json
+   * v0 Integration Features:
+   * - All components work in version 0 of the design system
+   * - TypeScript support with proper type definitions
+   * - asChild prop support for polymorphic rendering
+   * - Consistent Tailwind CSS utilities for maximum compatibility
+   * - Font weights consistently set to 700 (font-bold) across all heading levels
+   * - Line heights optimized for readability and visual hierarchy
+   * - Responsive design with mobile-first approach
    *
-   * All components use standard Tailwind CSS utilities for maximum compatibility.
-   * Font weights are consistently set to 700 (font-bold) across all heading levels.
-   * Line heights are optimized for readability and visual hierarchy.
+   * Customization for v0:
+   * - Override colors using CSS custom properties
+   * - Modify spacing with Tailwind utilities
+   * - Add custom classes while maintaining base functionality
+   * - Use className prop for additional styling
    */
 }
 
@@ -283,47 +385,6 @@
   --button-link: var(--primary);
   --button-link-hover: var(--blue-600);
 
-  /* Button Component Color System - Comprehensive Documentation
-   *
-   * These button-specific semantic colors provide consistent theming
-   * across all button variants with dedicated hover states and proper
-   * theme adaptation.
-   *
-   * Available button variants:
-   * - default: Primary action button (--button-primary, --button-primary-foreground, --button-primary-hover)
-   * - destructive: Dangerous actions (--button-destructive, --button-destructive-foreground, --button-destructive-hover)
-   * - outline: Secondary actions (--button-outline, --button-outline-border, --button-outline-hover, --button-outline-hover-foreground)
-   * - secondary: Alternative primary actions (--button-secondary, --button-secondary-foreground, --button-secondary-hover)
-   * - ghost: Subtle actions (--button-ghost-hover, --button-ghost-hover-foreground)
-   * - link: Text-based actions (--button-link, --button-link-hover)
-   *
-   * Color mapping:
-   * - Light mode: Optimized for light backgrounds with proper contrast
-   * - Dark mode: Optimized for dark backgrounds with proper contrast
-   * - All variants automatically adapt to light/dark themes
-   * - Hover states use dedicated button-specific colors
-   *
-   * Usage in components:
-   * - className="bg-button-primary text-button-primary-foreground hover:bg-button-primary-hover" (default button)
-   * - className="bg-button-destructive text-button-destructive-foreground hover:bg-button-destructive-hover" (destructive button)
-   * - className="bg-button-outline border-button-outline-border hover:bg-button-outline-hover hover:text-button-outline-hover-foreground" (outline button)
-   * - className="hover:bg-button-ghost-hover hover:text-button-ghost-hover-foreground" (ghost button)
-   * - className="text-button-link hover:text-button-link-hover" (link button)
-   *
-   * Component features:
-   * - Dedicated button color system for consistent theming
-   * - Automatic theme adaptation via CSS custom properties
-   * - Proper contrast ratios in both light and dark modes
-   * - Hover states optimized for button interactions
-   * - Focus states use theme-aware ring colors
-   *
-   * Component integration:
-   * - Button component automatically uses these utilities
-   * - Variants map directly to button-specific color combinations
-   * - Sizes maintain consistent spacing and proportions
-   * - Icons automatically sized and positioned
-   * - Supports polymorphic rendering with asChild prop
-   */
 
   --chart-1: var(--blue-500);
   --chart-2: var(--blue-400);
@@ -563,78 +624,6 @@
 
   --color-primary: var(--primary);
 
-  /* Alert Variant Color System - Comprehensive Documentation
-   *
-   * These semantic colors are used by the alert component
-   * and provide consistent theming across all variants.
-   *
-   * Available alert variants:
-   * - default: Default color system (--default, --default-foreground, --default-border) using slate colors
-   * - destructive: Error states (--alert-destructive, --alert-destructive-foreground, --alert-destructive-border)
-   * - info: Information states (--info, --info-foreground, --info-border)
-   * - success: Success states (--success, --success-foreground, --success-border)
-   * - warning: Warning states (--warning, --warning-foreground, --warning-border)
-   *
-   * Color mapping:
-   * - Light mode: slate-200 background with foreground text and slate-300 border
-   * - Dark mode: slate-800 background with foreground text and slate-700 border
-   * - All variants automatically adapt to light/dark themes
-   *
-   * Usage in components:
-   * - className="bg-default text-default-foreground border-default-border" (default alert - slate colors)
-   * - className="bg-info text-info-foreground border-info-border" (info alert - blue colors)
-   * - className="bg-success text-success-foreground border-success-border" (success alert - green colors)
-   * - className="bg-warning text-warning-foreground border-warning-border" (warning alert - orange colors)
-   * - className="bg-alert-destructive text-alert-destructive-foreground border-alert-destructive-border" (destructive alert - red colors)
-   *
-   * Component features:
-   * - Close button functionality with showCloseButton prop
-   * - Automatic theme adaptation via CSS custom properties
-   * - Consistent semantic colors matching badge components
-   * - Proper accessibility with role="alert"
-   * - Responsive grid layout with icon support
-   *
-   * Component integration:
-   * - Alert component automatically uses these utilities
-   * - Variants map directly to semantic color combinations
-   * - Maintains visual consistency with badge components
-   * - Supports close button functionality
-   * - Automatic theme adaptation via CSS custom properties
-   */
-
-  /* Badge Color System - Alert-Integrated Variants
-   *
-   * These semantic colors are used by the badge component
-   * and provide consistent theming that matches the alert system.
-   *
-   * Available badge variants:
-   * - default: Default color system (--default, --default-foreground) using slate colors
-   * - destructive: Error states (bg-alert-destructive, text-alert-destructive-foreground)
-   * - info: Information states (bg-info, text-info-foreground)
-   * - success: Success states (bg-success, text-success-foreground)
-   * - warning: Warning states (bg-warning, text-warning-foreground)
-   *
-   * Design features:
-   * - All variants use 4px border radius (rounded-sm)
-   * - Default variant uses default color system for consistency with alerts
-   * - Consistent semantic colors matching alert components
-   * - Light backgrounds with appropriate foreground contrast
-   * - Automatic theme adaptation (light/dark mode)
-   *
-   * Usage in components:
-   * - className="bg-default text-default-foreground" (default badge - slate colors)
-   * - className="bg-info text-info-foreground" (info badge - blue colors)
-   * - className="bg-success text-success-foreground" (success badge - green colors)
-   * - className="bg-warning text-warning-foreground" (warning badge - orange colors)
-   * - className="bg-alert-destructive text-alert-destructive-foreground" (destructive badge - red colors)
-   *
-   * Component integration:
-   * - Badge component automatically uses these utilities
-   * - Variants map directly to semantic color combinations
-   * - Maintains visual consistency with alert components
-   * - Supports asChild rendering for polymorphic behavior
-   * - Default variant provides neutral slate styling for general use
-   */
   --color-info: var(--info);
   --color-info-foreground: var(--info-foreground);
   --color-info-border: var(--info-border);
@@ -731,6 +720,362 @@
 
   /* Utility classes */
   --border-interactive: var(--border-interactive);
+
+  /* Input & Select Components - v0 Optimized
+   *
+   * Form input components optimized for v0.dev integration with comprehensive usage examples.
+   *
+   * v0 Usage Examples:
+   * ```tsx
+   * // Import form components
+   * import { Input } from "@/components/ui/input";
+   * import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+   * import { Label } from "@/components/ui/label";
+   *
+   * // Basic input usage
+   * <div className="space-y-2">
+   *   <Label htmlFor="email">Email</Label>
+   *   <Input id="email" type="email" placeholder="Enter your email" />
+   * </div>
+   *
+   * // Input with different types
+   * <Input type="text" placeholder="Enter text" />
+   * <Input type="password" placeholder="Enter password" />
+   * <Input type="number" placeholder="Enter number" />
+   * <Input type="search" placeholder="Search..." />
+   *
+   * // Input with states
+   * <Input disabled placeholder="Disabled input" />
+   * <Input className="border-red-500" placeholder="Error state" />
+   *
+   * // Basic select usage
+   * <Select>
+   *   <SelectTrigger>
+   *     <SelectValue placeholder="Select an option" />
+   *   </SelectTrigger>
+   *   <SelectContent>
+   *     <SelectItem value="option1">Option 1</SelectItem>
+   *     <SelectItem value="option2">Option 2</SelectItem>
+   *     <SelectItem value="option3">Option 3</SelectItem>
+   *   </SelectContent>
+   * </Select>
+   *
+   * // Select with label
+   * <div className="space-y-2">
+   *   <Label>Choose an option</Label>
+   *   <Select>
+   *     <SelectTrigger>
+   *       <SelectValue placeholder="Select an option" />
+   *     </SelectTrigger>
+   *     <SelectContent>
+   *       <SelectItem value="option1">Option 1</SelectItem>
+   *       <SelectItem value="option2">Option 2</SelectItem>
+   *     </SelectContent>
+   *   </Select>
+   * </div>
+   *
+   * // Form with validation
+   * <form className="space-y-4">
+   *   <div>
+   *     <Label htmlFor="name">Name</Label>
+   *     <Input id="name" required />
+   *   </div>
+   *   <div>
+   *     <Label htmlFor="category">Category</Label>
+   *     <Select>
+   *       <SelectTrigger>
+   *         <SelectValue placeholder="Select category" />
+   *       </SelectTrigger>
+   *       <SelectContent>
+   *         <SelectItem value="weather">Weather</SelectItem>
+   *         <SelectItem value="agriculture">Agriculture</SelectItem>
+   *         <SelectItem value="energy">Energy</SelectItem>
+   *       </SelectContent>
+   *     </Select>
+   *   </div>
+   * </form>
+   * ```
+   *
+   * v0 Integration Features:
+   * - All components work in version 0 of the design system
+   * - TypeScript support with proper type definitions
+   * - Consistent Tailwind CSS utilities for maximum compatibility
+   * - Responsive design with mobile-first approach
+   * - Accessibility-first design with proper labels and ARIA attributes
+   * - Form validation support
+   *
+   * Customization for v0:
+   * - Override colors using CSS custom properties
+   * - Modify spacing with Tailwind utilities
+   * - Add custom classes while maintaining base functionality
+   * - Use className prop for additional styling
+   * - Customize focus states and validation styling
+   */
+
+  /* =============================================================================
+   * COMPONENT DOCUMENTATION - v0 OPTIMIZED
+   * =============================================================================
+   *
+   * All component documentation grouped here for easy v0 developer reference.
+   * Each component includes usage examples, variants, and integration details.
+   *
+   * ============================================================================= */
+
+  /* Typography Component System - v0 Optimized
+   *
+   * This design system provides consistent typography components for all DTN projects.
+   * Optimized for v0.dev integration with comprehensive usage examples.
+   *
+   * Available Typography Components:
+   * - Typography.H1: Main page titles (text-2xl, font-bold, leading-6)
+   * - Typography.H2: Section headers (text-2xl, font-bold, leading-6)
+   * - Typography.H3: Subsection headers (text-xl, font-bold, leading-5)
+   * - Typography.H4: Component headers (text-lg, font-bold, leading-5)
+   * - Typography.H5: Small headers (text-base, font-bold, leading-5)
+   * - Typography.H6: Smallest headers (text-sm, font-bold, leading-4)
+   *
+   * Individual Components (RECOMMENDED for v0):
+   * - TypographyH1: Main page titles
+   * - TypographyH2: Section headers
+   * - TypographyH3: Subsection headers
+   * - TypographyH4: Component headers
+   * - TypographyH5: Small headers
+   * - TypographyH6: Smallest headers
+   *
+   * v0 Usage Examples:
+   * ```tsx
+   * // Individual components (RECOMMENDED for v0)
+   * import { TypographyH1 } from "@/components/ui/typography-h1";
+   * import { TypographyH2 } from "@/components/ui/typography-h2";
+   * import { TypographyH3 } from "@/components/ui/typography-h3";
+   *
+   * <TypographyH1>Main Page Title</TypographyH1>
+   * <TypographyH2>Section Header</TypographyH2>
+   * <TypographyH3>Subsection Header</TypographyH3>
+   *
+   * // Compound component (for complex layouts)
+   * import { Typography } from "@/components/ui/typography";
+   * <Typography.H1>Main Page Title</Typography.H1>
+   * <Typography.H2>Section Header</Typography.H2>
+   *
+   * // Utility classes (fallback for custom styling)
+   * <h1 className="font-bold text-2xl leading-6">Main Title</h1>
+   * <h2 className="font-bold text-2xl leading-6">Section Header</h2>
+   * <h3 className="font-bold text-xl leading-5">Subsection</h3>
+   * ```
+   *
+   * v0 Integration Features:
+   * - All components work in version 0 of the design system
+   * - TypeScript support with proper type definitions
+   * - asChild prop support for polymorphic rendering
+   * - Consistent Tailwind CSS utilities for maximum compatibility
+   * - Font weights consistently set to 700 (font-bold) across all heading levels
+   * - Line heights optimized for readability and visual hierarchy
+   * - Responsive design with mobile-first approach
+   *
+   * Customization for v0:
+   * - Override colors using CSS custom properties
+   * - Modify spacing with Tailwind utilities
+   * - Add custom classes while maintaining base functionality
+   * - Use className prop for additional styling
+   */
+
+  /* Button Component System - v0 Optimized
+   *
+   * Comprehensive button system with dedicated color variables for consistent theming
+   * across all button variants. Optimized for v0.dev integration.
+   *
+   * Available button variants:
+   * - default: Primary action button (bg-button-primary, text-button-primary-foreground, hover:bg-button-primary-hover)
+   * - destructive: Dangerous actions (bg-button-destructive, text-button-destructive-foreground, hover:bg-button-destructive-hover)
+   * - outline: Secondary actions with border (bg-button-outline, border-button-outline-border, text-button-outline-foreground, hover:bg-button-outline-hover)
+   * - secondary: Alternative primary actions with border (bg-button-secondary, border-button-secondary-border, text-button-secondary-foreground, hover:bg-button-secondary-hover)
+   *   NOTE: Secondary and Outline variants are visually identical but use different CSS variables for semantic distinction
+   * - ghost: Subtle actions without border (hover:bg-button-ghost-hover, hover:text-button-ghost-hover-foreground)
+   * - link: Text-based actions (text-button-link, hover:text-button-link-hover, hover:underline)
+   *
+   * v0 Usage Examples:
+   * ```tsx
+   * // Import button component
+   * import { Button } from "@/components/ui/button";
+   *
+   * // Basic usage with variants
+   * <Button variant="default">Primary Action</Button>
+   * <Button variant="destructive">Delete Item</Button>
+   * <Button variant="outline">Outline Action</Button>
+   * <Button variant="secondary">Secondary Action</Button>
+   * <Button variant="ghost">Ghost Action</Button>
+   * <Button variant="link">Link Action</Button>
+   *
+   * // With sizes
+   * <Button size="sm">Small Button</Button>
+   * <Button size="default">Default Button</Button>
+   * <Button size="lg">Large Button</Button>
+   * <Button size="icon">Icon Only</Button>
+   *
+   * // With icons
+   * <Button>
+   *   <PlusIcon className="mr-2 h-4 w-4" />
+   *   Add Item
+   * </Button>
+   *
+   * // Custom styling
+   * <Button className="w-full">Full Width</Button>
+   * <Button disabled>Disabled State</Button>
+   * ```
+   *
+   * v0 Integration Features:
+   * - All components work in version 0 of the design system
+   * - TypeScript support with proper type definitions
+   * - asChild prop support for polymorphic rendering
+   * - Consistent Tailwind CSS utilities for maximum compatibility
+   * - Responsive design with mobile-first approach
+   * - Accessibility-first design with proper focus states
+   *
+   * Customization for v0:
+   * - Override colors using CSS custom properties
+   * - Modify spacing with Tailwind utilities
+   * - Add custom classes while maintaining base functionality
+   * - Use className prop for additional styling
+   * - Customize hover states with dedicated color variables
+   */
+
+  /* Alert Component System - v0 Optimized
+   *
+   * Comprehensive alert system with semantic color variants for consistent theming.
+   * Optimized for v0.dev integration with comprehensive usage examples.
+   *
+   * Available alert variants:
+   * - default: Default color system (--default, --default-foreground, --default-border) using slate colors
+   * - destructive: Error states (--alert-destructive, --alert-destructive-foreground, --alert-destructive-border)
+   * - info: Information states (--info, --info-foreground, --info-border)
+   * - success: Success states (--success, --success-foreground, --success-border)
+   * - warning: Warning states (--warning, --warning-foreground, --warning-border)
+   *
+   * v0 Usage Examples:
+   * ```tsx
+   * // Import alert component
+   * import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+   *
+   * // Basic usage with variants
+   * <Alert>
+   *   <AlertTitle>Default Alert</AlertTitle>
+   *   <AlertDescription>This is a default alert message.</AlertDescription>
+   * </Alert>
+   *
+   * <Alert variant="destructive">
+   *   <AlertTitle>Error</AlertTitle>
+   *   <AlertDescription>Something went wrong. Please try again.</AlertDescription>
+   * </Alert>
+   *
+   * <Alert variant="info">
+   *   <AlertTitle>Information</AlertTitle>
+   *   <AlertDescription>Here's some helpful information.</AlertDescription>
+   * </Alert>
+   *
+   * <Alert variant="success">
+   *   <AlertTitle>Success</AlertTitle>
+   *   <AlertDescription>Your action was completed successfully.</AlertDescription>
+   * </Alert>
+   *
+   * <Alert variant="warning">
+   *   <AlertTitle>Warning</AlertTitle>
+   *   <AlertDescription>Please review before proceeding.</AlertDescription>
+   * </Alert>
+   *
+   * // With icons
+   * <Alert>
+   *   <InfoIcon className="h-4 w-4" />
+   *   <AlertTitle>With Icon</AlertTitle>
+   *   <AlertDescription>Alert with an icon.</AlertDescription>
+   * </Alert>
+   *
+   * // With close button
+   * <Alert showCloseButton>
+   *   <AlertTitle>Dismissible Alert</AlertTitle>
+   *   <AlertDescription>This alert can be closed.</AlertDescription>
+   * </Alert>
+   * ```
+   *
+   * v0 Integration Features:
+   * - All components work in version 0 of the design system
+   * - TypeScript support with proper type definitions
+   * - asChild prop support for polymorphic rendering
+   * - Consistent Tailwind CSS utilities for maximum compatibility
+   * - Responsive design with mobile-first approach
+   * - Accessibility-first design with proper ARIA roles
+   *
+   * Customization for v0:
+   * - Override colors using CSS custom properties
+   * - Modify spacing with Tailwind utilities
+   * - Add custom classes while maintaining base functionality
+   * - Use className prop for additional styling
+   * - Customize close button behavior
+   */
+
+  /* Badge Component System - v0 Optimized
+   *
+   * Comprehensive badge system with semantic color variants that match the alert system.
+   * Optimized for v0.dev integration with comprehensive usage examples.
+   *
+   * Available badge variants:
+   * - default: Default color system (--default, --default-foreground) using slate colors
+   * - destructive: Error states (bg-alert-destructive, text-alert-destructive-foreground)
+   * - info: Information states (bg-info, text-info-foreground)
+   * - success: Success states (bg-success, text-success-foreground)
+   * - warning: Warning states (bg-warning, text-warning-foreground)
+   *
+   * v0 Usage Examples:
+   * ```tsx
+   * // Import badge component
+   * import { Badge } from "@/components/ui/badge";
+   *
+   * // Basic usage with variants
+   * <Badge>Default Badge</Badge>
+   * <Badge variant="destructive">Error</Badge>
+   * <Badge variant="info">Information</Badge>
+   * <Badge variant="success">Success</Badge>
+   * <Badge variant="warning">Warning</Badge>
+   *
+   * // With different sizes
+   * <Badge size="sm">Small Badge</Badge>
+   * <Badge size="default">Default Badge</Badge>
+   * <Badge size="lg">Large Badge</Badge>
+   *
+   * // With icons
+   * <Badge>
+   *   <CheckIcon className="mr-1 h-3 w-3" />
+   *   Verified
+   * </Badge>
+   *
+   * // Custom styling
+   * <Badge className="px-3 py-1">Custom Badge</Badge>
+   * <Badge variant="outline">Outline Badge</Badge>
+   *
+   * // In lists or cards
+   * <div className="flex gap-2">
+   *   <Badge variant="success">Active</Badge>
+   *   <Badge variant="info">New</Badge>
+   *   <Badge variant="warning">Pending</Badge>
+   * </div>
+   * ```
+   *
+   * v0 Integration Features:
+   * - All components work in version 0 of the design system
+   * - TypeScript support with proper type definitions
+   * - asChild prop support for polymorphic rendering
+   * - Consistent Tailwind CSS utilities for maximum compatibility
+   * - Responsive design with mobile-first approach
+   * - Accessibility-first design
+   *
+   * Customization for v0:
+   * - Override colors using CSS custom properties
+   * - Modify spacing with Tailwind utilities
+   * - Add custom classes while maintaining base functionality
+   * - Use className prop for additional styling
+   * - Customize size and shape with utility classes
+   */
+
 
   /* Avatar Size System - Tailwind Utilities
    *
