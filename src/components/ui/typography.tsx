@@ -35,7 +35,7 @@ export const Typography = {
   H1: ({ className, children, ...props }: TypographyProps) => (
     <h1
       className={cn(
-        "font-bold text-2xl leading-6",
+        "font-bold text-2xl leading-6 font-sans",
         className
       )}
       {...props}
@@ -47,7 +47,7 @@ export const Typography = {
   H2: ({ className, children, ...props }: TypographyProps) => (
     <h2
       className={cn(
-        "font-bold text-2xl leading-6",
+        "font-bold text-2xl leading-6 font-sans",
         className
       )}
       {...props}
@@ -59,7 +59,7 @@ export const Typography = {
   H3: ({ className, children, ...props }: TypographyProps) => (
     <h3
       className={cn(
-        "font-bold text-xl leading-5",
+        "font-bold text-xl leading-5 font-sans",
         className
       )}
       {...props}
@@ -71,7 +71,7 @@ export const Typography = {
   H4: ({ className, children, ...props }: TypographyProps) => (
     <h4
       className={cn(
-        "font-bold text-lg leading-5",
+        "font-bold text-lg leading-5 font-sans",
         className
       )}
       {...props}
@@ -83,7 +83,7 @@ export const Typography = {
   H5: ({ className, children, ...props }: TypographyProps) => (
     <h5
       className={cn(
-        "font-bold text-base leading-5",
+        "font-bold text-base leading-5 font-sans",
         className
       )}
       {...props}
@@ -95,7 +95,7 @@ export const Typography = {
   H6: ({ className, children, ...props }: TypographyProps) => (
     <h6
       className={cn(
-        "font-bold text-sm leading-4",
+        "font-bold text-sm leading-4 font-sans",
         className
       )}
       {...props}
