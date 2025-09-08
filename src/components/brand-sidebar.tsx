@@ -183,6 +183,50 @@ export function BrandSidebar({
         </SidebarGroup>
       </SidebarContent>
 
+      {/* Quick Actions - Above Avatar */}
+      <div className="border-t border-sidebar-border">
+        <SidebarGroup>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  tooltip="Notifications"
+                >
+                  <button>
+                    <Icons.bell />
+                    <span>Notifications</span>
+                  </button>
+                </SidebarMenuButton>
+                <SidebarMenuBadge>3</SidebarMenuBadge>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  tooltip="Messages"
+                >
+                  <button>
+                    <Icons.envelope />
+                    <span>Messages</span>
+                  </button>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  tooltip="Apps"
+                >
+                  <button>
+                    <Icons.grid />
+                    <span>Apps</span>
+                  </button>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </div>
+
       {/* Sidebar Footer - Sticky */}
       <div className="sticky z-10 bg-sidebar border-t border-sidebar-border">
         <SidebarGroup>

@@ -1,23 +1,29 @@
 "use client";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { 
+// Import regular icons where available
+import {
+  faUser,
+  faHome,
+  faFolder,
+  faComment,
+  faBell,
+  faCreditCard,
+  faClock,
+  faEnvelope,
+} from "@fortawesome/free-regular-svg-icons";
+
+// Import solid icons for those not available in regular
+import {
   faChevronRight,
   faChevronLeft,
   faChevronDown,
   faChevronUp,
   faCheck,
   faXmark,
-  faUser,
   faCalendar,
-  faHome,
-  faFolder,
   faDatabase,
   faTable,
-  faComment,
-  faBell,
-  faCreditCard,
-  faClock,
   faEllipsis,
   faRightFromBracket,
   faCog,
@@ -45,6 +51,7 @@ import {
   faArrowLeft,
   faArrowUp,
   faArrowDown,
+  faTh,
 } from "@fortawesome/free-solid-svg-icons";
 import { cn } from "@/lib/utils";
 
@@ -97,6 +104,12 @@ export const Icons = {
   ),
   clock: ({ className }: { className?: string }) => (
     <FontAwesomeIcon icon={faClock} className={cn("h-4 w-4", className)} />
+  ),
+  envelope: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faEnvelope} className={cn("h-4 w-4", className)} />
+  ),
+  grid: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faTh} className={cn("h-4 w-4", className)} />
   ),
   ellipsis: ({ className }: { className?: string }) => (
     <FontAwesomeIcon icon={faEllipsis} className={cn("h-4 w-4", className)} />

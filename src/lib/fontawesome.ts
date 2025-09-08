@@ -17,6 +17,7 @@ import {
   faClock,
   faFolder,
   faComment,
+  faEnvelope,
 } from '@fortawesome/free-regular-svg-icons';
 
 import {
@@ -41,6 +42,7 @@ import {
   faTimes,
   faInfo,
   faWarning,
+  faTh,
 } from '@fortawesome/free-solid-svg-icons';
 
 // Add all icons to the library
@@ -53,8 +55,9 @@ library.add(
   faClock,
   faFolder,
   faComment,
+  faEnvelope,
 
-  // Solid icons
+  // Solid icons (for icons not available in regular)
   faDatabase,
   faTable,
   faExclamationTriangle,
@@ -75,6 +78,7 @@ library.add(
   faTimes,
   faInfo,
   faWarning,
+  faTh,
 );
 
 // Export icon names for easy reference in v0
@@ -87,8 +91,9 @@ export const iconNames = {
   clock: 'faClock',
   folder: 'faFolder',
   comment: 'faComment',
+  envelope: 'faEnvelope',
 
-  // Solid icons
+  // Solid icons (for icons not available in regular)
   database: 'faDatabase',
   table: 'faTable',
   exclamationTriangle: 'faExclamationTriangle',
@@ -109,6 +114,7 @@ export const iconNames = {
   times: 'faTimes',
   info: 'faInfo',
   warning: 'faWarning',
+  grid: 'faTh',
 } as const;
 
 export type IconName = keyof typeof iconNames;
