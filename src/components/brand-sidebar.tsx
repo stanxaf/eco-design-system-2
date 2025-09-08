@@ -62,22 +62,22 @@ export function BrandSidebar({
     {
       title: "Home",
       href: "/",
-      icon: <Icons.home />,
+      icon: <Icons.square />,
     },
     {
       title: "Projects",
       href: "/projects",
-      icon: <Icons.folder />,
+      icon: <Icons.square />,
     },
     {
       title: "Databases",
       href: "/databases",
-      icon: <Icons.database />,
+      icon: <Icons.square />,
     },
     {
       title: "Tables",
       href: "/tables",
-      icon: <Icons.table />,
+      icon: <Icons.square />,
       badge: {
         text: "Beta",
       },
@@ -85,7 +85,7 @@ export function BrandSidebar({
     {
       title: "AI",
       href: "/ai",
-      icon: <Icons.comment />,
+      icon: <Icons.square />,
       badge: {
         text: "Alpha",
       },
@@ -96,22 +96,22 @@ export function BrandSidebar({
     {
       title: "Alerts",
       href: "/alerts",
-      icon: <Icons.exclamationTriangle />,
+      icon: <Icons.square />,
     },
     {
       title: "Analytics",
       href: "/analytics",
-      icon: <Icons.chartLine />,
+      icon: <Icons.square />,
     },
     {
       title: "History",
       href: "/history",
-      icon: <Icons.clock />,
+      icon: <Icons.square />,
     },
     {
       title: "More",
       href: "/more",
-      icon: <Icons.ellipsis />,
+      icon: <Icons.square />,
     },
   ];
 

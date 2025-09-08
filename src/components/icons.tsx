@@ -11,6 +11,7 @@ import {
   faCreditCard,
   faClock,
   faEnvelope,
+  faSquare,
 } from "@fortawesome/free-regular-svg-icons";
 
 // Import solid icons for those not available in regular
@@ -191,5 +192,8 @@ export const Icons = {
   ),
   arrowDown: ({ className }: { className?: string }) => (
     <FontAwesomeIcon icon={faArrowDown} className={cn("h-4 w-4", className)} />
+  ),
+  square: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faSquare} className={cn("h-4 w-4", className)} />
   ),
 };

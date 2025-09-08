@@ -18,6 +18,7 @@ import {
   faFolder,
   faComment,
   faEnvelope,
+  faSquare,
 } from '@fortawesome/free-regular-svg-icons';
 
 import {
@@ -56,6 +57,7 @@ library.add(
   faFolder,
   faComment,
   faEnvelope,
+  faSquare,
 
   // Solid icons (for icons not available in regular)
   faDatabase,
@@ -92,6 +94,7 @@ export const iconNames = {
   folder: 'faFolder',
   comment: 'faComment',
   envelope: 'faEnvelope',
+  square: 'faSquare',
 
   // Solid icons (for icons not available in regular)
   database: 'faDatabase',
