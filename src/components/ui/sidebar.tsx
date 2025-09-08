@@ -280,7 +280,7 @@ function SidebarTrigger({
 }
 
 function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
-  const { toggleSidebar } = useSidebar();
+  const { toggleSidebar, state } = useSidebar();
 
   return (
     <button
@@ -291,16 +291,31 @@ function SidebarRail({ className, ...props }: React.ComponentProps<"button">) {
       onClick={toggleSidebar}
       title="Toggle Sidebar"
       className={cn(
-        "absolute inset-y-0 z-20 hidden w-6 transition-colors duration-200 ease-out sm:flex",
+        "absolute inset-y-0 z-20 hidden w-6 transition-colors duration-200 ease-out sm:flex items-center justify-center",
         "group-data-[side=left]:right-0 group-data-[side=right]:left-0",
         "hover:bg-sidebar-border/20",
         "after:absolute after:inset-y-0 after:w-0.5 after:bg-sidebar-border/0 hover:after:bg-sidebar-border/60",
         "group-data-[side=left]:after:right-0 group-data-[side=right]:after:left-0",
-        "cursor-e-resize group-data-[side=left]:cursor-w-resize",
+        // Cursor changes based on sidebar state
+        state === "collapsed"
+          ? "cursor-e-resize group-data-[side=left]:cursor-e-resize group-data-[side=right]:cursor-w-resize"
+          : "cursor-w-resize group-data-[side=left]:cursor-w-resize group-data-[side=right]:cursor-e-resize",
         className,
       )}
       {...props}
-    />
+    >
+      {/* Show right arrow on hover when collapsed */}
+      {state === "collapsed" && (
+        <svg
+          className="w-3 h-3 text-sidebar-foreground/60 opacity-0 hover:opacity-100 transition-opacity duration-200"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      )}
+    </button>
   );
 }
 

@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Input } from "@/components/ui/input";
 import {
   Popover,
   PopoverContent,
@@ -123,7 +124,41 @@ export function BrandSidebar({
         </div>
       </SidebarHeader>
 
-      <SidebarContent>
+      <SidebarContent className="transition-all duration-200 ease-in-out">
+        {/* Search Section */}
+        <SidebarGroup>
+          <SidebarGroupContent>
+            <div className="relative overflow-hidden">
+              {/* Collapsed: Search icon */}
+              <div className={cn(
+                "flex justify-center transition-all duration-200 ease-in-out",
+                isCollapsed ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-full absolute"
+              )}>
+                <button className="flex items-center justify-center w-8 h-8 rounded-md hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors">
+                  <Icons.search className="size-4" />
+                </button>
+              </div>
+
+              {/* Expanded: Search input */}
+              <div className={cn(
+                "px-2 transition-all duration-200 ease-in-out",
+                isCollapsed ? "opacity-0 translate-x-full absolute" : "opacity-100 translate-x-0"
+              )}>
+                <div className="relative">
+                  <Input
+                    type="search"
+                    placeholder="Search..."
+                    className="pl-3 pr-10"
+                  />
+                  <Icons.search className="absolute top-2.5 right-3 size-4 text-muted-foreground" />
+                </div>
+              </div>
+            </div>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarSeparator />
+
         {/* Main Nav Items */}
         <SidebarGroup>
           <SidebarGroupContent>
