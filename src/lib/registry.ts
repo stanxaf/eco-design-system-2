@@ -45,7 +45,7 @@ export function getUIPrimitives() {
       (component) => component.type === "registry:ui",
     )
     .filter(
-      (component) => !["menubar", "typography"].includes(component.name),
+      (component) => !["menubar", "typography", "typography-h1", "typography-h2", "typography-h3", "typography-h4", "typography-h5", "typography-h6"].includes(component.name),
     )
     .sort((a, b) => a.title.localeCompare(b.title));
 }
