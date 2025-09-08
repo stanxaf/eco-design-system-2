@@ -47,6 +47,7 @@ export const gettingStartedItems = [
   { title: "Intro", path: "/" },
   { title: "Design Tokens", path: "/tokens" },
   { title: "Typography", path: "/typography" },
+  { title: "Colors", path: "/colors" },
 ];
 
 export function MobileSidebarTrigger() {
