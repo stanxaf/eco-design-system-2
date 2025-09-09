@@ -16,17 +16,17 @@ interface ColumnProps {
     lg?: ColumnSize;
     xl?: ColumnSize;
   };
-  
+
   // Layout
   align?: "start" | "center" | "end" | "stretch";
   justify?: "start" | "center" | "end" | "between" | "around" | "evenly";
-  
+
   // Content areas
   title?: string;
   header?: React.ReactNode;
   children?: React.ReactNode;
   footer?: React.ReactNode;
-  
+
   // Styling
   borderRight?: boolean;
   className?: string;

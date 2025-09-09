@@ -1349,7 +1349,7 @@
     },
     {
       "name": "column",
-      "type": "registry:ui",
+      "type": "registry:component",
       "title": "Column",
       "description": "A flexible layout component for creating responsive column-based layouts. Supports header, body, and footer content areas with customizable sizing and alignment.",
       "registryDependencies": [
