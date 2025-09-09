@@ -7,7 +7,7 @@ import { MoreHorizontal } from "lucide-react";
 
 type ColumnSize = "auto" | "1" | "2" | "3" | "4" | "5" | "6" | "12" | "full" | "fit";
 
-interface ColumnProps {
+interface PanelProps {
   // Sizing
   size?: ColumnSize;
   responsive?: {
@@ -61,7 +61,7 @@ const justifyClasses = {
   evenly: "justify-evenly",
 };
 
-const getResponsiveClasses = (responsive?: ColumnProps["responsive"]) => {
+const getResponsiveClasses = (responsive?: PanelProps["responsive"]) => {
   if (!responsive) return "";
 
   const classes: string[] = [];
@@ -74,19 +74,19 @@ const getResponsiveClasses = (responsive?: ColumnProps["responsive"]) => {
   return classes.join(" ");
 };
 
-export function Column({
+export function Panel({
   size = "auto",
   responsive,
   align = "stretch",
   justify = "start",
-  title = "Column",
+  title = "Panel",
   header,
   children,
   footer,
   borderRight = true,
   className,
   ...props
-}: ColumnProps) {
+}: PanelProps) {
   const baseSizeClass = sizeClasses[size];
   const responsiveClasses = getResponsiveClasses(responsive);
 

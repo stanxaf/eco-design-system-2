@@ -1,31 +1,31 @@
-import { Column } from "@/components/column";
+import { Panel } from "@/components/panel";
 
-export const column = {
-  name: "column",
+export const panel = {
+  name: "panel",
   components: {
     Default: (
       <div className="flex">
-        <Column
+        <Panel
           size="4"
-          title="Column 1"
+          title="Panel 1"
           borderRight={true}
         >
           <div>Content 1</div>
-        </Column>
-        <Column
+        </Panel>
+        <Panel
           size="4"
-          title="Column 2"
+          title="Panel 2"
           borderRight={true}
         >
           <div>Content 2</div>
-        </Column>
-        <Column
+        </Panel>
+        <Panel
           size="4"
-          title="Column 3"
+          title="Panel 3"
           borderRight={false}
         >
           <div>Content 3</div>
-        </Column>
+        </Panel>
       </div>
     ),
   },

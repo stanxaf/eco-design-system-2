@@ -1348,16 +1348,16 @@
       ]
     },
     {
-      "name": "column",
+      "name": "panel",
       "type": "registry:component",
-      "title": "Column",
-      "description": "A flexible layout component for creating responsive column-based layouts. Supports header, body, and footer content areas with customizable sizing and alignment.",
+      "title": "Panel",
+      "description": "A flexible panel component for creating responsive layouts and organizing content. Supports header, body, and footer content areas with customizable sizing and alignment.",
       "registryDependencies": [
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
         {
-          "path": "src/components/column.tsx",
+          "path": "src/components/panel.tsx",
           "type": "registry:component"
         }
       ]
