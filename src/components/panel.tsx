@@ -3,6 +3,7 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { TypographyH6 } from "@/components/ui/typography-h6";
 import { MoreHorizontal } from "lucide-react";
 
 type ColumnSize = "auto" | "1" | "2" | "3" | "4" | "5" | "6" | "12" | "full" | "fit";
@@ -108,7 +109,7 @@ export function Panel({
           header
         ) : (
           <>
-            <h6 className="text-lg font-semibold">{title}</h6>
+            <TypographyH6>{title}</TypographyH6>
             <Button variant="ghost" size="sm">
               <MoreHorizontal className="h-4 w-4" />
             </Button>
