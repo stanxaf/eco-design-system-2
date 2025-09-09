@@ -18,8 +18,8 @@ export default function ShellLayout({
     <SidebarProvider>
       {isMobile && <BrandHeader />}
       <BrandSidebar />
-      <main className="flex w-full justify-center">
-        <div className="container">{children}</div>
+      <main className="flex w-full justify-center bg-surface-medium">
+        <div className="full-container w-full">{children}</div>
       </main>
     </SidebarProvider>
   );
