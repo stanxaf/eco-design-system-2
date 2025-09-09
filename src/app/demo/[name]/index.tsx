@@ -28,6 +28,7 @@ import { card } from "@/app/demo/[name]/ui/card";
 import { carousel } from "@/app/demo/[name]/ui/carousel";
 import { chart } from "@/app/demo/[name]/ui/chart";
 import { checkbox } from "@/app/demo/[name]/ui/checkbox";
+import { column } from "@/app/demo/[name]/ui/column";
 import { combobox } from "@/app/demo/[name]/ui/combobox";
 import { collapsible } from "@/app/demo/[name]/ui/collapsible";
 import { command } from "@/app/demo/[name]/ui/command";
@@ -104,6 +105,7 @@ export const demos: { [name: string]: Demo } = {
   carousel,
   chart,
   checkbox,
+  column,
   combobox,
   collapsible,
   command,

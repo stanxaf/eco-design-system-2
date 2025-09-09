@@ -3,6 +3,7 @@ export { AvatarDocs } from "./avatar";
 export { BadgeDocs } from "./badge";
 export { ButtonDocs } from "./button";
 export { CheckboxDocs } from "./checkbox";
+export { ColumnDocs } from "./column";
 export { ComboboxDocs } from "./combobox";
 export { DataTablePaginationDocs } from "./data-table-pagination";
 export { InputOTPDocs } from "./input-otp";
