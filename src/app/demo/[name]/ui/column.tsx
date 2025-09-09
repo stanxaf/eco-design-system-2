@@ -1,4 +1,4 @@
-import { Column } from "@/components/ui/column";
+import { Column } from "@/components/column";
 
 export const column = {
   name: "column",
