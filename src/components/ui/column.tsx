@@ -16,18 +16,19 @@ interface ColumnProps {
     lg?: ColumnSize;
     xl?: ColumnSize;
   };
-
+  
   // Layout
   align?: "start" | "center" | "end" | "stretch";
   justify?: "start" | "center" | "end" | "between" | "around" | "evenly";
-
+  
   // Content areas
   title?: string;
   header?: React.ReactNode;
   children?: React.ReactNode;
   footer?: React.ReactNode;
-
+  
   // Styling
+  borderRight?: boolean;
   className?: string;
 }
 
@@ -82,6 +83,7 @@ export function Column({
   header,
   children,
   footer,
+  borderRight = true,
   className,
   ...props
 }: ColumnProps) {
@@ -91,7 +93,8 @@ export function Column({
   return (
     <div
       className={cn(
-        "relative flex flex-col h-screen border border-border",
+        "relative flex flex-col h-screen",
+        borderRight && "border-r border-border",
         baseSizeClass,
         responsiveClasses,
         alignClasses[align],
