@@ -48,8 +48,8 @@ export default function ShellLayout({
         <SidebarProvider>
           {isMobile && <BrandHeader />}
           <BrandSidebar />
-          <main className="flex w-full justify-center">
-            <div className="container">{children}</div>
+          <main className="flex w-full">
+            <div className="w-full">{children}</div>
           </main>
           <Toaster />
         </SidebarProvider>
