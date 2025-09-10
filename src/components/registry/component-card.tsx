@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Copy } from "lucide-react";
+import { Check, Copy, FileText } from "lucide-react";
 import { useState } from "react";
 
 import { OpenInV0Button } from "@/components/registry/open-in-v0";
@@ -32,6 +32,7 @@ export function ComponentCard({
   prompt,
 }: ComponentCardProps) {
   const [copied, setCopied] = useState(false);
+  const [jsonCopied, setJsonCopied] = useState(false);
 
   // Ensure we have a valid base URL
   const validBaseUrl = baseUrl || (typeof window !== 'undefined' ? window.location.origin : 'localhost:3000');
@@ -69,6 +70,19 @@ export function ComponentCard({
     }
   };
 
+  const copyJsonToClipboard = async () => {
+    try {
+      const response = await fetch(registryUrl);
+      const jsonData = await response.json();
+      const jsonString = JSON.stringify(jsonData, null, 2);
+      await navigator.clipboard.writeText(jsonString);
+      setJsonCopied(true);
+      setTimeout(() => setJsonCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy JSON: ", err);
+    }
+  };
+
   return (
     <section>
       <Card id="starting-kit" className="bg-transparent p-0 border-none gap-1">
@@ -95,6 +109,28 @@ export function ComponentCard({
                           <Check className="size-4" />
                         ) : (
                           <Copy className="size-4" />
+                        )}
+                      </Button>
+                    </TooltipTrigger>
+                  </Tooltip>
+                </TooltipProvider>
+
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipContent className="font-mono">
+                      Copy JSON code
+                    </TooltipContent>
+                    <TooltipTrigger asChild>
+                      <Button
+                        onClick={copyJsonToClipboard}
+                        variant="outline"
+                        className="p-4"
+                        aria-label="Copy JSON code to clipboard"
+                      >
+                        {jsonCopied ? (
+                          <Check className="size-4" />
+                        ) : (
+                          <FileText className="size-4" />
                         )}
                       </Button>
                     </TooltipTrigger>
