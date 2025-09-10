@@ -120,6 +120,7 @@ export function Panel({
       {children && (
         <div className={cn(
           "flex-1 w-full p-3 items-start self-stretch bg-background pt-12",
+          "pt-[60px]", // 48px for header + 12px spacing
           footer && "pb-12"
         )}>
           {children}
