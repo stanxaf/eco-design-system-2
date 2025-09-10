@@ -13,12 +13,12 @@ interface TypographyH6Props extends HTMLAttributes<HTMLHeadingElement> {
  * Use this component for smallest headers and senary headings.
  *
  * **Font Setup Required:**
-* This component uses Inter font. Add this to your layout.tsx:
+ * This component uses Inter font. Add this to your layout.tsx:
 * ```tsx
 * import { Inter } from "next/font/google";
-* 
+*
 * const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-* 
+*
 * export default function RootLayout({ children }) {
 *   return (
 *     <html className={inter.variable}>
