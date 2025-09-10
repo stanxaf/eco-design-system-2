@@ -35,12 +35,14 @@ import { cn } from "@/lib/utils";
  * - `sm`: Small button for compact layouts (h-6, px-[8px], text-[11px], gap-1)
  * - `lg`: Large button for prominent actions (h-10, px-6)
  * - `icon`: Square button for icon-only content (size-8)
+ * - `icon-sm`: Small square button for compact icon-only content (size-6)
  *
  * **Features:**
  * - asChild support for polymorphic rendering
  * - Comprehensive accessibility (focus-visible, aria-invalid)
  * - Icon support with automatic sizing and spacing
  * - Small buttons use 12px icons and 11px text for compact layouts
+ * - Small icon buttons use 12px icons for compact icon-only interfaces
  * - Responsive design with proper hover states
  * - Dark mode support with theme-aware colors
  * - Disabled state handling with proper opacity
@@ -71,6 +73,11 @@ import { cn } from "@/lib/utils";
  * // Small button with icon (automatically sized to 12px)
  * <Button size="sm" variant="outline">
  *   <Plus />
+ * </Button>
+ *
+ * // Small icon-only button (size-6 with 12px icon)
+ * <Button size="icon-sm" variant="outline">
+ *   <Plus className="size-3" />
  * </Button>
  *
  * // With asChild for custom elements
@@ -109,6 +116,7 @@ const buttonVariants = cva(
         sm: "h-6 rounded-md gap-1 px-[8px] has-[>svg]:px-[8px] [&_svg:not([class*='size-'])]:size-3 text-[11px]",
         lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
         icon: "size-8",
+        "icon-sm": "size-6 [&_svg:not([class*='size-'])]:size-3",
       },
     },
     defaultVariants: {
