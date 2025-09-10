@@ -32,7 +32,7 @@ import { cn } from "@/lib/utils";
  *
  * **Available Sizes:**
  * - `default`: Standard button size (h-8, px-4, py-2)
- * - `sm`: Small button for compact layouts (h-6, px-3)
+ * - `sm`: Small button for compact layouts (h-6, px-[8px], text-[11px], gap-1)
  * - `lg`: Large button for prominent actions (h-10, px-6)
  * - `icon`: Square button for icon-only content (size-8)
  *
@@ -40,6 +40,7 @@ import { cn } from "@/lib/utils";
  * - asChild support for polymorphic rendering
  * - Comprehensive accessibility (focus-visible, aria-invalid)
  * - Icon support with automatic sizing and spacing
+ * - Small buttons use 12px icons and 11px text for compact layouts
  * - Responsive design with proper hover states
  * - Dark mode support with theme-aware colors
  * - Disabled state handling with proper opacity
@@ -65,6 +66,11 @@ import { cn } from "@/lib/utils";
  * // Icon button
  * <Button size="icon" variant="outline">
  *   <Plus className="size-4" />
+ * </Button>
+ *
+ * // Small button with icon (automatically sized to 12px)
+ * <Button size="sm" variant="outline">
+ *   <Plus />
  * </Button>
  *
  * // With asChild for custom elements
@@ -100,7 +106,7 @@ const buttonVariants = cva(
       },
       size: {
         default: "h-8 px-4 py-2 has-[>svg]:px-3",
-        sm: "h-6 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
+        sm: "h-6 rounded-md gap-1 px-[8px] has-[>svg]:px-[8px] [&_svg:not([class*='size-'])]:size-3 text-[11px]",
         lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
         icon: "size-8",
       },
@@ -155,7 +161,7 @@ function Button({
  *
  * **Children:**
  * - Text content for button labels
- * - Icons with automatic sizing (size-4 by default)
+ * - Icons with automatic sizing (size-4 by default, size-3 for small buttons)
  * - Any valid React children
  *
  * **Accessibility:**

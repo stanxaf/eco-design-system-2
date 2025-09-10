@@ -57,16 +57,53 @@ export function ButtonDocs() {
               </div>
 
               <div>
+                <h4 className="font-medium mb-3">Icon-Only Buttons</h4>
+                <div className="flex flex-wrap gap-3">
+                  <Button size="icon" variant="default">
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                    </svg>
+                  </Button>
+                  <Button size="icon" variant="secondary">
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </Button>
+                  <Button size="icon" variant="destructive">
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                  </Button>
+                  <Button size="icon" variant="outline">
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                  </Button>
+                  <Button size="icon" variant="ghost">
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </Button>
+                  <Button size="icon" variant="link">
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </Button>
+                </div>
+              </div>
+
+              <div>
                 <h4 className="font-medium mb-3">With Icons</h4>
                 <div className="flex flex-wrap gap-3">
                   <Button>
-                    <svg className="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                     </svg>
                     Add Item
                   </Button>
                   <Button variant="outline" size="sm">
-                    <svg className="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     Save
@@ -113,10 +150,25 @@ export function ButtonDocs() {
               </div>
 
               <div>
+                <h4 className="font-medium mb-2">Icon-Only Buttons</h4>
+                <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
+{`<Button size="icon" variant="default">
+  <Plus className="h-4 w-4" />
+</Button>
+<Button size="icon" variant="secondary">
+  <Check className="h-4 w-4" />
+</Button>
+<Button size="icon" variant="destructive">
+  <Trash className="h-4 w-4" />
+</Button>`}
+                </CodeBlock>
+              </div>
+
+              <div>
                 <h4 className="font-medium mb-2">Button with Icon</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
 {`<Button>
-  <Plus className="mr-2 h-4 w-4" />
+  <Plus className="h-4 w-4" />
   Add Item
 </Button>`}
                 </CodeBlock>
@@ -190,6 +242,18 @@ export function ButtonDocs() {
                   <li><strong>Small:</strong> Dense interfaces, inline actions</li>
                   <li><strong>Default:</strong> Standard use cases, most buttons</li>
                   <li><strong>Large:</strong> Prominent actions, hero sections</li>
+                  <li><strong>Icon:</strong> Icon-only buttons, toolbars, compact spaces</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-medium mb-2">Icon-Only Button Guidelines</h4>
+                <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                  <li>Always provide an aria-label for accessibility</li>
+                  <li>Use clear, recognizable icons that match the action</li>
+                  <li>Ensure sufficient touch target size (44px minimum)</li>
+                  <li>Consider tooltips for additional context</li>
+                  <li>Use sparingly - prefer text labels when space allows</li>
                 </ul>
               </div>
             </CardContent>
