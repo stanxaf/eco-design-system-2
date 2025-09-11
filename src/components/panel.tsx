@@ -8,7 +8,7 @@ import { MoreHorizontal } from "lucide-react";
 
 /**
  * Panel component for creating flexible layouts with header, content, and footer areas.
- * 
+ *
  * Features:
  * - Responsive sizing with flexible column system
  * - Header with title and action button
@@ -16,7 +16,7 @@ import { MoreHorizontal } from "lucide-react";
  * - Footer with status information
  * - Customizable alignment and justification
  * - Border and styling options
- * 
+ *
  * @example
  * ```tsx
  * <Panel size="4" title="My Panel" footer={<span>Status: Active</span>}>
@@ -109,7 +109,7 @@ const getResponsiveClasses = (responsive?: PanelProps["responsive"]) => {
 
 /**
  * Panel component for creating flexible layouts with header, content, and footer areas.
- * 
+ *
  * @param props - Panel component props
  * @returns JSX element
  */
