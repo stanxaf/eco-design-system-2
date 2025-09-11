@@ -14,17 +14,14 @@ export function PanelDocs() {
         <h2 className="text-2xl font-semibold">Component</h2>
         <div className="rounded-md border bg-muted/50 p-4">
           <pre className="text-sm">
-{`<div className="flex">
-  <Panel size="4" title="Panel 1" borderRight={true}>
-    <div>Content 1</div>
-  </Panel>
-  <Panel size="4" title="Panel 2" borderRight={true}>
-    <div>Content 2</div>
-  </Panel>
-  <Panel size="4" title="Panel 3" borderRight={false}>
-    <div>Content 3</div>
-  </Panel>
-</div>`}
+{`<Panel
+  size="full"
+  title="Sample Panel"
+  borderRight={false}
+  footer={<span>Status: Active</span>}
+>
+  <div>Content</div>
+</Panel>`}
           </pre>
         </div>
       </div>
