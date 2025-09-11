@@ -110,8 +110,8 @@ export function Panel({
         ) : (
           <>
             <TypographyH6>{title}</TypographyH6>
-            <Button variant="ghost" size="sm">
-              <MoreHorizontal className="h-4 w-4" />
+            <Button variant="ghost" size="icon">
+              <MoreHorizontal />
             </Button>
           </>
         )}
