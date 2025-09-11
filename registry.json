@@ -206,8 +206,14 @@
       ],
       "files": [
         {
-          "path": "src/components/app-shell.tsx",
-          "type": "registry:component"
+          "path": "src/layouts/app-shell-layout.tsx",
+          "type": "registry:file",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "src/app/demo/[name]/blocks/app-shell-page.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
         }
       ],
       "dependencies": []
