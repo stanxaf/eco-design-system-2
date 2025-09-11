@@ -6,11 +6,35 @@ import { Button } from "@/components/ui/button";
 import { TypographyH6 } from "@/components/ui/typography-h6";
 import { MoreHorizontal } from "lucide-react";
 
+/**
+ * Panel component for creating flexible layouts with header, content, and footer areas.
+ * 
+ * Features:
+ * - Responsive sizing with flexible column system
+ * - Header with title and action button
+ * - Content area with proper spacing
+ * - Footer with status information
+ * - Customizable alignment and justification
+ * - Border and styling options
+ * 
+ * @example
+ * ```tsx
+ * <Panel size="4" title="My Panel" footer={<span>Status: Active</span>}>
+ *   <div>Panel content goes here</div>
+ * </Panel>
+ * ```
+ */
+
 type ColumnSize = "auto" | "1" | "2" | "3" | "4" | "5" | "6" | "12" | "full" | "fit";
 
+/**
+ * Props for the Panel component
+ */
 interface PanelProps {
-  // Sizing
+  /** Sizing */
+  /** Panel size using flexible column system */
   size?: ColumnSize;
+  /** Responsive sizing for different breakpoints */
   responsive?: {
     sm?: ColumnSize;
     md?: ColumnSize;
@@ -18,18 +42,26 @@ interface PanelProps {
     xl?: ColumnSize;
   };
 
-  // Layout
+  /** Layout */
+  /** Vertical alignment of panel content */
   align?: "start" | "center" | "end" | "stretch";
+  /** Horizontal justification of panel content */
   justify?: "start" | "center" | "end" | "between" | "around" | "evenly";
 
-  // Content areas
+  /** Content areas */
+  /** Panel title displayed in header */
   title?: string;
+  /** Custom header content (overrides title) */
   header?: React.ReactNode;
+  /** Main panel content */
   children?: React.ReactNode;
+  /** Footer content with status information */
   footer?: React.ReactNode;
 
-  // Styling
+  /** Styling */
+  /** Whether to show right border */
   borderRight?: boolean;
+  /** Additional CSS classes */
   className?: string;
 }
 
@@ -75,6 +107,12 @@ const getResponsiveClasses = (responsive?: PanelProps["responsive"]) => {
   return classes.join(" ");
 };
 
+/**
+ * Panel component for creating flexible layouts with header, content, and footer areas.
+ * 
+ * @param props - Panel component props
+ * @returns JSX element
+ */
 export function Panel({
   size = "auto",
   responsive,
