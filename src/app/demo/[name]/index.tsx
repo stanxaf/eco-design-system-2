@@ -1,6 +1,7 @@
 import type { ReactElement, ReactNode } from "react";
 
 // blocks
+import { appShell } from "@/app/demo/[name]/blocks/app-shell";
 import { blank } from "@/app/demo/[name]/blocks/blank";
 import { dashboard } from "@/app/demo/[name]/blocks/dashboard";
 import { store } from "@/app/demo/[name]/blocks/store";
@@ -79,6 +80,7 @@ interface Demo {
 
 export const demos: { [name: string]: Demo } = {
   // blocks
+  "app-shell": appShell,
   blank,
   store,
   dashboard,
