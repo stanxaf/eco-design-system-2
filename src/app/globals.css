@@ -755,7 +755,7 @@
   --button-outline-hover: var(--gray-200);
   --button-outline-border: var(--border-interactive);
 
-  --button-ghost-hover: var(--accent);
+  --button-ghost-hover: var(--gray-200);
   --button-ghost-hover-foreground: var(--accent-foreground);
 
   --button-link: var(--primary);
@@ -862,7 +862,7 @@
   --button-outline-hover: var(--gray-800);
   --button-outline-border: var(--border-interactive);
 
-  --button-ghost-hover: var(--accent);
+  --button-ghost-hover: var(--gray-800);
   --button-ghost-hover-foreground: var(--accent-foreground);
 
   --button-link: var(--primary);
