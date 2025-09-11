@@ -7,6 +7,7 @@ import { BadgeDocs } from "./badge";
 import { ButtonDocs } from "./button";
 import { CheckboxDocs } from "./checkbox";
 import { ComboboxDocs } from "./combobox";
+import { HeaderDocs } from "./header";
 import { InputOTPDocs } from "./input-otp";
 import { NavigationMenuDocs } from "./navigation-menu";
 import { SwitchDocs } from "./switch";
@@ -29,6 +30,7 @@ export function ComponentDocs({ component }: ComponentDocsProps) {
     button: ButtonDocs,
     checkbox: CheckboxDocs,
     combobox: ComboboxDocs,
+    header: HeaderDocs,
     "input-otp": InputOTPDocs,
     "navigation-menu": NavigationMenuDocs,
     switch: SwitchDocs,

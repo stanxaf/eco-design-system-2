@@ -8,6 +8,7 @@ import { store } from "@/app/demo/[name]/blocks/store";
 // components
 import { brandHeader } from "@/app/demo/[name]/components/brand-header";
 import { brandSidebar } from "@/app/demo/[name]/components/brand-sidebar";
+import { header } from "@/app/demo/[name]/components/header";
 import { hero } from "@/app/demo/[name]/components/hero";
 import { login } from "@/app/demo/[name]/components/login";
 import { logo } from "@/app/demo/[name]/components/logo";
@@ -90,6 +91,7 @@ export const demos: { [name: string]: Demo } = {
   "brand-header": brandHeader,
   "brand-sidebar": brandSidebar,
   "product-grid": productGrid,
+  header,
 
   // ui
   accordion,

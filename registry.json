@@ -1348,6 +1348,21 @@
       ]
     },
     {
+      "name": "header",
+      "type": "registry:component",
+      "title": "Header",
+      "description": "A flexible header component for creating consistent headers across panels and layouts. Supports breadcrumbs, custom left content, and right-side controls for panel management.",
+      "registryDependencies": [
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/header.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "panel",
       "type": "registry:component",
       "title": "Panel",

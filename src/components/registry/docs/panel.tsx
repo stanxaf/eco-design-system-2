@@ -20,7 +20,20 @@ export function PanelDocs() {
   borderRight={false}
   footer={<span>Status: Active</span>}
 >
-  <div>Content</div>
+  <div className="space-y-4">
+    <h3 className="text-lg font-semibold">Panel Content</h3>
+    <p className="text-muted-foreground">
+      This is a sample panel with header, content, and footer areas.
+    </p>
+    <div className="flex gap-2">
+      <button className="px-3 py-1 bg-primary text-primary-foreground rounded text-sm">
+        Action
+      </button>
+      <button className="px-3 py-1 border border-input rounded text-sm">
+        Secondary
+      </button>
+    </div>
+  </div>
 </Panel>`}
           </pre>
         </div>
