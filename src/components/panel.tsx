@@ -19,8 +19,34 @@ import { MoreHorizontal } from "lucide-react";
  *
  * @example
  * ```tsx
+ * // Basic panel with default 100vh height
  * <Panel size="4" title="My Panel" footer={<span>Status: Active</span>}>
  *   <div>Panel content goes here</div>
+ * </Panel>
+ *
+ * // Panel with 100% height (useful when there's a header above)
+ * <Panel height="full" title="My Panel">
+ *   <div>Panel content goes here</div>
+ * </Panel>
+ *
+ * // Panel with custom header and full height
+ * <Panel height="full" header={
+ *   <div className="flex items-center justify-between w-full">
+ *     <h3>Custom Header</h3>
+ *     <Button size="sm">Action</Button>
+ *   </div>
+ * }>
+ *   <div>Panel content with custom header</div>
+ * </Panel>
+ *
+ * // Panel with responsive sizing and full height
+ * <Panel
+ *   size="6"
+ *   height="full"
+ *   responsive={{ md: "4", lg: "3" }}
+ *   title="Responsive Panel"
+ * >
+ *   <div>Content adapts to screen size</div>
  * </Panel>
  * ```
  */
@@ -61,6 +87,8 @@ interface PanelProps {
   /** Styling */
   /** Whether to show right border */
   borderRight?: boolean;
+  /** Height behavior: 'screen' for 100vh, 'full' for 100% of parent */
+  height?: "screen" | "full";
   /** Additional CSS classes */
   className?: string;
 }
@@ -123,16 +151,21 @@ export function Panel({
   children,
   footer,
   borderRight = true,
+  height = "screen",
   className,
   ...props
 }: PanelProps) {
   const baseSizeClass = sizeClasses[size];
   const responsiveClasses = getResponsiveClasses(responsive);
 
+  // Determine height class based on height prop
+  const heightClass = height === "screen" ? "h-screen" : "h-full";
+
   return (
     <div
       className={cn(
-        "relative flex flex-col h-screen",
+        "relative flex flex-col",
+        heightClass,
         borderRight && "border-r border-border",
         baseSizeClass,
         responsiveClasses,
