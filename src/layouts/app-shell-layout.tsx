@@ -3,7 +3,12 @@
 import { Inter, Geist_Mono, Montserrat } from "next/font/google";
 import React, { type ReactNode } from "react";
 
+import { BrandHeader } from "@/components/brand-header";
+import { BrandSidebar } from "@/components/brand-sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 import "@/app/globals.css";
 
@@ -27,6 +32,8 @@ export default function AppShellLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
+  const isMobile = useIsMobile();
+
   return (
     <html
       lang="en"
@@ -38,19 +45,18 @@ export default function AppShellLayout({
       )}
     >
       <body>
-        <div className="flex min-h-screen flex-col overflow-x-hidden">
-          {/* Main Layout */}
-          <div className="flex flex-1 overflow-x-hidden">
-            {/* Main Content */}
-            <main className="flex-1 flex flex-col min-h-0">
-              <div className="flex-1 p-6 overflow-x-hidden">
-                <div className="max-w-7xl mx-auto space-y-6">
-                  {children}
-                </div>
+        <SidebarProvider>
+          {isMobile && <BrandHeader />}
+          <BrandSidebar />
+          <main className="flex w-full">
+            <div className="w-full p-6">
+              <div className="max-w-7xl mx-auto space-y-6">
+                {children}
               </div>
-            </main>
-          </div>
-        </div>
+            </div>
+          </main>
+          <Toaster />
+        </SidebarProvider>
       </body>
     </html>
   );
