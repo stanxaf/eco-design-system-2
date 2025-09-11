@@ -49,9 +49,7 @@ export default function AppShell({
           sidebar ? "md:pl-64" : ""
         )}>
           <div className="flex-1 overflow-x-hidden">
-            <div className="max-w-7xl mx-auto space-y-6">
-              {children}
-            </div>
+            {children}
           </div>
         </main>
       </div>
