@@ -778,10 +778,17 @@
 
   --radius: 0.375rem; /* 4px */
 
-  /* Surface Background Variables - Light Mode */
+  /* Surface Background - Light Mode */
   --bg-surface-light: var(--gray-50);
   --bg-surface-medium: var(--gray-100);
   --bg-surface-dark: var(--gray-200);
+
+  /* Component Background - Light Mode */
+  --bg-component-default: var(--neutral-white);
+  --bg-component-light: var(--slate-50);
+  --bg-component-medium: var(--slate-100);
+  --bg-component-dark: var(--slate-200);
+  --bg-component-darker: var(--slate-300);
 }
 
 .dark {
@@ -842,7 +849,7 @@
   --alert-destructive-border: var(--red-800);
   --alert-destructive-muted: var(--red-400);
 
-  /* Button Component Variables - Dark Mode */
+  /* Button Component - Dark Mode */
   --button-primary: var(--primary);
   --button-primary-foreground: var(--primary-foreground);
   --button-primary-hover: var(--blue-400);
@@ -884,10 +891,17 @@
 
   --radius: 0.375rem;
 
-  /* Surface Background Variables - Dark Mode */
+  /* Surface Background - Dark Mode */
   --bg-surface-light: var(--gray-950);
   --bg-surface-medium: var(--gray-900);
   --bg-surface-dark: var(--gray-800);
+
+  /* Component Background - Dark Mode */
+  --bg-component-default: var(--gray-950);
+  --bg-component-light: var(--slate-950);
+  --bg-component-medium: var(--slate-900);
+  --bg-component-dark: var(--slate-200);
+  --bg-component-darker: var(--slate-300);
 }
 
 @theme inline {
@@ -1132,6 +1146,27 @@
 
   .bg-surface-dark {
     background-color: var(--bg-surface-dark);
+  }
+
+  /* Component Background Utilities */
+  .bg-component-default {
+    background-color: var(--bg-component-default);
+  }
+
+  .bg-component-light {
+    background-color: var(--bg-component-light);
+  }
+
+  .bg-component-medium {
+    background-color: var(--bg-component-medium);
+  }
+
+  .bg-component-dark {
+    background-color: var(--bg-component-dark);
+  }
+
+  .bg-component-darker {
+    background-color: var(--bg-component-darker);
   }
 }
 
