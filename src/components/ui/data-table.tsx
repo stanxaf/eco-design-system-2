@@ -12,7 +12,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react";
+import { ArrowUpDown, ArrowUp, ArrowDown, ChevronDown, MoreHorizontal } from "lucide-react";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
@@ -89,6 +89,7 @@ interface DataTableProps<TData, TValue> {
   className?: string;
   paginationVariant?: "advanced" | "basic";
   itemsPerPageOptions?: number[];
+  columnWidths?: Record<string, string>; // Custom column widths
 }
 
 export function DataTable<TData, TValue>({
@@ -101,12 +102,19 @@ export function DataTable<TData, TValue>({
   className,
   paginationVariant = "advanced",
   itemsPerPageOptions = [10, 25, 50, 100],
+  columnWidths = { select: "w-8", actions: "w-12" }, // Default widths
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
   const [pageSize, setPageSize] = React.useState(10);
+  const [pageIndex, setPageIndex] = React.useState(0);
+
+  // Memoize column width getter to avoid recreating functions in render
+  const getColumnWidth = React.useCallback((columnId: string) => {
+    return columnWidths[columnId] || "";
+  }, [columnWidths]);
 
   const table = useReactTable({
     data,
@@ -119,32 +127,32 @@ export function DataTable<TData, TValue>({
     getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
     onRowSelectionChange: setRowSelection,
+    onPaginationChange: (updater) => {
+      if (typeof updater === 'function') {
+        const newPagination = updater({ pageIndex, pageSize });
+        setPageIndex(newPagination.pageIndex);
+        setPageSize(newPagination.pageSize);
+      }
+    },
     state: {
       sorting,
       columnFilters,
       columnVisibility,
       rowSelection,
       pagination: {
-        pageIndex: 0,
+        pageIndex,
         pageSize,
       },
-    },
-    onPaginationChange: (updater) => {
-      if (typeof updater === 'function') {
-        const newPagination = updater({ pageIndex: table.getState().pagination.pageIndex, pageSize });
-        setPageSize(newPagination.pageSize);
-        table.setPageIndex(newPagination.pageIndex);
-      }
     },
   });
 
   const handlePageChange = (page: number) => {
-    table.setPageIndex(page - 1);
+    setPageIndex(page - 1);
   };
 
   const handleItemsPerPageChange = (newPageSize: number) => {
     setPageSize(newPageSize);
-    table.setPageSize(newPageSize);
+    setPageIndex(0); // Reset to first page when changing page size
   };
 
   return (
@@ -214,8 +222,17 @@ export function DataTable<TData, TValue>({
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id} data-slot="data-table-header-row">
                 {headerGroup.headers.map((header) => {
+                  const isSortable = header.column.getCanSort();
                   return (
-                    <TableHead key={header.id} data-slot="data-table-header-cell">
+                    <TableHead
+                      key={header.id}
+                      data-slot="data-table-header-cell"
+                      className={cn(
+                        isSortable ? "cursor-pointer hover:bg-component-dark transition-colors" : "",
+                        getColumnWidth(header.id)
+                      )}
+                      onClick={isSortable ? () => header.column.toggleSorting(header.column.getIsSorted() === "asc") : undefined}
+                    >
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -233,17 +250,23 @@ export function DataTable<TData, TValue>({
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
+                  data-state={row.getIsSelected() ? "selected" : undefined}
                   data-slot="data-table-row"
                 >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} data-slot="data-table-cell">
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
+                  {row.getVisibleCells().map((cell) => {
+                    return (
+                      <TableCell
+                        key={cell.id}
+                        data-slot="data-table-cell"
+                        className={getColumnWidth(cell.column.id)}
+                      >
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    );
+                  })}
                 </TableRow>
               ))
             ) : (
@@ -264,7 +287,7 @@ export function DataTable<TData, TValue>({
       <div data-slot="data-table-pagination">
         <DataTablePagination
           variant={paginationVariant}
-          currentPage={table.getState().pagination.pageIndex + 1}
+          currentPage={pageIndex + 1}
           totalPages={table.getPageCount()}
           totalItems={table.getFilteredRowModel().rows.length}
           itemsPerPage={pageSize}
@@ -283,16 +306,21 @@ export function createSortableHeader<TData, TValue>(
   column: any,
   title: string
 ) {
+  const sortState = column.getIsSorted();
+
+  const getSortIcon = () => {
+    if (sortState === "asc") {
+      return <ArrowUp className="h-4 w-4" />;
+    } else if (sortState === "desc") {
+      return <ArrowDown className="h-4 w-4" />;
+    }
+    return null; // No icon when not sorted
+  };
+
   return (
-    <div className="flex justify-end">
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-      >
-        {title}
-        <ArrowUpDown className="ml-2 h-4 w-4" />
-      </Button>
+    <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+      <span>{title}</span>
+      {getSortIcon()}
     </div>
   );
 }
@@ -301,22 +329,29 @@ export function createSortableHeader<TData, TValue>(
 export function createRowSelectionColumn<TData>(): ColumnDef<TData> {
   return {
     id: "select",
+    size: 32,
+    minSize: 32,
+    maxSize: 32,
     header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-      />
+      <div className="flex justify-center">
+        <Checkbox
+          checked={
+            table.getIsAllPageRowsSelected() ||
+            (table.getIsSomePageRowsSelected() && "indeterminate")
+          }
+          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+          aria-label="Select all"
+        />
+      </div>
     ),
     cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-      />
+      <div className="flex justify-center">
+        <Checkbox
+          checked={row.getIsSelected()}
+          onCheckedChange={(value) => row.toggleSelected(!!value)}
+          aria-label="Select row"
+        />
+      </div>
     ),
     enableSorting: false,
     enableHiding: false,
@@ -329,6 +364,7 @@ export function createActionsColumn<TData>(
 ): ColumnDef<TData> {
   return {
     id: "actions",
+    size: 50, // Fixed width for actions column
     enableHiding: false,
     cell: ({ row }) => {
       return (

@@ -1,7 +1,7 @@
 "use client";
 
 import { type ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+import { ArrowUpDown, ArrowUp, ArrowDown, MoreHorizontal } from "lucide-react";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
@@ -60,7 +60,7 @@ export const columns: ColumnDef<Payment>[] = [
   createRowSelectionColumn<Payment>(),
   {
     accessorKey: "status",
-    header: "Status",
+    header: ({ column }) => createSortableHeader(column, "Status"),
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("status")}</div>
     ),
@@ -72,7 +72,20 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: "amount",
-    header: () => <div className="text-right">Amount</div>,
+    header: ({ column }) => (
+      <div className="flex items-center justify-end gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+        <span>Amount</span>
+        {(() => {
+          const sortState = column.getIsSorted();
+          if (sortState === "asc") {
+            return <ArrowUp className="h-4 w-4" />;
+          } else if (sortState === "desc") {
+            return <ArrowDown className="h-4 w-4" />;
+          }
+          return null; // No icon when not sorted
+        })()}
+      </div>
+    ),
     cell: ({ row }) => {
       const amount = Number.parseFloat(row.getValue("amount"));
 
