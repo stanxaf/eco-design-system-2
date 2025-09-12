@@ -208,7 +208,7 @@ export function DataTable<TData, TValue>({
       </div>
 
       {/* Table */}
-      <div className="rounded-md border" data-slot="data-table-container">
+      <div data-slot="data-table-container">
         <Table data-slot="data-table-main">
           <TableHeader data-slot="data-table-header">
             {table.getHeaderGroups().map((headerGroup) => (
@@ -250,7 +250,6 @@ export function DataTable<TData, TValue>({
               <TableRow data-slot="data-table-empty-row">
                 <TableCell
                   colSpan={columns.length}
-                  className="h-24 text-center"
                   data-slot="data-table-empty-cell"
                 >
                   No results.
@@ -285,13 +284,16 @@ export function createSortableHeader<TData, TValue>(
   title: string
 ) {
   return (
-    <Button
-      variant="ghost"
-      onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-    >
-      {title}
-      <ArrowUpDown className="ml-2 h-4 w-4" />
-    </Button>
+    <div className="flex justify-end">
+      <Button
+        variant="ghost"
+        size="sm"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        {title}
+        <ArrowUpDown className="ml-2 h-4 w-4" />
+      </Button>
+    </div>
   );
 }
 
@@ -330,17 +332,19 @@ export function createActionsColumn<TData>(
     enableHiding: false,
     cell: ({ row }) => {
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            {actions(row)}
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <div className="flex justify-end">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon-sm">
+                <span className="sr-only">Open menu</span>
+                <MoreHorizontal />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              {actions(row)}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       );
     },
   };

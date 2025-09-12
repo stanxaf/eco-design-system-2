@@ -1128,6 +1128,18 @@
   /* Utility classes */
   --border-interactive: var(--border-interactive);
 
+  /* Component Backgrounds */
+  --color-component-default: var(--bg-component-default);
+  --color-component-light: var(--bg-component-light);
+  --color-component-medium: var(--bg-component-medium);
+  --color-component-dark: var(--bg-component-dark);
+  --color-component-darker: var(--bg-component-darker);
+
+  /* Surface Backgrounds */
+  --color-surface-light: var(--bg-surface-light);
+  --color-surface-medium: var(--bg-surface-medium);
+  --color-surface-dark: var(--bg-surface-dark);
+
 }
 
 @layer utilities {
