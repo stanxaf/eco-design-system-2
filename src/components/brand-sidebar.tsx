@@ -17,7 +17,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
-  SidebarSeparator,
   useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
@@ -126,7 +125,7 @@ export function BrandSidebar({
 
       <SidebarContent className="transition-all duration-200 ease-in-out">
         {/* Search Section */}
-        <SidebarGroup>
+        <SidebarGroup className="border-b border-sidebar-border">
           <SidebarGroupContent>
             <div className="relative overflow-hidden">
               {/* Collapsed: Search icon */}
@@ -157,8 +156,6 @@ export function BrandSidebar({
           </SidebarGroupContent>
         </SidebarGroup>
 
-        <SidebarSeparator />
-
         {/* Main Nav Items */}
         <SidebarGroup>
           <SidebarGroupContent>
@@ -186,8 +183,6 @@ export function BrandSidebar({
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-
-        <SidebarSeparator />
 
         {/* Tools Nav Items */}
         <SidebarGroup>
