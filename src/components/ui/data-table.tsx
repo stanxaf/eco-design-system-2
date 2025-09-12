@@ -26,6 +26,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { DataTablePagination } from "@/components/ui/data-table-pagination";
 import { Input } from "@/components/ui/input";
 import {
   Table,
@@ -86,6 +87,8 @@ interface DataTableProps<TData, TValue> {
   showColumnVisibility?: boolean;
   showRowSelection?: boolean;
   className?: string;
+  paginationVariant?: "advanced" | "basic";
+  itemsPerPageOptions?: number[];
 }
 
 export function DataTable<TData, TValue>({
@@ -96,11 +99,14 @@ export function DataTable<TData, TValue>({
   showColumnVisibility = true,
   showRowSelection = true,
   className,
+  paginationVariant = "advanced",
+  itemsPerPageOptions = [10, 25, 50, 100],
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
+  const [pageSize, setPageSize] = React.useState(10);
 
   const table = useReactTable({
     data,
@@ -118,11 +124,31 @@ export function DataTable<TData, TValue>({
       columnFilters,
       columnVisibility,
       rowSelection,
+      pagination: {
+        pageIndex: 0,
+        pageSize,
+      },
+    },
+    onPaginationChange: (updater) => {
+      if (typeof updater === 'function') {
+        const newPagination = updater({ pageIndex: table.getState().pagination.pageIndex, pageSize });
+        setPageSize(newPagination.pageSize);
+        table.setPageIndex(newPagination.pageIndex);
+      }
     },
   });
 
+  const handlePageChange = (page: number) => {
+    table.setPageIndex(page - 1);
+  };
+
+  const handleItemsPerPageChange = (newPageSize: number) => {
+    setPageSize(newPageSize);
+    table.setPageSize(newPageSize);
+  };
+
   return (
-    <div className={cn("w-full space-y-4", className)} data-slot="data-table">
+    <div className={cn("w-full space-y-2", className)} data-slot="data-table">
       {/* Toolbar */}
       <div className="flex items-center justify-between" data-slot="data-table-toolbar">
         <div className="flex flex-1 items-center space-x-2">
@@ -236,33 +262,18 @@ export function DataTable<TData, TValue>({
       </div>
 
       {/* Pagination */}
-      <div className="flex items-center justify-end space-x-2 py-4" data-slot="data-table-pagination">
-        <div className="flex-1 text-sm text-muted-foreground" data-slot="data-table-pagination-info">
-          {table.getFilteredSelectedRowModel().rows.length} of{" "}
-          {table.getFilteredRowModel().rows.length} row(s) selected.
-        </div>
-        <div className="space-x-2" data-slot="data-table-pagination-controls">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
-            data-slot="data-table-pagination-previous"
-            aria-label="Go to previous page"
-          >
-            Previous
-          </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
-            data-slot="data-table-pagination-next"
-            aria-label="Go to next page"
-          >
-            Next
-          </Button>
-        </div>
+      <div data-slot="data-table-pagination">
+        <DataTablePagination
+          variant={paginationVariant}
+          currentPage={table.getState().pagination.pageIndex + 1}
+          totalPages={table.getPageCount()}
+          totalItems={table.getFilteredRowModel().rows.length}
+          itemsPerPage={pageSize}
+          onPageChange={handlePageChange}
+          onItemsPerPageChange={handleItemsPerPageChange}
+          itemsPerPageOptions={itemsPerPageOptions}
+          className="w-full"
+        />
       </div>
     </div>
   );
