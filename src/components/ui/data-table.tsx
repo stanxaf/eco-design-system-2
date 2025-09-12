@@ -228,7 +228,7 @@ export function DataTable<TData, TValue>({
                       key={header.id}
                       data-slot="data-table-header-cell"
                       className={cn(
-                        isSortable ? "cursor-pointer hover:bg-component-dark transition-colors" : "",
+                        isSortable ? "cursor-pointer hover:opacity-80 transition-colors" : "",
                         getColumnWidth(header.id)
                       )}
                       onClick={isSortable ? () => header.column.toggleSorting(header.column.getIsSorted() === "asc") : undefined}
