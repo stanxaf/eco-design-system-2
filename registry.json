@@ -226,28 +226,6 @@
       "dependencies": []
     },
     {
-      "name": "store",
-      "type": "registry:block",
-      "title": "Store",
-      "description": "A store application with your brand themed components",
-      "registryDependencies": [
-        "https://eco-design-system-2.vercel.app/r/components/product-grid.json",
-        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
-      ],
-      "files": [
-        {
-          "path": "src/layouts/minimal-layout.tsx",
-          "type": "registry:file",
-          "target": "app/layout.tsx"
-        },
-        {
-          "path": "src/app/demo/[name]/blocks/store-page.tsx",
-          "type": "registry:page",
-          "target": "app/page.tsx"
-        }
-      ]
-    },
-    {
       "name": "brand-header",
       "type": "registry:component",
       "title": "Brand Header",

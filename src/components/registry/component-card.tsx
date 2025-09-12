@@ -49,8 +49,7 @@ export function ComponentCard({
     subDir = 'components';
   } else if (component.type === 'registry:block' ||
              component.name.includes('blank') ||
-             component.name.includes('dashboard') ||
-             component.name.includes('store')) {
+             component.name.includes('dashboard')) {
     subDir = 'blocks';
   } else if (component.type === 'registry:theme' ||
              component.name.includes('theme')) {

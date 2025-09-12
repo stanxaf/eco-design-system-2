@@ -17,18 +17,14 @@ export function getRegistryItems(): Component[] {
   return components as Component[];
 }
 
-export function getRegistryItem(name: string): Component {
+export function getRegistryItem(name: string): Component | null {
   const components = getRegistryItems();
 
   const component = components.find(
     (item: { name: string }) => item.name === name,
   );
 
-  if (component == null) {
-    throw new Error(`Component "${name}" not found`);
-  }
-
-  return component;
+  return component || null;
 }
 
 export function getBlocks() {
@@ -56,7 +52,7 @@ export function getComponents() {
       (component) => component.type === "registry:component",
     )
     .filter(
-      (component) => !["hero", "product-grid", "promo", "store"].includes(component.name),
+      (component) => !["hero", "product-grid", "promo"].includes(component.name),
     )
     .sort((a, b) => a.title.localeCompare(b.title));
 }
