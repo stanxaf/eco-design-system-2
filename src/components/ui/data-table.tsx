@@ -35,6 +35,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
+  useTablePerformance,
+  useTableAccessibility,
 } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
 
@@ -90,6 +92,16 @@ interface DataTableProps<TData, TValue> {
   paginationVariant?: "advanced" | "basic";
   itemsPerPageOptions?: number[];
   columnWidths?: Record<string, string>; // Custom column widths
+  /** Whether the table is in a loading state */
+  isLoading?: boolean;
+  /** Custom loading component */
+  loadingComponent?: React.ReactNode;
+  /** Whether to enable sticky headers */
+  stickyHeaders?: boolean;
+  /** Table variant for different use cases */
+  tableVariant?: "default" | "data-table" | "compact";
+  /** ARIA label for the table */
+  ariaLabel?: string;
 }
 
 export function DataTable<TData, TValue>({
@@ -103,6 +115,11 @@ export function DataTable<TData, TValue>({
   paginationVariant = "advanced",
   itemsPerPageOptions = [10, 25, 50, 100],
   columnWidths = { select: "w-8", actions: "w-12" }, // Default widths
+  isLoading = false,
+  loadingComponent,
+  stickyHeaders = false,
+  tableVariant = "data-table",
+  ariaLabel = "Data table with sorting, filtering, and pagination",
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
@@ -110,6 +127,20 @@ export function DataTable<TData, TValue>({
   const [rowSelection, setRowSelection] = React.useState({});
   const [pageSize, setPageSize] = React.useState(10);
   const [pageIndex, setPageIndex] = React.useState(0);
+
+  // Performance optimization hook
+  const { shouldVirtualize, performanceWarning } = useTablePerformance(data, {
+    virtualizeThreshold: 100,
+    enableVirtualization: true,
+    pageSize: 25,
+  });
+
+  // Accessibility hook
+  const { tableProps } = useTableAccessibility({
+    caption: ariaLabel,
+    totalRows: data.length,
+    totalColumns: columns.length,
+  });
 
   // Memoize column width getter to avoid recreating functions in render
   const getColumnWidth = React.useCallback((columnId: string) => {
@@ -157,6 +188,13 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className={cn("w-full space-y-2", className)} data-slot="data-table">
+      {/* Performance Warning */}
+      {performanceWarning && (
+        <div className="p-3 bg-yellow-50 border border-yellow-200 rounded-md text-sm text-yellow-800">
+          ⚠️ {performanceWarning}
+        </div>
+      )}
+
       {/* Toolbar */}
       <div className="flex items-center justify-between" data-slot="data-table-toolbar">
         <div className="flex flex-1 items-center space-x-2">
@@ -217,8 +255,18 @@ export function DataTable<TData, TValue>({
 
       {/* Table */}
       <div data-slot="data-table-container">
-        <Table data-slot="data-table-main">
-          <TableHeader data-slot="data-table-header">
+        <Table
+          data-slot="data-table-main"
+          isLoading={isLoading}
+          loadingComponent={loadingComponent}
+          isEmpty={!isLoading && table.getRowModel().rows?.length === 0}
+          variant={tableVariant}
+          ariaLabel={ariaLabel}
+          stickyHeaders={stickyHeaders}
+          enableHorizontalScroll={true}
+          {...tableProps}
+        >
+          <TableHeader data-slot="data-table-header" sticky={stickyHeaders}>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id} data-slot="data-table-header-row">
                 {headerGroup.headers.map((header) => {
@@ -228,9 +276,11 @@ export function DataTable<TData, TValue>({
                       key={header.id}
                       data-slot="data-table-header-cell"
                       className={cn(
-                        isSortable ? "cursor-pointer hover:opacity-80 transition-colors" : "",
                         getColumnWidth(header.id)
                       )}
+                      sortable={isSortable}
+                      sortDirection={isSortable ? (header.column.getIsSorted() || null) : null}
+                      sticky={stickyHeaders}
                       onClick={isSortable ? () => header.column.toggleSorting(header.column.getIsSorted() === "asc") : undefined}
                     >
                       {header.isPlaceholder
@@ -246,39 +296,31 @@ export function DataTable<TData, TValue>({
             ))}
           </TableHeader>
           <TableBody data-slot="data-table-body">
-            {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() ? "selected" : undefined}
-                  data-slot="data-table-row"
-                >
-                  {row.getVisibleCells().map((cell) => {
-                    return (
-                      <TableCell
-                        key={cell.id}
-                        data-slot="data-table-cell"
-                        className={getColumnWidth(cell.column.id)}
-                      >
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext()
-                        )}
-                      </TableCell>
-                    );
-                  })}
-                </TableRow>
-              ))
-            ) : (
-              <TableRow data-slot="data-table-empty-row">
-                <TableCell
-                  colSpan={columns.length}
-                  data-slot="data-table-empty-cell"
-                >
-                  No results.
-                </TableCell>
+            {table.getRowModel().rows.map((row) => (
+              <TableRow
+                key={row.id}
+                data-state={row.getIsSelected() ? "selected" : undefined}
+                data-slot="data-table-row"
+                selectable={showRowSelection}
+                selected={row.getIsSelected()}
+                interactive={true}
+              >
+                {row.getVisibleCells().map((cell) => {
+                  return (
+                    <TableCell
+                      key={cell.id}
+                      data-slot="data-table-cell"
+                      className={getColumnWidth(cell.column.id)}
+                    >
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
+                    </TableCell>
+                  );
+                })}
               </TableRow>
-            )}
+            ))}
           </TableBody>
         </Table>
       </div>
