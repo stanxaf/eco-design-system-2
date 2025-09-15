@@ -7,6 +7,7 @@ export { HeaderDocs } from "./header";
 export { PanelDocs } from "./panel";
 export { ComboboxDocs } from "./combobox";
 export { DataTablePaginationDocs } from "./data-table-pagination";
+export { DataTableToolbarDocs } from "./data-table-toolbar";
 export { InputOTPDocs } from "./input-otp";
 export { NavigationMenuDocs } from "./navigation-menu";
 export { RadioGroupDocs } from "./radio-group";
