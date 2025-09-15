@@ -51,6 +51,7 @@ import { cn } from "@/lib/utils";
  *
  * **Available Components:**
  * - `DataTable`: Main data table with full functionality
+ * - `DataTableToolbar`: Integrated toolbar with global search (when globalSearch=true)
  * - `createSortableHeader`: Utility for sortable column headers
  * - `createRowSelectionColumn`: Utility for row selection column
  * - `createActionsColumn`: Utility for actions dropdown column
@@ -64,10 +65,11 @@ import { cn } from "@/lib/utils";
  *
  * **Features:**
  * - Sorting with visual indicators
- * - Filtering with search input
+ * - Global filtering with integrated DataTableToolbar (when globalSearch=true)
  * - Pagination with customizable page sizes
  * - Row selection with checkboxes
  * - Column visibility controls
+ * - Bulk actions for selected rows
  * - Responsive design with mobile-friendly layout
  * - Accessibility compliant with proper ARIA attributes
  * - Dark mode support with theme-aware colors
