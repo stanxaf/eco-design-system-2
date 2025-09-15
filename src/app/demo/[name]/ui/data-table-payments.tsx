@@ -121,8 +121,7 @@ export function FinanceDataTable() {
     <DataTable
       columns={columns}
       data={data}
-      searchKey="email"
-      searchPlaceholder="Filter emails..."
+      globalSearch={true}
       showColumnVisibility={true}
       showRowSelection={true}
       paginationVariant="advanced"

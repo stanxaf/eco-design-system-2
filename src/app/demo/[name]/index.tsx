@@ -36,6 +36,7 @@ import { command } from "@/app/demo/[name]/ui/command";
 import { contextMenu } from "@/app/demo/[name]/ui/context-menu";
 import { dataTable } from "@/app/demo/[name]/ui/data-table";
 import { dataTablePagination } from "@/app/demo/[name]/ui/data-table-pagination";
+import { dataTableToolbar } from "@/app/demo/[name]/ui/data-table-toolbar";
 import { datePicker } from "@/app/demo/[name]/ui/date-picker";
 import { dialog } from "@/app/demo/[name]/ui/dialog";
 import { drawer } from "@/app/demo/[name]/ui/drawer";
@@ -116,6 +117,7 @@ export const demos: { [name: string]: Demo } = {
   "date-picker": datePicker,
   "data-table": dataTable,
   "data-table-pagination": dataTablePagination,
+  "data-table-toolbar": dataTableToolbar,
   drawer,
   "dropdown-menu": dropdownMenu,
   form,

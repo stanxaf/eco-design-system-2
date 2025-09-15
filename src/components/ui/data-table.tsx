@@ -27,6 +27,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { DataTablePagination } from "@/components/ui/data-table-pagination";
+import { DataTableToolbar } from "@/components/ui/data-table-toolbar";
 import { Input } from "@/components/ui/input";
 import {
   Table,
@@ -84,8 +85,7 @@ import { cn } from "@/lib/utils";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
-  searchKey?: string;
-  searchPlaceholder?: string;
+  globalSearch?: boolean;
   showColumnVisibility?: boolean;
   showRowSelection?: boolean;
   className?: string;
@@ -107,8 +107,7 @@ interface DataTableProps<TData, TValue> {
 export function DataTable<TData, TValue>({
   columns,
   data,
-  searchKey,
-  searchPlaceholder = "Search...",
+  globalSearch = false,
   showColumnVisibility = true,
   showRowSelection = true,
   className,
@@ -125,6 +124,7 @@ export function DataTable<TData, TValue>({
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
+  const [globalFilter, setGlobalFilter] = React.useState("");
   const [pageSize, setPageSize] = React.useState(10);
   const [pageIndex, setPageIndex] = React.useState(0);
 
@@ -152,6 +152,7 @@ export function DataTable<TData, TValue>({
     columns,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
+    onGlobalFilterChange: setGlobalFilter,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
@@ -170,6 +171,7 @@ export function DataTable<TData, TValue>({
       columnFilters,
       columnVisibility,
       rowSelection,
+      globalFilter,
       pagination: {
         pageIndex,
         pageSize,
@@ -197,20 +199,18 @@ export function DataTable<TData, TValue>({
 
       {/* Toolbar */}
       <div className="flex items-center justify-between" data-slot="data-table-toolbar">
-        <div className="flex flex-1 items-center space-x-2">
-          {searchKey && (
-            <Input
-              placeholder={searchPlaceholder}
-              value={(table.getColumn(searchKey)?.getFilterValue() as string) ?? ""}
-              onChange={(event) =>
-                table.getColumn(searchKey)?.setFilterValue(event.target.value)
-              }
-              className="h-8 w-[150px] lg:w-[250px]"
-              data-slot="data-table-search"
-              aria-label="Search table"
-            />
-          )}
-        </div>
+        {globalSearch ? (
+          <DataTableToolbar
+            table={table}
+            globalFilter={globalFilter}
+            setGlobalFilter={setGlobalFilter}
+            className="flex-1"
+          />
+        ) : (
+          <div className="flex flex-1 items-center space-x-2">
+            {/* No search when globalSearch is disabled */}
+          </div>
+        )}
         {showColumnVisibility && (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>

@@ -1080,7 +1080,27 @@
           "type": "registry:component"
         }
       ]
-    },
+  },
+  {
+    "name": "data-table-toolbar",
+    "type": "registry:ui",
+    "title": "Data Table Toolbar",
+    "description": "A toolbar component for data tables with global search functionality. Integrates seamlessly with TanStack Table for filtering across all columns.",
+    "registryDependencies": [
+      "button",
+      "input",
+      "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+    ],
+    "dependencies": [
+      "@tanstack/react-table"
+    ],
+    "files": [
+      {
+        "path": "src/components/ui/data-table-toolbar.tsx",
+        "type": "registry:component"
+      }
+    ]
+  },
     {
       "name": "popover",
       "type": "registry:ui",
