@@ -50,10 +50,10 @@ export function DataTableToolbar<TData>({
       data-slot="data-table-toolbar"
     >
       <div className="flex flex-1 items-center space-x-2">
-        <div className="relative flex-1 max-w-sm">
-          <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+        <div className="relative flex-1 max-w-xs">
+          <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
-            placeholder="Search all columns..."
+            placeholder="Search"
             value={globalFilter ?? ""}
             onChange={(event) => setGlobalFilter(String(event.target.value))}
             className="pl-8 h-8"

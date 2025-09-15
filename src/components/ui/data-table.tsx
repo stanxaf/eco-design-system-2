@@ -12,7 +12,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ArrowUpDown, ArrowUp, ArrowDown, ChevronDown, MoreHorizontal } from "lucide-react";
+import { ArrowUpDown, ArrowUp, ArrowDown, ChevronDown, MoreHorizontal, Download, Trash2 } from "lucide-react";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
@@ -29,6 +29,7 @@ import {
 import { DataTablePagination } from "@/components/ui/data-table-pagination";
 import { DataTableToolbar } from "@/components/ui/data-table-toolbar";
 import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 import {
   Table,
   TableBody,
@@ -88,6 +89,11 @@ interface DataTableProps<TData, TValue> {
   globalSearch?: boolean;
   showColumnVisibility?: boolean;
   showRowSelection?: boolean;
+  showBulkActions?: boolean;
+  bulkActions?: {
+    onExport?: (selectedRows: TData[]) => void;
+    onDelete?: (selectedRows: TData[]) => void;
+  };
   className?: string;
   paginationVariant?: "advanced" | "basic";
   itemsPerPageOptions?: number[];
@@ -110,6 +116,8 @@ export function DataTable<TData, TValue>({
   globalSearch = false,
   showColumnVisibility = true,
   showRowSelection = true,
+  showBulkActions = false,
+  bulkActions,
   className,
   paginationVariant = "advanced",
   itemsPerPageOptions = [10, 25, 50, 100],
@@ -188,6 +196,20 @@ export function DataTable<TData, TValue>({
     setPageIndex(0); // Reset to first page when changing page size
   };
 
+  // Bulk action handlers
+  const handleBulkExport = () => {
+    const selectedRows = table.getFilteredSelectedRowModel().rows.map(row => row.original);
+    bulkActions?.onExport?.(selectedRows);
+  };
+
+  const handleBulkDelete = () => {
+    const selectedRows = table.getFilteredSelectedRowModel().rows.map(row => row.original);
+    bulkActions?.onDelete?.(selectedRows);
+  };
+
+  // Get selected row count
+  const selectedRowCount = table.getFilteredSelectedRowModel().rows.length;
+
   return (
     <div className={cn("w-full space-y-2", className)} data-slot="data-table">
       {/* Performance Warning */}
@@ -204,53 +226,92 @@ export function DataTable<TData, TValue>({
             table={table}
             globalFilter={globalFilter}
             setGlobalFilter={setGlobalFilter}
-            className="flex-1"
+            className="flex-1 min-w-0"
           />
         ) : (
           <div className="flex flex-1 items-center space-x-2">
             {/* No search when globalSearch is disabled */}
           </div>
         )}
-        {showColumnVisibility && (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="outline"
-                size="sm"
-                className="ml-auto hidden h-8 lg:flex"
-                data-slot="data-table-column-toggle"
-                aria-label="Toggle column visibility"
-              >
-                <ChevronDown className="ml-2 h-4 w-4" />
-                View
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-[150px]" data-slot="data-table-column-menu">
-              <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              {table
-                .getAllColumns()
-                .filter(
-                  (column) =>
-                    typeof column.accessorFn !== "undefined" && column.getCanHide()
-                )
-                .map((column) => {
-                  return (
-                    <DropdownMenuCheckboxItem
-                      key={column.id}
-                      className="capitalize"
-                      checked={column.getIsVisible()}
-                      onCheckedChange={(value) =>
-                        column.toggleVisibility(!!value)
-                      }
-                    >
-                      {column.id}
-                    </DropdownMenuCheckboxItem>
-                  );
-                })}
-            </DropdownMenuContent>
-          </DropdownMenu>
-        )}
+        <div className="flex items-center space-x-2 h-8 flex-shrink-0 ml-2">
+          {/* Bulk Actions */}
+          {showBulkActions && selectedRowCount > 0 && (
+            <>
+              <div className="flex items-center space-x-1 flex-shrink-0">
+                {bulkActions?.onExport && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={handleBulkExport}
+                    className="h-8 min-w-0 flex-shrink-0"
+                    data-slot="data-table-bulk-export"
+                    aria-label="Export selected rows"
+                  >
+                    <Download />
+                    <span className="hidden sm:inline">Export ({selectedRowCount})</span>
+                    <span className="sm:hidden">Export</span>
+                  </Button>
+                )}
+                {bulkActions?.onDelete && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={handleBulkDelete}
+                    className="h-8 min-w-0 flex-shrink-0"
+                    data-slot="data-table-bulk-delete"
+                    aria-label="Delete selected rows"
+                  >
+                    <Trash2 />
+                    <span className="hidden sm:inline">Delete ({selectedRowCount})</span>
+                    <span className="sm:hidden">Delete</span>
+                  </Button>
+                )}
+              </div>
+            </>
+          )}
+
+          {/* Column Visibility */}
+          {showColumnVisibility && (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="h-8"
+                  data-slot="data-table-column-toggle"
+                  aria-label="Toggle column visibility"
+                >
+                  View
+                  <ChevronDown />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-[150px]" data-slot="data-table-column-menu">
+                <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                {table
+                  .getAllColumns()
+                  .filter(
+                    (column) =>
+                      typeof column.accessorFn !== "undefined" && column.getCanHide()
+                  )
+                  .map((column) => {
+                    return (
+                      <DropdownMenuCheckboxItem
+                        key={column.id}
+                        className="capitalize"
+                        checked={column.getIsVisible()}
+                        onCheckedChange={(value) =>
+                          column.toggleVisibility(!!value)
+                        }
+                      >
+                        {column.id}
+                      </DropdownMenuCheckboxItem>
+                    );
+                  })}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          )}
+        </div>
       </div>
 
       {/* Table */}

@@ -117,6 +117,16 @@ export const columns: ColumnDef<Payment>[] = [
 ];
 
 export function FinanceDataTable() {
+  const handleBulkExport = (selectedRows: Payment[]) => {
+    console.log("Exporting selected rows:", selectedRows);
+    // Implement export logic here
+  };
+
+  const handleBulkDelete = (selectedRows: Payment[]) => {
+    console.log("Deleting selected rows:", selectedRows);
+    // Implement delete logic here
+  };
+
   return (
     <DataTable
       columns={columns}
@@ -124,6 +134,11 @@ export function FinanceDataTable() {
       globalSearch={true}
       showColumnVisibility={true}
       showRowSelection={true}
+      showBulkActions={true}
+      bulkActions={{
+        onExport: handleBulkExport,
+        onDelete: handleBulkDelete,
+      }}
       paginationVariant="advanced"
       itemsPerPageOptions={[5, 10, 25, 50]}
     />
