@@ -11,30 +11,29 @@ import { cn } from "@/lib/utils";
 /**
  * Data Table Toolbar component with global search functionality.
  *
- * **Features:**
- * - Global search input that searches across all table columns
- * - Responsive design that works on mobile and desktop
- * - Clean, minimal interface
- * - TanStack Table integration
- * - TypeScript support with proper interfaces
- * - Accessibility compliant with proper ARIA labels
+ * A flexible toolbar component designed for data tables that provides global search
+ * capabilities and space for additional table actions. Integrates seamlessly with
+ * TanStack Table for filtering across all columns.
  *
- * **Usage:**
- * ```tsx
- * <DataTableToolbar
- *   table={table}
- *   globalFilter={globalFilter}
- *   setGlobalFilter={setGlobalFilter}
- * />
- * ```
+ * @template TData - The type of data in the table
  */
 interface DataTableToolbarProps<TData> {
+  /** TanStack Table instance with configured data and columns */
   table: Table<TData>;
+  /** Current global filter value */
   globalFilter: string;
+  /** Function to update the global filter value */
   setGlobalFilter: (value: string) => void;
+  /** Optional additional CSS classes for styling */
   className?: string;
 }
 
+/**
+ * Renders a data table toolbar with global search functionality.
+ *
+ * @param props - The component props
+ * @returns JSX element representing the toolbar
+ */
 export function DataTableToolbar<TData>({
   table,
   globalFilter,
