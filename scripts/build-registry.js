@@ -52,7 +52,7 @@ function updateRegistryDependencies(items) {
 
           // Determine the correct subdirectory based on component type
           let subDir = 'styles'; // default for UI components
-          if (componentName.includes('brand-') || componentName.includes('logo') || componentName.includes('hero') || componentName.includes('promo') || componentName.includes('product-') || componentName.includes('login')) {
+          if (componentName.includes('brand-') || componentName.includes('logo') || componentName.includes('hero') || componentName.includes('promo') || componentName.includes('product-') || componentName.includes('login') || componentName.includes('panel')) {
             subDir = 'components';
           } else if (componentName.includes('blank') || componentName.includes('dashboard') || componentName.includes('store') || componentName.includes('panel-single')) {
             subDir = 'blocks';
@@ -117,7 +117,7 @@ componentFiles.forEach(file => {
 
         // Determine the correct subdirectory for dependencies
         let depSubDir = 'styles';
-        if (componentName.includes('brand-') || componentName.includes('logo') || componentName.includes('hero') || componentName.includes('promo') || componentName.includes('product-') || componentName.includes('login')) {
+        if (componentName.includes('brand-') || componentName.includes('logo') || componentName.includes('hero') || componentName.includes('promo') || componentName.includes('product-') || componentName.includes('login') || componentName.includes('panel')) {
           depSubDir = 'components';
         } else if (componentName.includes('blank') || componentName.includes('dashboard') || componentName.includes('store') || componentName.includes('panel-single')) {
           depSubDir = 'blocks';
