@@ -54,7 +54,7 @@ function updateRegistryDependencies(items) {
           let subDir = 'styles'; // default for UI components
           if (componentName.includes('brand-') || componentName.includes('logo') || componentName.includes('hero') || componentName.includes('promo') || componentName.includes('product-') || componentName.includes('login')) {
             subDir = 'components';
-          } else if (componentName.includes('blank') || componentName.includes('dashboard') || componentName.includes('store')) {
+          } else if (componentName.includes('blank') || componentName.includes('dashboard') || componentName.includes('store') || componentName.includes('panel-single')) {
             subDir = 'blocks';
           } else if (componentName.includes('theme')) {
             subDir = 'themes';
@@ -98,7 +98,8 @@ componentFiles.forEach(file => {
   } else if (component.type === 'registry:block' ||
              component.name.includes('blank') ||
              component.name.includes('dashboard') ||
-             component.name.includes('store')) {
+             component.name.includes('store') ||
+             component.name.includes('panel-single')) {
     targetDir = blocksDir;
     subDir = 'blocks';
   } else if (component.type === 'registry:theme' ||
@@ -118,7 +119,7 @@ componentFiles.forEach(file => {
         let depSubDir = 'styles';
         if (componentName.includes('brand-') || componentName.includes('logo') || componentName.includes('hero') || componentName.includes('promo') || componentName.includes('product-') || componentName.includes('login')) {
           depSubDir = 'components';
-        } else if (componentName.includes('blank') || componentName.includes('dashboard') || componentName.includes('store')) {
+        } else if (componentName.includes('blank') || componentName.includes('dashboard') || componentName.includes('store') || componentName.includes('panel-single')) {
           depSubDir = 'blocks';
         } else if (componentName.includes('theme')) {
           depSubDir = 'themes';
