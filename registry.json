@@ -226,6 +226,34 @@
       "dependencies": []
     },
     {
+      "name": "panel-single",
+      "type": "registry:block",
+      "title": "Panel Single",
+      "description": "A complete app shell template with a single panel. Perfect for creating focused content pages or single-panel applications with header, sidebar, and main content area.",
+      "registryDependencies": [
+        "https://eco-design-system-2.vercel.app/r/components/panel.json",
+        "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
+        "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/panel-single.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/layouts/minimal-layout.tsx",
+          "type": "registry:file",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "src/app/demo/[name]/blocks/panel-single-page.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
       "name": "brand-header",
       "type": "registry:component",
       "title": "Brand Header",
