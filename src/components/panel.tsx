@@ -3,7 +3,7 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { TypographyH6 } from "@/components/ui/typography-h6";
+// import { TypographyH6 } from "@/components/ui/typography-h6";
 import { MoreHorizontal } from "lucide-react";
 
 /**
@@ -180,7 +180,7 @@ export function Panel({
           header
         ) : (
           <>
-            <TypographyH6>{title}</TypographyH6>
+            <h6 className="font-sans font-bold text-sm leading-4">{title}</h6>
             <Button variant="ghost" size="icon">
               <MoreHorizontal />
             </Button>
