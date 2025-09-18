@@ -49,11 +49,7 @@ export default function AppShellLayout({
           {isMobile && <BrandHeader />}
           <BrandSidebar />
           <main className="flex w-full">
-            <div className="w-full p-6">
-              <div className="max-w-7xl mx-auto space-y-6">
-                {children}
-              </div>
-            </div>
+            {children}
           </main>
           <Toaster />
         </SidebarProvider>
