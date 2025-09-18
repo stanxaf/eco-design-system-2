@@ -1440,7 +1440,8 @@
       "title": "Panel",
       "description": "A flexible panel component for creating responsive layouts and organizing content. Supports header, body, and footer content areas with customizable sizing and alignment.",
       "registryDependencies": [
-        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json",
+        "https://eco-design-system-2.vercel.app/r/styles/typography-h6.json"
       ],
       "files": [
         {
