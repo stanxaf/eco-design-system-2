@@ -1,9 +1,16 @@
+import { Panel } from "@/components/panel";
+
 export default function DashboardPage() {
   return (
-    <div className="flex min-h-[90vh] flex-col items-center justify-center gap-4 w-full">
-      <div className="w-full text-muted-foreground text-center">
-        To get started, click Open in v0 or copy and paste the JSON code into v0.
-      </div>
-    </div>
+    <Panel 
+      title="Dashboard Panel"
+      size="12"
+      height="screen"
+      footer="Status: Ready"
+    >
+      <h2>Dashboard with Panel</h2>
+      <p>This dashboard now includes a panel component to test if panels work in v0.</p>
+      <p>If this works, we know the issue is specific to panel-single configuration.</p>
+    </Panel>
   );
 }
