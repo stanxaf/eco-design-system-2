@@ -5,7 +5,7 @@ export const brandSidebar = {
   name: "brand-sidebar",
   components: {
     Default: (
-      <SidebarProvider>
+      <SidebarProvider defaultOpen={false}>
         <BrandSidebar />
       </SidebarProvider>
     ),

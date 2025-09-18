@@ -49,13 +49,41 @@ export function BrandSidebar({
   className,
 }: SidebarProps) {
   const pathname = usePathname();
-  const { state, toggleSidebar, setOpen } = useSidebar();
+  const { state, toggleSidebar, setOpen, isMobile } = useSidebar();
   const isCollapsed = state === "collapsed";
+  
+  // Hover state management
+  const [isHovered, setIsHovered] = React.useState(false);
+  const [isPinned, setIsPinned] = React.useState(false);
+  
+  // Handle mouse enter - temporarily expand if collapsed and not mobile and not pinned
+  const handleMouseEnter = React.useCallback(() => {
+    if (!isMobile && isCollapsed && !isPinned) {
+      setIsHovered(true);
+      setOpen(true); // Use the proper hook to expand
+    }
+  }, [isMobile, isCollapsed, isPinned, setOpen]);
 
-  // Set sidebar to collapsed by default on component mount
-  React.useEffect(() => {
-    setOpen(false);
-  }, []); // Empty dependency array - only run once on mount
+  // Handle mouse leave - collapse back if not pinned and not mobile
+  const handleMouseLeave = React.useCallback(() => {
+    if (!isMobile && isHovered && !isPinned) {
+      setIsHovered(false);
+      setOpen(false); // Use the proper hook to collapse
+    }
+  }, [isMobile, isHovered, isPinned, setOpen]);
+
+  // Handle pin/unpin toggle
+  const handlePinToggle = React.useCallback(() => {
+    if (isPinned) {
+      // Unpin - allow hover behavior, collapse to icon mode
+      setIsPinned(false);
+      setOpen(false);
+    } else {
+      // Pin - keep open and disable hover behavior
+      setIsPinned(true);
+      setOpen(true);
+    }
+  }, [isPinned, setOpen]);
 
   const mainNavItems: NavItem[] = [
     {
@@ -115,10 +143,18 @@ export function BrandSidebar({
   ];
 
   return (
-    <Sidebar variant="sidebar" collapsible="icon">
-      <SidebarRail />
+    <div
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="h-full"
+    >
+      <Sidebar 
+        variant="sidebar" 
+        collapsible="icon"
+      >
+        <SidebarRail />
       <SidebarHeader className="sticky top-0 z-10 bg-sidebar border-b border-sidebar-border">
-        <div className={cn(!isCollapsed ? "py-2 px-2" : "py-2 px-0")}>
+        <div className="py-2 px-2">
           <Logo collapsed={isCollapsed} inSidebar={true}/>
         </div>
       </SidebarHeader>
@@ -257,32 +293,32 @@ export function BrandSidebar({
         </SidebarGroup>
       </div>
 
-      {/* Sidebar Footer - Sticky */}
-      <div className="sticky z-10 bg-sidebar border-t border-sidebar-border">
-        <SidebarGroup>
-          <SidebarGroupContent>
-            <div className={cn(!isCollapsed ? "py-0 px-0" : "py-0 px-0")}>
-              <div className="space-y-3">
-                {/* User Info with Profile Popover */}
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <button className="flex items-center space-x-2 w-full rounded-md hover:bg-sidebar-hover transition-colors">
-                      <Avatar className="size-8">
-                        <AvatarFallback className="bg-primary text-primary-foreground">
-                          <span className="text-xs font-medium">ME</span>
-                        </AvatarFallback>
-                      </Avatar>
-                      {!isCollapsed && (
-                        <div className="flex-1 min-w-0 text-left">
-                          <p className="text-sm font-medium text-sidebar-foreground truncate">User Name</p>
-                          {/* <p className="text-xs text-sidebar-foreground truncate">user@example.com</p> */}
-                        </div>
-                      )}
-                      {!isCollapsed && (
-                        <Icons.ellipsis className="text-sidebar-foreground/60" />
-                      )}
-                    </button>
-                  </PopoverTrigger>
+        {/* Sidebar Footer - Sticky */}
+        <div className="sticky z-10 bg-sidebar border-t border-sidebar-border">
+          <SidebarGroup>
+            <SidebarGroupContent>
+              <div className="py-0 px-0">
+                <div className="space-y-3">
+                  {/* User Info with Profile Popover */}
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <button className="flex items-center space-x-2 w-full rounded-md hover:bg-sidebar-hover transition-colors">
+                        <Avatar className="size-8">
+                          <AvatarFallback className="bg-primary text-primary-foreground">
+                            <span className="text-xs font-medium">ME</span>
+                          </AvatarFallback>
+                        </Avatar>
+                        {!isCollapsed && (
+                          <div className="flex-1 min-w-0 text-left">
+                            <p className="text-sm font-medium text-sidebar-foreground truncate">User Name</p>
+                            {/* <p className="text-xs text-sidebar-foreground truncate">user@example.com</p> */}
+                          </div>
+                        )}
+                        {!isCollapsed && (
+                          <Icons.ellipsis className="text-sidebar-foreground/60" />
+                        )}
+                      </button>
+                    </PopoverTrigger>
                   <PopoverContent
                     className="w-60 p-0"
                     align="start"
@@ -329,34 +365,35 @@ export function BrandSidebar({
           </SidebarGroupContent>
         </SidebarGroup>
 
-        {/* Pin Sidebar Toggle - Separate Group */}
-        <div className="border-t border-sidebar-border">
-          <SidebarGroup>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton
-                    onClick={toggleSidebar}
-                    tooltip={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-                  >
-                    {isCollapsed ? (
-                      <>
-                        <Icons.chevronRight />
-                        <span>Expand sidebar</span>
-                      </>
-                    ) : (
-                      <>
-                        <Icons.chevronLeft />
-                        <span>Collapse sidebar</span>
-                      </>
-                    )}
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
+                  {/* Pin Sidebar Toggle - Separate Group */}
+                  <div className="border-t border-sidebar-border">
+                    <SidebarGroup>
+                      <SidebarGroupContent>
+                        <SidebarMenu>
+                          <SidebarMenuItem>
+                            <SidebarMenuButton
+                              onClick={handlePinToggle}
+                              tooltip={isPinned ? "Unpin sidebar" : "Pin sidebar open"}
+                            >
+                              {isPinned ? (
+                                <>
+                                  <Icons.bookmark />
+                                  <span>Unpin</span>
+                                </>
+                              ) : (
+                                <>
+                                  <Icons.bookmark />
+                                  <span>Pin</span>
+                                </>
+                              )}
+                            </SidebarMenuButton>
+                          </SidebarMenuItem>
+                        </SidebarMenu>
+                      </SidebarGroupContent>
+                    </SidebarGroup>
+                  </div>
         </div>
-      </div>
-    </Sidebar>
+      </Sidebar>
+    </div>
   );
 }

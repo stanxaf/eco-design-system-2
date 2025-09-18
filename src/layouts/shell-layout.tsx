@@ -45,7 +45,7 @@ export default function ShellLayout({
       )}
     >
       <body>
-        <SidebarProvider>
+        <SidebarProvider defaultOpen={false}>
           {isMobile && <BrandHeader />}
           <BrandSidebar />
           <main className="flex w-full">

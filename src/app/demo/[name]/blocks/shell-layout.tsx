@@ -15,7 +15,7 @@ export default function ShellLayout({
   const isMobile = useIsMobile();
 
   return (
-    <SidebarProvider>
+    <SidebarProvider defaultOpen={false}>
       {isMobile && <BrandHeader />}
       <BrandSidebar />
       <main className="flex w-full bg-surface-medium">
