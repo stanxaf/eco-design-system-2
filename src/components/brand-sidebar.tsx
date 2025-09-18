@@ -16,7 +16,6 @@ import {
   SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarRail,
   useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
@@ -37,17 +36,13 @@ interface NavItem {
   };
 }
 
-interface SidebarProps {
-  collapsed?: boolean;
-  onToggle?: () => void;
+interface BrandSidebarProps {
   className?: string;
 }
 
 export function BrandSidebar({
-  collapsed = false,
-  onToggle,
   className,
-}: SidebarProps) {
+}: BrandSidebarProps) {
   const pathname = usePathname();
   const { state, toggleSidebar, setOpen, isMobile } = useSidebar();
   const isCollapsed = state === "collapsed";
@@ -55,14 +50,15 @@ export function BrandSidebar({
   // Hover state management
   const [isHovered, setIsHovered] = React.useState(false);
   const [isPinned, setIsPinned] = React.useState(false);
+  const [hoverDisabled, setHoverDisabled] = React.useState(false);
   
-  // Handle mouse enter - temporarily expand if collapsed and not mobile and not pinned
+  // Handle mouse enter - temporarily expand if collapsed and not mobile and not pinned and hover not disabled
   const handleMouseEnter = React.useCallback(() => {
-    if (!isMobile && isCollapsed && !isPinned) {
+    if (!isMobile && isCollapsed && !isPinned && !hoverDisabled) {
       setIsHovered(true);
       setOpen(true); // Use the proper hook to expand
     }
-  }, [isMobile, isCollapsed, isPinned, setOpen]);
+  }, [isMobile, isCollapsed, isPinned, hoverDisabled, setOpen]);
 
   // Handle mouse leave - collapse back if not pinned and not mobile
   const handleMouseLeave = React.useCallback(() => {
@@ -75,15 +71,29 @@ export function BrandSidebar({
   // Handle pin/unpin toggle
   const handlePinToggle = React.useCallback(() => {
     if (isPinned) {
-      // Unpin - allow hover behavior, collapse to icon mode
+      // Unpin - immediately collapse and disable hover temporarily
       setIsPinned(false);
+      setIsHovered(false);
       setOpen(false);
+      setHoverDisabled(true);
     } else {
-      // Pin - keep open and disable hover behavior
+      // Pin - keep open and disable hover behavior (push mode)
       setIsPinned(true);
+      setIsHovered(false);
       setOpen(true);
     }
   }, [isPinned, setOpen]);
+
+  // Re-enable hover after unpinning with proper cleanup
+  React.useEffect(() => {
+    if (hoverDisabled) {
+      const timeoutId = setTimeout(() => {
+        setHoverDisabled(false);
+      }, 300);
+      
+      return () => clearTimeout(timeoutId);
+    }
+  }, [hoverDisabled]);
 
   const mainNavItems: NavItem[] = [
     {
@@ -146,13 +156,16 @@ export function BrandSidebar({
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="h-full"
+      className={cn(
+        "h-full",
+        // Overlay mode when hovering (not pinned)
+        isHovered && !isPinned && !isMobile && "sidebar-overlay-mode"
+      )}
     >
       <Sidebar 
         variant="sidebar" 
         collapsible="icon"
       >
-        <SidebarRail />
       <SidebarHeader className="sticky top-0 z-10 bg-sidebar border-b border-sidebar-border">
         <div className="py-2 px-2">
           <Logo collapsed={isCollapsed} inSidebar={true}/>

@@ -1182,4 +1182,21 @@
   }
 }
 
+/* Sidebar overlay mode for hover expansion */
+.sidebar-overlay-mode [data-slot="sidebar-gap"] {
+  width: var(--sidebar-width-icon);
+}
+
+.sidebar-overlay-mode [data-slot="sidebar-container"] {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  z-index: 50;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
+  transform: translateX(0);
+  transition: transform 0.2s ease-in-out;
+}
+
 

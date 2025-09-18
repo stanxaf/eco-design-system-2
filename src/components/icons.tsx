@@ -12,6 +12,7 @@ import {
   faClock,
   faEnvelope,
   faSquare,
+  faBookmark,
 } from "@fortawesome/free-regular-svg-icons";
 
 // Import solid icons for those not available in regular
@@ -44,7 +45,6 @@ import {
   faEyeSlash,
   faHeart,
   faStar,
-  faBookmark,
   faShare,
   faCopy,
   faExternalLink,
