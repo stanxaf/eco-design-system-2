@@ -54,7 +54,7 @@ function updateRegistryDependencies(items) {
           let subDir = 'styles'; // default for UI components
           if (componentName.includes('brand-') || componentName.includes('logo') || componentName.includes('hero') || componentName.includes('promo') || componentName.includes('product-') || componentName.includes('login') || componentName.includes('panel')) {
             subDir = 'components';
-          } else if (componentName.includes('blank') || componentName.includes('dashboard') || componentName.includes('store') || componentName.includes('panel-single')) {
+          } else if (componentName.includes('blank') || componentName.includes('dashboard') || componentName.includes('store')) {
             subDir = 'blocks';
           } else if (componentName.includes('theme')) {
             subDir = 'themes';
@@ -99,7 +99,7 @@ componentFiles.forEach(file => {
              component.name.includes('blank') ||
              component.name.includes('dashboard') ||
              component.name.includes('store') ||
-             component.name.includes('panel-single')) {
+             component.name.includes('starter-template')) {
     targetDir = blocksDir;
     subDir = 'blocks';
   } else if (component.type === 'registry:theme' ||
@@ -119,7 +119,7 @@ componentFiles.forEach(file => {
         let depSubDir = 'styles';
         if (componentName.includes('brand-') || componentName.includes('logo') || componentName.includes('hero') || componentName.includes('promo') || componentName.includes('product-') || componentName.includes('login') || componentName.includes('panel')) {
           depSubDir = 'components';
-        } else if (componentName.includes('blank') || componentName.includes('dashboard') || componentName.includes('store') || componentName.includes('panel-single')) {
+        } else if (componentName.includes('blank') || componentName.includes('dashboard') || componentName.includes('store')) {
           depSubDir = 'blocks';
         } else if (componentName.includes('theme')) {
           depSubDir = 'themes';
