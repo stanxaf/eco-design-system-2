@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import * as React from "react";
 
@@ -212,17 +211,21 @@ export function BrandSidebar({
               {mainNavItems.map((item) => (
                 <SidebarMenuItem key={item.href}>
                   <SidebarMenuButton
-                    asChild
+                    onClick={() => {
+                      // In demo context, prevent navigation and show tooltip
+                      if (window.location.pathname.includes('/demo/')) {
+                        // Just show the tooltip, don't navigate
+                        return;
+                      }
+                    }}
                     isActive={
                       pathname === item.href ||
                       (item.href === "/" && (pathname === "/" || pathname === ""))
                     }
                     tooltip={item.title}
                   >
-                    <Link href={item.href}>
-                      {item.icon}
-                      <span>{item.title}</span>
-                    </Link>
+                    {item.icon}
+                    <span>{item.title}</span>
                   </SidebarMenuButton>
                   {item.badge && (
                     <SidebarMenuBadge>{item.badge.text}</SidebarMenuBadge>
@@ -240,17 +243,21 @@ export function BrandSidebar({
               {toolsNavItems.map((item) => (
                 <SidebarMenuItem key={item.href}>
                   <SidebarMenuButton
-                    asChild
+                    onClick={() => {
+                      // In demo context, prevent navigation and show tooltip
+                      if (window.location.pathname.includes('/demo/')) {
+                        // Just show the tooltip, don't navigate
+                        return;
+                      }
+                    }}
                     isActive={
                       pathname === item.href ||
                       (item.href === "/" && (pathname === "/" || pathname === ""))
                     }
                     tooltip={item.title}
                   >
-                    <Link href={item.href}>
-                      {item.icon}
-                      <span>{item.title}</span>
-                    </Link>
+                    {item.icon}
+                    <span>{item.title}</span>
                   </SidebarMenuButton>
                   {item.badge && (
                     <SidebarMenuBadge>{item.badge.text}</SidebarMenuBadge>

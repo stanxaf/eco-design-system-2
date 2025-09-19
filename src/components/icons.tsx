@@ -13,6 +13,8 @@ import {
   faEnvelope,
   faSquare,
   faBookmark,
+  faQuestionCircle,
+  faMessage,
 } from "@fortawesome/free-regular-svg-icons";
 
 // Import solid icons for those not available in regular
@@ -53,6 +55,17 @@ import {
   faArrowUp,
   faArrowDown,
   faTh,
+  faRocket,
+  faBolt,
+  faList,
+  faCode,
+  faTools,
+  faPalette,
+  faCubes,
+  faMobile,
+  faBars,
+  faBook,
+  faBookOpen,
 } from "@fortawesome/free-solid-svg-icons";
 import { cn } from "@/lib/utils";
 
@@ -195,5 +208,47 @@ export const Icons = {
   ),
   square: ({ className }: { className?: string }) => (
     <FontAwesomeIcon icon={faSquare} className={cn("h-4 w-4", className)} />
+  ),
+  rocket: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faRocket} className={cn("h-4 w-4", className)} />
+  ),
+  book: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faBook} className={cn("h-4 w-4", className)} />
+  ),
+  bookOpen: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faBookOpen} className={cn("h-4 w-4", className)} />
+  ),
+  zap: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faBolt} className={cn("h-4 w-4", className)} />
+  ),
+  list: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faList} className={cn("h-4 w-4", className)} />
+  ),
+  code: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faCode} className={cn("h-4 w-4", className)} />
+  ),
+  tools: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faTools} className={cn("h-4 w-4", className)} />
+  ),
+  palette: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faPalette} className={cn("h-4 w-4", className)} />
+  ),
+  component: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faCubes} className={cn("h-4 w-4", className)} />
+  ),
+  mobile: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faMobile} className={cn("h-4 w-4", className)} />
+  ),
+  sidebar: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faBars} className={cn("h-4 w-4", className)} />
+  ),
+  helpCircle: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faQuestionCircle} className={cn("h-4 w-4", className)} />
+  ),
+  messageCircle: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faMessage} className={cn("h-4 w-4", className)} />
+  ),
+  github: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faCode} className={cn("h-4 w-4", className)} />
   ),
 };

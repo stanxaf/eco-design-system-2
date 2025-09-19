@@ -5,6 +5,7 @@ import { appShell } from "@/app/demo/[name]/blocks/app-shell";
 import { blank } from "@/app/demo/[name]/blocks/blank";
 import { dashboard } from "@/app/demo/[name]/blocks/dashboard";
 import { panelSingle as panelSingleBlock } from "@/app/demo/[name]/blocks/panel-single";
+import { starterTemplate } from "@/app/demo/[name]/blocks/starter-template";
 
 // components
 import { brandHeader } from "@/app/demo/[name]/components/brand-header";
@@ -85,6 +86,7 @@ export const demos: { [name: string]: Demo } = {
   blank,
   dashboard,
   "panel-single": panelSingleBlock,
+  "starter-template": starterTemplate,
 
   // components
   hero,
