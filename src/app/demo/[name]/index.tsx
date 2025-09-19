@@ -4,7 +4,6 @@ import type { ReactElement, ReactNode } from "react";
 import { appShell } from "@/app/demo/[name]/blocks/app-shell";
 import { blank } from "@/app/demo/[name]/blocks/blank";
 import { dashboard } from "@/app/demo/[name]/blocks/dashboard";
-import { panelSingle as panelSingleBlock } from "@/app/demo/[name]/blocks/panel-single";
 import { starterTemplate } from "@/app/demo/[name]/blocks/starter-template";
 
 // components
@@ -85,7 +84,6 @@ export const demos: { [name: string]: Demo } = {
   "app-shell": appShell,
   blank,
   dashboard,
-  "panel-single": panelSingleBlock,
   "starter-template": starterTemplate,
 
   // components
