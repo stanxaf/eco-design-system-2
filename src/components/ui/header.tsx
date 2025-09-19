@@ -65,7 +65,7 @@ export function Header({
   return (
     <header
       className={cn(
-        "flex w-full items-center justify-between border-b border-border bg-background px-3 py-2 shadow-sm",
+        "flex w-full h-12 items-center justify-between border-b border-border bg-background px-3 py-2 shadow-sm",
         className
       )}
       {...props}
