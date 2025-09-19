@@ -265,12 +265,12 @@
       "description": "A complete starter template with sidebar, header, and helpful content to get you started quickly",
         "registryDependencies": [
           "sidebar",
-          "panel",
           "button",
           "avatar",
           "input",
           "https://eco-design-system-2.vercel.app/r/styles/icons.json",
           "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
+          "https://eco-design-system-2.vercel.app/r/components/panel.json",
           "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
           "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
           "https://eco-design-system-2.vercel.app/r/themes/theme.json"
