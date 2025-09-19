@@ -15,21 +15,19 @@ import { Panel } from "@/components/panel";
  */
 export default function StarterTemplatePage() {
   return (
-    <main className="flex w-full">
-      <Panel 
-        title="Starter Template"
-        size="12"
-        height="screen"
-        footer="Ready to customize"
-      >
-        <div className="flex items-center justify-center h-full">
-          <div className="text-center">
-            <p className="text-muted-foreground text-lg">
-              Your content goes here
-            </p>
-          </div>
+    <Panel 
+      title="Starter Template"
+      size="12"
+      height="screen"
+      footer="Ready to customize"
+    >
+      <div className="flex items-center justify-center h-full">
+        <div className="text-center">
+          <p className="text-muted-foreground text-lg">
+            Your content goes here
+          </p>
         </div>
-      </Panel>
-    </main>
+      </div>
+    </Panel>
   );
 }

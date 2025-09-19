@@ -252,7 +252,7 @@
         },
         {
           "path": "src/app/demo/[name]/blocks/panel-single-page.tsx",
-          "content": "import { Panel } from \"@/components/panel\";\n\nexport default function PanelSinglePage() {\n  return (\n    <main className=\"flex w-full\">\n      <Panel \n        title=\"Panel Single\"\n        size=\"12\"\n        height=\"screen\"\n        footer=\"Status: Ready\"\n      >\n        <h2>Panel Single Template</h2>\n        <p>This is a complete app shell with a panel that can be used as a template for full-width content areas.</p>\n        <p>Start prompting to customize this panel with your content!</p>\n      </Panel>\n    </main>\n  );\n}\n",
+          "content": "import { Panel } from \"@/components/panel\";\n\nexport default function PanelSinglePage() {\n  return (\n    <Panel \n      title=\"Panel Single\"\n      size=\"12\"\n      height=\"screen\"\n      footer=\"Status: Ready\"\n    >\n      <h2>Panel Single Template</h2>\n      <p>This is a complete app shell with a panel that can be used as a template for full-width content areas.</p>\n      <p>Start prompting to customize this panel with your content!</p>\n    </Panel>\n  );\n}\n",
           "type": "registry:page",
           "target": "app/page.tsx"
         }
