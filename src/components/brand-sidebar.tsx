@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 import * as React from "react";
 
 import { Logo } from "@/components/logo";
-import { Icons } from "@/components/icons";
 import {
   Sidebar,
   SidebarContent,
@@ -98,22 +97,41 @@ export function BrandSidebar({
     {
       title: "Home",
       href: "/",
-      icon: <Icons.square />,
+      icon: (
+        <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5a2 2 0 012-2h4a2 2 0 012 2v6H8V5z" />
+        </svg>
+      ),
     },
     {
       title: "Projects",
       href: "/projects",
-      icon: <Icons.square />,
+      icon: (
+        <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+      ),
     },
     {
       title: "Databases",
       href: "/databases",
-      icon: <Icons.square />,
+      icon: (
+        <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <ellipse cx="12" cy="5" rx="9" ry="3" />
+          <path d="M3 12a9 3 0 0 0 18 0" />
+          <path d="M3 19a9 3 0 0 0 18 0" />
+        </svg>
+      ),
     },
     {
       title: "Tables",
       href: "/tables",
-      icon: <Icons.square />,
+      icon: (
+        <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 14h18m-9-4v8m-7 0V4a1 1 0 011-1h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1z" />
+        </svg>
+      ),
       badge: {
         text: "Beta",
       },
@@ -121,7 +139,11 @@ export function BrandSidebar({
     {
       title: "AI",
       href: "/ai",
-      icon: <Icons.square />,
+      icon: (
+        <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+      ),
       badge: {
         text: "Alpha",
       },
@@ -132,22 +154,38 @@ export function BrandSidebar({
     {
       title: "Alerts",
       href: "/alerts",
-      icon: <Icons.square />,
+      icon: (
+        <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-5 5v-5zM4.828 7l2.586 2.586a2 2 0 002.828 0L12.828 7H4.828zM4.828 17H12l-2.586-2.586a2 2 0 00-2.828 0L4.828 17z" />
+        </svg>
+      ),
     },
     {
       title: "Analytics",
       href: "/analytics",
-      icon: <Icons.square />,
+      icon: (
+        <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+      ),
     },
     {
       title: "History",
       href: "/history",
-      icon: <Icons.square />,
+      icon: (
+        <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
     },
     {
       title: "More",
       href: "/more",
-      icon: <Icons.square />,
+      icon: (
+        <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+        </svg>
+      ),
     },
   ];
 
@@ -182,7 +220,9 @@ export function BrandSidebar({
                 isCollapsed ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-full absolute"
               )}>
                 <button className="flex items-center justify-center w-8 h-8 rounded-md hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors">
-                  <Icons.search className="size-4" />
+                  <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
                 </button>
               </div>
 
@@ -197,7 +237,9 @@ export function BrandSidebar({
                     placeholder="Search..."
                     className="pl-3 pr-10"
                   />
-                  <Icons.search className="absolute top-2.5 right-3 size-4 text-muted-foreground" />
+                  <svg className="absolute top-2.5 right-3 size-4 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
                 </div>
               </div>
             </div>
@@ -280,7 +322,9 @@ export function BrandSidebar({
                   tooltip="Notifications"
                 >
                   <button>
-                    <Icons.bell />
+                    <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-5 5v-5zM4.828 7l2.586 2.586a2 2 0 002.828 0L12.828 7H4.828zM4.828 17H12l-2.586-2.586a2 2 0 00-2.828 0L4.828 17z" />
+                    </svg>
                     <span>Notifications</span>
                   </button>
                 </SidebarMenuButton>
@@ -292,7 +336,9 @@ export function BrandSidebar({
                   tooltip="Messages"
                 >
                   <button>
-                    <Icons.envelope />
+                    <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
                     <span>Messages</span>
                   </button>
                 </SidebarMenuButton>
@@ -303,7 +349,9 @@ export function BrandSidebar({
                   tooltip="Apps"
                 >
                   <button>
-                    <Icons.grid />
+                    <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                    </svg>
                     <span>Apps</span>
                   </button>
                 </SidebarMenuButton>
@@ -335,7 +383,9 @@ export function BrandSidebar({
                           </div>
                         )}
                         {!isCollapsed && (
-                          <Icons.ellipsis className="text-sidebar-foreground/60" />
+                          <svg className="text-sidebar-foreground/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                          </svg>
                         )}
                       </button>
                     </PopoverTrigger>
@@ -361,20 +411,28 @@ export function BrandSidebar({
                     {/* Profile Menu Items */}
                     <div className="p-1">
                                              <button className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-accent transition-colors text-left group">
-                         <Icons.user className="text-muted-foreground group-hover:text-white transition-colors" />
+                         <svg className="text-muted-foreground group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                         </svg>
                          <span className="text-sm text-foreground group-hover:text-white transition-colors">Account</span>
                        </button>
                        <button className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-accent transition-colors text-left group">
-                         <Icons.creditCard className="text-muted-foreground group-hover:text-white transition-colors" />
+                         <svg className="text-muted-foreground group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-6 4h12a2 2 0 002-2V8a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                         </svg>
                          <span className="text-sm text-foreground group-hover:text-white transition-colors">Billing</span>
                        </button>
                        <button className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-accent transition-colors text-left group">
-                         <Icons.bell className="text-muted-foreground group-hover:text-white transition-colors" />
+                         <svg className="text-muted-foreground group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-5 5v-5zM4.828 7l2.586 2.586a2 2 0 002.828 0L12.828 7H4.828zM4.828 17H12l-2.586-2.586a2 2 0 00-2.828 0L4.828 17z" />
+                         </svg>
                          <span className="text-sm text-foreground group-hover:text-white transition-colors">Notifications</span>
                        </button>
                       <div className="border-t border-border my-1" />
                                              <button className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-accent transition-colors text-left group">
-                         <Icons.rightFromBracket className="text-red-600 group-hover:text-white transition-colors" />
+                         <svg className="text-red-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                         </svg>
                          <span className="text-sm text-red-600 group-hover:text-white transition-colors">Log out</span>
                        </button>
                     </div>
@@ -397,12 +455,16 @@ export function BrandSidebar({
                             >
                               {isPinned ? (
                                 <>
-                                  <Icons.bookmark />
+                                  <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                                  </svg>
                                   <span>Unpin</span>
                                 </>
                               ) : (
                                 <>
-                                  <Icons.bookmark />
+                                  <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                                  </svg>
                                   <span>Pin</span>
                                 </>
                               )}
