@@ -157,7 +157,7 @@ export function BrandSidebar({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        "h-full",
+        "h-full z-50",
         // Overlay mode when hovering (not pinned)
         isHovered && !isPinned && !isMobile && "sidebar-overlay-mode"
       )}
