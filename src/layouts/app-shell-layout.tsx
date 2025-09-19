@@ -48,9 +48,7 @@ export default function AppShellLayout({
         <SidebarProvider defaultOpen={false}>
           {isMobile && <BrandHeader />}
           <BrandSidebar />
-          <main className="flex w-full">
-            {children}
-          </main>
+          {children}
           <Toaster />
         </SidebarProvider>
       </body>
