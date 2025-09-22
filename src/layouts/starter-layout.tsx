@@ -14,17 +14,17 @@ import "@/app/globals.css";
 
 /**
  * Starter Layout Component
- * 
+ *
  * A complete layout foundation for applications with:
  * - Responsive sidebar navigation (BrandSidebar)
- * - Mobile header (BrandHeader) 
+ * - Mobile header (BrandHeader)
  * - Font configuration (Inter, Geist Mono, Montserrat)
  * - Toast notifications (Sonner)
  * - Mobile-responsive design
- * 
+ *
  * This layout provides the essential structure for the starter template,
  * including proper font loading, responsive behavior, and brand components.
- * 
+ *
  * @param children - The page content to render within the layout
  */
 

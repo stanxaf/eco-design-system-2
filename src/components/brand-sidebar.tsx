@@ -44,12 +44,12 @@ export function BrandSidebar({
   const pathname = usePathname();
   const { state, toggleSidebar, setOpen, isMobile } = useSidebar();
   const isCollapsed = state === "collapsed";
-  
+
   // Hover state management
   const [isHovered, setIsHovered] = React.useState(false);
   const [isPinned, setIsPinned] = React.useState(false);
   const [hoverDisabled, setHoverDisabled] = React.useState(false);
-  
+
   // Handle mouse enter - temporarily expand if collapsed and not mobile and not pinned and hover not disabled
   const handleMouseEnter = React.useCallback(() => {
     if (!isMobile && isCollapsed && !isPinned && !hoverDisabled) {
@@ -88,7 +88,7 @@ export function BrandSidebar({
       const timeoutId = setTimeout(() => {
         setHoverDisabled(false);
       }, 300);
-      
+
       return () => clearTimeout(timeoutId);
     }
   }, [hoverDisabled]);
@@ -199,12 +199,12 @@ export function BrandSidebar({
         isHovered && !isPinned && !isMobile && "sidebar-overlay-mode"
       )}
     >
-      <Sidebar 
-        variant="sidebar" 
+      <Sidebar
+        variant="sidebar"
         collapsible="icon"
       >
       <SidebarHeader className="sticky top-0 z-10 bg-sidebar border-b border-sidebar-border">
-        <div className="py-2 px-2">
+        <div className="py-1 px-2">
           <Logo collapsed={isCollapsed} inSidebar={true}/>
         </div>
       </SidebarHeader>
