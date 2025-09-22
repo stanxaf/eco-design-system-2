@@ -8,6 +8,7 @@ import { starterTemplate } from "@/app/demo/[name]/blocks/starter-template";
 // components
 import { brandHeader } from "@/app/demo/[name]/components/brand-header";
 import { brandSidebar } from "@/app/demo/[name]/components/brand-sidebar";
+import { brandSidebarStacked } from "@/app/demo/[name]/components/brand-sidebar-stacked";
 import { header } from "@/app/demo/[name]/components/header";
 import { hero } from "@/app/demo/[name]/components/hero";
 import { login } from "@/app/demo/[name]/components/login";
@@ -91,6 +92,7 @@ export const demos: { [name: string]: Demo } = {
   logo,
   "brand-header": brandHeader,
   "brand-sidebar": brandSidebar,
+  "brand-sidebar-stacked": brandSidebarStacked,
   "product-grid": productGrid,
   header,
 
