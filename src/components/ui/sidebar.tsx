@@ -32,6 +32,10 @@ const SIDEBAR_WIDTH_MOBILE = "18rem";
 const SIDEBAR_WIDTH_ICON = "3rem";
 const SIDEBAR_KEYBOARD_SHORTCUT = "b";
 
+// Stacked sidebar width constants
+const SIDEBAR_STACKED_WIDTH = "4rem";
+const SIDEBAR_STACKED_WIDTH_ICON = "4rem";
+
 type SidebarContextProps = {
   state: "expanded" | "collapsed";
   open: boolean;
@@ -60,11 +64,17 @@ function SidebarProvider({
   className,
   style,
   children,
+  width = SIDEBAR_WIDTH,
+  widthIcon = SIDEBAR_WIDTH_ICON,
+  widthMobile = SIDEBAR_WIDTH_MOBILE,
   ...props
 }: React.ComponentProps<"div"> & {
   defaultOpen?: boolean;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
+  width?: string;
+  widthIcon?: string;
+  widthMobile?: string;
 }) {
   const isMobile = useIsMobile();
   const [openMobile, setOpenMobile] = React.useState(false);
@@ -133,8 +143,8 @@ function SidebarProvider({
           data-slot="sidebar-wrapper"
           style={
             {
-              "--sidebar-width": SIDEBAR_WIDTH,
-              "--sidebar-width-icon": SIDEBAR_WIDTH_ICON,
+              "--sidebar-width": width,
+              "--sidebar-width-icon": widthIcon,
               ...style,
             } as React.CSSProperties
           }
@@ -157,11 +167,17 @@ function Sidebar({
   collapsible = "offcanvas",
   className,
   children,
+  width = SIDEBAR_WIDTH,
+  widthIcon = SIDEBAR_WIDTH_ICON,
+  widthMobile = SIDEBAR_WIDTH_MOBILE,
   ...props
 }: React.ComponentProps<"div"> & {
   side?: "left" | "right";
   variant?: "sidebar" | "floating" | "inset";
   collapsible?: "offcanvas" | "icon" | "none";
+  width?: string;
+  widthIcon?: string;
+  widthMobile?: string;
 }) {
   const { isMobile, state, openMobile, setOpenMobile } = useSidebar();
 
@@ -190,7 +206,7 @@ function Sidebar({
           className="w-(--sidebar-width) bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
           style={
             {
-              "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
+              "--sidebar-width": widthMobile,
             } as React.CSSProperties
           }
           side={side}
