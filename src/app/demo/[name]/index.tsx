@@ -5,6 +5,7 @@ import { blank } from "@/app/demo/[name]/blocks/blank";
 import { dashboard } from "@/app/demo/[name]/blocks/dashboard";
 import { starterTemplate } from "@/app/demo/[name]/blocks/starter-template";
 import { twoPanelLayout } from "@/app/demo/[name]/blocks/two-panel-layout";
+import { threePanelLayout } from "@/app/demo/[name]/blocks/three-panel-layout";
 
 // components
 import { brandHeader } from "@/app/demo/[name]/components/brand-header";
@@ -86,6 +87,7 @@ export const demos: { [name: string]: Demo } = {
   dashboard,
   "starter-template": starterTemplate,
   "two-panel-layout": twoPanelLayout,
+  "three-panel-layout": threePanelLayout,
 
   // components
   hero,
