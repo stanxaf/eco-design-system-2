@@ -239,6 +239,8 @@
       "registryDependencies": [
         "sidebar",
         "button",
+        "header",
+        "breadcrumb",
         "https://eco-design-system-2.vercel.app/r/styles/icons.json",
         "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
         "https://eco-design-system-2.vercel.app/r/components/panel.json",
@@ -271,6 +273,7 @@
       "registryDependencies": [
         "sidebar",
         "button",
+        "header",
         "https://eco-design-system-2.vercel.app/r/styles/icons.json",
         "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
         "https://eco-design-system-2.vercel.app/r/components/panel.json",

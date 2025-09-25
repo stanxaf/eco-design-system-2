@@ -18,20 +18,20 @@ import { Button } from "@/components/ui/button";
  *
  * @example
  * ```tsx
- * // Basic panel with default 100vh height
+ * // Basic panel with default 100% height (fills parent container)
  * <Panel size="4" title="My Panel" footer={<span>Status: Active</span>}>
  *   <div>Panel content goes here</div>
  * </Panel>
  *
- * // Panel with 100% height (useful when there's a header above)
- * <Panel height="full" title="My Panel">
+ * // Panel with full screen height (100vh)
+ * <Panel height="screen" title="My Panel">
  *   <div>Panel content goes here</div>
  * </Panel>
  *
  * // Panel with custom header and full height
  * <Panel height="full" header={
  *   <div className="flex items-center justify-between w-full">
- *     <h3>Custom Header</h3>
+ *     <h6>Custom Header</h6>
  *     <Button size="sm">Action</Button>
  *   </div>
  * }>
@@ -150,7 +150,7 @@ export function Panel({
   children,
   footer,
   borderRight = true,
-  height = "screen",
+  height = "full",
   className,
   ...props
 }: PanelProps) {
@@ -179,7 +179,7 @@ export function Panel({
           header
         ) : (
           <>
-            <h3 className="text-lg font-semibold">{title}</h3>
+            <h6 className="text-lg font-semibold">{title}</h6>
             <Button variant="ghost" size="icon">
               <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
