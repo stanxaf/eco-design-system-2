@@ -331,6 +331,44 @@
       ]
     },
     {
+      "name": "filtered-content-layout",
+      "type": "registry:block",
+      "title": "Filtered Content Layout",
+      "description": "A two-panel layout with filtering capabilities - left panel for filters and controls, right panel for filtered content results",
+      "registryDependencies": [
+        "sidebar",
+        "button",
+        "panel",
+        "header",
+        "input",
+        "select",
+        "checkbox",
+        "breadcrumb",
+        "https://eco-design-system-2.vercel.app/r/styles/icons.json",
+        "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
+        "https://eco-design-system-2.vercel.app/r/components/panel.json",
+        "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
+        "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/layouts/starter-layout.tsx",
+          "type": "registry:file",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "src/app/demo/[name]/blocks/filtered-content-layout-page.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        },
+        {
+          "path": "src/components/panel.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "brand-header",
       "type": "registry:component",
       "title": "Brand Header",

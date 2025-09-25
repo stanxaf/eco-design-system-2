@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Copy, FileText } from "lucide-react";
+import { Check, Copy, FileText, ExternalLink } from "lucide-react";
 import { useState } from "react";
 
 import { OpenInV0Button } from "@/components/registry/open-in-v0";
@@ -135,6 +135,32 @@ export function ComponentCard({
                     </TooltipTrigger>
                   </Tooltip>
                 </TooltipProvider>
+
+                {component.type === 'registry:block' && (
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipContent>
+                        Open full demo in new tab
+                      </TooltipContent>
+                      <TooltipTrigger asChild>
+                        <Button
+                          variant="outline"
+                          className="p-4"
+                          asChild
+                          aria-label="Open demo in new tab"
+                        >
+                          <a
+                            href={`/demo/${component.name}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <ExternalLink className="size-4" />
+                          </a>
+                        </Button>
+                      </TooltipTrigger>
+                    </Tooltip>
+                  </TooltipProvider>
+                )}
 
                 <OpenInV0Button
                   registryUrl={registryUrl}
