@@ -34,11 +34,15 @@
    *
    * IMPORT PATTERNS:
    * ```tsx
-   * // Individual components (recommended for v0)
+   * // UI components (recommended for v0)
    * import { Button } from "@/components/ui/button"
-   * import { TypographyH1 } from "@/components/ui/typography-h1"
+   * import { Card } from "@/components/ui/card"
    *
-   * // Compound components (for complex layouts)
+   * // CSS-based headings (no import needed)
+   * <h1>Main Title</h1>
+   * <h2>Section Header</h2>
+   *
+   * // Compound components (for advanced use cases)
    * import { Typography } from "@/components/ui/typography"
    *
    * // Utility classes (fallback)
@@ -69,12 +73,6 @@
    *
    * STYLES (Typography, Colors, etc.):
    * - Typography: https://eco-design-system-2.vercel.app/r/styles/typography.json
-   * - Typography H1: https://eco-design-system-2.vercel.app/r/styles/typography-h1.json
-   * - Typography H2: https://eco-design-system-2.vercel.app/r/styles/typography-h2.json
-   * - Typography H3: https://eco-design-system-2.vercel.app/r/styles/typography-h3.json
-   * - Typography H4: https://eco-design-system-2.vercel.app/r/styles/typography-h4.json
-   * - Typography H5: https://eco-design-system-2.vercel.app/r/styles/typography-h5.json
-   * - Typography H6: https://eco-design-system-2.vercel.app/r/styles/typography-h6.json
    * - Button: https://eco-design-system-2.vercel.app/r/styles/button.json
    * - Alert: https://eco-design-system-2.vercel.app/r/styles/alert.json
    * - Badge: https://eco-design-system-2.vercel.app/r/styles/badge.json
@@ -107,55 +105,46 @@
    * 3. TYPOGRAPHY SYSTEM
    * =============================================================================
    *
-   * This design system provides consistent typography components for all DTN projects.
+   * This design system provides CSS-based heading styles for all DTN projects.
    * Optimized for v0.dev integration with comprehensive usage examples.
    *
-   * Available Typography Components:
-   * - Typography.H1: Main page titles (text-2xl, font-bold, leading-6)
-   * - Typography.H2: Section headers (text-2xl, font-bold, leading-6)
-   * - Typography.H3: Subsection headers (text-xl, font-bold, leading-5)
-   * - Typography.H4: Component headers (text-lg, font-bold, leading-5)
-   * - Typography.H5: Small headers (text-base, font-bold, leading-5)
-   * - Typography.H6: Smallest headers (text-sm, font-bold, leading-4)
+   * Available Heading Styles (CSS-based):
+   * - h1: Main page titles (28px, font-weight: 700, line-height: 24px)
+   * - h2: Section headers (24px, font-weight: 700, line-height: 20px)
+   * - h3: Subsection headers (20px, font-weight: 700, line-height: 20px)
+   * - h4: Component headers (18px, font-weight: 700, line-height: 16px)
+   * - h5: Small headers (16px, font-weight: 700, line-height: 16px)
+   * - h6: Smallest headers (14px, font-weight: 700, line-height: 22px)
    *
-   * Individual Components (RECOMMENDED for v0):
-   * - TypographyH1: Main page titles
-   * - TypographyH2: Section headers
-   * - TypographyH3: Subsection headers
-   * - TypographyH4: Component headers
-   * - TypographyH5: Small headers
-   * - TypographyH6: Smallest headers
-   *
-   * v0 Usage Examples:
+   * CSS-based Usage (RECOMMENDED for v0):
    * ```tsx
-   * // Individual components (RECOMMENDED for v0)
-   * import { TypographyH1 } from "@/components/ui/typography-h1";
-   * import { TypographyH2 } from "@/components/ui/typography-h2";
-   * import { TypographyH3 } from "@/components/ui/typography-h3";
+   * // Direct HTML elements with automatic styling
+   * <h1>Main Page Title</h1>
+   * <h2>Section Header</h2>
+   * <h3>Subsection Header</h3>
+   * <h4>Component Header</h4>
+   * <h5>Small Header</h5>
+   * <h6>Smallest Header</h6>
    *
-   * <TypographyH1>Main Page Title</TypographyH1>
-   * <TypographyH2>Section Header</TypographyH2>
-   * <TypographyH3>Subsection Header</TypographyH3>
+   * // With custom classes for additional styling
+   * <h1 className="text-blue-500">Custom Styled Title</h1>
+   * <h2 className="mb-4">Section with margin</h2>
    *
-   * // Compound component (for complex layouts)
+   * // Compound component (for advanced use cases)
    * import { Typography } from "@/components/ui/typography";
    * <Typography.H1>Main Page Title</Typography.H1>
    * <Typography.H2>Section Header</Typography.H2>
-   *
-   * // Utility classes (fallback for custom styling)
-   * <h1 className="font-bold text-2xl leading-6">Main Title</h1>
-   * <h2 className="font-bold text-2xl leading-6">Section Header</h2>
-   * <h3 className="font-bold text-xl leading-5">Subsection</h3>
    * ```
    *
    * v0 Integration Features:
-   * - All components work in version 0 of the design system
-   * - TypeScript support with proper type definitions
-   * - asChild prop support for polymorphic rendering
-   * - Consistent Tailwind CSS utilities for maximum compatibility
-   * - Font weights consistently set to 700 (font-bold) across all heading levels
+   * - All heading styles work automatically in version 0 of the design system
+   * - No component imports required for basic usage
+   * - CSS-based approach follows web standards
+   * - Consistent styling across all DTN projects
+   * - Font weights consistently set to 700 across all heading levels
    * - Line heights optimized for readability and visual hierarchy
    * - Responsive design with mobile-first approach
+   * - h6 matches Figma specifications (14px font-size, 22px line-height)
    *
    * Customization for v0:
    * - Override colors using CSS custom properties
@@ -573,6 +562,55 @@
     line-height: 1.5;
     font-family: var(--font-sans);
     @apply bg-background text-foreground;
+  }
+
+  /* Typography System - CSS-based headings */
+  h1 {
+    font-family: var(--font-sans);
+    font-size: var(--text-4xl); /* 28px */
+    font-weight: 700;
+    @apply leading-6; /* 24px */
+    margin: 0;
+  }
+
+  h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-3xl); /* 24px */
+    font-weight: 700;
+    @apply leading-5; /* 20px */
+    margin: 0;
+  }
+
+  h3 {
+    font-family: var(--font-sans);
+    font-size: var(--text-2xl); /* 20px */
+    font-weight: 700;
+    @apply leading-5; /* 20px */
+    margin: 0;
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-size: var(--text-xl); /* 18px */
+    font-weight: 700;
+    @apply leading-4; /* 16px */
+    margin: 0;
+  }
+
+  h5 {
+    font-family: var(--font-sans);
+    font-size: var(--text-lg); /* 16px */
+    font-weight: 700;
+    @apply leading-4; /* 16px */
+    margin: 0;
+  }
+
+  h6 {
+    font-family: var(--font-sans);
+    font-size: var(--text-md); /* 14px */
+    font-weight: 700;
+    line-height: 1.375rem; /* 22px */
+    margin: 0;
   }
 
   * {

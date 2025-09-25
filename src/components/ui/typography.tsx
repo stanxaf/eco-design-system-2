@@ -10,12 +10,12 @@ interface TypographyProps extends HTMLAttributes<HTMLElement> {
  * Typography component with consistent heading styles using Tailwind CSS utilities.
  *
  * **Available Components:**
- * - `Typography.H1`: Main page titles (text-2xl, font-bold, leading-6)
- * - `Typography.H2`: Section headers (text-2xl, font-bold, leading-6)
- * - `Typography.H3`: Subsection headers (text-xl, font-bold, leading-5)
- * - `Typography.H4`: Component headers (text-lg, font-bold, leading-5)
- * - `Typography.H5`: Small headers (text-base, font-bold, leading-5)
- * - `Typography.H6`: Smallest headers (text-sm, font-bold, leading-4)
+ * - `Typography.H1`: Main page titles (28px, font-weight: 700, line-height: 24px)
+ * - `Typography.H2`: Section headers (24px, font-weight: 700, line-height: 20px)
+ * - `Typography.H3`: Subsection headers (20px, font-weight: 700, line-height: 20px)
+ * - `Typography.H4`: Component headers (18px, font-weight: 700, line-height: 16px)
+ * - `Typography.H5`: Small headers (16px, font-weight: 700, line-height: 16px)
+ * - `Typography.H6`: Smallest headers (14px, font-weight: 700, line-height: 22px)
  *
  * **Features:**
  * - Consistent styling across all DTN projects
@@ -35,7 +35,7 @@ export const Typography = {
   H1: ({ className, children, ...props }: TypographyProps) => (
     <h1
       className={cn(
-        "font-bold text-2xl leading-6 font-sans",
+        "font-bold text-4xl leading-6 font-sans",
         className
       )}
       {...props}
@@ -47,7 +47,7 @@ export const Typography = {
   H2: ({ className, children, ...props }: TypographyProps) => (
     <h2
       className={cn(
-        "font-bold text-2xl leading-6 font-sans",
+        "font-bold text-3xl leading-5 font-sans",
         className
       )}
       {...props}
@@ -59,7 +59,7 @@ export const Typography = {
   H3: ({ className, children, ...props }: TypographyProps) => (
     <h3
       className={cn(
-        "font-bold text-xl leading-5 font-sans",
+        "font-bold text-2xl leading-5 font-sans",
         className
       )}
       {...props}
@@ -71,7 +71,7 @@ export const Typography = {
   H4: ({ className, children, ...props }: TypographyProps) => (
     <h4
       className={cn(
-        "font-bold text-lg leading-5 font-sans",
+        "font-bold text-xl leading-4 font-sans",
         className
       )}
       {...props}
@@ -83,7 +83,7 @@ export const Typography = {
   H5: ({ className, children, ...props }: TypographyProps) => (
     <h5
       className={cn(
-        "font-bold text-base leading-5 font-sans",
+        "font-bold text-lg leading-4 font-sans",
         className
       )}
       {...props}
@@ -95,7 +95,7 @@ export const Typography = {
   H6: ({ className, children, ...props }: TypographyProps) => (
     <h6
       className={cn(
-        "font-bold text-sm leading-4 font-sans",
+        "font-bold text-md leading-[1.375rem] font-sans",
         className
       )}
       {...props}
