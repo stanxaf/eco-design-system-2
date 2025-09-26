@@ -78,10 +78,14 @@ interface PanelProps {
   title?: string;
   /** Custom header content (overrides title) */
   header?: React.ReactNode;
+  /** Whether to hide the header completely */
+  hideHeader?: boolean;
   /** Main panel content */
   children?: React.ReactNode;
   /** Footer content with status information */
   footer?: React.ReactNode;
+  /** Whether to hide the footer completely */
+  hideFooter?: boolean;
 
   /** Styling */
   /** Whether to show right border */
@@ -147,8 +151,10 @@ export function Panel({
   justify = "start",
   title = "Panel",
   header,
+  hideHeader = false,
   children,
   footer,
+  hideFooter = false,
   borderRight = true,
   height = "full",
   className,
@@ -174,32 +180,37 @@ export function Panel({
       )}
       {...props}
     >
-      <div className="absolute top-0 left-0 right-0 z-10 flex w-full h-12 px-3 py-2 justify-between items-center border-b border-border bg-background shadow-sm">
-        {header ? (
-          header
-        ) : (
-          <>
-            <h6>{title}</h6>
-            <Button variant="ghost" size="icon">
-              <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-              </svg>
-            </Button>
-          </>
-        )}
-      </div>
+      {!hideHeader && (
+        <div className="absolute top-0 left-0 right-0 z-10 flex w-full h-12 px-3 py-2 justify-between items-center border-b border-border bg-background shadow-sm">
+          {header ? (
+            header
+          ) : (
+            <>
+              <h6>{title}</h6>
+              <Button variant="ghost" size="icon">
+                <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                </svg>
+              </Button>
+            </>
+          )}
+        </div>
+      )}
 
       {children && (
         <div className={cn(
-          "flex-1 w-full p-3 items-start self-stretch bg-background pt-12 overflow-y-auto",
-          "pt-[60px]", // 48px for header + 12px spacing
-          footer && "pb-12"
+          "flex-1 w-full p-3 items-start self-stretch bg-background overflow-y-auto",
+          !hideHeader && "pt-12", // 48px for header + 12px spacing
+          !hideHeader && "pt-[60px]", // 48px for header + 12px spacing
+          hideHeader && "pt-0", // No top padding when header is hidden
+          !hideFooter && footer && "pb-12", // Bottom padding only when footer exists and not hidden
+          hideFooter && "pb-0" // No bottom padding when footer is hidden
         )}>
           {children}
         </div>
       )}
 
-      {footer && (
+      {!hideFooter && footer && (
         <div className="absolute bottom-0 left-0 right-0 z-10 flex w-full h-12 min-h-10 px-3 py-2 justify-between items-center border-t border-border bg-background text-muted-foreground text-sm">
           {footer}
         </div>

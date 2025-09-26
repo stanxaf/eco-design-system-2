@@ -3,15 +3,15 @@
 /**
  * Map Layout Page Component
  *
- * A clean two-panel layout with interactive map:
+ * A clean full-screen map layout with panel wrapper:
  * - Header with breadcrumbs and actions
- * - Left panel: Map controls and settings (30% width)
- * - Right panel: Full-screen interactive map (70% width)
- * - Responsive design - panels stack vertically on mobile
+ * - Full-screen interactive map wrapped in a panel (no panel header/footer)
+ * - Panel provides content area only - maximum map space
+ * - Responsive design for mobile and desktop
  * - Layout-agnostic - ready for integration with sidebar/header
  * - Uses Panel, Header, Button, and Map components
  *
- * @returns JSX element with map layout ready for layout integration
+ * @returns JSX element with full-screen map layout ready for layout integration
  */
 import { Panel } from "@/components/panel";
 import { Header } from "@/components/ui/header";
@@ -49,53 +49,34 @@ export default function MapLayoutPage() {
         }
       />
 
-      {/* Two Panel Layout */}
-      <div className="flex flex-col md:flex-row flex-1">
-        {/* Left Panel - Map Controls */}
-        <Panel
-          size="fit"
-          responsive={{ md: "fit" }}
-          title="Map Controls"
-          className="w-full md:max-w-[320px] md:w-[30%] h-full"
-          footer={<span className="text-sm text-muted-foreground">Map Controls</span>}
-        >
-          <div className="space-y-4">
-            <div className="text-sm text-muted-foreground">
-              Map controls and settings can be added here.
-            </div>
-          </div>
-        </Panel>
-
-        {/* Right Panel - Interactive Map */}
-        <Panel
-          size="full"
-          responsive={{ md: "full" }}
-          title="Weather Map"
-          className="w-full md:w-[70%] h-full"
-          borderRight={false}
-          footer={<span className="text-sm text-muted-foreground">Interactive Weather Map</span>}
-        >
-          {/* Map Component - Edge to edge */}
-          <div className="absolute inset-0 top-12 bottom-12 left-0 right-0">
-            <Map
-              accessToken={MAPBOX_TOKEN}
-              center={mapCenter}
-              zoom={mapZoom}
-              height="100%"
-              width="100%"
-              onMove={handleMapMove}
-              onZoom={handleMapZoom}
-              showControls={false}
-              showNavigation={false}
-              showZoom={false}
-              showGeolocation={false}
-              showReset={false}
-              className="h-full w-full"
-              aria-label="Interactive map"
-            />
-          </div>
-        </Panel>
-      </div>
+      {/* Full Screen Map Panel */}
+      <Panel
+        size="full"
+        hideHeader={true}
+        hideFooter={true}
+        className="w-full h-full"
+        borderRight={false}
+      >
+        {/* Map Component - Full screen */}
+        <div className="absolute inset-0 left-0 right-0 top-0 bottom-0">
+          <Map
+            accessToken={MAPBOX_TOKEN}
+            center={mapCenter}
+            zoom={mapZoom}
+            height="100%"
+            width="100%"
+            onMove={handleMapMove}
+            onZoom={handleMapZoom}
+            showControls={false}
+            showNavigation={false}
+            showZoom={false}
+            showGeolocation={false}
+            showReset={false}
+            className="h-full w-full"
+            aria-label="Interactive map"
+          />
+        </div>
+      </Panel>
     </div>
   );
 }
