@@ -288,7 +288,10 @@ export function BrandSidebar({
                     <span>{item.title}</span>
                   </SidebarMenuButton>
                   {item.badge && (
-                    <SidebarMenuBadge>{item.badge.text}</SidebarMenuBadge>
+                    <SidebarMenuBadge className={cn(
+                      "transition-all duration-300 ease-in-out",
+                      showContent ? "opacity-100" : "opacity-0"
+                    )}>{item.badge.text}</SidebarMenuBadge>
                   )}
                 </SidebarMenuItem>
               ))}
@@ -320,7 +323,10 @@ export function BrandSidebar({
                     <span>{item.title}</span>
                   </SidebarMenuButton>
                   {item.badge && (
-                    <SidebarMenuBadge>{item.badge.text}</SidebarMenuBadge>
+                    <SidebarMenuBadge className={cn(
+                      "transition-all duration-300 ease-in-out",
+                      showContent ? "opacity-100" : "opacity-0"
+                    )}>{item.badge.text}</SidebarMenuBadge>
                   )}
                 </SidebarMenuItem>
               ))}
@@ -346,7 +352,10 @@ export function BrandSidebar({
                     <span>Notifications</span>
                   </button>
                 </SidebarMenuButton>
-                <SidebarMenuBadge>3</SidebarMenuBadge>
+                <SidebarMenuBadge className={cn(
+                  "transition-all duration-300 ease-in-out",
+                  showContent ? "opacity-100" : "opacity-0"
+                )}>3</SidebarMenuBadge>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton
