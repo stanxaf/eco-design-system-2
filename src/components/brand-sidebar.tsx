@@ -222,7 +222,7 @@ export function BrandSidebar({
         collapsible="icon"
       >
       <SidebarHeader className="sticky top-0 z-10 bg-sidebar border-b border-sidebar-border">
-        <div className="py-1 px-2">
+        <div className="p-1">
           <Logo collapsed={isCollapsed} inSidebar={true}/>
         </div>
       </SidebarHeader>

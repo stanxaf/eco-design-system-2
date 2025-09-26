@@ -7,7 +7,7 @@ interface LogoProps {
 
 export function Logo({ collapsed = false, inSidebar = false }: LogoProps) {
   return (
-    <div className={cn("flex items-center", collapsed ? "justify-center gap-0" : "gap-2")}>
+    <div className="flex items-center gap-2">
         <svg
           width="23"
           height="22"
