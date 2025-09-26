@@ -45,16 +45,23 @@ export function BrandSidebar({
   const { state, toggleSidebar, setOpen, isMobile } = useSidebar();
   const isCollapsed = state === "collapsed";
 
-  // Hover state management
+  // Hover state management with smooth transitions
   const [isHovered, setIsHovered] = React.useState(false);
   const [isPinned, setIsPinned] = React.useState(false);
   const [hoverDisabled, setHoverDisabled] = React.useState(false);
+  const [showContent, setShowContent] = React.useState(!isCollapsed);
 
   // Handle mouse enter - temporarily expand if collapsed and not mobile and not pinned and hover not disabled
   const handleMouseEnter = React.useCallback(() => {
     if (!isMobile && isCollapsed && !isPinned && !hoverDisabled) {
       setIsHovered(true);
+      setShowContent(false); // Hide content immediately
       setOpen(true); // Use the proper hook to expand
+
+      // Show content after sidebar has fully expanded
+      setTimeout(() => {
+        setShowContent(true);
+      }, 400);
     }
   }, [isMobile, isCollapsed, isPinned, hoverDisabled, setOpen]);
 
@@ -62,6 +69,8 @@ export function BrandSidebar({
   const handleMouseLeave = React.useCallback(() => {
     if (!isMobile && isHovered && !isPinned) {
       setIsHovered(false);
+      // Hide content immediately, then collapse sidebar
+      setShowContent(false);
       setOpen(false); // Use the proper hook to collapse
     }
   }, [isMobile, isHovered, isPinned, setOpen]);
@@ -72,6 +81,7 @@ export function BrandSidebar({
       // Unpin - immediately collapse and disable hover temporarily
       setIsPinned(false);
       setIsHovered(false);
+      setShowContent(false);
       setOpen(false);
       setHoverDisabled(true);
     } else {
@@ -79,6 +89,7 @@ export function BrandSidebar({
       setIsPinned(true);
       setIsHovered(false);
       setOpen(true);
+      setShowContent(true);
     }
   }, [isPinned, setOpen]);
 
@@ -92,6 +103,13 @@ export function BrandSidebar({
       return () => clearTimeout(timeoutId);
     }
   }, [hoverDisabled]);
+
+  // Sync showContent with sidebar state when not hovering
+  React.useEffect(() => {
+    if (!isHovered) {
+      setShowContent(!isCollapsed);
+    }
+  }, [isCollapsed, isHovered]);
 
   const mainNavItems: NavItem[] = [
     {
@@ -209,14 +227,14 @@ export function BrandSidebar({
         </div>
       </SidebarHeader>
 
-      <SidebarContent className="transition-all duration-200 ease-in-out">
+      <SidebarContent className="transition-all duration-300 ease-in-out">
         {/* Search Section */}
         <SidebarGroup className="border-b border-sidebar-border">
           <SidebarGroupContent>
             <div className="relative overflow-hidden">
               {/* Collapsed: Search icon */}
               <div className={cn(
-                "flex justify-center transition-all duration-200 ease-in-out",
+                "flex justify-center transition-all duration-300 ease-in-out",
                 isCollapsed ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-full absolute"
               )}>
                 <button className="flex items-center justify-center w-8 h-8 rounded-md hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors">
@@ -228,7 +246,7 @@ export function BrandSidebar({
 
               {/* Expanded: Search input */}
               <div className={cn(
-                "px-2 transition-all duration-200 ease-in-out",
+                "px-2 transition-all duration-300 ease-in-out",
                 isCollapsed ? "opacity-0 translate-x-full absolute" : "opacity-100 translate-x-0"
               )}>
                 <div className="relative">
