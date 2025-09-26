@@ -39,8 +39,8 @@ export default function MapLayoutPage() {
       {/* Header with breadcrumbs */}
       <Header
         breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Weather Dashboard" }
+          { label: "Weather Hub", href: "/" },
+          { label: "Map" }
         ]}
         rightContent={
           <Button variant="outline">
