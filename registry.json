@@ -1499,6 +1499,39 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "map",
+      "type": "registry:component",
+      "title": "Map",
+      "description": "A fully-featured Mapbox map component with theme integration, built-in controls, and accessibility features. Supports light/dark mode, custom styling, and comprehensive TypeScript definitions. Requires a Mapbox access token (get one free at mapbox.com).",
+      "registryDependencies": [
+        "button",
+        "badge",
+        "card",
+        "https://eco-design-system-2.vercel.app/r/styles/icons.json",
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "dependencies": [
+        "mapbox-gl"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/map.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "keywords": [
+        "map",
+        "mapbox",
+        "geolocation",
+        "interactive",
+        "theme",
+        "dark-mode",
+        "accessibility"
+      ],
+      "category": "Data Display",
+      "tags": ["map", "geolocation", "interactive", "theme"]
     }
   ]
 }

@@ -19,6 +19,7 @@ import { login } from "@/app/demo/[name]/components/login";
 import { logo } from "@/app/demo/[name]/components/logo";
 import { productGrid } from "@/app/demo/[name]/components/product-grid";
 import { promo } from "@/app/demo/[name]/components/promo";
+import { map } from "@/app/demo/[name]/components/map";
 
 // ui
 import { accordion } from "@/app/demo/[name]/ui/accordion";
@@ -103,6 +104,7 @@ export const demos: { [name: string]: Demo } = {
   "brand-sidebar-stacked": brandSidebarStacked,
   "product-grid": productGrid,
   header,
+  map,
 
   // ui
   accordion,
