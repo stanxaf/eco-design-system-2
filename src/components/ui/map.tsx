@@ -1,20 +1,22 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import mapboxgl from "mapbox-gl";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import {
-  Navigation,
-  ZoomIn,
-  ZoomOut,
-  MapPin,
+import { 
+  Navigation, 
+  ZoomIn, 
+  ZoomOut, 
+  MapPin, 
   RotateCcw,
   Map as MapIcon
 } from "lucide-react";
 
 // Import Mapbox CSS
 import "mapbox-gl/dist/mapbox-gl.css";
+
+// Import mapbox-gl with proper type handling
+import mapboxgl from "mapbox-gl";
 
 /**
  * Map component with Mapbox integration for the DTN design system.
@@ -154,19 +156,27 @@ export function Map({
   const map = useRef<mapboxgl.Map | null>(null);
   const [isDark, setIsDark] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const [currentCenter, setCurrentCenter] = useState<[number, number]>(center);
   const [currentZoom, setCurrentZoom] = useState(zoom);
   const [geolocationError, setGeolocationError] = useState<string | null>(null);
   const [mapError, setMapError] = useState<string | null>(null);
 
+  // Handle client-side mounting
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   // Set Mapbox access token
   useEffect(() => {
-    mapboxgl.accessToken = accessToken;
+    if (typeof window !== "undefined") {
+      mapboxgl.accessToken = accessToken;
+    }
   }, [accessToken]);
 
   // Initialize map
   useEffect(() => {
-    if (!mapContainer.current || map.current) return;
+    if (!isMounted || !mapContainer.current || map.current || typeof window === "undefined") return;
 
     try {
       const theme = getCurrentTheme();
@@ -225,7 +235,7 @@ export function Map({
         map.current = null;
       }
     };
-  }, [accessToken, center, zoom, style, onLoad, onMove, onZoom, props]);
+  }, [isMounted, accessToken, center, zoom, style, onLoad, onMove, onZoom, props]);
 
   // Handle theme changes
   useEffect(() => {
@@ -406,11 +416,11 @@ export function Map({
       )}
 
       {/* Loading indicator */}
-      {!isLoaded && !mapError && (
+      {(!isMounted || !isLoaded) && !mapError && (
         <div className="absolute inset-0 flex items-center justify-center bg-muted/50 rounded-lg">
           <div className="flex items-center gap-2 text-muted-foreground">
             <MapIcon className="size-4 animate-pulse" />
-            <span className="text-sm">Loading map...</span>
+            <span className="text-sm">{!isMounted ? "Initializing..." : "Loading map..."}</span>
           </div>
         </div>
       )}
