@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { 
-  Navigation, 
-  ZoomIn, 
-  ZoomOut, 
-  MapPin, 
+import {
+  Navigation,
+  ZoomIn,
+  ZoomOut,
+  MapPin,
   RotateCcw,
   Map as MapIcon
 } from "lucide-react";
@@ -319,7 +319,7 @@ export function Map({
       {/* Map container */}
       <div
         ref={mapContainer}
-        className="w-full rounded-lg border border-border bg-background"
+        className="w-full h-full"
         style={{ height, width }}
         role="img"
         aria-label={ariaLabel}

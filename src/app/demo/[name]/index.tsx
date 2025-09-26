@@ -8,6 +8,7 @@ import { twoPanelLayout } from "@/app/demo/[name]/blocks/two-panel-layout";
 import { threePanelLayout } from "@/app/demo/[name]/blocks/three-panel-layout";
 import { singlePanelLayout } from "@/app/demo/[name]/blocks/single-panel-layout";
 import { filteredContentLayout } from "@/app/demo/[name]/blocks/filtered-content-layout";
+import { mapLayout } from "@/app/demo/[name]/blocks/map-layout";
 
 // components
 import { brandHeader } from "@/app/demo/[name]/components/brand-header";
@@ -93,6 +94,7 @@ export const demos: { [name: string]: Demo } = {
   "three-panel-layout": threePanelLayout,
   "single-panel-layout": singlePanelLayout,
   "filtered-content-layout": filteredContentLayout,
+  "map-layout": mapLayout,
 
   // components
   hero,

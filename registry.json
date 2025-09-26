@@ -1501,6 +1501,62 @@
       ]
     },
     {
+      "name": "map-layout",
+      "type": "registry:block",
+      "title": "Map Layout",
+      "description": "A comprehensive map layout with control panel and full-page map display. Features a left panel with map controls (style selector, layer toggles, search) and a right panel with an interactive map. Perfect for weather data, location services, or geographic visualization applications.",
+      "registryDependencies": [
+        "sidebar",
+        "button",
+        "panel",
+        "header",
+        "input",
+        "select",
+        "checkbox",
+        "switch",
+        "badge",
+        "label",
+        "map",
+        "https://eco-design-system-2.vercel.app/r/styles/icons.json",
+        "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
+        "https://eco-design-system-2.vercel.app/r/components/panel.json",
+        "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
+        "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "dependencies": [
+        "mapbox-gl"
+      ],
+      "files": [
+        {
+          "path": "src/layouts/starter-layout.tsx",
+          "type": "registry:file",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "src/app/demo/[name]/blocks/map-layout-page.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        },
+        {
+          "path": "src/components/panel.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "keywords": [
+        "map",
+        "layout",
+        "mapbox",
+        "geolocation",
+        "interactive",
+        "control-panel",
+        "weather-data",
+        "responsive"
+      ],
+      "category": "Layout",
+      "tags": ["map", "layout", "geolocation", "interactive", "control-panel"]
+    },
+    {
       "name": "map",
       "type": "registry:component",
       "title": "Map",
