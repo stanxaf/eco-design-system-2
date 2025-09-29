@@ -113,6 +113,16 @@ export function BrandSidebarStacked({
   // Profile popover state
   const [isProfileOpen, setIsProfileOpen] = React.useState(false);
 
+  // Apps dropdown state
+  const [isAppsOpen, setIsAppsOpen] = React.useState(false);
+
+  // DTN Products data
+  const dtnProducts = [
+    { id: "1", name: "Weather Hub", description: "Weather forecasting and analytics", icon: "cloud-sun" },
+    { id: "2", name: "Fuel Hub", description: "Fuel price tracking and procurement", icon: "gas-pump" },
+    { id: "3", name: "Identity Management", description: "User access and permissions", icon: "shield-halved" }
+  ];
+
   // All accounts data (including current)
   const allAccounts = [
     { id: "1", company: "DTN", isCurrent: true },
@@ -164,6 +174,12 @@ export function BrandSidebarStacked({
             account.company === "Biffco Enterprises Ltd." ? "Business Analyst" : "Senior Product Manager"
     }));
     setIsSwitchAccountOpen(false);
+  }, []);
+
+  // Handle app selection
+  const handleAppSelect = React.useCallback((app: { id: string; name: string; description: string; icon: string }) => {
+    setIsAppsOpen(false);
+    console.log(`Selected app: ${app.name}`);
   }, []);
 
   // Reset error state on component mount
@@ -330,23 +346,52 @@ export function BrandSidebarStacked({
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem role="none">
-                <SidebarMenuButton
-                  asChild
-                  tooltip="Apps"
-                  className="w-full h-10 group-data-[collapsible=icon]:w-full! group-data-[collapsible=icon]:h-10!"
-                >
-                  <button
-                    className="w-full focus:outline-none focus:ring-2 focus:ring-sidebar-ring focus:ring-offset-2 focus:ring-offset-sidebar"
-                    aria-label="View applications"
-                    onClick={() => handleProfileAction('apps')}
+                <Popover open={isAppsOpen} onOpenChange={setIsAppsOpen}>
+                  <PopoverTrigger asChild>
+                  <SidebarMenuButton
+                    asChild
+                    tooltip="Apps"
+                    className="w-full h-10 group-data-[collapsible=icon]:w-full! group-data-[collapsible=icon]:h-10!"
                   >
-                    <div className="flex items-center justify-center w-full h-8">
-                      <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                      </svg>
+                    <button
+                      className="w-full focus:outline-none focus:ring-2 focus:ring-sidebar-ring focus:ring-offset-2 focus:ring-offset-sidebar"
+                      aria-label="View applications"
+                    >
+                      <div className="flex items-center justify-center w-full h-8">
+                        <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                        </svg>
+                      </div>
+                    </button>
+                  </SidebarMenuButton>
+                  </PopoverTrigger>
+                  <PopoverContent
+                    className="w-60 p-0"
+                    align="start"
+                    side="right"
+                    sideOffset={8}
+                  >
+                    {/* Apps Header */}
+                    <div className="p-3 border-b border-border">
+                      <h3 className="text-sm font-medium text-foreground">Your Products</h3>
+                      <p className="text-xs text-muted-foreground">Products you have access to under {currentAccount.company}</p>
                     </div>
-                  </button>
-                </SidebarMenuButton>
+
+              {/* Apps List */}
+              <div className="p-1">
+                {dtnProducts.map((app) => (
+                  <button
+                    key={app.id}
+                    onClick={() => handleAppSelect(app)}
+                    className="flex items-center space-x-3 w-full p-2 pl-0 rounded-md hover:bg-accent transition-colors text-left group"
+                  >
+                          <i className={`fa-solid fa-${app.icon} text-lg text-muted-foreground group-hover:text-accent-foreground transition-colors`}></i>
+                          <span className="text-sm font-medium text-foreground group-hover:text-accent-foreground transition-colors">{app.name}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </PopoverContent>
+                </Popover>
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
