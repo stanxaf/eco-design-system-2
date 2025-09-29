@@ -17,12 +17,17 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 /**
  * Navigation item interface for the sidebar
@@ -40,6 +45,7 @@ interface NavItem {
     text: string;
   };
 }
+
 
 /**
  * Props interface for the BrandSidebarStacked component
@@ -94,6 +100,26 @@ export function BrandSidebarStacked({
   // Error boundary state
   const [hasError, setHasError] = React.useState(false);
 
+  // Account switching state
+  const [isSwitchAccountOpen, setIsSwitchAccountOpen] = React.useState(false);
+  const [currentAccount, setCurrentAccount] = React.useState({
+    name: "Sarah Chen",
+    email: "sarah.chen@dtn.com",
+    company: "DTN",
+    role: "Senior Product Manager",
+    initials: "SC"
+  });
+
+  // Profile popover state
+  const [isProfileOpen, setIsProfileOpen] = React.useState(false);
+
+  // All accounts data (including current)
+  const allAccounts = [
+    { id: "1", company: "DTN", isCurrent: true },
+    { id: "2", company: "Acme Co.", isCurrent: false },
+    { id: "3", company: "Biffco Enterprises Ltd.", isCurrent: false }
+  ];
+
   // Handle navigation with error handling
   const handleNavigation = React.useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     try {
@@ -120,12 +146,24 @@ export function BrandSidebarStacked({
   // Handle profile menu actions
   const handleProfileAction = React.useCallback((action: string) => {
     try {
-      console.log(`Profile action: ${action}`);
       // Implement profile actions here
     } catch (error) {
       console.error('Profile action error:', error);
       setHasError(true);
     }
+  }, []);
+
+  // Handle account switching
+  const handleAccountSwitch = React.useCallback((account: { id: string; company: string; isCurrent: boolean }) => {
+    // Update current account with new company context
+    setCurrentAccount(prev => ({
+      ...prev,
+      company: account.company,
+      // Role would be updated based on the selected account
+      role: account.company === "Acme Co." ? "Operations Manager" :
+            account.company === "Biffco Enterprises Ltd." ? "Business Analyst" : "Senior Product Manager"
+    }));
+    setIsSwitchAccountOpen(false);
   }, []);
 
   // Reset error state on component mount
@@ -322,7 +360,7 @@ export function BrandSidebarStacked({
               <div className="py-0 px-0">
                 <div className="space-y-3">
                   {/* User Profile with Popover Menu */}
-                  <Popover>
+                  <Popover open={isProfileOpen} onOpenChange={setIsProfileOpen}>
                     <PopoverTrigger asChild>
                       <button
                         className="flex items-center justify-center w-full h-8 rounded-md hover:bg-sidebar-hover transition-colors focus:outline-none focus:ring-2 focus:ring-sidebar-ring focus:ring-offset-2 focus:ring-offset-sidebar"
@@ -330,8 +368,9 @@ export function BrandSidebarStacked({
                         aria-haspopup="menu"
                       >
                         <Avatar className="size-6">
+                          <AvatarImage src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=24&h=24&fit=crop&crop=face" alt={currentAccount.name} />
                           <AvatarFallback className="bg-primary text-primary-foreground">
-                            <span className="text-xs font-medium" aria-hidden="true">{user.initials}</span>
+                            <span className="text-xs font-medium" aria-hidden="true">{currentAccount.initials}</span>
                           </AvatarFallback>
                         </Avatar>
                       </button>
@@ -345,49 +384,80 @@ export function BrandSidebarStacked({
                       aria-label="User profile menu"
                     >
                       {/* Profile Header */}
-                      <div className="flex items-center space-x-2 p-2 border-b border-border">
-                        <Avatar className="size-8">
+                      <div className="flex flex-col space-y-2 p-3 border-b border-border">
+                        <Avatar className="size-12">
+                          <AvatarImage src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=48&h=48&fit=crop&crop=face" alt={currentAccount.name} />
                           <AvatarFallback className="bg-primary text-primary-foreground">
-                            <span className="text-sm font-medium" aria-hidden="true">{user.initials}</span>
+                            <span className="text-sm font-medium" aria-hidden="true">{currentAccount.initials}</span>
                           </AvatarFallback>
                         </Avatar>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-foreground">{user.name}</p>
-                          <p className="text-xs text-muted-foreground">{user.email}</p>
+                        <div>
+                          <p className="text-sm font-medium text-foreground">{currentAccount.name}</p>
+                          <p className="text-xs text-muted-foreground">{currentAccount.email}</p>
+                          <p className="text-xs text-muted-foreground">{currentAccount.company} • {currentAccount.role}</p>
                         </div>
                       </div>
 
                       {/* Profile Menu Items */}
                       <div className="p-1" role="menu">
+                        {/* Switch Account - Collapsible */}
+                        <Collapsible open={isSwitchAccountOpen} onOpenChange={setIsSwitchAccountOpen}>
+                          <CollapsibleTrigger asChild>
+                            <button
+                              className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-accent transition-colors text-left group focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                              role="menuitem"
+                            >
+                              <svg className="size-4 text-muted-foreground group-hover:text-accent-foreground transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7a4 4 0 1 1 8 0 4 4 0 0 1-8 0zM2 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 1 1 8 0 4 4 0 0 1-8 0zM2 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+                              </svg>
+                              <span className="text-sm text-foreground group-hover:text-accent-foreground transition-colors">Switch Account</span>
+                              <svg
+                                className={cn(
+                                  "size-4 text-muted-foreground group-hover:text-accent-foreground transition-colors ml-auto",
+                                  isSwitchAccountOpen && "rotate-180"
+                                )}
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                              >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </button>
+                          </CollapsibleTrigger>
+                          <CollapsibleContent className="space-y-1 m-0.5">
+                            {allAccounts.map((account) => (
+                              <button
+                                key={account.id}
+                                onClick={() => handleAccountSwitch(account)}
+                                className={cn(
+                                  "flex items-center space-x-2 w-full p-2 rounded-md transition-colors text-left group m-0 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+                                  account.isCurrent
+                                    ? "bg-primary text-primary-foreground"
+                                    : "hover:bg-accent hover:text-accent-foreground"
+                                )}
+                                role="menuitem"
+                              >
+                                <div className="flex-1 min-w-0">
+                                  <p className="text-sm transition-colors">{account.company}</p>
+                                </div>
+                              </button>
+                            ))}
+                          </CollapsibleContent>
+                        </Collapsible>
+
+                        {/* Other Menu Items */}
                         <button
                           className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-accent transition-colors text-left group focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                           role="menuitem"
-                          onClick={() => handleProfileAction('account')}
+                          onClick={() => handleProfileAction('settings')}
                         >
                           <svg className="size-4 text-muted-foreground group-hover:text-accent-foreground transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                           </svg>
-                          <span className="text-sm text-foreground group-hover:text-accent-foreground transition-colors">Account</span>
-                        </button>
-                        <button
-                          className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-accent transition-colors text-left group focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                          role="menuitem"
-                          onClick={() => handleProfileAction('billing')}
-                        >
-                          <svg className="size-4 text-muted-foreground group-hover:text-accent-foreground transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-6 4h12a2 2 0 002-2V8a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                          </svg>
-                          <span className="text-sm text-foreground group-hover:text-accent-foreground transition-colors">Billing</span>
-                        </button>
-                        <button
-                          className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-accent transition-colors text-left group focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-                          role="menuitem"
-                          onClick={() => handleProfileAction('notifications')}
-                        >
-                          <svg className="size-4 text-muted-foreground group-hover:text-accent-foreground transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-5 5v-5zM4.828 7l2.586 2.586a2 2 0 002.828 0L12.828 7H4.828zM4.828 17H12l-2.586-2.586a2 2 0 00-2.828 0L4.828 17z" />
-                          </svg>
-                          <span className="text-sm text-foreground group-hover:text-accent-foreground transition-colors">Notifications</span>
+                          <span className="text-sm text-foreground group-hover:text-accent-foreground transition-colors">Settings</span>
                         </button>
                         <div className="border-t border-border my-1" role="separator" />
                         <button
