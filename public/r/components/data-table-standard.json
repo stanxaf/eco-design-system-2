@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "type": "registry:component",
+  "name": "data-table-standard",
+  "title": "Data Table Standard",
+  "description": "Standard data table with core business features including global search, sorting, pagination, row selection, and bulk actions.",
+  "registryDependencies": [
+    "data-table-toolbar",
+    "data-table-pagination",
+    "button",
+    "checkbox",
+    "dropdown-menu",
+    "input",
+    "table",
+    "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+  ],
+  "dependencies": [
+    "@tanstack/react-table"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/data-table-standard.tsx",
+      "type": "registry:component"
+    }
+  ]
+}

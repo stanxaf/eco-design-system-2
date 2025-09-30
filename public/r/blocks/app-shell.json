@@ -1,0 +1,32 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "app-shell",
+  "type": "registry:block",
+  "title": "App Shell",
+  "description": "A flexible app shell component with sidebar and main content areas. Optimized to prevent horizontal scroll issues.",
+  "dependencies": [],
+  "registryDependencies": [
+    "badge",
+    "button",
+    "sidebar",
+    "https://eco-design-system-2.vercel.app/r/styles/icons.json",
+    "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
+    "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
+    "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
+    "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/layouts/app-shell-layout.tsx",
+      "content": "\"use client\";\n\nimport { Inter, Geist_Mono, Montserrat } from \"next/font/google\";\nimport React, { type ReactNode } from \"react\";\n\nimport { BrandHeader } from \"@/components/brand-header\";\nimport { BrandSidebar } from \"@/components/brand-sidebar\";\nimport { SidebarProvider } from \"@/components/ui/sidebar\";\nimport { Toaster } from \"@/components/ui/sonner\";\nimport { cn } from \"@/lib/utils\";\nimport { useIsMobile } from \"@/hooks/use-mobile\";\n\nimport \"@/app/globals.css\";\n\nconst InterSans = Inter({\n  subsets: [\"latin\"],\n  variable: \"--font-sans\",\n});\n\nconst GeistMono = Geist_Mono({\n  subsets: [\"latin\"],\n  variable: \"--font-mono\",\n});\n\nconst MontserratSerif = Montserrat({\n  subsets: [\"latin\"],\n  variable: \"--font-serif\",\n});\n\nexport default function AppShellLayout({\n  children,\n}: Readonly<{\n  children: ReactNode;\n}>) {\n  const isMobile = useIsMobile();\n\n  return (\n    <html\n      lang=\"en\"\n      className={cn(\n        InterSans.variable,\n        GeistMono.variable,\n        MontserratSerif.variable,\n        \"bg-background text-foreground\",\n      )}\n    >\n      <body>\n        <SidebarProvider>\n          {isMobile && <BrandHeader />}\n          <BrandSidebar />\n          <main className=\"flex w-full\">\n            <div className=\"w-full p-6\">\n              <div className=\"max-w-7xl mx-auto space-y-6\">\n                {children}\n              </div>\n            </div>\n          </main>\n          <Toaster />\n        </SidebarProvider>\n      </body>\n    </html>\n  );\n}\n",
+      "type": "registry:file",
+      "target": "app/layout.tsx"
+    },
+    {
+      "path": "src/app/demo/[name]/blocks/app-shell-page.tsx",
+      "content": "export default function AppShellPage() {\n  return (\n    <div className=\"flex min-h-[90vh] flex-col items-center justify-center gap-4 w-full\">\n      <div className=\"w-full text-muted-foreground text-center\">\n        <p className=\"text-muted-foreground mt-2\">\n          This is your base layout with sidebar and main content area. Start adding components to customize it.\n        </p>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:page",
+      "target": "app/page.tsx"
+    }
+  ]
+}

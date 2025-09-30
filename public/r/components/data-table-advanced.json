@@ -1,0 +1,28 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "type": "registry:component",
+  "name": "data-table-advanced",
+  "title": "Data Table Advanced",
+  "description": "Advanced data table with full power-user features including export functionality, column visibility, density controls, saved views, and advanced filtering.",
+  "registryDependencies": [
+    "data-table-standard",
+    "data-table-toolbar",
+    "data-table-pagination",
+    "button",
+    "checkbox",
+    "dropdown-menu",
+    "input",
+    "select",
+    "table",
+    "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+  ],
+  "dependencies": [
+    "@tanstack/react-table"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/data-table-advanced.tsx",
+      "type": "registry:component"
+    }
+  ]
+}

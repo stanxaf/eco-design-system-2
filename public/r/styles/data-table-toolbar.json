@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "data-table-toolbar",
+  "type": "registry:ui",
+  "title": "Data Table Toolbar",
+  "description": "A flexible toolbar component for data tables with global search functionality. Integrates seamlessly with TanStack Table for filtering across all columns. Features responsive design, accessibility compliance, and extensible architecture for additional toolbar actions.",
+  "dependencies": [
+    "@tanstack/react-table",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button",
+    "input",
+    "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/data-table-toolbar.tsx",
+      "content": "\"use client\";\n\nimport { type Table } from \"@tanstack/react-table\";\nimport { Search } from \"lucide-react\";\nimport * as React from \"react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { Input } from \"@/components/ui/input\";\nimport { cn } from \"@/lib/utils\";\n\n/**\n * Data Table Toolbar component with global search functionality.\n *\n * A flexible toolbar component designed for data tables that provides global search\n * capabilities and space for additional table actions. Integrates seamlessly with\n * TanStack Table for filtering across all columns.\n *\n * @template TData - The type of data in the table\n */\ninterface DataTableToolbarProps<TData> {\n  /** TanStack Table instance with configured data and columns */\n  table: Table<TData>;\n  /** Current global filter value */\n  globalFilter: string;\n  /** Function to update the global filter value */\n  setGlobalFilter: (value: string) => void;\n  /** Optional additional CSS classes for styling */\n  className?: string;\n}\n\n/**\n * Renders a data table toolbar with global search functionality.\n *\n * @param props - The component props\n * @returns JSX element representing the toolbar\n */\nexport function DataTableToolbar<TData>({\n  table,\n  globalFilter,\n  setGlobalFilter,\n  className,\n}: DataTableToolbarProps<TData>) {\n  return (\n    <div\n      className={cn(\n        \"flex items-center justify-between\",\n        className\n      )}\n      data-slot=\"data-table-toolbar\"\n    >\n      <div className=\"flex flex-1 items-center space-x-2\">\n        <div className=\"relative flex-1 max-w-xs\">\n          <Search className=\"absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground\" />\n          <Input\n            placeholder=\"Search\"\n            value={globalFilter ?? \"\"}\n            onChange={(event) => setGlobalFilter(String(event.target.value))}\n            className=\"pl-8 h-8\"\n            data-slot=\"data-table-global-search\"\n            aria-label=\"Search table data\"\n          />\n        </div>\n      </div>\n\n      {/* Space for future features */}\n      <div className=\"flex items-center space-x-2\">\n        {/* Future toolbar items can be added here */}\n      </div>\n    </div>\n  );\n}",
+      "type": "registry:component"
+    }
+  ]
+}

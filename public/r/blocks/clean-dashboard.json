@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "clean-dashboard",
+  "type": "registry:block",
+  "title": "Clean Dashboard",
+  "description": "A clean dashboard without custom components or FontAwesome dependencies",
+  "registryDependencies": [
+    "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/app/page.tsx",
+      "content": "export default function CleanDashboardPage() {\n  return (\n    <div className=\"flex min-h-screen flex-col\">\n      {/* Simple Header */}\n      <header className=\"border-b bg-background\">\n        <div className=\"flex h-16 items-center justify-between px-4\">\n          <div className=\"flex items-center space-x-4\">\n            <h1 className=\"text-xl font-semibold\">Dashboard</h1>\n          </div>\n          <div className=\"flex items-center space-x-4\">\n            <div className=\"text-sm text-muted-foreground\">Welcome to your dashboard</div>\n          </div>\n        </div>\n      </header>\n\n      {/* Main Content */}\n      <main className=\"flex-1 p-6\">\n        <div className=\"grid gap-6 md:grid-cols-2 lg:grid-cols-3\">\n          {/* Stats Cards */}\n          <div className=\"rounded-lg border bg-card p-6\">\n            <h3 className=\"text-lg font-semibold\">Total Users</h3>\n            <p className=\"text-3xl font-bold text-primary\">1,234</p>\n            <p className=\"text-sm text-muted-foreground\">+20% from last month</p>\n          </div>\n          \n          <div className=\"rounded-lg border bg-card p-6\">\n            <h3 className=\"text-lg font-semibold\">Revenue</h3>\n            <p className=\"text-3xl font-bold text-primary\">$12,345</p>\n            <p className=\"text-sm text-muted-foreground\">+15% from last month</p>\n          </div>\n          \n          <div className=\"rounded-lg border bg-card p-6\">\n            <h3 className=\"text-lg font-semibold\">Orders</h3>\n            <p className=\"text-3xl font-bold text-primary\">567</p>\n            <p className=\"text-sm text-muted-foreground\">+8% from last month</p>\n          </div>\n        </div>\n\n        {/* Recent Activity */}\n        <div className=\"mt-8\">\n          <h2 className=\"text-2xl font-semibold mb-4\">Recent Activity</h2>\n          <div className=\"rounded-lg border bg-card p-6\">\n            <div className=\"space-y-4\">\n              <div className=\"flex items-center justify-between\">\n                <div>\n                  <p className=\"font-medium\">New user registered</p>\n                  <p className=\"text-sm text-muted-foreground\">2 minutes ago</p>\n                </div>\n                <div className=\"h-2 w-2 rounded-full bg-green-500\"></div>\n              </div>\n              <div className=\"flex items-center justify-between\">\n                <div>\n                  <p className=\"font-medium\">Order #1234 completed</p>\n                  <p className=\"text-sm text-muted-foreground\">5 minutes ago</p>\n                </div>\n                <div className=\"h-2 w-2 rounded-full bg-blue-500\"></div>\n              </div>\n              <div className=\"flex items-center justify-between\">\n                <div>\n                  <p className=\"font-medium\">Payment received</p>\n                  <p className=\"text-sm text-muted-foreground\">10 minutes ago</p>\n                </div>\n                <div className=\"h-2 w-2 rounded-full bg-green-500\"></div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </main>\n    </div>\n  );\n}",
+      "type": "registry:page",
+      "target": "app/page.tsx"
+    }
+  ],
+  "dependencies": []
+}

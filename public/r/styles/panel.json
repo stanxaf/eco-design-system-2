@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "panel",
+  "type": "registry:ui",
+  "title": "Panel Styles",
+  "description": "Panel component styles for flexible layouts with header, content, and footer areas.",
+  "registryDependencies": [
+    "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/panel.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\nimport type { HTMLAttributes } from \"react\";\n\ninterface PanelProps extends HTMLAttributes<HTMLDivElement> {\n  children: React.ReactNode;\n  className?: string;\n}\n\n/**\n * Panel component for creating flexible layouts.\n * \n * This is a minimal panel component that provides basic styling\n * for panel layouts. The main Panel component is in @/components/panel.\n */\nexport function Panel({ className, children, ...props }: PanelProps) {\n  return (\n    <div\n      className={cn(\n        \"relative flex flex-col bg-background border border-border rounded-lg\",\n        className\n      )}\n      {...props}\n    >\n      {children}\n    </div>\n  );\n}\n",
+      "type": "registry:component"
+    }
+  ]
+}
