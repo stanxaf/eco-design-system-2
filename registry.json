@@ -1591,6 +1591,37 @@
       ],
       "category": "Data Display",
       "tags": ["map", "geolocation", "interactive", "theme"]
+    },
+    {
+      "name": "header",
+      "type": "registry:ui",
+      "title": "Header Styles",
+      "description": "Header component styles for flexible headers with breadcrumbs and controls.",
+      "registryDependencies": [
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json",
+        "breadcrumb"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/header.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "logo",
+      "type": "registry:ui",
+      "title": "Logo Styles",
+      "description": "Logo component styles for brand logo with collapsible text.",
+      "registryDependencies": [
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/logo.tsx",
+          "type": "registry:component"
+        }
+      ]
     }
   ]
 }
