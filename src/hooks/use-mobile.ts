@@ -6,6 +6,11 @@ export function useIsMobile() {
   const [isMobile, setIsMobile] = React.useState<boolean>(false);
 
   React.useEffect(() => {
+    // Check if we're in a browser environment
+    if (typeof window === "undefined") {
+      return;
+    }
+
     const checkIsMobile = () => {
       const width = window.innerWidth;
       setIsMobile(width < MOBILE_BREAKPOINT);
