@@ -1,0 +1,17 @@
+{
+  "name": "sonner",
+  "type": "registry:ui",
+  "title": "Sonner",
+  "description": "An opinionated toast component for React.",
+  "registryDependencies": [
+    "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
+    "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/sonner.tsx",
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport { type CSSProperties } from \"react\";\nimport { useEffect, useState } from \"react\";\n\n/**\n * Sonner Toast Component with v0 Compatibility\n *\n * **IMPORTANT FOR v0: This component uses button-specific CSS variables for action buttons.\n * DO NOT use generic variables like --primary, --secondary, etc.\n * ONLY use the --button-* variables for consistent theming.**\n */\n\n// Fallback toast component when sonner fails to load\nconst FallbackToaster = () => {\n  return (\n    <div\n      className=\"fixed top-4 right-4 z-50 pointer-events-none\"\n      style={{\n        '--normal-bg': 'var(--popover)',\n        '--normal-text': 'var(--popover-foreground)',\n        '--normal-border': 'var(--border)',\n      } as CSSProperties}\n    >\n      {/* Fallback toast container - will show console message instead */}\n    </div>\n  );\n};\n\nconst Toaster = ({ ...props }: any) => {\n  const [Sonner, setSonner] = useState<any>(null);\n  const [isLoading, setIsLoading] = useState(true);\n\n  useEffect(() => {\n    const loadSonner = async () => {\n      try {\n        const sonnerModule = await import(\"sonner\");\n        setSonner(() => sonnerModule.Toaster);\n      } catch (error) {\n        console.warn(\"Sonner package failed to load, using fallback toast implementation\");\n        setSonner(null);\n      } finally {\n        setIsLoading(false);\n      }\n    };\n\n    loadSonner();\n  }, []);\n\n  // Show fallback while loading or if sonner failed to load\n  if (isLoading || !Sonner) {\n    return <FallbackToaster />;\n  }\n\n  return (\n    <Sonner\n      theme=\"system\"\n      className=\"toaster group\"\n      toastOptions={{\n          classNames: {\n              toast: \"!p-3 !rounded-lg\",\n              title: \"!font-normal\",\n              description: \"!text-popover-foreground !font-normal\",\n              success: \"[&>div>svg]:!text-green-600\",\n              warning: \"[&>div>svg]:!text-yellow-600\",\n              error: \"[&>div>svg]:!text-red-600\",\n              actionButton: \"toast-action-button !bg-button-secondary !border !border-border !text-button-secondary-foreground hover:!bg-button-secondary-hover !inline-flex !items-center !justify-center !gap-1.5 !whitespace-nowrap !rounded-md !text-sm !transition-all !disabled:pointer-events-none !disabled:opacity-50 [&_svg]:!pointer-events-none [&_svg:not([class*='size-'])]:!size-4 !shrink-0 [&_svg]:!shrink-0 !outline-none focus-visible:!border-ring focus-visible:!ring-ring/50 focus-visible:!ring-[3px] aria-invalid:!ring-destructive/20 dark:aria-invalid:!ring-destructive/40 aria-invalid:!border-destructive !h-6 !px-3 has-[>svg]:!px-2.5\",\n          },\n      }}\n      style={\n        {\n          \"--normal-bg\": \"var(--popover)\",\n          \"--normal-text\": \"var(--popover-foreground)\",\n          \"--normal-description\": \"var(--popover-foreground)\",\n          \"--normal-border\": \"var(--border)\",\n        } as CSSProperties\n      }\n      {...props}\n    />\n  );\n};\n\nexport { Toaster };\n"
+    }
+  ]
+}

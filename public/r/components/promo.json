@@ -1,0 +1,27 @@
+{
+  "name": "promo",
+  "type": "registry:component",
+  "title": "Promo",
+  "description": "Attention-grabbing section to display the current promotional deal.",
+  "registryDependencies": [
+    "https://eco-design-system-2.vercel.app/r/styles/button.json",
+    "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/promo.tsx",
+      "type": "registry:component",
+      "content": "import Image from \"next/image\";\nimport Link from \"next/link\";\n\nimport { Button } from \"@/components/ui/button\";\n\nexport function Promo({\n  title,\n  description,\n  buttonText,\n  buttonLink,\n  backgroundImage,\n}: {\n  title: string;\n  description: string;\n  buttonText: string;\n  buttonLink: string;\n  backgroundImage: string;\n}) {\n  return (\n    <div className=\"relative h-[300px] w-full bg-foreground/10\">\n      <div className=\"relative z-10 flex h-full flex-col justify-center gap-3 px-8 py-3\">\n        <h1 className=\"font-bold text-3xl tracking-tight md:text-4xl\">\n          {title}\n        </h1>\n        <p>{description}</p>\n        <div>\n          <Button asChild size=\"lg\" className=\"rounded-md\">\n            <Link href={buttonLink}>{buttonText}</Link>\n          </Button>\n        </div>\n      </div>\n    </div>\n  );\n}\n"
+    },
+    {
+      "path": "src/layouts/minimal-layout.tsx",
+      "type": "registry:file",
+      "target": "app/layout.tsx"
+    },
+    {
+      "path": "src/app/demo/[name]/blocks/blank-page.tsx",
+      "type": "registry:page",
+      "target": "app/page.tsx"
+    }
+  ]
+}

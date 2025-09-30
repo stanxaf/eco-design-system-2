@@ -174,9 +174,9 @@
       "title": "Dashboard",
       "description": "A dashboard application with your brand themed components",
       "registryDependencies": [
-        "badge",
-        "button",
-        "sidebar",
+        "https://eco-design-system-2.vercel.app/r/styles/badge.json",
+        "https://eco-design-system-2.vercel.app/r/styles/button.json",
+        "https://eco-design-system-2.vercel.app/r/styles/sidebar.json",
         "https://eco-design-system-2.vercel.app/r/styles/icons.json",
         "https://eco-design-system-2.vercel.app/r/components/logo.json",
         "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
@@ -204,11 +204,11 @@
       "title": "Starter Template",
       "description": "A complete starter template with sidebar, header, and helpful content to get you started quickly",
       "registryDependencies": [
-        "sidebar",
-        "button",
-        "avatar",
-        "input",
-        "icons",
+        "https://eco-design-system-2.vercel.app/r/styles/sidebar.json",
+        "https://eco-design-system-2.vercel.app/r/styles/button.json",
+        "https://eco-design-system-2.vercel.app/r/styles/avatar.json",
+        "https://eco-design-system-2.vercel.app/r/styles/input.json",
+        "https://eco-design-system-2.vercel.app/r/styles/icons.json",
         "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
         "https://eco-design-system-2.vercel.app/r/components/panel.json",
         "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
@@ -238,10 +238,10 @@
       "title": "Two Panel Layout",
       "description": "A responsive two-panel layout with sidebar navigation, featuring a max 320px left panel and 70% right panel that stacks vertically on mobile",
       "registryDependencies": [
-        "sidebar",
-        "button",
-        "header",
-        "breadcrumb",
+        "https://eco-design-system-2.vercel.app/r/styles/sidebar.json",
+        "https://eco-design-system-2.vercel.app/r/styles/button.json",
+        "https://eco-design-system-2.vercel.app/r/styles/header.json",
+        "https://eco-design-system-2.vercel.app/r/styles/breadcrumb.json",
         "https://eco-design-system-2.vercel.app/r/styles/icons.json",
         "https://eco-design-system-2.vercel.app/r/components/logo.json",
         "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
@@ -273,9 +273,9 @@
       "title": "Three Panel Layout",
       "description": "A responsive three-panel layout with fixed-width side panels (280px max) and flexible center content area",
       "registryDependencies": [
-        "sidebar",
-        "button",
-        "header",
+        "https://eco-design-system-2.vercel.app/r/styles/sidebar.json",
+        "https://eco-design-system-2.vercel.app/r/styles/button.json",
+        "https://eco-design-system-2.vercel.app/r/styles/header.json",
         "https://eco-design-system-2.vercel.app/r/styles/icons.json",
         "https://eco-design-system-2.vercel.app/r/components/logo.json",
         "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
@@ -307,8 +307,8 @@
       "title": "Single Panel Layout",
       "description": "A clean single-panel layout with sidebar navigation and a full-width main content area",
       "registryDependencies": [
-        "sidebar",
-        "button",
+        "https://eco-design-system-2.vercel.app/r/styles/sidebar.json",
+        "https://eco-design-system-2.vercel.app/r/styles/button.json",
         "https://eco-design-system-2.vercel.app/r/styles/icons.json",
         "https://eco-design-system-2.vercel.app/r/components/logo.json",
         "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
@@ -340,14 +340,14 @@
       "title": "Filtered Content Layout",
       "description": "A two-panel layout with filtering capabilities - left panel for filters and controls, right panel for filtered content results",
       "registryDependencies": [
-        "sidebar",
-        "button",
-        "panel",
-        "header",
-        "input",
-        "select",
-        "checkbox",
-        "breadcrumb",
+        "https://eco-design-system-2.vercel.app/r/styles/sidebar.json",
+        "https://eco-design-system-2.vercel.app/r/styles/button.json",
+        "https://eco-design-system-2.vercel.app/r/components/panel.json",
+        "https://eco-design-system-2.vercel.app/r/styles/header.json",
+        "https://eco-design-system-2.vercel.app/r/styles/input.json",
+        "https://eco-design-system-2.vercel.app/r/styles/select.json",
+        "https://eco-design-system-2.vercel.app/r/styles/checkbox.json",
+        "https://eco-design-system-2.vercel.app/r/styles/breadcrumb.json",
         "https://eco-design-system-2.vercel.app/r/styles/icons.json",
         "https://eco-design-system-2.vercel.app/r/components/logo.json",
         "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
@@ -379,12 +379,12 @@
       "title": "Brand Header",
       "description": "A styled, simple, reusable header",
       "registryDependencies": [
-        "button",
-        "input",
-        "avatar",
-        "sidebar",
+        "https://eco-design-system-2.vercel.app/r/styles/button.json",
+        "https://eco-design-system-2.vercel.app/r/styles/input.json",
+        "https://eco-design-system-2.vercel.app/r/styles/avatar.json",
+        "https://eco-design-system-2.vercel.app/r/styles/sidebar.json",
         "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
-        "logo",
+        "https://eco-design-system-2.vercel.app/r/components/logo.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -410,15 +410,15 @@
       "title": "Brand Sidebar",
       "description": "A clean, semantic navigation sidebar with comprehensive accessibility features, keyboard navigation support, and production-ready design. Features include collapsible/expandable states, hover interactions, profile dropdowns, app switching, notifications with badges, and full ARIA compliance. Optimized for v0.dev integration with proper TypeScript support and customizable styling. Includes custom NavItem and NavButton components for flexible navigation patterns.",
       "registryDependencies": [
-        "badge",
-        "button",
-        "sidebar",
-        "dropdown-menu",
-        "tooltip",
-        "avatar",
-        "input",
-        "logo",
-        "icons",
+        "https://eco-design-system-2.vercel.app/r/styles/badge.json",
+        "https://eco-design-system-2.vercel.app/r/styles/button.json",
+        "https://eco-design-system-2.vercel.app/r/styles/sidebar.json",
+        "https://eco-design-system-2.vercel.app/r/styles/dropdown-menu.json",
+        "https://eco-design-system-2.vercel.app/r/styles/tooltip.json",
+        "https://eco-design-system-2.vercel.app/r/styles/avatar.json",
+        "https://eco-design-system-2.vercel.app/r/styles/input.json",
+        "https://eco-design-system-2.vercel.app/r/components/logo.json",
+        "https://eco-design-system-2.vercel.app/r/styles/icons.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -444,9 +444,9 @@
       "title": "Brand Sidebar Stacked",
       "description": "A styled, simple, reusable sidebar with stacked icon and text layout",
       "registryDependencies": [
-        "badge",
-        "button",
-        "sidebar",
+        "https://eco-design-system-2.vercel.app/r/styles/badge.json",
+        "https://eco-design-system-2.vercel.app/r/styles/button.json",
+        "https://eco-design-system-2.vercel.app/r/styles/sidebar.json",
         "https://eco-design-system-2.vercel.app/r/styles/icons.json",
         "https://eco-design-system-2.vercel.app/r/components/logo.json",
         "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
@@ -475,10 +475,10 @@
       "title": "Login",
       "description": "Username & password login section with customer quote.",
       "registryDependencies": [
-        "badge",
-        "button",
+        "https://eco-design-system-2.vercel.app/r/styles/badge.json",
+        "https://eco-design-system-2.vercel.app/r/styles/button.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json",
-        "logo"
+        "https://eco-design-system-2.vercel.app/r/components/logo.json"
       ],
       "files": [
         {
@@ -528,8 +528,8 @@
       "title": "Hero",
       "description": "Attention-grabbing section for the top of your landing pages.",
       "registryDependencies": [
-        "badge",
-        "button",
+        "https://eco-design-system-2.vercel.app/r/styles/badge.json",
+        "https://eco-design-system-2.vercel.app/r/styles/button.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -555,7 +555,7 @@
       "title": "Promo",
       "description": "Attention-grabbing section to display the current promotional deal.",
       "registryDependencies": [
-        "button",
+        "https://eco-design-system-2.vercel.app/r/styles/button.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -605,7 +605,7 @@
       "title": "Accordion",
       "description": "A vertically stacked set of interactive headings that each reveal a section of content.",
       "registryDependencies": [
-        "accordion",
+        "https://eco-design-system-2.vercel.app/r/styles/accordion.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -621,7 +621,7 @@
       "title": "Alert",
       "description": "Displays a callout for user attention.",
       "registryDependencies": [
-        "alert",
+        "https://eco-design-system-2.vercel.app/r/styles/alert.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -637,7 +637,7 @@
       "title": "Avatar",
       "description": "An image element with a fallback for representing the user.",
       "registryDependencies": [
-        "avatar",
+        "https://eco-design-system-2.vercel.app/r/styles/avatar.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -653,7 +653,7 @@
       "title": "Badge",
       "description": "Displays a small count or status indicator.",
       "registryDependencies": [
-        "badge",
+        "https://eco-design-system-2.vercel.app/r/styles/badge.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -669,7 +669,7 @@
       "title": "Breadcrumb",
       "description": "Displays the path to the current resource using a hierarchy of links.",
       "registryDependencies": [
-        "breadcrumb",
+        "https://eco-design-system-2.vercel.app/r/styles/breadcrumb.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -700,7 +700,7 @@
       "title": "Calendar",
       "description": "A date field component that allows users to enter and edit date.",
       "registryDependencies": [
-        "calendar",
+        "https://eco-design-system-2.vercel.app/r/styles/calendar.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -716,9 +716,9 @@
       "title": "Date Picker",
       "description": "A date picker component with single date and date range selection capabilities.",
       "registryDependencies": [
-        "button",
-        "calendar",
-        "popover",
+        "https://eco-design-system-2.vercel.app/r/styles/button.json",
+        "https://eco-design-system-2.vercel.app/r/styles/calendar.json",
+        "https://eco-design-system-2.vercel.app/r/styles/popover.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "dependencies": [
@@ -737,7 +737,7 @@
       "title": "Card",
       "description": "Containers for displaying content and actions about a single subject.",
       "registryDependencies": [
-        "card",
+        "https://eco-design-system-2.vercel.app/r/styles/card.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -753,7 +753,7 @@
       "title": "Chart",
       "description": "Beautiful charts. Built using Recharts. Copy and paste into your apps.",
       "registryDependencies": [
-        "chart",
+        "https://eco-design-system-2.vercel.app/r/styles/chart.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -769,11 +769,11 @@
       "title": "Data Table",
       "description": "Powerful table and datagrids built using TanStack Table with sorting, filtering, pagination, and row selection.",
       "registryDependencies": [
-        "button",
-        "checkbox",
-        "dropdown-menu",
-        "input",
-        "table",
+        "https://eco-design-system-2.vercel.app/r/styles/button.json",
+        "https://eco-design-system-2.vercel.app/r/styles/checkbox.json",
+        "https://eco-design-system-2.vercel.app/r/styles/dropdown-menu.json",
+        "https://eco-design-system-2.vercel.app/r/styles/input.json",
+        "https://eco-design-system-2.vercel.app/r/styles/table.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "dependencies": [
@@ -792,7 +792,7 @@
       "title": "Checkbox",
       "description": "Allows users to select multiple items from a list of options.",
       "registryDependencies": [
-        "checkbox",
+        "https://eco-design-system-2.vercel.app/r/styles/checkbox.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -823,7 +823,7 @@
       "title": "Dialog",
       "description": "A modal dialog that interrupts the user with important content.",
       "registryDependencies": [
-        "dialog",
+        "https://eco-design-system-2.vercel.app/r/styles/dialog.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -839,7 +839,7 @@
       "title": "Dropdown",
       "description": "Displays a menu to the user triggered by a button.",
       "registryDependencies": [
-        "dropdown-menu",
+        "https://eco-design-system-2.vercel.app/r/styles/dropdown-menu.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -855,7 +855,7 @@
       "title": "Input",
       "description": "Displays a form input field or a component that looks like an input field.",
       "registryDependencies": [
-        "input",
+        "https://eco-design-system-2.vercel.app/r/styles/input.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -871,7 +871,7 @@
       "title": "Select",
       "description": "Displays a list of options for the user to pick from—triggered by a button.",
       "registryDependencies": [
-        "select",
+        "https://eco-design-system-2.vercel.app/r/styles/select.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -887,7 +887,7 @@
       "title": "Separator",
       "description": "Visually or semantically separates content.",
       "registryDependencies": [
-        "separator",
+        "https://eco-design-system-2.vercel.app/r/styles/separator.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -903,7 +903,7 @@
       "title": "Skeleton",
       "description": "Use to show a placeholder while content is loading.",
       "registryDependencies": [
-        "skeleton",
+        "https://eco-design-system-2.vercel.app/r/styles/skeleton.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -919,7 +919,7 @@
       "title": "Slider",
       "description": "An input where the user selects a value from within a given range.",
       "registryDependencies": [
-        "slider",
+        "https://eco-design-system-2.vercel.app/r/styles/slider.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -935,7 +935,7 @@
       "title": "Sonner",
       "description": "An opinionated toast component for React.",
       "registryDependencies": [
-        "sonner",
+        "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -966,7 +966,7 @@
       "title": "Table",
       "description": "A responsive table component.",
       "registryDependencies": [
-        "table",
+        "https://eco-design-system-2.vercel.app/r/styles/table.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -982,7 +982,7 @@
       "title": "Tabs",
       "description": "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
       "registryDependencies": [
-        "tabs",
+        "https://eco-design-system-2.vercel.app/r/styles/tabs.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -998,7 +998,7 @@
       "title": "Toggle Group",
       "description": "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
       "registryDependencies": [
-        "toggle-group",
+        "https://eco-design-system-2.vercel.app/r/styles/toggle-group.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1014,7 +1014,7 @@
       "title": "Tooltip",
       "description": "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
       "registryDependencies": [
-        "tooltip",
+        "https://eco-design-system-2.vercel.app/r/styles/tooltip.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1030,7 +1030,7 @@
       "title": "Alert Dialog",
       "description": "A modal dialog that interrupts the user with important content and expects a response.",
       "registryDependencies": [
-        "alert-dialog",
+        "https://eco-design-system-2.vercel.app/r/styles/alert-dialog.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1046,7 +1046,7 @@
       "title": "Aspect Ratio",
       "description": "Displays content within a desired aspect ratio.",
       "registryDependencies": [
-        "aspect-ratio",
+        "https://eco-design-system-2.vercel.app/r/styles/aspect-ratio.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1062,7 +1062,7 @@
       "title": "Carousel",
       "description": "A carousel component for cycling through elements.",
       "registryDependencies": [
-        "carousel",
+        "https://eco-design-system-2.vercel.app/r/styles/carousel.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1078,7 +1078,7 @@
       "title": "Collapsible",
       "description": "An interactive component which expands/collapses a section.",
       "registryDependencies": [
-        "collapsible",
+        "https://eco-design-system-2.vercel.app/r/styles/collapsible.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1094,7 +1094,7 @@
       "title": "Command",
       "description": "Fast, unstyled, composable command menu for building command palettes.",
       "registryDependencies": [
-        "command",
+        "https://eco-design-system-2.vercel.app/r/styles/command.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1110,7 +1110,7 @@
       "title": "Context Menu",
       "description": "Displays a menu to the user triggered by a right click.",
       "registryDependencies": [
-        "context-menu",
+        "https://eco-design-system-2.vercel.app/r/styles/context-menu.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1126,7 +1126,7 @@
       "title": "Drawer",
       "description": "A drawer component for sliding content from the edge of the screen.",
       "registryDependencies": [
-        "drawer",
+        "https://eco-design-system-2.vercel.app/r/styles/drawer.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1142,7 +1142,7 @@
       "title": "Form",
       "description": "A form component with validation and accessibility features.",
       "registryDependencies": [
-        "form",
+        "https://eco-design-system-2.vercel.app/r/styles/form.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1158,7 +1158,7 @@
       "title": "Hover Card",
       "description": "For sighted users to preview content available behind a link.",
       "registryDependencies": [
-        "hover-card",
+        "https://eco-design-system-2.vercel.app/r/styles/hover-card.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1189,7 +1189,7 @@
       "title": "Label",
       "description": "Renders an accessible label associated with controls.",
       "registryDependencies": [
-        "label",
+        "https://eco-design-system-2.vercel.app/r/styles/label.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1205,7 +1205,7 @@
       "title": "Menu Bar",
       "description": "A visually persistent menu common in desktop applications.",
       "registryDependencies": [
-        "menubar",
+        "https://eco-design-system-2.vercel.app/r/styles/menubar.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1221,7 +1221,7 @@
       "title": "Navigation Menu",
       "description": "A collection of links for navigating websites.",
       "registryDependencies": [
-        "navigation-menu",
+        "https://eco-design-system-2.vercel.app/r/styles/navigation-menu.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1237,7 +1237,7 @@
       "title": "Pagination",
       "description": "A set of components for building pagination UI.",
       "registryDependencies": [
-        "pagination",
+        "https://eco-design-system-2.vercel.app/r/styles/pagination.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1268,8 +1268,8 @@
       "title": "Data Table Toolbar",
       "description": "A flexible toolbar component for data tables with global search functionality. Integrates seamlessly with TanStack Table for filtering across all columns. Features responsive design, accessibility compliance, and extensible architecture for additional toolbar actions.",
       "registryDependencies": [
-        "button",
-        "input",
+        "https://eco-design-system-2.vercel.app/r/styles/button.json",
+        "https://eco-design-system-2.vercel.app/r/styles/input.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "dependencies": [
@@ -1305,7 +1305,7 @@
       "title": "Popover",
       "description": "A popup that displays information related to an element.",
       "registryDependencies": [
-        "popover",
+        "https://eco-design-system-2.vercel.app/r/styles/popover.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1321,7 +1321,7 @@
       "title": "Progress",
       "description": "Displays an indicator showing the completion progress of a task.",
       "registryDependencies": [
-        "progress",
+        "https://eco-design-system-2.vercel.app/r/styles/progress.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1337,7 +1337,7 @@
       "title": "Radio Group",
       "description": "A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.",
       "registryDependencies": [
-        "radio-group",
+        "https://eco-design-system-2.vercel.app/r/styles/radio-group.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1353,7 +1353,7 @@
       "title": "Resizable",
       "description": "A resizable component for adjusting panel sizes.",
       "registryDependencies": [
-        "resizable",
+        "https://eco-design-system-2.vercel.app/r/styles/resizable.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1369,7 +1369,7 @@
       "title": "Scroll Area",
       "description": "A custom scrollable component that can be themed.",
       "registryDependencies": [
-        "scroll-area",
+        "https://eco-design-system-2.vercel.app/r/styles/scroll-area.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1385,7 +1385,7 @@
       "title": "Sheet",
       "description": "A sheet component for sliding content from the edge of the screen.",
       "registryDependencies": [
-        "sheet",
+        "https://eco-design-system-2.vercel.app/r/styles/sheet.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1401,7 +1401,7 @@
       "title": "Sidebar",
       "description": "A sidebar component for navigation and content organization.",
       "registryDependencies": [
-        "sidebar",
+        "https://eco-design-system-2.vercel.app/r/styles/sidebar.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1432,7 +1432,7 @@
       "title": "Toggle",
       "description": "A two-state button that can be either on or off.",
       "registryDependencies": [
-        "toggle",
+        "https://eco-design-system-2.vercel.app/r/styles/toggle.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -1518,17 +1518,17 @@
       "title": "Map Layout",
       "description": "A comprehensive map layout with control panel and full-page map display. Features a left panel with map controls (style selector, layer toggles, search) and a right panel with an interactive map. Perfect for weather data, location services, or geographic visualization applications.",
       "registryDependencies": [
-        "sidebar",
-        "button",
-        "panel",
-        "header",
-        "input",
-        "select",
-        "checkbox",
-        "switch",
-        "badge",
-        "label",
-        "map",
+        "https://eco-design-system-2.vercel.app/r/styles/sidebar.json",
+        "https://eco-design-system-2.vercel.app/r/styles/button.json",
+        "https://eco-design-system-2.vercel.app/r/components/panel.json",
+        "https://eco-design-system-2.vercel.app/r/styles/header.json",
+        "https://eco-design-system-2.vercel.app/r/styles/input.json",
+        "https://eco-design-system-2.vercel.app/r/styles/select.json",
+        "https://eco-design-system-2.vercel.app/r/styles/checkbox.json",
+        "https://eco-design-system-2.vercel.app/r/styles/switch.json",
+        "https://eco-design-system-2.vercel.app/r/styles/badge.json",
+        "https://eco-design-system-2.vercel.app/r/styles/label.json",
+        "https://eco-design-system-2.vercel.app/r/styles/map.json",
         "https://eco-design-system-2.vercel.app/r/styles/icons.json",
         "https://eco-design-system-2.vercel.app/r/components/logo.json",
         "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
@@ -1581,10 +1581,10 @@
       "title": "Map",
       "description": "A fully-featured Mapbox map component with theme integration, built-in controls, and accessibility features. Supports light/dark mode, custom styling, and comprehensive TypeScript definitions. Requires a Mapbox access token (get one free at mapbox.com).",
       "registryDependencies": [
-        "button",
-        "badge",
-        "card",
-        "icons",
+        "https://eco-design-system-2.vercel.app/r/styles/button.json",
+        "https://eco-design-system-2.vercel.app/r/styles/badge.json",
+        "https://eco-design-system-2.vercel.app/r/styles/card.json",
+        "https://eco-design-system-2.vercel.app/r/styles/icons.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "dependencies": [
@@ -1620,7 +1620,7 @@
       "description": "Header component styles for flexible headers with breadcrumbs and controls.",
       "registryDependencies": [
         "https://eco-design-system-2.vercel.app/r/themes/theme.json",
-        "breadcrumb"
+        "https://eco-design-system-2.vercel.app/r/styles/breadcrumb.json"
       ],
       "files": [
         {

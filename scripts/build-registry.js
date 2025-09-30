@@ -61,6 +61,25 @@ function updateRegistryDependencies(items) {
           }
 
           return `${fullBaseUrl}/r/${subDir}/${componentName}`;
+        } else if (typeof dep === 'string' && !dep.startsWith('http')) {
+          // Handle simple names like "logo", "icons", etc.
+          let subDir = 'styles'; // default for UI components
+          let fileName = dep;
+
+          if (dep === 'logo' || dep.includes('brand-') || dep.includes('hero') || dep.includes('promo') || dep.includes('product-') || dep.includes('login') || dep.includes('panel')) {
+            subDir = 'components';
+          } else if (dep.includes('blank') || dep.includes('dashboard') || dep.includes('store')) {
+            subDir = 'blocks';
+          } else if (dep.includes('theme')) {
+            subDir = 'themes';
+          }
+
+          // Add .json extension if not present
+          if (!fileName.endsWith('.json')) {
+            fileName = `${fileName}.json`;
+          }
+
+          return `${fullBaseUrl}/r/${subDir}/${fileName}`;
         }
         return dep;
       });
@@ -75,12 +94,9 @@ updateRegistryDependencies(registry.items);
 const publicRegistryPath = path.join(process.cwd(), 'public', 'r', 'registry.json');
 fs.writeFileSync(publicRegistryPath, JSON.stringify(registry, null, 2));
 
-// Also update individual component files and organize them into proper directories
-const componentFiles = fs.readdirSync(publicRDir).filter(file => file.endsWith('.json') && file !== 'registry.json');
-
-componentFiles.forEach(file => {
-  const filePath = path.join(publicRDir, file);
-  const component = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+// Generate individual component files from the main registry
+registry.items.forEach(item => {
+  const component = { ...item };
 
   // Determine the correct subdirectory based on component type
   let targetDir = stylesDir; // default for UI components
@@ -126,6 +142,25 @@ componentFiles.forEach(file => {
         }
 
         return `${fullBaseUrl}/r/${depSubDir}/${componentName}`;
+      } else if (typeof dep === 'string' && !dep.startsWith('http')) {
+        // Handle simple names like "logo", "icons", etc.
+        let depSubDir = 'styles';
+        let fileName = dep;
+
+        if (dep === 'logo' || dep.includes('brand-') || dep.includes('hero') || dep.includes('promo') || dep.includes('product-') || dep.includes('login') || dep.includes('panel')) {
+          depSubDir = 'components';
+        } else if (dep.includes('blank') || dep.includes('dashboard') || dep.includes('store')) {
+          depSubDir = 'blocks';
+        } else if (dep.includes('theme')) {
+          depSubDir = 'themes';
+        }
+
+        // Add .json extension if not present
+        if (!fileName.endsWith('.json')) {
+          fileName = `${fileName}.json`;
+        }
+
+        return `${fullBaseUrl}/r/${depSubDir}/${fileName}`;
       }
       return dep;
     });
@@ -144,14 +179,12 @@ componentFiles.forEach(file => {
   }
 
   // Write the updated component to the correct subdirectory
-  const targetFilePath = path.join(targetDir, file);
+  const fileName = `${component.name}.json`;
+  const targetFilePath = path.join(targetDir, fileName);
   fs.writeFileSync(targetFilePath, JSON.stringify(component, null, 2));
-
-  // Remove the original file from the root r/ directory
-  fs.unlinkSync(filePath);
 });
 
 console.log('Registry built successfully with proper shadcn structure');
 console.log(`Updated registry saved to: ${publicRegistryPath}`);
 console.log(`Components organized into: styles/, components/, blocks/, themes/`);
-console.log(`Updated ${componentFiles.length} component files`);
+console.log(`Updated ${registry.items.length} component files`);

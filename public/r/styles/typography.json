@@ -1,0 +1,16 @@
+{
+  "name": "typography",
+  "type": "registry:ui",
+  "title": "Typography",
+  "description": "Consistent heading components based on Figma design system specifications. Provides H1-H6 components with standardized font sizes, weights, and line heights for all DTN projects. Uses Inter font for optimal readability.",
+  "registryDependencies": [
+    "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/typography.tsx",
+      "type": "registry:component",
+      "content": "import { cn } from \"@/lib/utils\";\nimport type { HTMLAttributes } from \"react\";\n\ninterface TypographyProps extends HTMLAttributes<HTMLElement> {\n  children: React.ReactNode;\n  className?: string;\n}\n\n/**\n * Typography component with consistent heading styles using Tailwind CSS utilities.\n *\n * **Available Components:**\n * - `Typography.H1`: Main page titles (28px, font-weight: 700, line-height: 24px)\n * - `Typography.H2`: Section headers (24px, font-weight: 700, line-height: 20px)\n * - `Typography.H3`: Subsection headers (20px, font-weight: 700, line-height: 20px)\n * - `Typography.H4`: Component headers (18px, font-weight: 700, line-height: 16px)\n * - `Typography.H5`: Small headers (16px, font-weight: 700, line-height: 16px)\n * - `Typography.H6`: Smallest headers (14px, font-weight: 700, line-height: 22px)\n *\n * **Features:**\n * - Consistent styling across all DTN projects\n * - Uses standard Tailwind CSS utilities\n * - TypeScript support with proper HTML attributes\n * - Customizable with className prop\n * - Semantic HTML elements for accessibility\n *\n * **Usage Examples:**\n * ```tsx\n * <Typography.H1>Main Page Title</Typography.H1>\n * <Typography.H2>Section Header</Typography.H2>\n * <Typography.H3 className=\"text-blue-500\">Custom Styled Header</Typography.H3>\n * ```\n */\nexport const Typography = {\n  H1: ({ className, children, ...props }: TypographyProps) => (\n    <h1\n      className={cn(\n        \"font-bold text-4xl leading-6 font-sans\",\n        className\n      )}\n      {...props}\n    >\n      {children}\n    </h1>\n  ),\n\n  H2: ({ className, children, ...props }: TypographyProps) => (\n    <h2\n      className={cn(\n        \"font-bold text-3xl leading-5 font-sans\",\n        className\n      )}\n      {...props}\n    >\n      {children}\n    </h2>\n  ),\n\n  H3: ({ className, children, ...props }: TypographyProps) => (\n    <h3\n      className={cn(\n        \"font-bold text-2xl leading-5 font-sans\",\n        className\n      )}\n      {...props}\n    >\n      {children}\n    </h3>\n  ),\n\n  H4: ({ className, children, ...props }: TypographyProps) => (\n    <h4\n      className={cn(\n        \"font-bold text-xl leading-4 font-sans\",\n        className\n      )}\n      {...props}\n    >\n      {children}\n    </h4>\n  ),\n\n  H5: ({ className, children, ...props }: TypographyProps) => (\n    <h5\n      className={cn(\n        \"font-bold text-lg leading-4 font-sans\",\n        className\n      )}\n      {...props}\n    >\n      {children}\n    </h5>\n  ),\n\n  H6: ({ className, children, ...props }: TypographyProps) => (\n    <h6\n      className={cn(\n        \"font-bold text-md leading-[1.375rem] font-sans\",\n        className\n      )}\n      {...props}\n    >\n      {children}\n    </h6>\n  ),\n};\n"
+    }
+  ]
+}
