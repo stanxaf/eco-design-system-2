@@ -24,6 +24,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { Toaster } from "@/components/ui/sonner";
 import { Inbox } from "lucide-react";
 import { useState } from "react";
 
@@ -31,7 +33,8 @@ export default function FilteredContentLayoutPage() {
   const [isLeftPanelOpen, setIsLeftPanelOpen] = useState(true);
 
   return (
-    <div className="w-full h-screen flex flex-col">
+    <SidebarProvider defaultOpen={false}>
+      <div className="w-full h-screen flex flex-col">
       {/* Header with breadcrumbs */}
       <Header
         leftContent={
@@ -329,6 +332,8 @@ export default function FilteredContentLayoutPage() {
           </div>
         </Panel>
       </div>
-    </div>
+      </div>
+      <Toaster />
+    </SidebarProvider>
   );
 }
