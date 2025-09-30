@@ -21,15 +21,21 @@ import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface NavItem {
   title: string;
@@ -42,6 +48,182 @@ interface NavItem {
 
 interface BrandSidebarProps {
   className?: string;
+}
+
+// Custom NavItem component for semantic navigation
+interface NavItemProps {
+  href: string;
+  isActive?: boolean;
+  tooltip?: string;
+  className?: string;
+  onClick?: () => void;
+  children: React.ReactNode;
+  style?: React.CSSProperties;
+}
+
+function NavItem({ href, isActive = false, tooltip, className, onClick, children, style }: NavItemProps) {
+  const { isMobile, state } = useSidebar();
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // In demo context, prevent navigation and show tooltip
+    if (window.location.pathname.includes("/demo/")) {
+      e.preventDefault();
+      return;
+    }
+    onClick?.();
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLAnchorElement>) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleClick(e as any);
+    }
+  };
+
+  const navLink = (
+    <a
+      href={href}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
+      className={cn(
+        "peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md h-8 px-2 text-left text-sm outline-hidden ring-sidebar-ring transition-[width,height,padding] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:h-8! group-data-[collapsible=icon]:px-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
+        isActive && "bg-sidebar-accent font-medium text-sidebar-accent-foreground",
+        className
+      )}
+      data-slot="sidebar-menu-button"
+      data-sidebar="menu-button"
+      data-size="default"
+      data-active={isActive}
+      aria-current={isActive ? "page" : undefined}
+      role="menuitem"
+      tabIndex={0}
+      style={style}
+    >
+      {children}
+    </a>
+  );
+
+  if (!tooltip) {
+    return navLink;
+  }
+
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>{navLink}</TooltipTrigger>
+      <TooltipContent
+        side="right"
+        align="center"
+        hidden={state !== "collapsed" || isMobile}
+      >
+        {tooltip}
+      </TooltipContent>
+    </Tooltip>
+  );
+}
+
+// Custom NavButton component for non-navigation actions (like dropdowns)
+interface NavButtonProps {
+  tooltip?: string;
+  className?: string;
+  onClick?: () => void;
+  children: React.ReactNode;
+  'aria-label'?: string;
+  'aria-pressed'?: boolean;
+}
+
+function NavButton({ tooltip, className, onClick, children, 'aria-label': ariaLabel, 'aria-pressed': ariaPressed }: NavButtonProps) {
+  const { isMobile, state } = useSidebar();
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onClick?.();
+    }
+  };
+
+  const navButton = (
+    <button
+      onClick={onClick}
+      onKeyDown={handleKeyDown}
+      className={cn(
+        "peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md h-8 px-2 text-left text-sm outline-hidden ring-sidebar-ring transition-[width,height,padding] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-data-[sidebar=menu-action]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:h-8! group-data-[collapsible=icon]:px-2! [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0",
+        className
+      )}
+      data-slot="sidebar-menu-button"
+      data-sidebar="menu-button"
+      data-size="default"
+      role="menuitem"
+      tabIndex={0}
+      aria-label={ariaLabel}
+      aria-pressed={ariaPressed}
+    >
+      {children}
+    </button>
+  );
+
+  if (!tooltip) {
+    return navButton;
+  }
+
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>{navButton}</TooltipTrigger>
+      <TooltipContent
+        side="right"
+        align="center"
+        hidden={state !== "collapsed" || isMobile}
+      >
+        {tooltip}
+      </TooltipContent>
+    </Tooltip>
+  );
+}
+
+
+// Profile Menu Header Component
+interface ProfileMenuHeaderProps {
+  name: string;
+  email: string;
+  company: string;
+  role: string;
+  avatar: {
+    src: string;
+    alt: string;
+    initials: string;
+  };
+}
+
+function ProfileMenuHeader({ name, email, company, role, avatar }: ProfileMenuHeaderProps) {
+  return (
+    <div className="flex flex-col space-y-3 p-4 border-b border-border">
+      <div className="flex items-center space-x-3">
+        <Avatar className="size-12">
+          <AvatarImage
+            src={avatar.src}
+            alt={avatar.alt}
+          />
+          <AvatarFallback className="bg-primary text-primary-foreground">
+            <span className="text-sm font-medium">
+              {avatar.initials}
+            </span>
+          </AvatarFallback>
+        </Avatar>
+        <div className="flex-1 min-w-0">
+          <h3 className="text-sm font-semibold text-foreground truncate" id="profile-name">
+            {name}
+          </h3>
+          <p className="text-xs text-muted-foreground truncate" id="profile-email">
+            {email}
+          </p>
+        </div>
+      </div>
+      <div className="text-xs text-muted-foreground">
+        <span className="font-medium">{company}</span>
+        <span className="mx-1">•</span>
+        <span>{role}</span>
+      </div>
+    </div>
+  );
 }
 
 export function BrandSidebar({ className }: BrandSidebarProps) {
@@ -65,7 +247,7 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
     initials: "SC",
   });
 
-  // Profile popover state
+  // Profile dropdown state
   const [isProfileOpen, setIsProfileOpen] = React.useState(false);
 
   // Apps dropdown state
@@ -123,7 +305,6 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
       setOpen(false); // Use the proper hook to collapse
       // Close dropdowns when sidebar collapses
       setIsProfileOpen(false);
-      setIsSwitchAccountOpen(false);
       setIsAppsOpen(false);
     }
   }, [isMobile, isHovered, isPinned, setOpen]);
@@ -467,14 +648,8 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
               <SidebarMenu>
                 {mainNavItems.map((item) => (
                   <SidebarMenuItem key={item.href}>
-                    <SidebarMenuButton
-                      onClick={() => {
-                        // In demo context, prevent navigation and show tooltip
-                        if (window.location.pathname.includes("/demo/")) {
-                          // Just show the tooltip, don't navigate
-                          return;
-                        }
-                      }}
+                    <NavItem
+                      href={item.href}
                       isActive={
                         pathname === item.href ||
                         (item.href === "/" &&
@@ -484,17 +659,17 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                     >
                       {item.icon}
                       <span>{item.title}</span>
-                    </SidebarMenuButton>
-                    {item.badge && (
-                      <SidebarMenuBadge
-                        className={cn(
-                          "transition-all duration-300 ease-in-out",
-                          showContent ? "opacity-100" : "opacity-0",
-                        )}
-                      >
-                        {item.badge.text}
-                      </SidebarMenuBadge>
-                    )}
+                      {item.badge && (
+                        <SidebarMenuBadge
+                          className={cn(
+                            "transition-all duration-300 ease-in-out",
+                            showContent ? "opacity-100" : "opacity-0",
+                          )}
+                        >
+                          {item.badge.text}
+                        </SidebarMenuBadge>
+                      )}
+                    </NavItem>
                   </SidebarMenuItem>
                 ))}
               </SidebarMenu>
@@ -507,15 +682,8 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
               <SidebarMenu>
                 {toolsNavItems.map((item) => (
                   <SidebarMenuItem key={item.href}>
-                    <SidebarMenuButton
-                      className="w-full"
-                      onClick={() => {
-                        // In demo context, prevent navigation and show tooltip
-                        if (window.location.pathname.includes("/demo/")) {
-                          // Just show the tooltip, don't navigate
-                          return;
-                        }
-                      }}
+                    <NavItem
+                      href={item.href}
                       isActive={
                         pathname === item.href ||
                         (item.href === "/" &&
@@ -525,17 +693,17 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                     >
                       {item.icon}
                       <span>{item.title}</span>
-                    </SidebarMenuButton>
-                    {item.badge && (
-                      <SidebarMenuBadge
-                        className={cn(
-                          "transition-all duration-300 ease-in-out",
-                          showContent ? "opacity-100" : "opacity-0",
-                        )}
-                      >
-                        {item.badge.text}
-                      </SidebarMenuBadge>
-                    )}
+                      {item.badge && (
+                        <SidebarMenuBadge
+                          className={cn(
+                            "transition-all duration-300 ease-in-out",
+                            showContent ? "opacity-100" : "opacity-0",
+                          )}
+                        >
+                          {item.badge.text}
+                        </SidebarMenuBadge>
+                      )}
+                    </NavItem>
                   </SidebarMenuItem>
                 ))}
               </SidebarMenu>
@@ -549,77 +717,83 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
             <SidebarGroupContent>
               <SidebarMenu>
                 <SidebarMenuItem>
-                  <SidebarMenuButton asChild tooltip="Notifications">
-                    <button>
-                      <svg
-                        className="size-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M15 17h5l-5 5v-5zM4.828 7l2.586 2.586a2 2 0 002.828 0L12.828 7H4.828zM4.828 17H12l-2.586-2.586a2 2 0 00-2.828 0L4.828 17z"
-                        />
-                      </svg>
-                      <span>Notifications</span>
-                    </button>
-                  </SidebarMenuButton>
-                  <SidebarMenuBadge
-                    className={cn(
-                      "transition-all duration-300 ease-in-out",
-                      showContent ? "opacity-100" : "opacity-0",
-                    )}
+                  <NavItem
+                    href="/notifications"
+                    tooltip="Notifications"
+                    isActive={pathname === "/notifications"}
                   >
-                    3
-                  </SidebarMenuBadge>
+                    <svg
+                      className="size-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 17h5l-5 5v-5zM4.828 7l2.586 2.586a2 2 0 002.828 0L12.828 7H4.828zM4.828 17H12l-2.586-2.586a2 2 0 00-2.828 0L4.828 17z"
+                      />
+                    </svg>
+                    <span>Notifications</span>
+                    <SidebarMenuBadge
+                      className={cn(
+                        "transition-all duration-300 ease-in-out",
+                        showContent ? "opacity-100" : "opacity-0",
+                      )}
+                    >
+                      3
+                    </SidebarMenuBadge>
+                  </NavItem>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
-                  <SidebarMenuButton asChild tooltip="Messages">
-                    <button>
-                      <svg
-                        className="size-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+                  <NavItem
+                    href="/messages"
+                    tooltip="Messages"
+                    isActive={pathname === "/messages"}
+                  >
+                    <svg
+                      className="size-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <span>Messages</span>
+                  </NavItem>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <DropdownMenu open={isAppsOpen} onOpenChange={setIsAppsOpen}>
+                    <DropdownMenuTrigger asChild>
+                      <SidebarMenuButton
+                        tooltip="Apps"
+                        type="button"
+                        onClick={(e) => e.preventDefault()}
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        />
-                      </svg>
-                      <span>Messages</span>
-                    </button>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-                <SidebarMenuItem>
-                  <Popover open={isAppsOpen} onOpenChange={setIsAppsOpen}>
-                    <PopoverTrigger asChild>
-                      <SidebarMenuButton asChild tooltip="Apps">
-                        <button className="flex items-center space-x-2 w-full">
-                          <svg
-                            className="size-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                            />
-                          </svg>
-                          <span className="flex-1 text-left">Apps</span>
-                          <Icons.chevronRight className="h-4 w-4 text-sidebar-foreground/60" />
-                        </button>
+                        <svg
+                          className="size-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                          />
+                        </svg>
+                        <span>Apps</span>
+                        <Icons.chevronRight className="h-4 w-4 text-sidebar-foreground/60 ml-auto" />
                       </SidebarMenuButton>
-                    </PopoverTrigger>
-                    <PopoverContent
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent
                       className="w-60 p-0"
                       align="start"
                       side="right"
@@ -637,24 +811,19 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                       </div>
 
                       {/* Apps List */}
-                      <div className="p-1">
+                      <DropdownMenuGroup>
                         {dtnProducts.map((app) => (
-                          <button
+                          <DropdownMenuItem
                             key={app.id}
                             onClick={() => handleAppSelect(app)}
-                            className="flex items-center space-x-3 w-full p-2 pl-0 rounded-md hover:bg-accent transition-colors text-left group"
                           >
-                            <i
-                              className={`fa-solid fa-${app.icon} text-lg text-muted-foreground group-hover:text-accent-foreground transition-colors`}
-                            ></i>
-                            <span className="text-sm font-medium text-foreground group-hover:text-accent-foreground transition-colors">
-                              {app.name}
-                            </span>
-                          </button>
+                            <i className={`fa-solid fa-${app.icon} text-lg`}></i>
+                            <span>{app.name}</span>
+                          </DropdownMenuItem>
                         ))}
-                      </div>
-                    </PopoverContent>
-                  </Popover>
+                      </DropdownMenuGroup>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </SidebarMenuItem>
               </SidebarMenu>
             </SidebarGroupContent>
@@ -665,210 +834,137 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
         <div className="sticky z-10 bg-sidebar border-t border-sidebar-border">
           <SidebarGroup>
             <SidebarGroupContent>
-              <div className="py-0">
-                <div className="space-y-3">
-                  {/* User Info with Profile Popover */}
-                  <SidebarMenuItem className="list-none">
-                    <Popover
-                      open={isProfileOpen}
-                      onOpenChange={setIsProfileOpen}
-                    >
-                      <PopoverTrigger asChild>
-                        <SidebarMenuButton
-                          asChild
-                          tooltip="Profile"
-                          className="p-0!important"
-                        >
-                          <button className="flex items-center space-x-2 w-full">
-                            <Avatar className="size-8">
-                              <AvatarImage
-                                src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=32&h=32&fit=crop&crop=face"
-                                alt={currentAccount.name}
-                              />
-                              <AvatarFallback className="bg-primary text-primary-foreground">
-                                <span className="text-xs font-medium">
-                                  {currentAccount.initials}
-                                </span>
-                              </AvatarFallback>
-                            </Avatar>
-                            {!isCollapsed && (
-                              <div className="flex-1 min-w-0 text-left">
-                                <p className="text-sm font-medium text-sidebar-foreground truncate">
-                                  {currentAccount.name}
-                                </p>
-                              </div>
-                            )}
-                            {!isCollapsed && (
-                              <Icons.chevronRight className="h-4 w-4 text-sidebar-foreground/60" />
-                            )}
-                          </button>
-                        </SidebarMenuButton>
-                      </PopoverTrigger>
-                      <PopoverContent
-                        className="w-60 p-0"
-                        align="start"
-                        side="right"
-                        sideOffset={8}
+              <SidebarMenu>
+                {/* User Info with Profile Dropdown */}
+                <SidebarMenuItem className="list-none">
+                  <DropdownMenu open={isProfileOpen} onOpenChange={setIsProfileOpen}>
+                    <DropdownMenuTrigger asChild>
+                      <SidebarMenuButton
+                        tooltip="Profile"
+                        type="button"
+                        onClick={(e) => e.preventDefault()}
+                        className="pl-0 group-data-[collapsible=icon]:pl-0!"
                       >
-                        {/* Profile Header */}
-                        <div className="flex flex-col space-y-2 p-3 border-b border-border">
-                          <Avatar className="size-12">
-                            <AvatarImage
-                              src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=48&h=48&fit=crop&crop=face"
-                              alt={currentAccount.name}
-                            />
-                            <AvatarFallback className="bg-primary text-primary-foreground">
-                              <span className="text-sm font-medium">
-                                {currentAccount.initials}
-                              </span>
-                            </AvatarFallback>
-                          </Avatar>
-                          <div>
-                            <h6 className="block mb-1">
-                              {currentAccount.name}
-                            </h6>
-                            <small className="text-xs text-muted-foreground block mb-1">
-                              {currentAccount.email}
-                            </small>
-                            <small className="text-xs text-muted-foreground block">
-                              {currentAccount.company} • {currentAccount.role}
-                            </small>
-                          </div>
-                        </div>
-
-                        {/* Profile Menu Items */}
-                        <div className="p-1">
-                          {/* Switch Account - Collapsible */}
-                          <Collapsible
-                            open={isSwitchAccountOpen}
-                            onOpenChange={setIsSwitchAccountOpen}
-                          >
-                            <CollapsibleTrigger asChild>
-                              <button className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-accent transition-colors text-left group">
-                                <svg
-                                  className="size-4 text-muted-foreground group-hover:text-accent-foreground transition-colors"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M8 7a4 4 0 1 1 8 0 4 4 0 0 1-8 0zM2 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"
-                                  />
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M16 7a4 4 0 1 1 8 0 4 4 0 0 1-8 0zM2 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"
-                                  />
-                                </svg>
-                                <span className="text-sm text-foreground group-hover:text-accent-foreground transition-colors">
-                                  Switch Account
-                                </span>
-                                <svg
-                                  className={cn(
-                                    "size-4 text-muted-foreground group-hover:text-accent-foreground transition-colors ml-auto",
-                                    isSwitchAccountOpen && "rotate-180",
-                                  )}
-                                  fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M19 9l-7 7-7-7"
-                                  />
-                                </svg>
-                              </button>
-                            </CollapsibleTrigger>
-                            <CollapsibleContent className="space-y-1 m-0.5">
-                              {allAccounts.map((account) => (
-                                <button
-                                  key={account.id}
-                                  onClick={() => handleAccountSwitch(account)}
-                                  className={cn(
-                                    "flex items-center space-x-2 w-full p-2 rounded-md transition-colors text-left group m-0",
-                                    account.isCurrent
-                                      ? "bg-primary text-primary-foreground"
-                                      : "hover:bg-accent hover:text-accent-foreground",
-                                  )}
-                                >
-                                  <div className="flex-1 min-w-0">
-                                    <p className="text-sm transition-colors">
-                                      {account.company}
-                                    </p>
-                                  </div>
-                                </button>
-                              ))}
-                            </CollapsibleContent>
-                          </Collapsible>
-
-                          {/* Other Menu Items */}
-                          <button className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-accent transition-colors text-left group">
-                            <svg
-                              className="size-4 text-muted-foreground group-hover:text-accent-foreground transition-colors"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                              />
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                              />
-                            </svg>
-                            <span className="text-sm text-foreground group-hover:text-accent-foreground transition-colors">
-                              Settings
+                        <Avatar className="size-8">
+                          <AvatarImage
+                            src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=32&h=32&fit=crop&crop=face"
+                            alt={currentAccount.name}
+                          />
+                          <AvatarFallback className="bg-primary text-primary-foreground">
+                            <span className="text-xs font-medium">
+                              {currentAccount.initials}
                             </span>
-                          </button>
-                          <div className="border-t border-border my-1" />
-                          <button className="flex items-center space-x-2 w-full p-2 rounded-md hover:bg-accent transition-colors text-left group">
-                            <svg
-                              className="size-4 text-destructive group-hover:text-accent-foreground transition-colors"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-                              />
-                            </svg>
-                            <span className="text-sm text-destructive group-hover:text-accent-foreground transition-colors">
-                              Log out
-                            </span>
-                          </button>
-                        </div>
-                      </PopoverContent>
-                    </Popover>
-                  </SidebarMenuItem>
-                </div>
-              </div>
-            </SidebarGroupContent>
-          </SidebarGroup>
+                          </AvatarFallback>
+                        </Avatar>
+                        {!isCollapsed && (
+                          <span className="text-sm font-medium text-sidebar-foreground truncate flex-1 min-w-0">
+                            {currentAccount.name}
+                          </span>
+                        )}
+                        {!isCollapsed && (
+                          <Icons.chevronRight className="h-4 w-4 text-sidebar-foreground/60 ml-auto" />
+                        )}
+                      </SidebarMenuButton>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent
+                      className="w-64 p-0"
+                      align="start"
+                      side="right"
+                      sideOffset={8}
+                    >
+                      {/* Profile Header */}
+                      <ProfileMenuHeader
+                        name={currentAccount.name}
+                        email={currentAccount.email}
+                        company={currentAccount.company}
+                        role={currentAccount.role}
+                        avatar={{
+                          src: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=48&h=48&fit=crop&crop=face",
+                          alt: currentAccount.name,
+                          initials: currentAccount.initials,
+                        }}
+                      />
+
+                      {/* Switch Account Submenu */}
+                      <DropdownMenuGroup>
+                        <DropdownMenuSub>
+                          <DropdownMenuSubTrigger>
+                            <Icons.user />
+                            <span>Switch Account</span>
+                          </DropdownMenuSubTrigger>
+                          <DropdownMenuSubContent>
+                            {allAccounts.map((account) => (
+                              <DropdownMenuItem
+                                key={account.id}
+                                onClick={() => handleAccountSwitch(account)}
+                                className={cn(
+                                  account.isCurrent
+                                    ? "bg-primary/10 text-primary"
+                                    : ""
+                                )}
+                              >
+                                <div className={cn(
+                                  "size-2 rounded-full mr-2",
+                                  account.isCurrent
+                                    ? "bg-primary"
+                                    : "bg-muted-foreground/30"
+                                )} />
+                                <span className="flex-1">{account.company}</span>
+                                {account.isCurrent && (
+                                  <span className="text-xs text-primary font-medium">
+                                    Current
+                                  </span>
+                                )}
+                              </DropdownMenuItem>
+                            ))}
+                          </DropdownMenuSubContent>
+                        </DropdownMenuSub>
+                      </DropdownMenuGroup>
+
+                      <DropdownMenuSeparator />
+
+                      {/* Settings */}
+                      <DropdownMenuGroup>
+                        <DropdownMenuItem asChild>
+                          <a href="/settings">
+                            <Icons.cog />
+                            <span>Settings</span>
+                          </a>
+                        </DropdownMenuItem>
+                      </DropdownMenuGroup>
+
+                      <DropdownMenuSeparator />
+
+                      {/* Logout */}
+                      <DropdownMenuGroup>
+                        <DropdownMenuItem
+                          variant="destructive"
+                          onClick={() => {
+                            console.log("Logout clicked");
+                          }}
+                        >
+                          <Icons.rightFromBracket />
+                          <span>Log out</span>
+                        </DropdownMenuItem>
+                      </DropdownMenuGroup>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </SidebarMenuItem>
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
 
           {/* Pin Sidebar Toggle - Separate Group */}
           <div className="border-t border-sidebar-border">
-            <SidebarGroup>
+            <SidebarGroup className="h-12">
               <SidebarGroupContent>
                 <SidebarMenu>
                   <SidebarMenuItem>
-                    <SidebarMenuButton
+                    <NavButton
                       onClick={handlePinToggle}
                       tooltip={isPinned ? "Unpin sidebar" : "Pin sidebar open"}
+                      aria-label={isPinned ? "Unpin sidebar" : "Pin sidebar open"}
+                      aria-pressed={isPinned}
                     >
                       {isPinned ? (
                         <>
@@ -877,6 +973,7 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
+                            aria-hidden="true"
                           >
                             <path
                               strokeLinecap="round"
@@ -894,6 +991,7 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
+                            aria-hidden="true"
                           >
                             <path
                               strokeLinecap="round"
@@ -905,7 +1003,7 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                           <span>Pin</span>
                         </>
                       )}
-                    </SidebarMenuButton>
+                    </NavButton>
                   </SidebarMenuItem>
                 </SidebarMenu>
               </SidebarGroupContent>
