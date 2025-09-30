@@ -331,7 +331,7 @@ export default function FilteredContentLayoutPage() {
           </div>
         </Panel>
       </div>
-      </div>
       <Toaster />
+    </div>
   );
 }

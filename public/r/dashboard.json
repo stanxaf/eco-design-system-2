@@ -1,0 +1,33 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dashboard",
+  "type": "registry:block",
+  "title": "Dashboard",
+  "description": "A dashboard application with your brand themed components",
+  "registryDependencies": [
+    "badge",
+    "button",
+    "sidebar",
+    "https://eco-design-system-2.vercel.app/r/styles/icons.json",
+    "https://eco-design-system-2.vercel.app/r/components/logo.json",
+    "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
+    "https://eco-design-system-2.vercel.app/r/components/panel.json",
+    "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
+    "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
+    "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/layouts/shell-layout.tsx",
+      "content": "\"use client\";\n\nimport { Inter, Geist_Mono, Montserrat } from \"next/font/google\";\nimport React, { type ReactNode } from \"react\";\n\nimport { BrandHeader } from \"@/components/brand-header\";\nimport { BrandSidebar } from \"@/components/brand-sidebar\";\nimport { SidebarProvider } from \"@/components/ui/sidebar\";\nimport { Toaster } from \"@/components/ui/sonner\";\nimport { cn } from \"@/lib/utils\";\nimport { useIsMobile } from \"@/hooks/use-mobile\";\n\nimport \"@/app/globals.css\";\n\nconst InterSans = Inter({\n  subsets: [\"latin\"],\n  variable: \"--font-sans\",\n});\n\nconst GeistMono = Geist_Mono({\n  subsets: [\"latin\"],\n  variable: \"--font-mono\",\n});\n\nconst MontserratSerif = Montserrat({\n  subsets: [\"latin\"],\n  variable: \"--font-serif\",\n});\n\nexport default function ShellLayout({\n  children,\n}: Readonly<{\n  children: ReactNode;\n}>) {\n  const isMobile = useIsMobile();\n\n  return (\n    <html\n      lang=\"en\"\n      className={cn(\n        InterSans.variable,\n        GeistMono.variable,\n        MontserratSerif.variable,\n        \"bg-background text-foreground\",\n      )}\n    >\n      <body>\n        <SidebarProvider defaultOpen={false}>\n          {children}\n          <Toaster />\n        </SidebarProvider>\n      </body>\n    </html>\n  );\n}\n",
+      "type": "registry:file",
+      "target": "app/layout.tsx"
+    },
+    {
+      "path": "src/app/demo/[name]/blocks/dashboard-page.tsx",
+      "content": "\"use client\";\n\nimport { BrandHeader } from \"@/components/brand-header\";\nimport { BrandSidebar } from \"@/components/brand-sidebar\";\nimport { SidebarInset } from \"@/components/ui/sidebar\";\nimport { Toaster } from \"@/components/ui/sonner\";\nimport { useIsMobile } from \"@/hooks/use-mobile\";\n\nexport default function DashboardPage() {\n  const isMobile = useIsMobile();\n\n  return (\n    <>\n      {isMobile && <BrandHeader />}\n      <BrandSidebar />\n      <SidebarInset>\n        <div className=\"p-6\">\n          <h1 className=\"text-2xl font-bold mb-4\">Dashboard</h1>\n          <p className=\"text-muted-foreground\">\n            Welcome to your dashboard. This is a sample dashboard page.\n          </p>\n        </div>\n      </SidebarInset>\n      <Toaster />\n    </>\n  );\n}\n",
+      "type": "registry:page",
+      "target": "app/page.tsx"
+    }
+  ]
+}
