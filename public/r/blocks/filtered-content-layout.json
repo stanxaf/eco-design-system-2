@@ -13,7 +13,7 @@
     "select",
     "checkbox",
     "breadcrumb",
-    "https://eco-design-system-2.vercel.app/r/styles/icons.json",
+    "icons",
     "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
     "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
     "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
