@@ -15,6 +15,7 @@ import {
   SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarProvider,
   useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
@@ -302,22 +303,18 @@ function ProfileMenuHeader({ name, email, company, role, avatar }: ProfileMenuHe
  *
  * @example
  * ```tsx
- * // Basic usage
- * <BrandSidebar />
+ * // Usage with SidebarProvider (REQUIRED)
+ * import { SidebarProvider } from "@/components/ui/sidebar";
+ * import { BrandSidebar } from "@/components/brand-sidebar";
  *
- * // With custom styling
- * <BrandSidebar className="custom-sidebar" />
- * ```
- *
- * @example
- * // In a layout
- * ```tsx
- * <div className="flex h-screen">
- *   <BrandSidebar />
- *   <main className="flex-1 p-4">
- *     <h1>Main Content</h1>
- *   </main>
- * </div>
+ * <SidebarProvider>
+ *   <div className="flex h-screen">
+ *     <BrandSidebar />
+ *     <main className="flex-1 p-4">
+ *       <h1>Main Content</h1>
+ *     </main>
+ *   </div>
+ * </SidebarProvider>
  * ```
  *
  * @param props - BrandSidebar component props
@@ -1100,3 +1097,4 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
     </div>
   );
 }
+
