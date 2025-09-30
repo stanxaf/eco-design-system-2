@@ -47,21 +47,44 @@ interface NavItem {
   };
 }
 
+/**
+ * Props for the BrandSidebar component
+ */
 interface BrandSidebarProps {
+  /** Additional CSS classes to apply to the sidebar container */
   className?: string;
 }
 
-// Custom NavItem component for semantic navigation
+/**
+ * Props for the custom NavItem component
+ * Provides semantic navigation with accessibility features
+ */
 interface NavItemProps {
+  /** The href URL for the navigation link */
   href: string;
+  /** Whether this navigation item is currently active */
   isActive?: boolean;
+  /** Tooltip text to show when sidebar is collapsed */
   tooltip?: string;
+  /** Additional CSS classes */
   className?: string;
+  /** Click handler for the navigation item */
   onClick?: () => void;
+  /** Child elements (typically icon and text) */
   children: React.ReactNode;
+  /** Inline styles */
   style?: React.CSSProperties;
 }
 
+/**
+ * NavItem - Custom navigation link component with accessibility features
+ *
+ * Provides semantic navigation with proper ARIA attributes, keyboard support,
+ * and tooltip functionality for collapsed sidebar states.
+ *
+ * @param props - NavItem component props
+ * @returns JSX element
+ */
 function NavItem({ href, isActive = false, tooltip, className, onClick, children, style }: NavItemProps) {
   const { isMobile, state } = useSidebar();
 
@@ -122,16 +145,34 @@ function NavItem({ href, isActive = false, tooltip, className, onClick, children
   );
 }
 
-// Custom NavButton component for non-navigation actions (like dropdowns)
+/**
+ * Props for the custom NavButton component
+ * Used for non-navigation actions like dropdowns and toggles
+ */
 interface NavButtonProps {
+  /** Tooltip text to show when sidebar is collapsed */
   tooltip?: string;
+  /** Additional CSS classes */
   className?: string;
+  /** Click handler for the button */
   onClick?: () => void;
+  /** Child elements (typically icon and text) */
   children: React.ReactNode;
+  /** ARIA label for accessibility */
   'aria-label'?: string;
+  /** ARIA pressed state for toggle buttons */
   'aria-pressed'?: boolean;
 }
 
+/**
+ * NavButton - Custom button component for non-navigation actions
+ *
+ * Used for dropdown triggers, toggles, and other interactive elements
+ * with proper accessibility attributes and tooltip support.
+ *
+ * @param props - NavButton component props
+ * @returns JSX element
+ */
 function NavButton({ tooltip, className, onClick, children, 'aria-label': ariaLabel, 'aria-pressed': ariaPressed }: NavButtonProps) {
   const { isMobile, state } = useSidebar();
 
@@ -181,19 +222,39 @@ function NavButton({ tooltip, className, onClick, children, 'aria-label': ariaLa
 }
 
 
-// Profile Menu Header Component
+/**
+ * Props for the ProfileMenuHeader component
+ * Displays user profile information in the dropdown menu
+ */
 interface ProfileMenuHeaderProps {
+  /** User's full name */
   name: string;
+  /** User's email address */
   email: string;
+  /** User's company name */
   company: string;
+  /** User's job role */
   role: string;
+  /** Avatar configuration */
   avatar: {
+    /** Avatar image source URL */
     src: string;
+    /** Alt text for the avatar image */
     alt: string;
+    /** Fallback initials to display */
     initials: string;
   };
 }
 
+/**
+ * ProfileMenuHeader - User profile information display component
+ *
+ * Displays user details in the profile dropdown menu including avatar,
+ * name, email, company, and role information.
+ *
+ * @param props - ProfileMenuHeader component props
+ * @returns JSX element
+ */
 function ProfileMenuHeader({ name, email, company, role, avatar }: ProfileMenuHeaderProps) {
   return (
     <div className="flex flex-col items-start text-left px-2 py-1.5">
@@ -225,6 +286,50 @@ function ProfileMenuHeader({ name, email, company, role, avatar }: ProfileMenuHe
   );
 }
 
+/**
+ * BrandSidebar - A comprehensive navigation sidebar component
+ *
+ * Features:
+ * - Collapsible/expandable with smooth animations
+ * - Hover interactions for better UX
+ * - Profile dropdown with account switching
+ * - Apps dropdown with product selection
+ * - Notifications with badge counts
+ * - Full keyboard navigation support
+ * - ARIA compliance for accessibility
+ * - Mobile-responsive design
+ * - v0.dev compatible
+ *
+ * @example
+ * ```tsx
+ * // Basic usage
+ * <BrandSidebar />
+ *
+ * // With custom styling
+ * <BrandSidebar className="custom-sidebar" />
+ * ```
+ *
+ * @example
+ * // In a layout
+ * ```tsx
+ * <div className="flex h-screen">
+ *   <BrandSidebar />
+ *   <main className="flex-1 p-4">
+ *     <h1>Main Content</h1>
+ *   </main>
+ * </div>
+ * ```
+ *
+ * @param props - BrandSidebar component props
+ * @returns JSX element
+ *
+ * @accessibility
+ * - Full keyboard navigation support
+ * - ARIA labels and roles
+ * - Screen reader friendly
+ * - Focus management
+ * - Semantic HTML structure
+ */
 export function BrandSidebar({ className }: BrandSidebarProps) {
   const pathname = usePathname();
   const { state, toggleSidebar, setOpen, isMobile } = useSidebar();

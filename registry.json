@@ -403,13 +403,17 @@
       "name": "brand-sidebar",
       "type": "registry:component",
       "title": "Brand Sidebar",
-      "description": "A styled, simple, reusable sidebar",
+      "description": "A clean, semantic navigation sidebar with comprehensive accessibility features, keyboard navigation support, and production-ready design. Features include collapsible/expandable states, hover interactions, profile dropdowns, app switching, notifications with badges, and full ARIA compliance. Optimized for v0.dev integration with proper TypeScript support and customizable styling. Includes custom NavItem and NavButton components for flexible navigation patterns.",
       "registryDependencies": [
         "badge",
         "button",
         "sidebar",
-        "https://eco-design-system-2.vercel.app/r/styles/icons.json",
-        "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
+        "dropdown-menu",
+        "tooltip",
+        "avatar",
+        "input",
+        "logo",
+        "icons",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
