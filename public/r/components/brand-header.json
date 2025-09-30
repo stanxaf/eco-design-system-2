@@ -10,7 +10,7 @@
     "avatar",
     "sidebar",
     "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
-    "https://eco-design-system-2.vercel.app/r/components/logo.json",
+    "logo",
     "https://eco-design-system-2.vercel.app/r/themes/theme.json"
   ],
   "files": [
