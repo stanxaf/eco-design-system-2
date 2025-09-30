@@ -15,7 +15,6 @@ import {
   SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarProvider,
   useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
@@ -1033,9 +1032,9 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </SidebarMenuItem>
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </SidebarGroup>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
 
           {/* Pin Sidebar Toggle - Separate Group */}
           <div className="border-t border-sidebar-border">
