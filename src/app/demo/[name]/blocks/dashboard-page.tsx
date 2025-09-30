@@ -2,7 +2,7 @@
 
 import { BrandHeader } from "@/components/brand-header";
 import { BrandSidebar } from "@/components/brand-sidebar";
-import { SidebarInset } from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { Toaster } from "@/components/ui/sonner";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -10,7 +10,7 @@ export default function DashboardPage() {
   const isMobile = useIsMobile();
 
   return (
-    <>
+    <SidebarProvider defaultOpen={false}>
       {isMobile && <BrandHeader />}
       <BrandSidebar />
       <SidebarInset>
@@ -22,6 +22,6 @@ export default function DashboardPage() {
         </div>
       </SidebarInset>
       <Toaster />
-    </>
+    </SidebarProvider>
   );
 }
