@@ -31,6 +31,7 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuSeparator,
+  DropdownMenuShortcut,
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
@@ -195,32 +196,30 @@ interface ProfileMenuHeaderProps {
 
 function ProfileMenuHeader({ name, email, company, role, avatar }: ProfileMenuHeaderProps) {
   return (
-    <div className="flex flex-col space-y-3 p-4 border-b border-border">
-      <div className="flex items-center space-x-3">
-        <Avatar className="size-12">
-          <AvatarImage
-            src={avatar.src}
-            alt={avatar.alt}
-          />
-          <AvatarFallback className="bg-primary text-primary-foreground">
-            <span className="text-sm font-medium">
-              {avatar.initials}
-            </span>
-          </AvatarFallback>
-        </Avatar>
-        <div className="flex-1 min-w-0">
-          <h3 className="text-sm font-semibold text-foreground truncate" id="profile-name">
-            {name}
-          </h3>
-          <p className="text-xs text-muted-foreground truncate" id="profile-email">
-            {email}
-          </p>
+    <div className="flex flex-col items-start text-left px-2 py-1.5">
+      <Avatar className="size-10 mb-2">
+        <AvatarImage
+          src={avatar.src}
+          alt={avatar.alt}
+        />
+        <AvatarFallback className="bg-primary text-primary-foreground">
+          <span className="text-sm font-medium">
+            {avatar.initials}
+          </span>
+        </AvatarFallback>
+      </Avatar>
+      <div className="w-full">
+        <p className="truncate font-semibold" id="profile-name">
+          {name}
+        </p>
+        <small className="mb-1 text-muted-foreground truncate" id="profile-email">
+          {email}
+        </small>
+        <div className="mb-1 text-muted-foreground">
+          <small>{company}</small>
+          <span className="mx-1">•</span>
+          <small>{role}</small>
         </div>
-      </div>
-      <div className="text-xs text-muted-foreground">
-        <span className="font-medium">{company}</span>
-        <span className="mx-1">•</span>
-        <span>{role}</span>
       </div>
     </div>
   );
@@ -275,16 +274,16 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
     },
   ];
 
-  // All accounts data (including current)
+  // All accounts data
   const allAccounts = [
-    { id: "1", company: "DTN", isCurrent: true },
-    { id: "2", company: "Acme Co.", isCurrent: false },
-    { id: "3", company: "Biffco Enterprises Ltd.", isCurrent: false },
+    { id: "1", company: "DTN" },
+    { id: "2", company: "Acme Co." },
+    { id: "3", company: "Biffco Enterprises Ltd." },
   ];
 
   // Handle mouse enter - temporarily expand if collapsed and not mobile and not pinned and hover not disabled
   const handleMouseEnter = React.useCallback(() => {
-    if (!isMobile && isCollapsed && !isPinned && !hoverDisabled) {
+    if (!isMobile && isCollapsed && !isPinned && !hoverDisabled && !isProfileOpen && !isAppsOpen) {
       setIsHovered(true);
       setShowContent(false); // Hide content immediately
       setOpen(true); // Use the proper hook to expand
@@ -294,20 +293,17 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
         setShowContent(true);
       }, 400);
     }
-  }, [isMobile, isCollapsed, isPinned, hoverDisabled, setOpen]);
+  }, [isMobile, isCollapsed, isPinned, hoverDisabled, setOpen, isProfileOpen, isAppsOpen]);
 
   // Handle mouse leave - collapse back if not pinned and not mobile
   const handleMouseLeave = React.useCallback(() => {
-    if (!isMobile && isHovered && !isPinned) {
+    if (!isMobile && isHovered && !isPinned && !isProfileOpen && !isAppsOpen) {
       setIsHovered(false);
       // Hide content immediately, then collapse sidebar
       setShowContent(false);
       setOpen(false); // Use the proper hook to collapse
-      // Close dropdowns when sidebar collapses
-      setIsProfileOpen(false);
-      setIsAppsOpen(false);
     }
-  }, [isMobile, isHovered, isPinned, setOpen]);
+  }, [isMobile, isHovered, isPinned, setOpen, isProfileOpen, isAppsOpen]);
 
   // Handle pin/unpin toggle
   const handlePinToggle = React.useCallback(() => {
@@ -340,7 +336,7 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
 
   // Handle account switching
   const handleAccountSwitch = React.useCallback(
-    (account: { id: string; company: string; isCurrent: boolean }) => {
+    (account: { id: string; company: string }) => {
       // Update current account with new company context
       setCurrentAccount((prev) => ({
         ...prev,
@@ -371,6 +367,14 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
   React.useEffect(() => {
     if (!isHovered) {
       setShowContent(!isCollapsed);
+    }
+  }, [isCollapsed, isHovered]);
+
+  // Close dropdowns when sidebar is manually collapsed
+  React.useEffect(() => {
+    if (isCollapsed && !isHovered) {
+      setIsProfileOpen(false);
+      setIsAppsOpen(false);
     }
   }, [isCollapsed, isHovered]);
 
@@ -722,19 +726,7 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                     tooltip="Notifications"
                     isActive={pathname === "/notifications"}
                   >
-                    <svg
-                      className="size-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 17h5l-5 5v-5zM4.828 7l2.586 2.586a2 2 0 002.828 0L12.828 7H4.828zM4.828 17H12l-2.586-2.586a2 2 0 00-2.828 0L4.828 17z"
-                      />
-                    </svg>
+                    <Icons.bell />
                     <span>Notifications</span>
                     <SidebarMenuBadge
                       className={cn(
@@ -771,11 +763,7 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                 <SidebarMenuItem>
                   <DropdownMenu open={isAppsOpen} onOpenChange={setIsAppsOpen}>
                     <DropdownMenuTrigger asChild>
-                      <SidebarMenuButton
-                        tooltip="Apps"
-                        type="button"
-                        onClick={(e) => e.preventDefault()}
-                      >
+                      <SidebarMenuButton tooltip="Apps">
                         <svg
                           className="size-4"
                           fill="none"
@@ -790,25 +778,27 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                           />
                         </svg>
                         <span>Apps</span>
-                        <Icons.chevronRight className="h-4 w-4 text-sidebar-foreground/60 ml-auto" />
+                        <Icons.chevronRight className="h-4 w-4 text-sidebar-foreground/60 ml-auto group-hover:text-sidebar-accent-foreground" />
                       </SidebarMenuButton>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent
-                      className="w-60 p-0"
+                      className="w-60"
                       align="start"
                       side="right"
                       sideOffset={8}
                     >
                       {/* Apps Header */}
-                      <div className="p-3 border-b border-border">
-                        <h3 className="text-sm font-medium text-foreground">
+                      <div className="px-2 py-1.5">
+                        <p className="font-semibold">
                           Your Products
-                        </h3>
-                        <p className="text-xs text-muted-foreground">
+                        </p>
+                        <small className="text-muted-foreground">
                           Products you have access to under{" "}
                           {currentAccount.company}
-                        </p>
+                        </small>
                       </div>
+
+                      <DropdownMenuSeparator />
 
                       {/* Apps List */}
                       <DropdownMenuGroup>
@@ -817,7 +807,9 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                             key={app.id}
                             onClick={() => handleAppSelect(app)}
                           >
-                            <i className={`fa-solid fa-${app.icon} text-lg`}></i>
+                            {app.icon === "cloud-sun" && <Icons.cloudSun />}
+                            {app.icon === "gas-pump" && <Icons.gasPump />}
+                            {app.icon === "shield-halved" && <Icons.shieldHalved />}
                             <span>{app.name}</span>
                           </DropdownMenuItem>
                         ))}
@@ -841,8 +833,6 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                     <DropdownMenuTrigger asChild>
                       <SidebarMenuButton
                         tooltip="Profile"
-                        type="button"
-                        onClick={(e) => e.preventDefault()}
                         className="pl-0 group-data-[collapsible=icon]:pl-0!"
                       >
                         <Avatar className="size-8">
@@ -862,12 +852,12 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                           </span>
                         )}
                         {!isCollapsed && (
-                          <Icons.chevronRight className="h-4 w-4 text-sidebar-foreground/60 ml-auto" />
+                          <Icons.chevronRight className="h-4 w-4 text-sidebar-foreground/60 ml-auto group-hover:text-sidebar-accent-foreground" />
                         )}
                       </SidebarMenuButton>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent
-                      className="w-64 p-0"
+                      className="w-64"
                       align="start"
                       side="right"
                       sideOffset={8}
@@ -885,10 +875,12 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                         }}
                       />
 
+                      <DropdownMenuSeparator />
+
                       {/* Switch Account Submenu */}
                       <DropdownMenuGroup>
                         <DropdownMenuSub>
-                          <DropdownMenuSubTrigger>
+                          <DropdownMenuSubTrigger className="gap-2">
                             <Icons.user />
                             <span>Switch Account</span>
                           </DropdownMenuSubTrigger>
@@ -898,23 +890,12 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                                 key={account.id}
                                 onClick={() => handleAccountSwitch(account)}
                                 className={cn(
-                                  account.isCurrent
+                                  account.company === currentAccount.company
                                     ? "bg-primary/10 text-primary"
                                     : ""
                                 )}
                               >
-                                <div className={cn(
-                                  "size-2 rounded-full mr-2",
-                                  account.isCurrent
-                                    ? "bg-primary"
-                                    : "bg-muted-foreground/30"
-                                )} />
-                                <span className="flex-1">{account.company}</span>
-                                {account.isCurrent && (
-                                  <span className="text-xs text-primary font-medium">
-                                    Current
-                                  </span>
-                                )}
+                                <span>{account.company}</span>
                               </DropdownMenuItem>
                             ))}
                           </DropdownMenuSubContent>

@@ -66,6 +66,9 @@ import {
   faBars,
   faBook,
   faBookOpen,
+  faCloudSun,
+  faGasPump,
+  faShieldHalved,
 } from "@fortawesome/free-solid-svg-icons";
 import { cn } from "@/lib/utils";
 
@@ -250,5 +253,14 @@ export const Icons = {
   ),
   github: ({ className }: { className?: string }) => (
     <FontAwesomeIcon icon={faCode} className={cn("h-4 w-4", className)} />
+  ),
+  cloudSun: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faCloudSun} className={cn("h-4 w-4", className)} />
+  ),
+  gasPump: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faGasPump} className={cn("h-4 w-4", className)} />
+  ),
+  shieldHalved: ({ className }: { className?: string }) => (
+    <FontAwesomeIcon icon={faShieldHalved} className={cn("h-4 w-4", className)} />
   ),
 };
