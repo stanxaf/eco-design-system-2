@@ -739,6 +739,8 @@
 
   --destructive: var(--red-500);
   --destructive-foreground: var(--neutral-white);
+  --destructive-border: var(--red-200);
+  --destructive-muted: var(--red-600);
 
   --border: var(--gray-200);
   --input: var(--slate-300);
@@ -790,6 +792,7 @@
   --button-outline: var(--secondary);
   --button-outline-foreground: var(--secondary-foreground);
   --button-outline-hover: var(--gray-200);
+  --button-outline-hover-foreground: var(--secondary-foreground);
   --button-outline-border: var(--border-interactive);
 
   --button-ghost-hover: var(--gray-200);
@@ -854,6 +857,8 @@
 
   --destructive: var(--red-500);
   --destructive-foreground: var(--neutral-white);
+  --destructive-border: var(--red-800);
+  --destructive-muted: var(--red-400);
 
   --border: var(--gray-800);
   --input: var(--slate-700);
@@ -905,6 +910,7 @@
   --button-outline: var(--secondary);
   --button-outline-foreground: var(--secondary-foreground);
   --button-outline-hover: var(--gray-800);
+  --button-outline-hover-foreground: var(--secondary-foreground);
   --button-outline-border: var(--border-interactive);
 
   --button-ghost-hover: var(--gray-800);
