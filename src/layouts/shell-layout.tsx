@@ -5,10 +5,9 @@ import React, { type ReactNode } from "react";
 
 import { BrandHeader } from "@/components/brand-header";
 import { BrandSidebar } from "@/components/brand-sidebar";
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 import "@/app/globals.css";
 
@@ -32,8 +31,6 @@ export default function ShellLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  const isMobile = useIsMobile();
-
   return (
     <html
       lang="en"
@@ -46,11 +43,13 @@ export default function ShellLayout({
     >
       <body>
         <SidebarProvider defaultOpen={false}>
-          {isMobile && <BrandHeader />}
           <BrandSidebar />
-          <main className="flex w-full bg-surface-medium">
-            <div className="w-full">{children}</div>
-          </main>
+          <SidebarInset>
+            <BrandHeader />
+            <main className="flex w-full flex-1 flex-col">
+              {children}
+            </main>
+          </SidebarInset>
           <Toaster />
         </SidebarProvider>
       </body>
