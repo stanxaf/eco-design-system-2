@@ -55,10 +55,6 @@ import {
 interface BrandSidebarProps {
   /** Additional CSS classes to apply to the sidebar container */
   className?: string;
-  /** Whether to wrap in SidebarProvider (default: true for v0 compatibility) */
-  withProvider?: boolean;
-  /** Default open state when using provider */
-  defaultOpen?: boolean;
 }
 
 // This is sample data.
@@ -197,6 +193,8 @@ const data = {
  * Based on the shadcn/ui sidebar-07 example that collapses to icons.
  * Features workspace switcher, collapsible nav sections, and user menu.
  *
+ * IMPORTANT: Must be wrapped in SidebarProvider
+ *
  * @example
  * ```tsx
  * import { SidebarProvider } from "@/components/ui/sidebar";
@@ -210,14 +208,10 @@ const data = {
  * </SidebarProvider>
  * ```
  */
-export function BrandSidebar({
-  className,
-  withProvider = false,
-  defaultOpen = true,
-}: BrandSidebarProps) {
+export function BrandSidebar({ className }: BrandSidebarProps) {
   const [activeTeam, setActiveTeam] = React.useState(data.teams[0]);
 
-  const sidebarContent = (
+  return (
     <Sidebar collapsible="icon" className={className}>
       <SidebarHeader>
         <SidebarMenu>
@@ -386,17 +380,6 @@ export function BrandSidebar({
               </SidebarMenu>
       </SidebarFooter>
       <SidebarRail />
-      </Sidebar>
+    </Sidebar>
   );
-
-  // For v0 compatibility, wrap in provider by default
-  if (withProvider) {
-    return (
-      <SidebarProvider defaultOpen={defaultOpen}>
-        {sidebarContent}
-      </SidebarProvider>
-    );
-  }
-
-  return sidebarContent;
 }
