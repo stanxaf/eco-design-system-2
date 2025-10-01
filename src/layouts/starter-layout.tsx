@@ -3,27 +3,24 @@
 import { Inter, Geist_Mono, Montserrat } from "next/font/google";
 import React, { type ReactNode } from "react";
 
-import { BrandHeader } from "@/components/brand-header";
-import { BrandSidebar } from "@/components/brand-sidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 import "@/app/globals.css";
 
 /**
  * Starter Layout Component
  *
- * A complete layout foundation for applications with:
- * - Responsive sidebar navigation (BrandSidebar)
- * - Mobile header (BrandHeader)
+ * A foundational layout that provides:
  * - Font configuration (Inter, Geist Mono, Montserrat)
+ * - SidebarProvider context for sidebar components
  * - Toast notifications (Sonner)
- * - Mobile-responsive design
+ * - Global CSS imports
  *
- * This layout provides the essential structure for the starter template,
- * including proper font loading, responsive behavior, and brand components.
+ * This layout provides the essential context and structure for components
+ * that need SidebarProvider, without including specific UI components.
+ * Components like BrandSidebar and BrandHeader should be added by the user.
  *
  * @param children - The page content to render within the layout
  */
@@ -48,8 +45,6 @@ export default function StarterLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  const isMobile = useIsMobile();
-
   return (
     <html
       lang="en"
@@ -62,11 +57,7 @@ export default function StarterLayout({
     >
       <body>
         <SidebarProvider defaultOpen={false}>
-          {isMobile && <BrandHeader />}
-          <BrandSidebar />
-          <main className="w-full">
-            {children}
-          </main>
+          {children}
           <Toaster />
         </SidebarProvider>
       </body>
