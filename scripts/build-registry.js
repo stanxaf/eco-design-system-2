@@ -166,10 +166,10 @@ registry.items.forEach(item => {
     });
   }
 
-  // Add file content for component and page files
+  // Add file content for component, page, and file types
   if (component.files) {
     component.files.forEach(file => {
-      if ((file.type === 'registry:component' || file.type === 'registry:page') && file.path) {
+      if ((file.type === 'registry:component' || file.type === 'registry:page' || file.type === 'registry:file') && file.path) {
         const sourcePath = path.join(process.cwd(), file.path);
         if (fs.existsSync(sourcePath)) {
           file.content = fs.readFileSync(sourcePath, 'utf8');

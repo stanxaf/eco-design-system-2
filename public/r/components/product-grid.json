@@ -19,7 +19,8 @@
     {
       "path": "src/layouts/minimal-layout.tsx",
       "type": "registry:file",
-      "target": "app/layout.tsx"
+      "target": "app/layout.tsx",
+      "content": "import { Inter, Geist_Mono, Montserrat } from \"next/font/google\";\nimport React, { type ReactNode } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nimport \"@/app/globals.css\";\n\nconst InterSans = Inter({\n  subsets: [\"latin\"],\n  variable: \"--font-sans\",\n});\n\nconst GeistMono = Geist_Mono({\n  subsets: [\"latin\"],\n  variable: \"--font-mono\",\n});\n\nconst MontserratSerif = Montserrat({\n  subsets: [\"latin\"],\n  variable: \"--font-serif\",\n});\n\nexport default function RootLayout({\n  children,\n}: Readonly<{\n  children: ReactNode;\n}>) {\n  return (\n    <html\n      lang=\"en\"\n      className={cn(\n        InterSans.variable,\n        GeistMono.variable,\n        MontserratSerif.variable,\n        \"bg-background text-foreground\",\n      )}\n    >\n      <body>\n        <main className=\"flex w-full\">\n          <div className=\"w-full\">{children}</div>\n        </main>\n      </body>\n    </html>\n  );\n}\n"
     }
   ]
 }

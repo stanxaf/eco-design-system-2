@@ -134,7 +134,8 @@
     {
       "path": "postcss.config.mjs",
       "type": "registry:file",
-      "target": "postcss.config.mjs"
+      "target": "postcss.config.mjs",
+      "content": "/** @type {import('postcss-load-config').Config} */\nexport default {\n  plugins: {\n    \"@tailwindcss/postcss\": {},\n  },\n};\n"
     }
   ]
 }
