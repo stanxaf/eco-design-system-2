@@ -46,7 +46,6 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarRail,
-  SidebarProvider,
 } from "@/components/ui/sidebar";
 
 /**
@@ -384,13 +383,3 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
   );
 }
 
-/**
- * BrandSidebar with SidebarProvider wrapper for v0.dev compatibility
- */
-export function BrandSidebarWithProvider({ className }: BrandSidebarProps) {
-  return (
-    <SidebarProvider defaultOpen={false}>
-      <BrandSidebar className={className} />
-    </SidebarProvider>
-  );
-}

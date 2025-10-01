@@ -470,6 +470,37 @@
       ]
     },
     {
+      "name": "app-layout",
+      "type": "registry:block",
+      "title": "App Layout",
+      "description": "A complete application layout with sidebar, header, and main content area. Includes SidebarProvider context for v0.dev compatibility. Perfect for getting started quickly with a working layout.",
+      "registryDependencies": [
+        "sidebar",
+        "button",
+        "input",
+        "toast",
+        "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
+        "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/layouts/starter-layout.tsx",
+          "type": "registry:file",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "src/app/demo/[name]/blocks/app-layout-page.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        },
+        {
+          "path": "src/components/app-layout.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "login",
       "type": "registry:component",
       "title": "Login",

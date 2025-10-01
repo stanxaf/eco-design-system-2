@@ -1,0 +1,32 @@
+{
+  "name": "app-layout",
+  "type": "registry:component",
+  "title": "App Layout",
+  "description": "A complete application layout with sidebar, header, and main content area. Includes SidebarProvider context for v0.dev compatibility. Perfect for getting started quickly with a working layout.",
+  "registryDependencies": [
+    "https://eco-design-system-2.vercel.app/r/styles/sidebar.json",
+    "https://eco-design-system-2.vercel.app/r/styles/button.json",
+    "https://eco-design-system-2.vercel.app/r/styles/input.json",
+    "https://eco-design-system-2.vercel.app/r/styles/toast.json",
+    "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
+    "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
+    "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/app-layout.tsx",
+      "type": "registry:component",
+      "content": "\"use client\";\n\nimport { SidebarProvider } from \"@/components/ui/sidebar\";\nimport { BrandSidebar } from \"@/components/brand-sidebar\";\nimport { BrandHeader } from \"@/components/brand-header\";\nimport { Toaster } from \"@/components/ui/sonner\";\nimport { useMobile } from \"@/hooks/use-mobile\";\n\ninterface AppLayoutProps {\n  children: React.ReactNode;\n  defaultSidebarOpen?: boolean;\n}\n\nexport function AppLayout({\n  children,\n  defaultSidebarOpen = false\n}: AppLayoutProps) {\n  const isMobile = useMobile();\n\n  return (\n    <SidebarProvider defaultOpen={defaultSidebarOpen}>\n      <div className=\"flex min-h-screen\">\n        <BrandSidebar />\n        <div className=\"flex-1 flex flex-col\">\n          {isMobile && <BrandHeader />}\n          <main className=\"flex-1 p-4\">\n            {children}\n          </main>\n        </div>\n      </div>\n      <Toaster />\n    </SidebarProvider>\n  );\n}\n"
+    },
+    {
+      "path": "src/layouts/minimal-layout.tsx",
+      "type": "registry:file",
+      "target": "app/layout.tsx"
+    },
+    {
+      "path": "src/app/demo/[name]/blocks/blank-page.tsx",
+      "type": "registry:page",
+      "target": "app/page.tsx"
+    }
+  ]
+}
