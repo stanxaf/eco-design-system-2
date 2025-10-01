@@ -22,7 +22,8 @@
     {
       "path": "src/app/demo/[name]/blocks/blank-page.tsx",
       "type": "registry:page",
-      "target": "app/page.tsx"
+      "target": "app/page.tsx",
+      "content": "export default function BlankPage() {\n  return (\n    <div className=\"flex flex-col items-center justify-center gap-4 rounded-md py-96\">\n      <div className=\"text-muted-foreground\">\n        Start prompting to use your component!\n      </div>\n    </div>\n  );\n}\n"
     }
   ]
 }

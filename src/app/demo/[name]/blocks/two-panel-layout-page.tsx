@@ -35,28 +35,28 @@ export default function TwoPanelLayoutPage() {
 
       {/* Two Panel Layout */}
       <div className="flex flex-col md:flex-row flex-1">
-      {/* Left Panel - max 320px width on desktop, full width on mobile */}
-      <Panel
-        size="fit"
-        responsive={{ md: "fit" }}
-        title="Left Panel"
-        className="w-full md:max-w-[320px] md:w-[30%] h-full"
-        footer={<span className="text-sm text-muted-foreground">Left Panel Footer</span>}
-      >
-        {/* Panel content area - ready for your content */}
-      </Panel>
+        {/* Left Panel - max 320px width on desktop, full width on mobile */}
+        <Panel
+          size="fit"
+          responsive={{ md: "fit" }}
+          title="Left Panel"
+          className="w-full md:max-w-[320px] md:w-[30%] h-full"
+          footer={<span className="text-sm text-muted-foreground">Left Panel Footer</span>}
+        >
+          {/* Panel content area - ready for your content */}
+        </Panel>
 
-      {/* Right Panel - 70% width on desktop, full width on mobile */}
-      <Panel
-        size="full"
-        responsive={{ md: "full" }}
-        title="Right Panel"
-        className="w-full md:w-[70%] h-full"
-        borderRight={false}
-        footer={<span className="text-sm text-muted-foreground">Right Panel Footer</span>}
-      >
-        {/* Panel content area - ready for your content */}
-      </Panel>
+        {/* Right Panel - 70% width on desktop, full width on mobile */}
+        <Panel
+          size="full"
+          responsive={{ md: "full" }}
+          title="Right Panel"
+          className="w-full md:w-[70%] h-full"
+          borderRight={false}
+          footer={<span className="text-sm text-muted-foreground">Right Panel Footer</span>}
+        >
+          {/* Panel content area - ready for your content */}
+        </Panel>
       </div>
     </div>
   );

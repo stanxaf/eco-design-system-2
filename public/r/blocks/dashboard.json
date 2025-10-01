@@ -24,7 +24,8 @@
     {
       "path": "src/app/demo/[name]/blocks/dashboard-page.tsx",
       "type": "registry:page",
-      "target": "app/page.tsx"
+      "target": "app/page.tsx",
+      "content": "export default function DashboardPage() {\n  return (\n    <div className=\"p-6\">\n      <h1 className=\"text-2xl font-bold mb-4\">Dashboard</h1>\n      <p className=\"text-muted-foreground\">\n        Welcome to your dashboard. This is a sample dashboard page.\n      </p>\n    </div>\n  );\n}\n"
     }
   ]
 }

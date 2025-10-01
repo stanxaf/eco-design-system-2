@@ -23,7 +23,8 @@
     {
       "path": "src/app/demo/[name]/blocks/single-panel-layout-page.tsx",
       "type": "registry:page",
-      "target": "app/page.tsx"
+      "target": "app/page.tsx",
+      "content": "/**\n * Single Panel Layout Page Component\n *\n * A clean single-panel layout with:\n * - Full-width main content panel\n * - Sidebar navigation (via StarterLayout)\n * - Clean, content-focused design\n * - Footer area for pagination, status, or actions\n * - Perfect for documentation, articles, forms, or single-column applications\n *\n * This component provides a minimal, content-focused layout structure\n * that maximizes content space while maintaining navigation accessibility.\n *\n * @returns JSX element with single-panel layout\n */\nimport { Panel } from \"@/components/panel\";\n\nexport default function SinglePanelLayoutPage() {\n  return (\n    <div className=\"w-full h-screen\">\n      {/* Single Panel - Full width main content area */}\n      <Panel\n        size=\"full\"\n        title=\"Main Content\"\n        className=\"w-full h-full\"\n        borderRight={false}\n        footer={<span className=\"text-sm text-muted-foreground\">Content Footer - Ready for pagination, status, or actions</span>}\n      >\n        {/* Panel content area - ready for your content */}\n      </Panel>\n    </div>\n  );\n}\n"
     },
     {
       "path": "src/components/panel.tsx",
