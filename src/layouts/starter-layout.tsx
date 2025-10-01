@@ -64,7 +64,9 @@ export default function StarterLayout({
         <SidebarProvider defaultOpen={false}>
           {isMobile && <BrandHeader />}
           <BrandSidebar />
-          {children}
+          <main className="w-full">
+            {children}
+          </main>
           <Toaster />
         </SidebarProvider>
       </body>

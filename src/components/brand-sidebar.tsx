@@ -46,6 +46,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarRail,
+  SidebarProvider,
 } from "@/components/ui/sidebar";
 
 /**
@@ -54,6 +55,10 @@ import {
 interface BrandSidebarProps {
   /** Additional CSS classes to apply to the sidebar container */
   className?: string;
+  /** Whether to wrap in SidebarProvider (default: true for v0 compatibility) */
+  withProvider?: boolean;
+  /** Default open state when using provider */
+  defaultOpen?: boolean;
 }
 
 // This is sample data.
@@ -205,10 +210,14 @@ const data = {
  * </SidebarProvider>
  * ```
  */
-export function BrandSidebar({ className }: BrandSidebarProps) {
+export function BrandSidebar({
+  className,
+  withProvider = false,
+  defaultOpen = true,
+}: BrandSidebarProps) {
   const [activeTeam, setActiveTeam] = React.useState(data.teams[0]);
 
-  return (
+  const sidebarContent = (
     <Sidebar collapsible="icon" className={className}>
       <SidebarHeader>
         <SidebarMenu>
@@ -313,28 +322,28 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
         </SidebarContent>
 
       <SidebarFooter>
-        <SidebarMenu>
-          <SidebarMenuItem>
+              <SidebarMenu>
+                <SidebarMenuItem>
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <SidebarMenuButton
+                    <DropdownMenuTrigger asChild>
+                      <SidebarMenuButton
                   size="lg"
                   className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                 >
                   <Avatar className="h-8 w-8 rounded-lg">
                     <AvatarImage src={data.user.avatar} alt={data.user.name} />
                     <AvatarFallback className="rounded-lg">CN</AvatarFallback>
-                  </Avatar>
+                        </Avatar>
                   <div className="grid flex-1 text-left text-sm leading-tight">
                     <span className="truncate font-semibold">
                       {data.user.name}
-                    </span>
+                          </span>
                     <span className="truncate text-xs">{data.user.email}</span>
                   </div>
                   <ChevronsUpDown className="ml-auto size-4" />
-                </SidebarMenuButton>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
+                      </SidebarMenuButton>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent
                 className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
                 side="bottom"
                 align="end"
@@ -359,24 +368,35 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                     </div>
                   </div>
                 </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuGroup>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuGroup>
                   <DropdownMenuItem>
                     <Settings2 />
                     Account
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-                <DropdownMenuSeparator />
+                        </DropdownMenuItem>
+                      </DropdownMenuGroup>
+                      <DropdownMenuSeparator />
                 <DropdownMenuItem>
                   <LogOut />
                   Log out
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </SidebarMenuItem>
-        </SidebarMenu>
+                        </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </SidebarMenuItem>
+              </SidebarMenu>
       </SidebarFooter>
       <SidebarRail />
-    </Sidebar>
+      </Sidebar>
   );
+
+  // For v0 compatibility, wrap in provider by default
+  if (withProvider) {
+    return (
+      <SidebarProvider defaultOpen={defaultOpen}>
+        {sidebarContent}
+      </SidebarProvider>
+    );
+  }
+
+  return sidebarContent;
 }
