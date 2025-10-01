@@ -6,7 +6,7 @@ import { BrandHeader } from "@/components/brand-header";
 import { Toaster } from "@/components/ui/sonner";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-import "@/app/globals.css";
+import "../app/globals.css";
 
 interface AppLayoutProps {
   children: React.ReactNode;
