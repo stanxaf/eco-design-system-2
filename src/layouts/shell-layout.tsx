@@ -46,7 +46,11 @@ export default function ShellLayout({
     >
       <body>
         <SidebarProvider defaultOpen={false}>
-          {children}
+          {isMobile && <BrandHeader />}
+          <BrandSidebar />
+          <main className="flex w-full bg-surface-medium">
+            <div className="w-full">{children}</div>
+          </main>
           <Toaster />
         </SidebarProvider>
       </body>
