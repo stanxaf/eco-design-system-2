@@ -15,6 +15,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
+  SidebarProvider,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -525,5 +526,26 @@ export function BrandSidebarStacked({
         </div>
       </Sidebar>
     </div>
+  );
+}
+
+/**
+ * BrandSidebarStacked with SidebarProvider wrapper for v0.dev compatibility
+ */
+export function BrandSidebarStackedWithProvider({
+  className,
+  user,
+  notificationCount,
+  onNavigate,
+}: BrandSidebarStackedProps) {
+  return (
+    <SidebarProvider defaultOpen={false}>
+      <BrandSidebarStacked
+        className={className}
+        user={user}
+        notificationCount={notificationCount}
+        onNavigate={onNavigate}
+      />
+    </SidebarProvider>
   );
 }

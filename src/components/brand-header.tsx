@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useSidebar } from "@/components/ui/sidebar";
+import { useSidebar, SidebarProvider } from "@/components/ui/sidebar";
 
 import { Logo } from "./logo";
 
@@ -99,5 +99,16 @@ export function BrandHeader() {
         </div>
       </div>
     </header>
+  );
+}
+
+/**
+ * BrandHeader with SidebarProvider wrapper for v0.dev compatibility
+ */
+export function BrandHeaderWithProvider() {
+  return (
+    <SidebarProvider defaultOpen={false}>
+      <BrandHeader />
+    </SidebarProvider>
   );
 }
