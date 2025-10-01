@@ -19,15 +19,11 @@ export function AppLayout({
 
   return (
     <SidebarProvider defaultOpen={defaultSidebarOpen}>
-      <div className="flex min-h-screen bg-background text-foreground">
-        <BrandSidebar />
-        <div className="flex-1 flex flex-col">
-          <BrandHeader />
-          <main className="flex-1 p-4 bg-background">
-            {children}
-          </main>
-        </div>
-      </div>
+      {isMobile && <BrandHeader />}
+      <BrandSidebar />
+      <main className="flex-1 p-4 bg-background">
+        {children}
+      </main>
       <Toaster />
     </SidebarProvider>
   );
