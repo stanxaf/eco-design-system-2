@@ -1,9 +1,20 @@
 "use client";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator } from "@/components/ui/input-otp";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { CodeBlock } from "@/components/ui/code-block";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from "react";
 
 export function InputOTPDocs() {
@@ -24,17 +35,15 @@ export function InputOTPDocs() {
           <Card>
             <CardHeader>
               <CardTitle>InputOTP Variants</CardTitle>
-              <CardDescription>Different OTP input styles and configurations</CardDescription>
+              <CardDescription>
+                Different OTP input styles and configurations
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
                 <h4 className="font-medium mb-3">Basic OTP</h4>
                 <div className="flex items-center gap-4">
-                  <InputOTP
-                    maxLength={6}
-                    value={value}
-                    onChange={setValue}
-                  >
+                  <InputOTP maxLength={6} value={value} onChange={setValue}>
                     <InputOTPGroup>
                       <InputOTPSlot index={0} />
                       <InputOTPSlot index={1} />
@@ -98,13 +107,11 @@ export function InputOTPDocs() {
               </div>
 
               <div>
-                <h4 className="font-medium mb-3">Long OTP with Multiple Separators</h4>
+                <h4 className="font-medium mb-3">
+                  Long OTP with Multiple Separators
+                </h4>
                 <div className="flex items-center gap-4">
-                  <InputOTP
-                    maxLength={8}
-                    value=""
-                    onChange={() => {}}
-                  >
+                  <InputOTP maxLength={8} value="" onChange={() => {}}>
                     <InputOTPGroup>
                       <InputOTPSlot index={0} />
                       <InputOTPSlot index={1} />
@@ -141,7 +148,7 @@ export function InputOTPDocs() {
               <div>
                 <h4 className="font-medium mb-2">Basic OTP</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
+                  {`import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";
 
 function BasicOTP() {
   const [value, setValue] = useState("");
@@ -165,7 +172,7 @@ function BasicOTP() {
               <div>
                 <h4 className="font-medium mb-2">With Separator</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`import {
+                  {`import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
@@ -197,7 +204,7 @@ function OTPWithSeparator() {
               <div>
                 <h4 className="font-medium mb-2">Custom Length</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<InputOTP maxLength={4} value={value} onChange={setValue}>
+                  {`<InputOTP maxLength={4} value={value} onChange={setValue}>
   <InputOTPGroup>
     <InputOTPSlot index={0} />
     <InputOTPSlot index={1} />
@@ -211,7 +218,7 @@ function OTPWithSeparator() {
               <div>
                 <h4 className="font-medium mb-2">Multiple Separators</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<InputOTP maxLength={8} value={value} onChange={setValue}>
+                  {`<InputOTP maxLength={8} value={value} onChange={setValue}>
   <InputOTPGroup>
     <InputOTPSlot index={0} />
     <InputOTPSlot index={1} />
@@ -239,7 +246,9 @@ function OTPWithSeparator() {
           <Card>
             <CardHeader>
               <CardTitle>InputOTP Guidelines</CardTitle>
-              <CardDescription>Best practices for using OTP inputs</CardDescription>
+              <CardDescription>
+                Best practices for using OTP inputs
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
@@ -283,9 +292,17 @@ function OTPWithSeparator() {
               <div>
                 <h4 className="font-medium mb-2">Length Guidelines</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li><strong>4 digits:</strong> Quick verification, less secure</li>
-                  <li><strong>6 digits:</strong> Standard verification codes (recommended)</li>
-                  <li><strong>8+ digits:</strong> High-security applications, use separators</li>
+                  <li>
+                    <strong>4 digits:</strong> Quick verification, less secure
+                  </li>
+                  <li>
+                    <strong>6 digits:</strong> Standard verification codes
+                    (recommended)
+                  </li>
+                  <li>
+                    <strong>8+ digits:</strong> High-security applications, use
+                    separators
+                  </li>
                 </ul>
               </div>
 

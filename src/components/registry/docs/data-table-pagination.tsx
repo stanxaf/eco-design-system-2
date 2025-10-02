@@ -26,13 +26,19 @@
  * @props {string} [className] - Additional CSS classes
  */
 
-import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CodeBlock } from "@/components/ui/code-block";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CodeBlock } from "@/components/ui/code-block";
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 
 export function DataTablePaginationDocs() {
   return (
@@ -49,7 +55,8 @@ export function DataTablePaginationDocs() {
             <div>
               <h3 className="text-lg font-semibold mb-2">Advanced Variant</h3>
               <p className="text-sm text-muted-foreground mb-4">
-                Full-featured pagination with items per page selection, page input, and responsive design.
+                Full-featured pagination with items per page selection, page
+                input, and responsive design.
               </p>
               <div className="w-full">
                 {/* Desktop Layout */}
@@ -64,7 +71,9 @@ export function DataTablePaginationDocs() {
                           <SelectItem value="10">10 items per page</SelectItem>
                           <SelectItem value="25">25 items per page</SelectItem>
                           <SelectItem value="50">50 items per page</SelectItem>
-                          <SelectItem value="100">100 items per page</SelectItem>
+                          <SelectItem value="100">
+                            100 items per page
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -75,7 +84,9 @@ export function DataTablePaginationDocs() {
 
                   <div className="flex items-center gap-6">
                     <div className="flex items-center gap-1">
-                      <span className="text-sm text-muted-foreground">Page</span>
+                      <span className="text-sm text-muted-foreground">
+                        Page
+                      </span>
                       <Input
                         type="number"
                         min="1"
@@ -83,20 +94,15 @@ export function DataTablePaginationDocs() {
                         defaultValue="10"
                         className="w-16 text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                       />
-                      <span className="text-sm text-muted-foreground">of 40</span>
+                      <span className="text-sm text-muted-foreground">
+                        of 40
+                      </span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <Button
-                        variant="outline"
-                        size="default"
-                        disabled
-                      >
+                      <Button variant="outline" size="default" disabled>
                         <ChevronLeftIcon className="size-4" />
                       </Button>
-                      <Button
-                        variant="outline"
-                        size="default"
-                      >
+                      <Button variant="outline" size="default">
                         <ChevronRightIcon className="size-4" />
                       </Button>
                     </div>
@@ -126,7 +132,9 @@ export function DataTablePaginationDocs() {
 
                   <div className="flex items-center justify-between pt-3">
                     <div className="flex items-center gap-1">
-                      <span className="text-sm text-muted-foreground">Page</span>
+                      <span className="text-sm text-muted-foreground">
+                        Page
+                      </span>
                       <Input
                         type="number"
                         min="1"
@@ -134,20 +142,15 @@ export function DataTablePaginationDocs() {
                         defaultValue="10"
                         className="w-16 text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                       />
-                      <span className="text-sm text-muted-foreground">of 40</span>
+                      <span className="text-sm text-muted-foreground">
+                        of 40
+                      </span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <Button
-                        variant="outline"
-                        size="default"
-                        disabled
-                      >
+                      <Button variant="outline" size="default" disabled>
                         <ChevronLeftIcon className="size-4" />
                       </Button>
-                      <Button
-                        variant="outline"
-                        size="default"
-                      >
+                      <Button variant="outline" size="default">
                         <ChevronRightIcon className="size-4" />
                       </Button>
                     </div>
@@ -159,28 +162,21 @@ export function DataTablePaginationDocs() {
             <div>
               <h3 className="text-lg font-semibold mb-2">Basic Variant</h3>
               <p className="text-sm text-muted-foreground mb-4">
-                Simple pagination with just item count, page info, and navigation buttons.
+                Simple pagination with just item count, page info, and
+                navigation buttons.
               </p>
               <div className="flex items-center justify-between w-full">
-                <span className="text-sm text-muted-foreground">
-                  97 items
-                </span>
+                <span className="text-sm text-muted-foreground">97 items</span>
 
                 <span className="text-sm text-muted-foreground text-center">
                   Page 3 of 7
                 </span>
 
                 <div className="flex items-center gap-1">
-                  <Button
-                    variant="outline"
-                    size="default"
-                  >
+                  <Button variant="outline" size="default">
                     <ChevronLeftIcon className="size-4" />
                   </Button>
-                  <Button
-                    variant="outline"
-                    size="default"
-                  >
+                  <Button variant="outline" size="default">
                     <ChevronRightIcon className="size-4" />
                   </Button>
                 </div>
@@ -194,7 +190,7 @@ export function DataTablePaginationDocs() {
             <div>
               <h3 className="text-lg font-semibold mb-2">Basic Usage</h3>
               <CodeBlock className="bg-muted p-4 rounded-lg text-sm overflow-x-auto">
-{`import { DataTablePagination } from "@/components/ui/data-table-pagination";
+                {`import { DataTablePagination } from "@/components/ui/data-table-pagination";
 
 <DataTablePagination
   currentPage={10}
@@ -210,7 +206,7 @@ export function DataTablePaginationDocs() {
             <div>
               <h3 className="text-lg font-semibold mb-2">With Variants</h3>
               <CodeBlock className="bg-muted p-4 rounded-lg text-sm overflow-x-auto">
-{`// Advanced variant (default)
+                {`// Advanced variant (default)
 <DataTablePagination
   variant="advanced"
   currentPage={10}
@@ -235,9 +231,11 @@ export function DataTablePaginationDocs() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-2">Custom Items Per Page Options</h3>
+              <h3 className="text-lg font-semibold mb-2">
+                Custom Items Per Page Options
+              </h3>
               <CodeBlock className="bg-muted p-4 rounded-lg text-sm overflow-x-auto">
-{`<DataTablePagination
+                {`<DataTablePagination
   variant="advanced"
   currentPage={5}
   totalPages={20}
@@ -255,14 +253,21 @@ export function DataTablePaginationDocs() {
         <TabsContent value="guide" className="space-y-4">
           <div className="space-y-4">
             <div>
-              <h3 className="text-lg font-semibold mb-2">When to Use Each Variant</h3>
+              <h3 className="text-lg font-semibold mb-2">
+                When to Use Each Variant
+              </h3>
 
               <div className="space-y-3">
                 <div>
-                  <h4 className="font-medium text-foreground">Advanced Variant</h4>
+                  <h4 className="font-medium text-foreground">
+                    Advanced Variant
+                  </h4>
                   <ul className="text-sm text-muted-foreground ml-4 space-y-1">
                     <li>• Data tables with complex filtering and sorting</li>
-                    <li>• Applications where users need control over items per page</li>
+                    <li>
+                      • Applications where users need control over items per
+                      page
+                    </li>
                     <li>• When you need detailed pagination information</li>
                     <li>• Professional dashboards and admin panels</li>
                   </ul>
@@ -281,17 +286,23 @@ export function DataTablePaginationDocs() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-2">Accessibility Features</h3>
+              <h3 className="text-lg font-semibold mb-2">
+                Accessibility Features
+              </h3>
               <ul className="text-sm text-muted-foreground ml-4 space-y-1">
                 <li>• Proper ARIA labels for all interactive elements</li>
                 <li>• Keyboard navigation support</li>
                 <li>• Screen reader friendly with semantic HTML</li>
-                <li>• Disabled states for navigation buttons when appropriate</li>
+                <li>
+                  • Disabled states for navigation buttons when appropriate
+                </li>
               </ul>
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-2">Responsive Behavior</h3>
+              <h3 className="text-lg font-semibold mb-2">
+                Responsive Behavior
+              </h3>
               <ul className="text-sm text-muted-foreground ml-4 space-y-1">
                 <li>• Desktop: Horizontal layout with all features</li>
                 <li>• Mobile: Vertical stacked layout with separator</li>

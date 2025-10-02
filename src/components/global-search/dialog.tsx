@@ -1,8 +1,5 @@
 "use client";
 
-import * as React from "react";
-import { useRouter } from "next/navigation";
-import { useGlobalSearch } from "./context";
 import {
   CommandDialog,
   CommandEmpty,
@@ -12,19 +9,25 @@ import {
   CommandList,
   CommandSeparator,
 } from "@/components/ui/command";
+import { useRouter } from "next/navigation";
+import * as React from "react";
+import { useGlobalSearch } from "./context";
 
 export function GlobalSearchDialog() {
   const router = useRouter();
   const { open, setOpen, items } = useGlobalSearch();
 
   // Group items by their group property
-  const groupedItems = items.reduce((acc, item) => {
-    if (!acc[item.group]) {
-      acc[item.group] = [];
-    }
-    acc[item.group].push(item);
-    return acc;
-  }, {} as Record<string, typeof items>);
+  const groupedItems = items.reduce(
+    (acc, item) => {
+      if (!acc[item.group]) {
+        acc[item.group] = [];
+      }
+      acc[item.group].push(item);
+      return acc;
+    },
+    {} as Record<string, typeof items>,
+  );
 
   const handleSelect = (href: string) => {
     router.push(href);

@@ -1,4 +1,4 @@
-import { Inter, Geist_Mono, Montserrat } from "next/font/google";
+import { Geist_Mono, Inter, Montserrat } from "next/font/google";
 import React, { type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";

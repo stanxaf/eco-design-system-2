@@ -1,87 +1,96 @@
 "use client";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // Import regular icons where available
 import {
-  faUser,
-  faHome,
-  faFolder,
-  faComment,
   faBell,
-  faCreditCard,
-  faClock,
-  faEnvelope,
-  faSquare,
   faBookmark,
-  faQuestionCircle,
+  faClock,
+  faComment,
+  faCreditCard,
+  faEnvelope,
+  faFolder,
+  faHome,
   faMessage,
+  faQuestionCircle,
+  faSquare,
+  faUser,
 } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { cn } from "@/lib/utils";
 // Import solid icons for those not available in regular
 import {
-  faChevronRight,
-  faChevronLeft,
-  faChevronDown,
-  faChevronUp,
-  faCheck,
-  faXmark,
-  faCalendar,
-  faDatabase,
-  faTable,
-  faEllipsis,
-  faRightFromBracket,
-  faCog,
-  faSearch,
-  faPlus,
-  faEdit,
-  faTrash,
-  faSave,
-  faDownload,
-  faUpload,
-  faInfo,
-  faWarning,
-  faExclamationTriangle,
-  faChartLine,
-  faSpinner,
-  faEye,
-  faEyeSlash,
-  faHeart,
-  faStar,
-  faShare,
-  faCopy,
-  faExternalLink,
-  faArrowRight,
-  faArrowLeft,
-  faArrowUp,
   faArrowDown,
-  faTh,
-  faRocket,
-  faBolt,
-  faList,
-  faCode,
-  faTools,
-  faPalette,
-  faCubes,
-  faMobile,
+  faArrowLeft,
+  faArrowRight,
+  faArrowUp,
   faBars,
+  faBolt,
   faBook,
   faBookOpen,
+  faCalendar,
+  faChartLine,
+  faCheck,
+  faChevronDown,
+  faChevronLeft,
+  faChevronRight,
+  faChevronUp,
   faCloudSun,
+  faCode,
+  faCog,
+  faCopy,
+  faCubes,
+  faDatabase,
+  faDownload,
+  faEdit,
+  faEllipsis,
+  faExclamationTriangle,
+  faExternalLink,
+  faEye,
+  faEyeSlash,
   faGasPump,
+  faHeart,
+  faInfo,
+  faList,
+  faMobile,
+  faPalette,
+  faPlus,
+  faRightFromBracket,
+  faRocket,
+  faSave,
+  faSearch,
+  faShare,
   faShieldHalved,
+  faSpinner,
+  faStar,
+  faTable,
+  faTh,
+  faTools,
+  faTrash,
+  faUpload,
+  faWarning,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import { cn } from "@/lib/utils";
 
 // Export individual icons as React components for easy use
 export const Icons = {
   chevronRight: ({ className }: { className?: string }) => (
-    <FontAwesomeIcon icon={faChevronRight} className={cn("h-4 w-4", className)} />
+    <FontAwesomeIcon
+      icon={faChevronRight}
+      className={cn("h-4 w-4", className)}
+    />
   ),
   chevronLeft: ({ className }: { className?: string }) => (
-    <FontAwesomeIcon icon={faChevronLeft} className={cn("h-4 w-4", className)} />
+    <FontAwesomeIcon
+      icon={faChevronLeft}
+      className={cn("h-4 w-4", className)}
+    />
   ),
   chevronDown: ({ className }: { className?: string }) => (
-    <FontAwesomeIcon icon={faChevronDown} className={cn("h-4 w-4", className)} />
+    <FontAwesomeIcon
+      icon={faChevronDown}
+      className={cn("h-4 w-4", className)}
+    />
   ),
   chevronUp: ({ className }: { className?: string }) => (
     <FontAwesomeIcon icon={faChevronUp} className={cn("h-4 w-4", className)} />
@@ -132,7 +141,10 @@ export const Icons = {
     <FontAwesomeIcon icon={faEllipsis} className={cn("h-4 w-4", className)} />
   ),
   rightFromBracket: ({ className }: { className?: string }) => (
-    <FontAwesomeIcon icon={faRightFromBracket} className={cn("h-4 w-4", className)} />
+    <FontAwesomeIcon
+      icon={faRightFromBracket}
+      className={cn("h-4 w-4", className)}
+    />
   ),
   cog: ({ className }: { className?: string }) => (
     <FontAwesomeIcon icon={faCog} className={cn("h-4 w-4", className)} />
@@ -165,13 +177,19 @@ export const Icons = {
     <FontAwesomeIcon icon={faWarning} className={cn("h-4 w-4", className)} />
   ),
   exclamationTriangle: ({ className }: { className?: string }) => (
-    <FontAwesomeIcon icon={faExclamationTriangle} className={cn("h-4 w-4", className)} />
+    <FontAwesomeIcon
+      icon={faExclamationTriangle}
+      className={cn("h-4 w-4", className)}
+    />
   ),
   chartLine: ({ className }: { className?: string }) => (
     <FontAwesomeIcon icon={faChartLine} className={cn("h-4 w-4", className)} />
   ),
   loader: ({ className }: { className?: string }) => (
-    <FontAwesomeIcon icon={faSpinner} className={cn("h-4 w-4 animate-spin", className)} />
+    <FontAwesomeIcon
+      icon={faSpinner}
+      className={cn("h-4 w-4 animate-spin", className)}
+    />
   ),
   eye: ({ className }: { className?: string }) => (
     <FontAwesomeIcon icon={faEye} className={cn("h-4 w-4", className)} />
@@ -195,7 +213,10 @@ export const Icons = {
     <FontAwesomeIcon icon={faCopy} className={cn("h-4 w-4", className)} />
   ),
   externalLink: ({ className }: { className?: string }) => (
-    <FontAwesomeIcon icon={faExternalLink} className={cn("h-4 w-4", className)} />
+    <FontAwesomeIcon
+      icon={faExternalLink}
+      className={cn("h-4 w-4", className)}
+    />
   ),
   arrowRight: ({ className }: { className?: string }) => (
     <FontAwesomeIcon icon={faArrowRight} className={cn("h-4 w-4", className)} />
@@ -246,7 +267,10 @@ export const Icons = {
     <FontAwesomeIcon icon={faBars} className={cn("h-4 w-4", className)} />
   ),
   helpCircle: ({ className }: { className?: string }) => (
-    <FontAwesomeIcon icon={faQuestionCircle} className={cn("h-4 w-4", className)} />
+    <FontAwesomeIcon
+      icon={faQuestionCircle}
+      className={cn("h-4 w-4", className)}
+    />
   ),
   messageCircle: ({ className }: { className?: string }) => (
     <FontAwesomeIcon icon={faMessage} className={cn("h-4 w-4", className)} />
@@ -261,6 +285,9 @@ export const Icons = {
     <FontAwesomeIcon icon={faGasPump} className={cn("h-4 w-4", className)} />
   ),
   shieldHalved: ({ className }: { className?: string }) => (
-    <FontAwesomeIcon icon={faShieldHalved} className={cn("h-4 w-4", className)} />
+    <FontAwesomeIcon
+      icon={faShieldHalved}
+      className={cn("h-4 w-4", className)}
+    />
   ),
 };

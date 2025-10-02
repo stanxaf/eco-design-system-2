@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Copy, FileText, ExternalLink } from "lucide-react";
+import { Check, Copy, ExternalLink, FileText } from "lucide-react";
 import { useState } from "react";
 
 import { OpenInV0Button } from "@/components/registry/open-in-v0";
@@ -35,25 +35,33 @@ export function ComponentCard({
   const [jsonCopied, setJsonCopied] = useState(false);
 
   // Ensure we have a valid base URL
-  const validBaseUrl = baseUrl || (typeof window !== 'undefined' ? window.location.origin : 'localhost:3000');
+  const validBaseUrl =
+    baseUrl ||
+    (typeof window !== "undefined" ? window.location.origin : "localhost:3000");
 
   // Determine the correct subdirectory based on component type
-  let subDir = 'styles'; // default for UI components
-  if (component.type === 'registry:component' ||
-      component.name.includes('brand-') ||
-      component.name.includes('logo') ||
-      component.name.includes('hero') ||
-      component.name.includes('promo') ||
-      component.name.includes('product-') ||
-      component.name.includes('login')) {
-    subDir = 'components';
-  } else if (component.type === 'registry:block' ||
-             component.name.includes('blank') ||
-             component.name.includes('dashboard')) {
-    subDir = 'blocks';
-  } else if (component.type === 'registry:theme' ||
-             component.name.includes('theme')) {
-    subDir = 'themes';
+  let subDir = "styles"; // default for UI components
+  if (
+    component.type === "registry:component" ||
+    component.name.includes("brand-") ||
+    component.name.includes("logo") ||
+    component.name.includes("hero") ||
+    component.name.includes("promo") ||
+    component.name.includes("product-") ||
+    component.name.includes("login")
+  ) {
+    subDir = "components";
+  } else if (
+    component.type === "registry:block" ||
+    component.name.includes("blank") ||
+    component.name.includes("dashboard")
+  ) {
+    subDir = "blocks";
+  } else if (
+    component.type === "registry:theme" ||
+    component.name.includes("theme")
+  ) {
+    subDir = "themes";
   }
 
   const registryUrl = `https://${validBaseUrl}/r/${subDir}/${component.name}.json`;
@@ -87,7 +95,6 @@ export function ComponentCard({
       <Card id="starting-kit" className="bg-transparent p-0 border-none gap-1">
         <CardHeader className="p-0">
           <div className="flex flex-col gap-4">
-
             <div className="flex w-full flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-16">
               <CardDescription>{component.description}</CardDescription>
 
@@ -136,12 +143,10 @@ export function ComponentCard({
                   </Tooltip>
                 </TooltipProvider>
 
-                {component.type === 'registry:block' && (
+                {component.type === "registry:block" && (
                   <TooltipProvider>
                     <Tooltip>
-                      <TooltipContent>
-                        Open full demo in new tab
-                      </TooltipContent>
+                      <TooltipContent>Open full demo in new tab</TooltipContent>
                       <TooltipTrigger asChild>
                         <Button
                           variant="outline"

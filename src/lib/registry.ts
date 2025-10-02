@@ -29,30 +29,23 @@ export function getRegistryItem(name: string): Component | null {
 
 export function getBlocks() {
   return getRegistryItems()
-    .filter(
-      (component) => component.type === "registry:block",
-    )
+    .filter((component) => component.type === "registry:block")
     .sort((a, b) => a.title.localeCompare(b.title));
 }
 
 export function getUIPrimitives() {
   return getRegistryItems()
-    .filter(
-      (component) => component.type === "registry:ui",
-    )
-    .filter(
-      (component) => !["menubar", "typography"].includes(component.name),
-    )
+    .filter((component) => component.type === "registry:ui")
+    .filter((component) => !["menubar", "typography"].includes(component.name))
     .sort((a, b) => a.title.localeCompare(b.title));
 }
 
 export function getComponents() {
   return getRegistryItems()
+    .filter((component) => component.type === "registry:component")
     .filter(
-      (component) => component.type === "registry:component",
-    )
-    .filter(
-      (component) => !["hero", "product-grid", "promo"].includes(component.name),
+      (component) =>
+        !["hero", "product-grid", "promo"].includes(component.name),
     )
     .sort((a, b) => a.title.localeCompare(b.title));
 }

@@ -1,9 +1,15 @@
 "use client";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { CodeBlock } from "@/components/ui/code-block";
 export function AvatarDocs() {
@@ -20,42 +26,59 @@ export function AvatarDocs() {
           <Card>
             <CardHeader>
               <CardTitle>Avatar Size Variants</CardTitle>
-              <CardDescription>Three size options for different use cases</CardDescription>
+              <CardDescription>
+                Three size options for different use cases
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               {/* Small Size (32px) */}
               <div className="flex items-center space-x-4">
                 <Avatar size="sm">
-                  <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                  <AvatarImage
+                    src="https://github.com/shadcn.png"
+                    alt="@shadcn"
+                  />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                 <div>
                   <p className="text-sm font-medium">Small (32px)</p>
-                  <p className="text-sm text-muted-foreground">Compact layouts, user lists, tight spaces</p>
+                  <p className="text-sm text-muted-foreground">
+                    Compact layouts, user lists, tight spaces
+                  </p>
                 </div>
               </div>
 
               {/* Medium Size (40px) - Default */}
               <div className="flex items-center space-x-4">
                 <Avatar size="md">
-                  <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                  <AvatarImage
+                    src="https://github.com/shadcn.png"
+                    alt="@shadcn"
+                  />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                 <div>
                   <p className="text-sm font-medium">Medium (40px) - Default</p>
-                  <p className="text-sm text-muted-foreground">Standard use cases, most applications</p>
+                  <p className="text-sm text-muted-foreground">
+                    Standard use cases, most applications
+                  </p>
                 </div>
               </div>
 
               {/* Large Size (48px) */}
               <div className="flex items-center space-x-4">
                 <Avatar size="lg">
-                  <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                  <AvatarImage
+                    src="https://github.com/shadcn.png"
+                    alt="@shadcn"
+                  />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
                 <div>
                   <p className="text-sm font-medium">Large (48px)</p>
-                  <p className="text-sm text-muted-foreground">Prominent display, headers, featured content</p>
+                  <p className="text-sm text-muted-foreground">
+                    Prominent display, headers, featured content
+                  </p>
                 </div>
               </div>
 
@@ -87,7 +110,9 @@ export function AvatarDocs() {
                   </Avatar>
                   <div>
                     <p className="text-sm font-medium">Initials Fallback</p>
-                    <p className="text-sm text-muted-foreground">Shows initials when no image is available</p>
+                    <p className="text-sm text-muted-foreground">
+                      Shows initials when no image is available
+                    </p>
                   </div>
                 </div>
               </div>
@@ -99,13 +124,17 @@ export function AvatarDocs() {
           <Card>
             <CardHeader>
               <CardTitle>Avatar Code</CardTitle>
-              <CardDescription>Implementation examples with size variants</CardDescription>
+              <CardDescription>
+                Implementation examples with size variants
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h4 className="font-medium mb-2">Basic Avatar (Default Medium)</h4>
+                <h4 className="font-medium mb-2">
+                  Basic Avatar (Default Medium)
+                </h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<Avatar>
+                  {`<Avatar>
   <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
   <AvatarFallback>CN</AvatarFallback>
 </Avatar>`}
@@ -115,7 +144,7 @@ export function AvatarDocs() {
               <div>
                 <h4 className="font-medium mb-2">Small Size (32px)</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<Avatar size="sm">
+                  {`<Avatar size="sm">
   <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
   <AvatarFallback>CN</AvatarFallback>
 </Avatar>`}
@@ -125,7 +154,7 @@ export function AvatarDocs() {
               <div>
                 <h4 className="font-medium mb-2">Medium Size (40px)</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<Avatar size="md">
+                  {`<Avatar size="md">
   <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
   <AvatarFallback>CN</AvatarFallback>
 </Avatar>`}
@@ -135,7 +164,7 @@ export function AvatarDocs() {
               <div>
                 <h4 className="font-medium mb-2">Large Size (48px)</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<Avatar size="lg">
+                  {`<Avatar size="lg">
   <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
   <AvatarFallback>CN</AvatarFallback>
 </Avatar>`}
@@ -145,7 +174,7 @@ export function AvatarDocs() {
               <div>
                 <h4 className="font-medium mb-2">Fallback Only</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<Avatar size="md">
+                  {`<Avatar size="md">
   <AvatarFallback>JD</AvatarFallback>
 </Avatar>`}
                 </CodeBlock>
@@ -154,7 +183,7 @@ export function AvatarDocs() {
               <div>
                 <h4 className="font-medium mb-2">Size Comparison</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<div className="flex items-center gap-4">
+                  {`<div className="flex items-center gap-4">
   <Avatar size="sm"><AvatarFallback>SM</AvatarFallback></Avatar>
   <Avatar size="md"><AvatarFallback>MD</AvatarFallback></Avatar>
   <Avatar size="lg"><AvatarFallback>LG</AvatarFallback></Avatar>
@@ -169,15 +198,26 @@ export function AvatarDocs() {
           <Card>
             <CardHeader>
               <CardTitle>Avatar Guidelines</CardTitle>
-              <CardDescription>Best practices for using avatars with size variants</CardDescription>
+              <CardDescription>
+                Best practices for using avatars with size variants
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
                 <h4 className="font-medium mb-2">Size Variants</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li><strong>Small (32px):</strong> Use in compact layouts, user lists, navigation bars, and tight spaces</li>
-                  <li><strong>Medium (40px):</strong> Default size for most use cases, user profiles, and general interfaces</li>
-                  <li><strong>Large (48px):</strong> Use for prominent display, headers, featured content, and user settings</li>
+                  <li>
+                    <strong>Small (32px):</strong> Use in compact layouts, user
+                    lists, navigation bars, and tight spaces
+                  </li>
+                  <li>
+                    <strong>Medium (40px):</strong> Default size for most use
+                    cases, user profiles, and general interfaces
+                  </li>
+                  <li>
+                    <strong>Large (48px):</strong> Use for prominent display,
+                    headers, featured content, and user settings
+                  </li>
                 </ul>
               </div>
 
@@ -206,7 +246,10 @@ export function AvatarDocs() {
               <div>
                 <h4 className="font-medium mb-2">Best Practices</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li>Use consistent sizing across similar contexts in your interface</li>
+                  <li>
+                    Use consistent sizing across similar contexts in your
+                    interface
+                  </li>
                   <li>Provide fallbacks for failed image loads</li>
                   <li>Keep fallback text concise (2-3 characters)</li>
                   <li>Use appropriate image formats (WebP, PNG, JPG)</li>

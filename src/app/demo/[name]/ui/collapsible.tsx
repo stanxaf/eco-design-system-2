@@ -1,9 +1,9 @@
+import { Button } from "@/components/ui/button";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 
 export const collapsible = {

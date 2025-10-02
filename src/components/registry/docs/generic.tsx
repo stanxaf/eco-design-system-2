@@ -1,7 +1,13 @@
 "use client";
 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Component } from "@/lib/registry";
 
 import { CodeBlock } from "@/components/ui/code-block";
@@ -61,26 +67,32 @@ export function GenericDocs({ component }: GenericDocsProps) {
               <div>
                 <h4 className="font-medium mb-2">About This Component</h4>
                 <p className="text-sm text-muted-foreground">
-                  {component.description || 'This component is part of the design system.'}
+                  {component.description ||
+                    "This component is part of the design system."}
                 </p>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">General Guidelines</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li>Follow the design system's spacing and typography guidelines</li>
+                  <li>
+                    Follow the design system's spacing and typography guidelines
+                  </li>
                   <li>Ensure sufficient color contrast for accessibility</li>
                   <li>Test with keyboard navigation and screen readers</li>
                   <li>Use consistent styling across similar contexts</li>
-                  <li>Consider responsive behavior on different screen sizes</li>
+                  <li>
+                    Consider responsive behavior on different screen sizes
+                  </li>
                 </ul>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Getting Started</h4>
                 <p className="text-sm text-muted-foreground">
-                  Use the npx command above to add this component to your project.
-                  Refer to the component's source code for implementation details.
+                  Use the npx command above to add this component to your
+                  project. Refer to the component's source code for
+                  implementation details.
                 </p>
               </div>
             </CardContent>

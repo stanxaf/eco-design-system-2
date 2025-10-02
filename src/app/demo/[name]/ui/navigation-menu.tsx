@@ -27,7 +27,8 @@ export const navigationMenu = {
                         shadcn/ui
                       </div>
                       <p className="text-sm leading-tight text-muted-foreground">
-                        Beautifully designed components built with Radix UI and Tailwind CSS.
+                        Beautifully designed components built with Radix UI and
+                        Tailwind CSS.
                       </p>
                     </a>
                   </NavigationMenuLink>
@@ -38,9 +39,12 @@ export const navigationMenu = {
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       href="/docs"
                     >
-                      <div className="text-sm font-medium leading-none">Introduction</div>
+                      <div className="text-sm font-medium leading-none">
+                        Introduction
+                      </div>
                       <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        Build high-quality, accessible design systems and web apps.
+                        Build high-quality, accessible design systems and web
+                        apps.
                       </p>
                     </a>
                   </NavigationMenuLink>
@@ -51,7 +55,9 @@ export const navigationMenu = {
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       href="/docs/installation"
                     >
-                      <div className="text-sm font-medium leading-none">Installation</div>
+                      <div className="text-sm font-medium leading-none">
+                        Installation
+                      </div>
                       <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                         How to install dependencies and structure your app.
                       </p>
@@ -64,7 +70,9 @@ export const navigationMenu = {
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       href="/docs/primitives"
                     >
-                      <div className="text-sm font-medium leading-none">Primitives</div>
+                      <div className="text-sm font-medium leading-none">
+                        Primitives
+                      </div>
                       <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                         Low-level primitives for building design systems.
                       </p>
@@ -84,7 +92,9 @@ export const navigationMenu = {
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       href="/docs/components/accordion"
                     >
-                      <div className="text-sm font-medium leading-none">Accordion</div>
+                      <div className="text-sm font-medium leading-none">
+                        Accordion
+                      </div>
                       <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                         Collapsible content sections for organizing information.
                       </p>
@@ -97,9 +107,12 @@ export const navigationMenu = {
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       href="/docs/components/alert-dialog"
                     >
-                      <div className="text-sm font-medium leading-none">Alert Dialog</div>
+                      <div className="text-sm font-medium leading-none">
+                        Alert Dialog
+                      </div>
                       <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        A modal dialog that interrupts the user with important content.
+                        A modal dialog that interrupts the user with important
+                        content.
                       </p>
                     </a>
                   </NavigationMenuLink>
@@ -110,9 +123,12 @@ export const navigationMenu = {
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       href="/docs/components/button"
                     >
-                      <div className="text-sm font-medium leading-none">Button</div>
+                      <div className="text-sm font-medium leading-none">
+                        Button
+                      </div>
                       <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        Displays a button or a component that looks like a button.
+                        Displays a button or a component that looks like a
+                        button.
                       </p>
                     </a>
                   </NavigationMenuLink>
@@ -123,7 +139,9 @@ export const navigationMenu = {
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       href="/docs/components/card"
                     >
-                      <div className="text-sm font-medium leading-none">Card</div>
+                      <div className="text-sm font-medium leading-none">
+                        Card
+                      </div>
                       <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                         Displays a card with header, content, and footer.
                       </p>
@@ -143,9 +161,12 @@ export const navigationMenu = {
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       href="/examples/authentication"
                     >
-                      <div className="text-sm font-medium leading-none">Authentication</div>
+                      <div className="text-sm font-medium leading-none">
+                        Authentication
+                      </div>
                       <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        Complete authentication examples with Next.js and Supabase.
+                        Complete authentication examples with Next.js and
+                        Supabase.
                       </p>
                     </a>
                   </NavigationMenuLink>
@@ -156,9 +177,12 @@ export const navigationMenu = {
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       href="/examples/dashboard"
                     >
-                      <div className="text-sm font-medium leading-none">Dashboard</div>
+                      <div className="text-sm font-medium leading-none">
+                        Dashboard
+                      </div>
                       <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        A dashboard example with charts, tables, and data visualization.
+                        A dashboard example with charts, tables, and data
+                        visualization.
                       </p>
                     </a>
                   </NavigationMenuLink>
@@ -169,9 +193,12 @@ export const navigationMenu = {
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       href="/examples/ecommerce"
                     >
-                      <div className="text-sm font-medium leading-none">E-commerce</div>
+                      <div className="text-sm font-medium leading-none">
+                        E-commerce
+                      </div>
                       <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        A complete e-commerce example with shopping cart and checkout.
+                        A complete e-commerce example with shopping cart and
+                        checkout.
                       </p>
                     </a>
                   </NavigationMenuLink>
@@ -182,9 +209,12 @@ export const navigationMenu = {
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                       href="/examples/forms"
                     >
-                      <div className="text-sm font-medium leading-none">Forms</div>
+                      <div className="text-sm font-medium leading-none">
+                        Forms
+                      </div>
                       <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        Form examples with validation, error handling, and accessibility.
+                        Form examples with validation, error handling, and
+                        accessibility.
                       </p>
                     </a>
                   </NavigationMenuLink>

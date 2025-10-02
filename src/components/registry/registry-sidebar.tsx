@@ -149,16 +149,17 @@ export function RegistrySidebar() {
                       // More robust active state detection
                       const isActive =
                         pathname === item.path ||
-                        (item.path === "/" && (pathname === "/" || pathname === "" || pathname === "/registry")) ||
+                        (item.path === "/" &&
+                          (pathname === "/" ||
+                            pathname === "" ||
+                            pathname === "/registry")) ||
                         (item.path === "/tokens" && pathname === "/tokens") ||
-                        (item.path === "/typography" && pathname === "/typography");
+                        (item.path === "/typography" &&
+                          pathname === "/typography");
 
                       return (
                         <SidebarMenuItem key={item.path}>
-                          <SidebarMenuButton
-                            asChild
-                            isActive={isActive}
-                          >
+                          <SidebarMenuButton asChild isActive={isActive}>
                             <Link
                               onClick={() => setOpenMobile(false)}
                               href={item.path}

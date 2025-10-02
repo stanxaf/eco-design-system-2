@@ -6,5 +6,5 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getPrompt(): string {
-  return `MANDATORY: SearchRepo first, then ReadFile. Follow registry specs exactly. Preserve existing behavior. Include global CSS.`
+  return `MANDATORY: SearchRepo first, then ReadFile. Follow registry specs exactly. Preserve existing behavior. Include global CSS.`;
 }

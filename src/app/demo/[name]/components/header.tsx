@@ -1,7 +1,21 @@
-import { Header } from "@/components/ui/header";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { ChevronLeft, ChevronRight, Settings, Menu, PanelLeft, Inbox, PanelRight } from "lucide-react";
+import { Header } from "@/components/ui/header";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Inbox,
+  Menu,
+  PanelLeft,
+  PanelRight,
+  Settings,
+} from "lucide-react";
 
 export const header = {
   name: "header",
@@ -10,7 +24,7 @@ export const header = {
       <Header
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Weather Dashboard", href: "/dashboard" }
+          { label: "Weather Dashboard", href: "/dashboard" },
         ]}
         rightContent={<Button variant="secondary">Secondary</Button>}
       />
@@ -70,7 +84,11 @@ export const header = {
     "Minimal Header": (
       <Header
         leftContent={<span className="font-medium">Simple Header</span>}
-        rightContent={<Button variant="ghost" size="sm">Action</Button>}
+        rightContent={
+          <Button variant="ghost" size="sm">
+            Action
+          </Button>
+        }
       />
     ),
     "Multiple Actions": (
@@ -78,7 +96,7 @@ export const header = {
         breadcrumbs={[
           { label: "Projects" },
           { label: "Weather App" },
-          { label: "Dashboard" }
+          { label: "Dashboard" },
         ]}
         rightContent={
           <div className="flex items-center space-x-2">
@@ -89,9 +107,15 @@ export const header = {
               <ChevronRight className="w-4 h-4" />
             </Button>
             <div className="w-px h-4 bg-border" />
-            <Button variant="outline" size="sm">Share</Button>
-            <Button variant="outline" size="sm">Export</Button>
-            <Button variant="secondary" size="sm">Save</Button>
+            <Button variant="outline" size="sm">
+              Share
+            </Button>
+            <Button variant="outline" size="sm">
+              Export
+            </Button>
+            <Button variant="secondary" size="sm">
+              Save
+            </Button>
           </div>
         }
       />

@@ -9,7 +9,8 @@ export const brandSidebar = {
         <BrandSidebar />
         <main className="w-full p-4">
           <p className="text-sm text-muted-foreground">
-            Main content area. The sidebar collapses to icons with Cmd+B (Mac) or Ctrl+B (Windows).
+            Main content area. The sidebar collapses to icons with Cmd+B (Mac)
+            or Ctrl+B (Windows).
           </p>
         </main>
       </SidebarProvider>

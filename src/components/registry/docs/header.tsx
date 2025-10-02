@@ -1,12 +1,32 @@
 "use client";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Header } from "@/components/ui/header";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { CodeBlock } from "@/components/ui/code-block";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
-import { ChevronLeft, ChevronRight, Settings, Menu, PanelLeft, Inbox, PanelRight } from "lucide-react";
+import { Header } from "@/components/ui/header";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Inbox,
+  Menu,
+  PanelLeft,
+  PanelRight,
+  Settings,
+} from "lucide-react";
 
 export function HeaderDocs() {
   return (
@@ -22,7 +42,9 @@ export function HeaderDocs() {
           <Card>
             <CardHeader>
               <CardTitle>Header Variants</CardTitle>
-              <CardDescription>Different header configurations and layouts</CardDescription>
+              <CardDescription>
+                Different header configurations and layouts
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
@@ -30,7 +52,7 @@ export function HeaderDocs() {
                 <Header
                   breadcrumbs={[
                     { label: "Home", href: "/" },
-                    { label: "Weather Dashboard", href: "/dashboard" }
+                    { label: "Weather Dashboard", href: "/dashboard" },
                   ]}
                   rightContent={<Button variant="secondary">Secondary</Button>}
                 />
@@ -95,8 +117,14 @@ export function HeaderDocs() {
               <div>
                 <h4 className="font-medium mb-3">Minimal Header</h4>
                 <Header
-                  leftContent={<span className="font-medium">Simple Header</span>}
-                  rightContent={<Button variant="ghost" size="sm">Action</Button>}
+                  leftContent={
+                    <span className="font-medium">Simple Header</span>
+                  }
+                  rightContent={
+                    <Button variant="ghost" size="sm">
+                      Action
+                    </Button>
+                  }
                 />
               </div>
 
@@ -106,7 +134,7 @@ export function HeaderDocs() {
                   breadcrumbs={[
                     { label: "Projects" },
                     { label: "Weather App" },
-                    { label: "Dashboard" }
+                    { label: "Dashboard" },
                   ]}
                   rightContent={
                     <div className="flex items-center space-x-2">
@@ -117,9 +145,15 @@ export function HeaderDocs() {
                         <ChevronRight className="w-4 h-4" />
                       </Button>
                       <div className="w-px h-4 bg-border" />
-                      <Button variant="outline" size="sm">Share</Button>
-                      <Button variant="outline" size="sm">Export</Button>
-                      <Button variant="secondary" size="sm">Save</Button>
+                      <Button variant="outline" size="sm">
+                        Share
+                      </Button>
+                      <Button variant="outline" size="sm">
+                        Export
+                      </Button>
+                      <Button variant="secondary" size="sm">
+                        Save
+                      </Button>
                     </div>
                   }
                 />
@@ -136,9 +170,11 @@ export function HeaderDocs() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h4 className="font-medium mb-2">Basic Header with Breadcrumbs</h4>
+                <h4 className="font-medium mb-2">
+                  Basic Header with Breadcrumbs
+                </h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<Header
+                  {`<Header
   breadcrumbs={[
     { label: "Home", href: "/" },
     { label: "Weather Dashboard", href: "/dashboard" }
@@ -151,7 +187,7 @@ export function HeaderDocs() {
               <div>
                 <h4 className="font-medium mb-2">Panel Controls Header</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<Header
+                  {`<Header
   leftContent={
     <div className="flex items-center gap-3">
       <Button variant="ghost" size="icon">
@@ -182,7 +218,7 @@ export function HeaderDocs() {
               <div>
                 <h4 className="font-medium mb-2">Custom Left Content</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<Header
+                  {`<Header
   leftContent={
     <div className="flex items-center gap-3">
       <Button variant="ghost" size="icon">
@@ -211,7 +247,7 @@ export function HeaderDocs() {
               <div>
                 <h4 className="font-medium mb-2">Minimal Header</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<Header
+                  {`<Header
   leftContent={<span className="font-medium">Simple Header</span>}
   rightContent={<Button variant="ghost" size="sm">Action</Button>}
 />`}
@@ -221,7 +257,7 @@ export function HeaderDocs() {
               <div>
                 <h4 className="font-medium mb-2">Breadcrumb Navigation</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<Header
+                  {`<Header
   breadcrumbs={[
     { label: "Projects" },
     { label: "Weather App" },
@@ -252,7 +288,9 @@ export function HeaderDocs() {
           <Card>
             <CardHeader>
               <CardTitle>Header Guidelines</CardTitle>
-              <CardDescription>Best practices for using header components</CardDescription>
+              <CardDescription>
+                Best practices for using header components
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
@@ -269,7 +307,12 @@ export function HeaderDocs() {
               <div>
                 <h4 className="font-medium mb-2">Design Principles</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li>Use consistent spacing with <code className="bg-background px-1 py-0.5 rounded text-xs">px-3 py-2</code></li>
+                  <li>
+                    Use consistent spacing with{" "}
+                    <code className="bg-background px-1 py-0.5 rounded text-xs">
+                      px-3 py-2
+                    </code>
+                  </li>
                   <li>Maintain visual hierarchy with proper typography</li>
                   <li>Use subtle borders and shadows for separation</li>
                   <li>Keep right-aligned actions organized and scannable</li>
@@ -280,9 +323,17 @@ export function HeaderDocs() {
               <div>
                 <h4 className="font-medium mb-2">Accessibility</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li>Use semantic <code className="bg-background px-1 py-0.5 rounded text-xs">&lt;header&gt;</code> element</li>
+                  <li>
+                    Use semantic{" "}
+                    <code className="bg-background px-1 py-0.5 rounded text-xs">
+                      &lt;header&gt;
+                    </code>{" "}
+                    element
+                  </li>
                   <li>Provide proper ARIA labels for navigation</li>
-                  <li>Ensure keyboard navigation for all interactive elements</li>
+                  <li>
+                    Ensure keyboard navigation for all interactive elements
+                  </li>
                   <li>Use descriptive button text and icons</li>
                   <li>Maintain focus indicators for all controls</li>
                 </ul>
@@ -302,11 +353,26 @@ export function HeaderDocs() {
               <div>
                 <h4 className="font-medium mb-2">Content Guidelines</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li><strong>Breadcrumbs:</strong> Show clear navigation path, last item is current page</li>
-                  <li><strong>Left Content:</strong> Use for titles, logos, or custom navigation</li>
-                  <li><strong>Right Content:</strong> Group actions by importance and frequency</li>
-                  <li><strong>Icons:</strong> Use consistent icon sizing and spacing</li>
-                  <li><strong>Buttons:</strong> Follow established button hierarchy patterns</li>
+                  <li>
+                    <strong>Breadcrumbs:</strong> Show clear navigation path,
+                    last item is current page
+                  </li>
+                  <li>
+                    <strong>Left Content:</strong> Use for titles, logos, or
+                    custom navigation
+                  </li>
+                  <li>
+                    <strong>Right Content:</strong> Group actions by importance
+                    and frequency
+                  </li>
+                  <li>
+                    <strong>Icons:</strong> Use consistent icon sizing and
+                    spacing
+                  </li>
+                  <li>
+                    <strong>Buttons:</strong> Follow established button
+                    hierarchy patterns
+                  </li>
                 </ul>
               </div>
 

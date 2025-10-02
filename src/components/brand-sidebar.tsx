@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import * as React from "react";
 
+import { useGlobalSearch } from "@/components/global-search/context";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Collapsible,
@@ -49,7 +50,6 @@ import {
   SidebarMenuSubItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
-import { useGlobalSearch } from "@/components/global-search/context";
 
 /**
  * Props for the BrandSidebar component
@@ -57,9 +57,13 @@ import { useGlobalSearch } from "@/components/global-search/context";
 interface BrandSidebarProps {
   /** Additional CSS classes to apply to the sidebar container */
   className?: string;
+  /** Force the team switcher to be visible even with single team (for testing/admin) */
+  forceTeamSwitcherVisible?: boolean;
 }
 
 // This is sample data.
+// QA: To test single team behavior, change teams array to have only one item:
+// teams: [{ name: "Acme Inc", logo: GalleryVerticalEnd, plan: "Enterprise" }]
 const data = {
   user: {
     name: "shadcn",
@@ -72,16 +76,16 @@ const data = {
       logo: GalleryVerticalEnd,
       plan: "Enterprise",
     },
-    {
-      name: "Acme Corp.",
-      logo: AudioWaveform,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: Command,
-      plan: "Free",
-    },
+    // {
+    //   name: "Acme Corp.",
+    //   logo: AudioWaveform,
+    //   plan: "Startup",
+    // },
+    // {
+    //   name: "Evil Corp.",
+    //   logo: Command,
+    //   plan: "Free",
+    // },
   ],
   navMain: [
     {
@@ -210,69 +214,98 @@ const data = {
  * </SidebarProvider>
  * ```
  */
-export function BrandSidebar({ className }: BrandSidebarProps) {
+export function BrandSidebar({
+  className,
+  forceTeamSwitcherVisible = false,
+}: BrandSidebarProps) {
   const [activeTeam, setActiveTeam] = React.useState(data.teams[0]);
   const { toggle } = useGlobalSearch();
 
+  // Determine if team switcher should be visible
+  const hasMultipleTeams = data.teams.length > 1;
+  const showTeamSwitcher = hasMultipleTeams || forceTeamSwitcherVisible;
+
   return (
     <Sidebar collapsible="icon" className={className}>
-      <SidebarHeader>
+      <SidebarHeader className="border-b border-sidebar-border">
         <SidebarMenu>
           <SidebarMenuItem>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <SidebarMenuButton
-                  size="lg"
-                  className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-                >
-                  <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                    <activeTeam.logo className="size-4" />
-                  </div>
-                  <div className="grid flex-1 text-left text-sm leading-tight">
-                    <span className="truncate font-semibold">
-                      {activeTeam.name}
-                    </span>
-                    <span className="truncate text-xs">{activeTeam.plan}</span>
-                  </div>
-                  <ChevronsUpDown className="ml-auto" />
-                </SidebarMenuButton>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
-                className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
-                align="start"
-                side="bottom"
-                sideOffset={4}
-              >
-                <DropdownMenuLabel className="text-xs text-muted-foreground">
-                  Teams
-                </DropdownMenuLabel>
-                {data.teams.map((team, index) => (
-                  <DropdownMenuItem
-                    key={team.name}
-                    onClick={() => setActiveTeam(team)}
-                    className="gap-2 p-2"
+            {showTeamSwitcher ? (
+              // Full dropdown menu for multiple teams or forced visibility
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <SidebarMenuButton
+                    size="lg"
+                    className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                   >
-                    <div className="flex size-6 items-center justify-center rounded-sm border">
-                      <team.logo className="size-4 shrink-0" />
+                    <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                      <activeTeam.logo className="size-4" />
                     </div>
-                    {team.name}
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+                    <div className="grid flex-1 text-left text-sm leading-tight">
+                      <span className="truncate font-semibold">
+                        {activeTeam.name}
+                      </span>
+                      <span className="truncate text-xs">
+                        {activeTeam.plan}
+                      </span>
+                    </div>
+                    <ChevronsUpDown className="ml-auto" />
+                  </SidebarMenuButton>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
+                  align="start"
+                  side="bottom"
+                  sideOffset={4}
+                >
+                  <DropdownMenuLabel className="text-xs text-muted-foreground">
+                    Teams
+                  </DropdownMenuLabel>
+                  {data.teams.map((team, index) => (
+                    <DropdownMenuItem
+                      key={team.name}
+                      onClick={() => setActiveTeam(team)}
+                      className="gap-2 p-2"
+                    >
+                      <div className="flex size-6 items-center justify-center rounded-sm border">
+                        <team.logo className="size-4 shrink-0" />
+                      </div>
+                      {team.name}
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              // Static display for single team (no dropdown functionality)
+              <SidebarMenuButton
+                size="lg"
+                tooltip={`${activeTeam.name} - ${activeTeam.plan}`}
+              >
+                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                  <activeTeam.logo className="size-4" />
+                </div>
+                <div className="grid flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden">
+                  <span className="truncate font-semibold">
+                    {activeTeam.name}
+                  </span>
+                  <span className="truncate text-xs">{activeTeam.plan}</span>
+                </div>
+                {/* No chevron for single team - static display only */}
+              </SidebarMenuButton>
+            )}
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
 
       <SidebarContent>
         {/* Global Search Trigger */}
-        <div className="px-2 py-2 group-data-[collapsible=icon]:hidden">
+        <div className="border-b border-sidebar-border px-2 py-2 group-data-[collapsible=icon]:hidden">
           <div className="relative">
             <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
             <Input
               type="search"
               placeholder="Search everything... (⌘K)"
-              className="pl-8 cursor-pointer"
+              className="pl-8 cursor-pointer border-none bg-neutral-black"
               readOnly
               onClick={toggle}
               onFocus={toggle}
@@ -334,7 +367,7 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter>
+      <SidebarFooter className="border-t border-sidebar-border">
         <SidebarMenu>
           <SidebarMenuItem>
             <DropdownMenu>
@@ -402,4 +435,3 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
     </Sidebar>
   );
 }
-

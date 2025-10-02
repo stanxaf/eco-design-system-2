@@ -5,7 +5,8 @@ export function PanelDocs() {
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Overview</h2>
         <p className="text-muted-foreground">
-          A flexible panel component with header, content, and footer areas. Perfect for building responsive layouts and organizing content.
+          A flexible panel component with header, content, and footer areas.
+          Perfect for building responsive layouts and organizing content.
         </p>
       </div>
 
@@ -14,7 +15,7 @@ export function PanelDocs() {
         <h2 className="text-2xl font-semibold">Component</h2>
         <div className="rounded-md border bg-muted/50 p-4">
           <pre className="text-sm">
-{`<Panel
+            {`<Panel
   size="full"
   title="Sample Panel"
   borderRight={false}

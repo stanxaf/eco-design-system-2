@@ -1,8 +1,14 @@
-import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 
 export const dataTablePagination = {
   name: "data-table-pagination",
@@ -43,17 +49,10 @@ export const dataTablePagination = {
               <span className="text-sm text-muted-foreground">of 40</span>
             </div>
             <div className="flex items-center gap-1">
-              <Button
-                variant="outline"
-                size="default"
-                disabled
-              >
+              <Button variant="outline" size="default" disabled>
                 <ChevronLeftIcon className="size-4" />
               </Button>
-              <Button
-                variant="outline"
-                size="default"
-              >
+              <Button variant="outline" size="default">
                 <ChevronRightIcon className="size-4" />
               </Button>
             </div>
@@ -97,17 +96,10 @@ export const dataTablePagination = {
               <span className="text-sm text-muted-foreground">of 40</span>
             </div>
             <div className="flex items-center gap-1">
-              <Button
-                variant="outline"
-                size="default"
-                disabled
-              >
+              <Button variant="outline" size="default" disabled>
                 <ChevronLeftIcon className="size-4" />
               </Button>
-              <Button
-                variant="outline"
-                size="default"
-              >
+              <Button variant="outline" size="default">
                 <ChevronRightIcon className="size-4" />
               </Button>
             </div>

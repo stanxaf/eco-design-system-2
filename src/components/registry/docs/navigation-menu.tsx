@@ -1,4 +1,3 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -7,6 +6,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export function NavigationMenuDocs() {
   return (
@@ -23,13 +23,16 @@ export function NavigationMenuDocs() {
             <div>
               <h3 className="text-lg font-semibold">Default Navigation Menu</h3>
               <p className="text-sm text-muted-foreground mb-4">
-                A comprehensive navigation menu with multiple sections and rich content.
+                A comprehensive navigation menu with multiple sections and rich
+                content.
               </p>
               <div className="border rounded-lg p-4">
                 <NavigationMenu>
                   <NavigationMenuList>
                     <NavigationMenuItem>
-                      <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+                      <NavigationMenuTrigger>
+                        Getting started
+                      </NavigationMenuTrigger>
                       <NavigationMenuContent>
                         <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                           <li className="row-span-3">
@@ -42,7 +45,8 @@ export function NavigationMenuDocs() {
                                   shadcn/ui
                                 </div>
                                 <p className="text-sm leading-tight text-muted-foreground">
-                                  Beautifully designed components built with Radix UI and Tailwind CSS.
+                                  Beautifully designed components built with
+                                  Radix UI and Tailwind CSS.
                                 </p>
                               </a>
                             </NavigationMenuLink>
@@ -53,9 +57,12 @@ export function NavigationMenuDocs() {
                                 className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                                 href="/docs"
                               >
-                                <div className="text-sm font-medium leading-none">Introduction</div>
+                                <div className="text-sm font-medium leading-none">
+                                  Introduction
+                                </div>
                                 <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                  Build high-quality, accessible design systems and web apps.
+                                  Build high-quality, accessible design systems
+                                  and web apps.
                                 </p>
                               </a>
                             </NavigationMenuLink>
@@ -86,7 +93,7 @@ export function NavigationMenuDocs() {
               <h3 className="text-lg font-semibold">Basic Navigation Menu</h3>
               <div className="bg-muted p-4 rounded-lg">
                 <pre className="text-sm overflow-x-auto">
-{`import {
+                  {`import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
@@ -142,7 +149,7 @@ export function NavigationMenuDocs() {
               <h3 className="text-lg font-semibold">With Multiple Sections</h3>
               <div className="bg-muted p-4 rounded-lg">
                 <pre className="text-sm overflow-x-auto">
-{`<NavigationMenu>
+                  {`<NavigationMenu>
   <NavigationMenuList>
     <NavigationMenuItem>
       <NavigationMenuTrigger>Components</NavigationMenuTrigger>
@@ -214,7 +221,10 @@ export function NavigationMenuDocs() {
                 <div>
                   <h4 className="font-medium">Accessibility</h4>
                   <ul className="text-sm text-muted-foreground space-y-1 ml-4">
-                    <li>• Supports keyboard navigation (Tab, Arrow keys, Enter, Escape)</li>
+                    <li>
+                      • Supports keyboard navigation (Tab, Arrow keys, Enter,
+                      Escape)
+                    </li>
                     <li>• Proper ARIA attributes for screen readers</li>
                     <li>• Focus management for dropdown menus</li>
                     <li>• High contrast ratios for text readability</li>

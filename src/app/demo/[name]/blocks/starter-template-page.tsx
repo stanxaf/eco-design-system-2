@@ -15,9 +15,7 @@ export default function StarterTemplatePage() {
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="text-center">
-        <p className="text-muted-foreground">
-          Your content goes here
-        </p>
+        <p className="text-muted-foreground">Your content goes here</p>
       </div>
     </div>
   );

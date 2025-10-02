@@ -24,7 +24,11 @@ export default function SinglePanelLayoutPage() {
         title="Main Content"
         className="w-full h-full"
         borderRight={false}
-        footer={<span className="text-sm text-muted-foreground">Content Footer - Ready for pagination, status, or actions</span>}
+        footer={
+          <span className="text-sm text-muted-foreground">
+            Content Footer - Ready for pagination, status, or actions
+          </span>
+        }
       >
         {/* Panel content area - ready for your content */}
       </Panel>

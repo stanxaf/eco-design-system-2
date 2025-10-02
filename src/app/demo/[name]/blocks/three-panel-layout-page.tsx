@@ -16,8 +16,8 @@
  * @returns JSX element with three-panel layout
  */
 import { Panel } from "@/components/panel";
-import { Header } from "@/components/ui/header";
 import { Button } from "@/components/ui/button";
+import { Header } from "@/components/ui/header";
 import { Inbox, Settings } from "lucide-react";
 
 export default function ThreePanelLayoutPage() {
@@ -44,39 +44,51 @@ export default function ThreePanelLayoutPage() {
 
       {/* Three Panel Layout */}
       <div className="flex flex-col md:flex-row flex-1">
-      {/* Left Panel - Fixed width, max 280px on desktop, full width on mobile */}
-      <Panel
-        size="fit"
-        responsive={{ md: "fit" }}
-        title="Left Panel"
-        className="w-full md:max-w-[280px] md:w-[280px]"
-        footer={<span className="text-sm text-muted-foreground">Left Panel Footer</span>}
-      >
-        {/* Panel content area - ready for your content */}
-      </Panel>
+        {/* Left Panel - Fixed width, max 280px on desktop, full width on mobile */}
+        <Panel
+          size="fit"
+          responsive={{ md: "fit" }}
+          title="Left Panel"
+          className="w-full md:max-w-[280px] md:w-[280px]"
+          footer={
+            <span className="text-sm text-muted-foreground">
+              Left Panel Footer
+            </span>
+          }
+        >
+          {/* Panel content area - ready for your content */}
+        </Panel>
 
-      {/* Center Panel - Flexible width on desktop, full width on mobile */}
-      <Panel
-        size="full"
-        responsive={{ md: "full" }}
-        title="Main Content"
-        className="w-full flex-1"
-        footer={<span className="text-sm text-muted-foreground">Main Content Footer</span>}
-      >
-        {/* Panel content area - ready for your content */}
-      </Panel>
+        {/* Center Panel - Flexible width on desktop, full width on mobile */}
+        <Panel
+          size="full"
+          responsive={{ md: "full" }}
+          title="Main Content"
+          className="w-full flex-1"
+          footer={
+            <span className="text-sm text-muted-foreground">
+              Main Content Footer
+            </span>
+          }
+        >
+          {/* Panel content area - ready for your content */}
+        </Panel>
 
-      {/* Right Panel - Fixed width, max 280px on desktop, full width on mobile */}
-      <Panel
-        size="fit"
-        responsive={{ md: "fit" }}
-        title="Right Panel"
-        className="w-full md:max-w-[280px] md:w-[280px]"
-        borderRight={false}
-        footer={<span className="text-sm text-muted-foreground">Right Panel Footer</span>}
-      >
-        {/* Panel content area - ready for your content */}
-      </Panel>
+        {/* Right Panel - Fixed width, max 280px on desktop, full width on mobile */}
+        <Panel
+          size="fit"
+          responsive={{ md: "fit" }}
+          title="Right Panel"
+          className="w-full md:max-w-[280px] md:w-[280px]"
+          borderRight={false}
+          footer={
+            <span className="text-sm text-muted-foreground">
+              Right Panel Footer
+            </span>
+          }
+        >
+          {/* Panel content area - ready for your content */}
+        </Panel>
       </div>
     </div>
   );

@@ -14,17 +14,20 @@
  * @returns JSX element with full-screen map layout ready for layout integration
  */
 import { Panel } from "@/components/panel";
-import { Header } from "@/components/ui/header";
 import { Button } from "@/components/ui/button";
+import { Header } from "@/components/ui/header";
 import { Map } from "@/components/ui/map";
 import { useState } from "react";
 
 export default function MapLayoutPage() {
-  const [mapCenter, setMapCenter] = useState<[number, number]>([-98.5795, 39.8283]);
+  const [mapCenter, setMapCenter] = useState<[number, number]>([
+    -98.5795, 39.8283,
+  ]);
   const [mapZoom, setMapZoom] = useState(4);
 
   // Mapbox access token - replace with your own token
-  const MAPBOX_TOKEN = "pk.eyJ1Ijoic3RhbnhhZiIsImEiOiJjbWcwODl2N2UwYTN1MmpzOW1oYXRzbXRxIn0.QsDOJWYQe4_jQFc11bVBlQ";
+  const MAPBOX_TOKEN =
+    "pk.eyJ1Ijoic3RhbnhhZiIsImEiOiJjbWcwODl2N2UwYTN1MmpzOW1oYXRzbXRxIn0.QsDOJWYQe4_jQFc11bVBlQ";
 
   const handleMapMove = (center: [number, number]) => {
     setMapCenter(center);
@@ -38,15 +41,8 @@ export default function MapLayoutPage() {
     <div className="w-full h-screen flex flex-col">
       {/* Header with breadcrumbs */}
       <Header
-        breadcrumbs={[
-          { label: "Weather Hub", href: "/" },
-          { label: "Map" }
-        ]}
-        rightContent={
-          <Button variant="outline">
-            Settings
-          </Button>
-        }
+        breadcrumbs={[{ label: "Weather Hub", href: "/" }, { label: "Map" }]}
+        rightContent={<Button variant="outline">Settings</Button>}
       />
 
       {/* Full Screen Map Panel */}

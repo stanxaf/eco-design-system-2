@@ -5,46 +5,46 @@
  * It ensures that all required icons are properly imported and available.
  */
 
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { library } from "@fortawesome/fontawesome-svg-core";
 
 // Import all the icons used in the project
 import {
-  // Regular icons
-  faHome,
-  faUser,
-  faCreditCard,
   faBell,
   faClock,
-  faFolder,
   faComment,
+  faCreditCard,
   faEnvelope,
+  faFolder,
+  // Regular icons
+  faHome,
   faSquare,
-} from '@fortawesome/free-regular-svg-icons';
+  faUser,
+} from "@fortawesome/free-regular-svg-icons";
 
 import {
-  // Solid icons
-  faDatabase,
-  faTable,
-  faExclamationTriangle,
   faChartLine,
-  faEllipsis,
-  faRightFromBracket,
+  faCheck,
   faChevronLeft,
   faChevronRight,
   faCog,
-  faSearch,
-  faPlus,
-  faEdit,
-  faTrash,
-  faSave,
+  // Solid icons
+  faDatabase,
   faDownload,
-  faUpload,
-  faCheck,
-  faTimes,
+  faEdit,
+  faEllipsis,
+  faExclamationTriangle,
   faInfo,
-  faWarning,
+  faPlus,
+  faRightFromBracket,
+  faSave,
+  faSearch,
+  faTable,
   faTh,
-} from '@fortawesome/free-solid-svg-icons';
+  faTimes,
+  faTrash,
+  faUpload,
+  faWarning,
+} from "@fortawesome/free-solid-svg-icons";
 
 // Add all icons to the library
 library.add(
@@ -86,38 +86,38 @@ library.add(
 // Export icon names for easy reference in v0
 export const iconNames = {
   // Regular icons
-  home: 'faHome',
-  user: 'faUser',
-  creditCard: 'faCreditCard',
-  bell: 'faBell',
-  clock: 'faClock',
-  folder: 'faFolder',
-  comment: 'faComment',
-  envelope: 'faEnvelope',
-  square: 'faSquare',
+  home: "faHome",
+  user: "faUser",
+  creditCard: "faCreditCard",
+  bell: "faBell",
+  clock: "faClock",
+  folder: "faFolder",
+  comment: "faComment",
+  envelope: "faEnvelope",
+  square: "faSquare",
 
   // Solid icons (for icons not available in regular)
-  database: 'faDatabase',
-  table: 'faTable',
-  exclamationTriangle: 'faExclamationTriangle',
-  chartLine: 'faChartLine',
-  ellipsis: 'faEllipsis',
-  rightFromBracket: 'faRightFromBracket',
-  chevronLeft: 'faChevronLeft',
-  chevronRight: 'faChevronRight',
-  cog: 'faCog',
-  search: 'faSearch',
-  plus: 'faPlus',
-  edit: 'faEdit',
-  trash: 'faTrash',
-  save: 'faSave',
-  download: 'faDownload',
-  upload: 'faUpload',
-  check: 'faCheck',
-  times: 'faTimes',
-  info: 'faInfo',
-  warning: 'faWarning',
-  grid: 'faTh',
+  database: "faDatabase",
+  table: "faTable",
+  exclamationTriangle: "faExclamationTriangle",
+  chartLine: "faChartLine",
+  ellipsis: "faEllipsis",
+  rightFromBracket: "faRightFromBracket",
+  chevronLeft: "faChevronLeft",
+  chevronRight: "faChevronRight",
+  cog: "faCog",
+  search: "faSearch",
+  plus: "faPlus",
+  edit: "faEdit",
+  trash: "faTrash",
+  save: "faSave",
+  download: "faDownload",
+  upload: "faUpload",
+  check: "faCheck",
+  times: "faTimes",
+  info: "faInfo",
+  warning: "faWarning",
+  grid: "faTh",
 } as const;
 
 export type IconName = keyof typeof iconNames;

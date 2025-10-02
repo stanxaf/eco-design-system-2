@@ -1,11 +1,17 @@
 "use client";
 
-import { type ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, ArrowUp, ArrowDown, MoreHorizontal } from "lucide-react";
+import type { ColumnDef } from "@tanstack/react-table";
+import { ArrowDown, ArrowUp, ArrowUpDown, MoreHorizontal } from "lucide-react";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import {
+  DataTable,
+  createActionsColumn,
+  createRowSelectionColumn,
+  createSortableHeader,
+} from "@/components/ui/data-table";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,7 +20,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { DataTable, createSortableHeader, createRowSelectionColumn, createActionsColumn } from "@/components/ui/data-table";
 
 const data: Payment[] = [
   {

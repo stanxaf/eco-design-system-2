@@ -1,7 +1,11 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { getGlobalSearchItems, type GlobalSearchItem } from "@/lib/global-search-items";
+import {
+  type GlobalSearchItem,
+  getGlobalSearchItems,
+} from "@/lib/global-search-items";
+import type React from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 interface GlobalSearchContextType {
   open: boolean;
@@ -10,7 +14,9 @@ interface GlobalSearchContextType {
   items: GlobalSearchItem[];
 }
 
-const GlobalSearchContext = createContext<GlobalSearchContextType | undefined>(undefined);
+const GlobalSearchContext = createContext<GlobalSearchContextType | undefined>(
+  undefined,
+);
 
 interface GlobalSearchProviderProps {
   children: React.ReactNode;
@@ -51,7 +57,9 @@ export function GlobalSearchProvider({ children }: GlobalSearchProviderProps) {
 export function useGlobalSearch() {
   const context = useContext(GlobalSearchContext);
   if (context === undefined) {
-    throw new Error("useGlobalSearch must be used within a GlobalSearchProvider");
+    throw new Error(
+      "useGlobalSearch must be used within a GlobalSearchProvider",
+    );
   }
   return context;
 }

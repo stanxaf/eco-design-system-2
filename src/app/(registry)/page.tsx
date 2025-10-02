@@ -24,8 +24,12 @@ export default function Home() {
             Eco UI Component Registry
           </h1>
           <p className="text-muted-foreground">
-            A fully themed component registry built with Tailwind CSS v4 and based on ShadCN.
-            Intended for use in v0.dev and React projects. Provides a consistent set of UI components aligned with DTN's design system. Components reference shared global styles and tokens and are meant to be copied, extended, or adapted into any compatible codebase.
+            A fully themed component registry built with Tailwind CSS v4 and
+            based on ShadCN. Intended for use in v0.dev and React projects.
+            Provides a consistent set of UI components aligned with DTN's design
+            system. Components reference shared global styles and tokens and are
+            meant to be copied, extended, or adapted into any compatible
+            codebase.
           </p>
         </div>
       </div>
@@ -156,7 +160,12 @@ export default function Home() {
         <div className="flex flex-col gap-2">
           <h2 className="font-semibold text-xl">About</h2>
           <p className="text-muted-foreground">
-            This registry provides a shared set of UI components and layout blocks for use in v0.dev and React-based projects. It supports consistency across applications and speeds up interface development by offering prebuilt, theme-aligned components. Components and blocks are organized by type and can be previewed, copied, or opened in v0 for further editing.
+            This registry provides a shared set of UI components and layout
+            blocks for use in v0.dev and React-based projects. It supports
+            consistency across applications and speeds up interface development
+            by offering prebuilt, theme-aligned components. Components and
+            blocks are organized by type and can be previewed, copied, or opened
+            in v0 for further editing.
           </p>
           <p className="mt-2 text-muted-foreground">
             To get begin, select a{" "}

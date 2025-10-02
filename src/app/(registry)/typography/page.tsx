@@ -4,7 +4,13 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { CodeBlock } from "@/components/ui/code-block";
 import { Typography } from "@/components/ui/typography";
 
@@ -21,7 +27,9 @@ export default function TypographyPage() {
 
         <h1 className="font-bold text-3xl tracking-tight">Typography</h1>
         <p className="mt-1 text-muted-foreground">
-          Styles for headings, paragraphs, lists...etc. We provide both utility classes and Typography components for consistent styling across all DTN projects.
+          Styles for headings, paragraphs, lists...etc. We provide both utility
+          classes and Typography components for consistent styling across all
+          DTN projects.
         </p>
       </div>
 
@@ -30,7 +38,9 @@ export default function TypographyPage() {
         <div className="space-y-8">
           {/* H1 Component */}
           <section>
-            <label className="mb-2 block text-muted-foreground">Typography.H1</label>
+            <label className="mb-2 block text-muted-foreground">
+              Typography.H1
+            </label>
             <Card className="rounded-b-none">
               <CardContent>
                 <Typography.H1>
@@ -39,7 +49,7 @@ export default function TypographyPage() {
               </CardContent>
             </Card>
             <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<Typography.H1>
+              {`<Typography.H1>
   Quick brown fox jumped over the lazy dog's back
 </Typography.H1>`}
             </CodeBlock>
@@ -47,7 +57,9 @@ export default function TypographyPage() {
 
           {/* H2 Component */}
           <section>
-            <label className="mb-2 block text-muted-foreground">Typography.H2</label>
+            <label className="mb-2 block text-muted-foreground">
+              Typography.H2
+            </label>
             <Card className="rounded-b-none">
               <CardContent>
                 <Typography.H2>
@@ -56,7 +68,7 @@ export default function TypographyPage() {
               </CardContent>
             </Card>
             <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<Typography.H2>
+              {`<Typography.H2>
   Quick brown fox jumped over the lazy dog's back
 </Typography.H2>`}
             </CodeBlock>
@@ -64,7 +76,9 @@ export default function TypographyPage() {
 
           {/* H3 Component */}
           <section>
-            <label className="mb-2 block text-muted-foreground">Typography.H3</label>
+            <label className="mb-2 block text-muted-foreground">
+              Typography.H3
+            </label>
             <Card className="rounded-b-none">
               <CardContent>
                 <Typography.H3>
@@ -73,7 +87,7 @@ export default function TypographyPage() {
               </CardContent>
             </Card>
             <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<Typography.H3>
+              {`<Typography.H3>
   Quick brown fox jumped over the lazy dog's back
 </Typography.H3>`}
             </CodeBlock>
@@ -81,7 +95,9 @@ export default function TypographyPage() {
 
           {/* H4 Component */}
           <section>
-            <label className="mb-2 block text-muted-foreground">Typography.H4</label>
+            <label className="mb-2 block text-muted-foreground">
+              Typography.H4
+            </label>
             <Card className="rounded-b-none">
               <CardContent>
                 <Typography.H4>
@@ -90,7 +106,7 @@ export default function TypographyPage() {
               </CardContent>
             </Card>
             <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<Typography.H4>
+              {`<Typography.H4>
   Quick brown fox jumped over the lazy dog's back
 </Typography.H4>`}
             </CodeBlock>
@@ -98,7 +114,9 @@ export default function TypographyPage() {
 
           {/* H5 Component */}
           <section>
-            <label className="mb-2 block text-muted-foreground">Typography.H5</label>
+            <label className="mb-2 block text-muted-foreground">
+              Typography.H5
+            </label>
             <Card className="rounded-b-none">
               <CardContent>
                 <Typography.H5>
@@ -107,7 +125,7 @@ export default function TypographyPage() {
               </CardContent>
             </Card>
             <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<Typography.H5>
+              {`<Typography.H5>
   Quick brown fox jumped over the lazy dog's back
 </Typography.H5>`}
             </CodeBlock>
@@ -115,7 +133,9 @@ export default function TypographyPage() {
 
           {/* H6 Component */}
           <section>
-            <label className="mb-2 block text-muted-foreground">Typography.H6</label>
+            <label className="mb-2 block text-muted-foreground">
+              Typography.H6
+            </label>
             <Card className="rounded-b-none">
               <CardContent>
                 <Typography.H6>
@@ -124,7 +144,7 @@ export default function TypographyPage() {
               </CardContent>
             </Card>
             <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<Typography.H6>
+              {`<Typography.H6>
   Quick brown fox jumped over the lazy dog's back
 </Typography.H6>`}
             </CodeBlock>
@@ -136,7 +156,8 @@ export default function TypographyPage() {
       <div className="mb-8">
         <h2 className="font-semibold text-xl">Utility Classes</h2>
         <p className="mb-2 text-muted-foreground">
-          Alternative approach using Tailwind utility classes for custom styling needs.
+          Alternative approach using Tailwind utility classes for custom styling
+          needs.
         </p>
       </div>
 
@@ -152,7 +173,7 @@ export default function TypographyPage() {
             </CardContent>
           </Card>
           <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<h1 className="font-bold text-2xl leading-6">
+            {`<h1 className="font-bold text-2xl leading-6">
   Quick brown fox jumped over the lazy dog's back
 </h1>`}
           </CodeBlock>
@@ -169,7 +190,7 @@ export default function TypographyPage() {
             </CardContent>
           </Card>
           <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<h2 className="font-bold text-2xl leading-6">
+            {`<h2 className="font-bold text-2xl leading-6">
   Quick brown fox jumped over the lazy dog's back
 </h2>`}
           </CodeBlock>
@@ -186,7 +207,7 @@ export default function TypographyPage() {
             </CardContent>
           </Card>
           <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<h3 className="font-bold text-xl leading-5">
+            {`<h3 className="font-bold text-xl leading-5">
   Quick brown fox jumped over the lazy dog's back 1234567890
 </h3>`}
           </CodeBlock>
@@ -203,7 +224,7 @@ export default function TypographyPage() {
             </CardContent>
           </Card>
           <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<h4 className="font-bold text-lg leading-5">
+            {`<h4 className="font-bold text-lg leading-5">
   Quick brown fox jumped over the lazy dog's back 1234567890
 </h4>`}
           </CodeBlock>
@@ -220,7 +241,7 @@ export default function TypographyPage() {
             </CardContent>
           </Card>
           <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<h5 className="font-bold text-base leading-5">
+            {`<h5 className="font-bold text-base leading-5">
   Quick brown fox jumped over the lazy dog's back 1234567890
 </h5>`}
           </CodeBlock>
@@ -237,7 +258,7 @@ export default function TypographyPage() {
             </CardContent>
           </Card>
           <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<h6 className="font-bold text-sm leading-4">
+            {`<h6 className="font-bold text-sm leading-4">
   Quick brown fox jumped over the lazy dog's back 1234567890
 </h6>`}
           </CodeBlock>
@@ -254,7 +275,7 @@ export default function TypographyPage() {
             </CardContent>
           </Card>
           <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<div className="text-base font-normal">
+            {`<div className="text-base font-normal">
   Quick brown fox jumped over the lazy dog's back 1234567890
 </div>`}
           </CodeBlock>
@@ -271,7 +292,7 @@ export default function TypographyPage() {
             </CardContent>
           </Card>
           <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<div className="text-base font-medium">
+            {`<div className="text-base font-medium">
   Quick brown fox jumped over the lazy dog's back 1234567890
 </div>`}
           </CodeBlock>
@@ -288,7 +309,7 @@ export default function TypographyPage() {
             </CardContent>
           </Card>
           <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<p className="leading-7 [&:not(:first-child)]:mt-6">
+            {`<p className="leading-7 [&:not(:first-child)]:mt-6">
   Quick brown fox jumped over the lazy dog's back 1234567890
 </p>`}
           </CodeBlock>
@@ -305,7 +326,7 @@ export default function TypographyPage() {
             </CardContent>
           </Card>
           <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+            {`<label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
   Quick brown fox jumped over the lazy dog's back 1234567890
 </label>`}
           </CodeBlock>
@@ -322,7 +343,7 @@ export default function TypographyPage() {
             </CardContent>
           </Card>
           <CodeBlock className="bg-muted p-3 rounded-t-none rounded-b text-sm overflow-x-auto">
-{`<small className="text-sm leading-none font-medium">
+            {`<small className="text-sm leading-none font-medium">
   Quick brown fox jumped over the lazy dog's back 1234567890
 </small>`}
           </CodeBlock>

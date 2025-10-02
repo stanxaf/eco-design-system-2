@@ -3,7 +3,8 @@ import { Icons } from "@/components/ui/icons";
 export const icons = {
   name: "icons",
   type: "ui",
-  description: "FontAwesome icon components demonstrating SSR compatibility and various icon styles. Includes comprehensive icon library for v0 compatibility.",
+  description:
+    "FontAwesome icon components demonstrating SSR compatibility and various icon styles. Includes comprehensive icon library for v0 compatibility.",
   components: {
     default: <Icons size="lg" style="solid" icon="home" />,
     "xs-solid": <Icons size="xs" style="solid" icon="home" />,
@@ -38,7 +39,9 @@ export const icons = {
     "comment-solid": <Icons size="lg" style="solid" icon="comment" />,
     "clock-solid": <Icons size="lg" style="solid" icon="clock" />,
     "ellipsis-solid": <Icons size="lg" style="solid" icon="ellipsis" />,
-    "rightFromBracket-solid": <Icons size="lg" style="solid" icon="rightFromBracket" />,
+    "rightFromBracket-solid": (
+      <Icons size="lg" style="solid" icon="rightFromBracket" />
+    ),
     "chevronLeft-solid": <Icons size="lg" style="solid" icon="chevronLeft" />,
     "chevronRight-solid": <Icons size="lg" style="solid" icon="chevronRight" />,
 

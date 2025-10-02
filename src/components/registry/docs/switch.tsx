@@ -1,9 +1,15 @@
 "use client";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Switch } from "@/components/ui/switch";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { CodeBlock } from "@/components/ui/code-block";
 export function SwitchDocs() {
@@ -20,7 +26,9 @@ export function SwitchDocs() {
           <Card>
             <CardHeader>
               <CardTitle>Switch Variants</CardTitle>
-              <CardDescription>Different switch states and configurations</CardDescription>
+              <CardDescription>
+                Different switch states and configurations
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
@@ -66,8 +74,9 @@ export function SwitchDocs() {
               <div>
                 <h4 className="font-medium mb-3">Accessibility Features</h4>
                 <div className="text-sm text-muted-foreground p-3 bg-muted rounded-md">
-                  <strong>Note:</strong> The switch includes proper ARIA attributes, keyboard navigation,
-                  and screen reader support. Use with Label components for best accessibility.
+                  <strong>Note:</strong> The switch includes proper ARIA
+                  attributes, keyboard navigation, and screen reader support.
+                  Use with Label components for best accessibility.
                 </div>
               </div>
             </CardContent>
@@ -84,7 +93,7 @@ export function SwitchDocs() {
               <div>
                 <h4 className="font-medium mb-2">Basic Switch</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<Switch id="switch" />
+                  {`<Switch id="switch" />
 <Label htmlFor="switch">Switch label</Label>`}
                 </CodeBlock>
               </div>
@@ -92,7 +101,7 @@ export function SwitchDocs() {
               <div>
                 <h4 className="font-medium mb-2">Controlled Switch</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`const [checked, setChecked] = useState(false);
+                  {`const [checked, setChecked] = useState(false);
 
 <Switch
   id="controlled"
@@ -106,7 +115,7 @@ export function SwitchDocs() {
               <div>
                 <h4 className="font-medium mb-2">Switch with Form</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<form className="space-y-4">
+                  {`<form className="space-y-4">
   <div className="flex items-center space-x-2">
     <Switch id="terms" required />
     <Label htmlFor="terms">I agree to the terms</Label>
@@ -119,7 +128,7 @@ export function SwitchDocs() {
               <div>
                 <h4 className="font-medium mb-2">Component Implementation</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`function Switch({
+                  {`function Switch({
   className,
   ...props
 }: React.ComponentProps<typeof SwitchPrimitive.Root>) {
@@ -151,24 +160,39 @@ export function SwitchDocs() {
           <Card>
             <CardHeader>
               <CardTitle>Switch Guidelines</CardTitle>
-              <CardDescription>Best practices and design considerations</CardDescription>
+              <CardDescription>
+                Best practices and design considerations
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
                 <h4 className="font-medium mb-2">Design Specifications</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li><strong>Size:</strong> 18.4px height × 32px width (h-[1.15rem] w-8)</li>
-                  <li><strong>Border Radius:</strong> Fully rounded (rounded-full)</li>
-                  <li><strong>Thumb Size:</strong> 16px × 16px (size-4)</li>
-                  <li><strong>Focus Ring:</strong> 3px ring with 50% opacity</li>
-                  <li><strong>Shadow:</strong> Subtle shadow (shadow-xs)</li>
+                  <li>
+                    <strong>Size:</strong> 18.4px height × 32px width
+                    (h-[1.15rem] w-8)
+                  </li>
+                  <li>
+                    <strong>Border Radius:</strong> Fully rounded (rounded-full)
+                  </li>
+                  <li>
+                    <strong>Thumb Size:</strong> 16px × 16px (size-4)
+                  </li>
+                  <li>
+                    <strong>Focus Ring:</strong> 3px ring with 50% opacity
+                  </li>
+                  <li>
+                    <strong>Shadow:</strong> Subtle shadow (shadow-xs)
+                  </li>
                 </ul>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Usage Guidelines</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li>Use for binary on/off states (enabled/disabled, yes/no)</li>
+                  <li>
+                    Use for binary on/off states (enabled/disabled, yes/no)
+                  </li>
                   <li>Always pair with descriptive labels for accessibility</li>
                   <li>Provide clear, concise label text</li>
                   <li>Use for settings, preferences, and feature toggles</li>
@@ -190,20 +214,38 @@ export function SwitchDocs() {
               <div>
                 <h4 className="font-medium mb-2">States</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li><strong>Unchecked:</strong> Input color background</li>
-                  <li><strong>Checked:</strong> Primary color background</li>
-                  <li><strong>Disabled:</strong> Reduced opacity and not-allowed cursor</li>
-                  <li><strong>Focus:</strong> Ring indicator for keyboard navigation</li>
-                  <li><strong>Hover:</strong> Smooth transitions for interactive states</li>
+                  <li>
+                    <strong>Unchecked:</strong> Input color background
+                  </li>
+                  <li>
+                    <strong>Checked:</strong> Primary color background
+                  </li>
+                  <li>
+                    <strong>Disabled:</strong> Reduced opacity and not-allowed
+                    cursor
+                  </li>
+                  <li>
+                    <strong>Focus:</strong> Ring indicator for keyboard
+                    navigation
+                  </li>
+                  <li>
+                    <strong>Hover:</strong> Smooth transitions for interactive
+                    states
+                  </li>
                 </ul>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">v0 Integration</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li>Ready for v0.dev integration with proper registry structure</li>
+                  <li>
+                    Ready for v0.dev integration with proper registry structure
+                  </li>
                   <li>Uses design system tokens for consistent theming</li>
-                  <li>Includes data-slot attributes for proper component identification</li>
+                  <li>
+                    Includes data-slot attributes for proper component
+                    identification
+                  </li>
                   <li>Compatible with v0's component system</li>
                 </ul>
               </div>

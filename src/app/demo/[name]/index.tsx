@@ -3,12 +3,12 @@ import type { ReactElement, ReactNode } from "react";
 // blocks
 import { blank } from "@/app/demo/[name]/blocks/blank";
 import { dashboard } from "@/app/demo/[name]/blocks/dashboard";
-import { starterTemplate } from "@/app/demo/[name]/blocks/starter-template";
-import { twoPanelLayout } from "@/app/demo/[name]/blocks/two-panel-layout";
-import { threePanelLayout } from "@/app/demo/[name]/blocks/three-panel-layout";
-import { singlePanelLayout } from "@/app/demo/[name]/blocks/single-panel-layout";
 import { filteredContentLayout } from "@/app/demo/[name]/blocks/filtered-content-layout";
 import { mapLayout } from "@/app/demo/[name]/blocks/map-layout";
+import { singlePanelLayout } from "@/app/demo/[name]/blocks/single-panel-layout";
+import { starterTemplate } from "@/app/demo/[name]/blocks/starter-template";
+import { threePanelLayout } from "@/app/demo/[name]/blocks/three-panel-layout";
+import { twoPanelLayout } from "@/app/demo/[name]/blocks/two-panel-layout";
 
 // components
 import { brandHeader } from "@/app/demo/[name]/components/brand-header";
@@ -18,9 +18,9 @@ import { header } from "@/app/demo/[name]/components/header";
 import { hero } from "@/app/demo/[name]/components/hero";
 import { login } from "@/app/demo/[name]/components/login";
 import { logo } from "@/app/demo/[name]/components/logo";
+import { map } from "@/app/demo/[name]/components/map";
 import { productGrid } from "@/app/demo/[name]/components/product-grid";
 import { promo } from "@/app/demo/[name]/components/promo";
-import { map } from "@/app/demo/[name]/components/map";
 
 // ui
 import { accordion } from "@/app/demo/[name]/ui/accordion";
@@ -36,9 +36,8 @@ import { card } from "@/app/demo/[name]/ui/card";
 import { carousel } from "@/app/demo/[name]/ui/carousel";
 import { chart } from "@/app/demo/[name]/ui/chart";
 import { checkbox } from "@/app/demo/[name]/ui/checkbox";
-import { panel } from "@/app/demo/[name]/ui/panel";
-import { combobox } from "@/app/demo/[name]/ui/combobox";
 import { collapsible } from "@/app/demo/[name]/ui/collapsible";
+import { combobox } from "@/app/demo/[name]/ui/combobox";
 import { command } from "@/app/demo/[name]/ui/command";
 import { contextMenu } from "@/app/demo/[name]/ui/context-menu";
 import { dataTable } from "@/app/demo/[name]/ui/data-table";
@@ -50,10 +49,11 @@ import { drawer } from "@/app/demo/[name]/ui/drawer";
 import { dropdownMenu } from "@/app/demo/[name]/ui/dropdown-menu";
 import { form } from "@/app/demo/[name]/ui/form";
 import { hoverCard } from "@/app/demo/[name]/ui/hover-card";
+import { icons } from "@/app/demo/[name]/ui/icons";
 import { input } from "@/app/demo/[name]/ui/input";
 import { inputOtp } from "@/app/demo/[name]/ui/input-otp";
-import { icons } from "@/app/demo/[name]/ui/icons";
 import { label } from "@/app/demo/[name]/ui/label";
+import { panel } from "@/app/demo/[name]/ui/panel";
 
 import { menubar } from "@/app/demo/[name]/ui/menubar";
 import { navigationMenu } from "@/app/demo/[name]/ui/navigation-menu";
@@ -141,7 +141,7 @@ export const demos: { [name: string]: Demo } = {
   icons,
   label,
 
-  "menubar": menubar,
+  menubar: menubar,
   "navigation-menu": navigationMenu,
   pagination,
   popover,

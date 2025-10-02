@@ -14,8 +14,8 @@
  * @returns JSX element with two-panel layout
  */
 import { Panel } from "@/components/panel";
-import { Header } from "@/components/ui/header";
 import { Button } from "@/components/ui/button";
+import { Header } from "@/components/ui/header";
 
 export default function TwoPanelLayoutPage() {
   return (
@@ -24,13 +24,9 @@ export default function TwoPanelLayoutPage() {
       <Header
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Weather Dashboard" }
+          { label: "Weather Dashboard" },
         ]}
-        rightContent={
-          <Button variant="outline">
-            Settings
-          </Button>
-        }
+        rightContent={<Button variant="outline">Settings</Button>}
       />
 
       {/* Two Panel Layout */}
@@ -41,7 +37,11 @@ export default function TwoPanelLayoutPage() {
           responsive={{ md: "fit" }}
           title="Left Panel"
           className="w-full md:max-w-[320px] md:w-[30%] h-full"
-          footer={<span className="text-sm text-muted-foreground">Left Panel Footer</span>}
+          footer={
+            <span className="text-sm text-muted-foreground">
+              Left Panel Footer
+            </span>
+          }
         >
           {/* Panel content area - ready for your content */}
         </Panel>
@@ -53,7 +53,11 @@ export default function TwoPanelLayoutPage() {
           title="Right Panel"
           className="w-full md:w-[70%] h-full"
           borderRight={false}
-          footer={<span className="text-sm text-muted-foreground">Right Panel Footer</span>}
+          footer={
+            <span className="text-sm text-muted-foreground">
+              Right Panel Footer
+            </span>
+          }
         >
           {/* Panel content area - ready for your content */}
         </Panel>

@@ -1,5 +1,11 @@
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { AlertCircle, Terminal, Info, CheckCircle, AlertTriangle } from "lucide-react";
+import {
+  AlertCircle,
+  AlertTriangle,
+  CheckCircle,
+  Info,
+  Terminal,
+} from "lucide-react";
 
 export const alert = {
   name: "alert",

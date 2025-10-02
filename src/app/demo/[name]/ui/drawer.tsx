@@ -32,9 +32,7 @@ export const drawer = {
                   -
                 </Button>
                 <div className="flex-1 text-center">
-                  <div className="text-7xl font-bold tracking-tighter">
-                    0
-                  </div>
+                  <div className="text-7xl font-bold tracking-tighter">0</div>
                   <div className="text-xs text-muted-foreground">
                     CALORIES/DAY
                   </div>

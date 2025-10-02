@@ -203,34 +203,34 @@
       "type": "registry:block",
       "title": "Starter Template",
       "description": "A complete starter template with sidebar, header, and helpful content to get you started quickly",
-        "registryDependencies": [
-          "sidebar",
-          "button",
-          "avatar",
-          "input",
-          "icons",
-          "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
-          "https://eco-design-system-2.vercel.app/r/components/panel.json",
-          "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
-          "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
-          "https://eco-design-system-2.vercel.app/r/themes/theme.json"
-        ],
-        "files": [
-          {
-            "path": "src/layouts/shell-layout.tsx",
-            "type": "registry:file",
-            "target": "app/layout.tsx"
-          },
-          {
-            "path": "src/app/demo/[name]/blocks/starter-template-page.tsx",
-            "type": "registry:page",
-            "target": "app/page.tsx"
-          },
-          {
-            "path": "src/components/panel.tsx",
-            "type": "registry:component"
-          }
-        ]
+      "registryDependencies": [
+        "sidebar",
+        "button",
+        "avatar",
+        "input",
+        "icons",
+        "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
+        "https://eco-design-system-2.vercel.app/r/components/panel.json",
+        "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
+        "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/layouts/shell-layout.tsx",
+          "type": "registry:file",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "src/app/demo/[name]/blocks/starter-template-page.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        },
+        {
+          "path": "src/components/panel.tsx",
+          "type": "registry:component"
+        }
+      ]
     },
     {
       "name": "two-panel-layout",
@@ -721,9 +721,7 @@
         "popover",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
-      "dependencies": [
-        "date-fns"
-      ],
+      "dependencies": ["date-fns"],
       "files": [
         {
           "path": "src/components/ui/date-picker.tsx",
@@ -776,9 +774,7 @@
         "table",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
-      "dependencies": [
-        "@tanstack/react-table"
-      ],
+      "dependencies": ["@tanstack/react-table"],
       "files": [
         {
           "path": "src/components/ui/data-table.tsx",
@@ -865,7 +861,6 @@
         }
       ]
     },
-
 
     {
       "name": "select",
@@ -1263,39 +1258,36 @@
           "type": "registry:component"
         }
       ]
-  },
-  {
-    "name": "data-table-toolbar",
-    "type": "registry:ui",
-    "title": "Data Table Toolbar",
-    "description": "A flexible toolbar component for data tables with global search functionality. Integrates seamlessly with TanStack Table for filtering across all columns. Features responsive design, accessibility compliance, and extensible architecture for additional toolbar actions.",
-    "registryDependencies": [
-      "button",
-      "input",
-      "https://eco-design-system-2.vercel.app/r/themes/theme.json"
-    ],
-    "dependencies": [
-      "@tanstack/react-table",
-      "lucide-react"
-    ],
-    "files": [
-      {
-        "path": "src/components/ui/data-table-toolbar.tsx",
-        "type": "registry:component"
-      }
-    ],
-    "keywords": [
-      "data-table",
-      "toolbar",
-      "search",
-      "filter",
-      "tanstack-table",
-      "table-actions",
-      "global-search"
-    ],
-    "category": "Data Display",
-    "tags": ["table", "search", "filter", "toolbar"]
-  },
+    },
+    {
+      "name": "data-table-toolbar",
+      "type": "registry:ui",
+      "title": "Data Table Toolbar",
+      "description": "A flexible toolbar component for data tables with global search functionality. Integrates seamlessly with TanStack Table for filtering across all columns. Features responsive design, accessibility compliance, and extensible architecture for additional toolbar actions.",
+      "registryDependencies": [
+        "button",
+        "input",
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "dependencies": ["@tanstack/react-table", "lucide-react"],
+      "files": [
+        {
+          "path": "src/components/ui/data-table-toolbar.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "keywords": [
+        "data-table",
+        "toolbar",
+        "search",
+        "filter",
+        "tanstack-table",
+        "table-actions",
+        "global-search"
+      ],
+      "category": "Data Display",
+      "tags": ["table", "search", "filter", "toolbar"]
+    },
     {
       "name": "popover",
       "type": "registry:ui",
@@ -1534,9 +1526,7 @@
         "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
-      "dependencies": [
-        "mapbox-gl"
-      ],
+      "dependencies": ["mapbox-gl"],
       "files": [
         {
           "path": "src/layouts/shell-layout.tsx",
@@ -1578,9 +1568,7 @@
         "icons",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
-      "dependencies": [
-        "mapbox-gl"
-      ],
+      "dependencies": ["mapbox-gl"],
       "files": [
         {
           "path": "src/components/ui/map.tsx",

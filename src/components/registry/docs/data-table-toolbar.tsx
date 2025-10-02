@@ -30,11 +30,11 @@
  * @props {string} [className] - Additional CSS classes
  */
 
-import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CodeBlock } from "@/components/ui/code-block";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CodeBlock } from "@/components/ui/code-block";
+import { Search } from "lucide-react";
 
 export function DataTableToolbarDocs() {
   return (
@@ -51,7 +51,8 @@ export function DataTableToolbarDocs() {
             <div>
               <h3 className="text-lg font-semibold mb-2">Default Toolbar</h3>
               <p className="text-sm text-muted-foreground mb-4">
-                A clean toolbar with global search input and space for future features.
+                A clean toolbar with global search input and space for future
+                features.
               </p>
               <div className="w-full border rounded-lg p-4">
                 <div className="flex items-center justify-between space-x-2 py-4">
@@ -74,9 +75,12 @@ export function DataTableToolbarDocs() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-2">With Custom Styling</h3>
+              <h3 className="text-lg font-semibold mb-2">
+                With Custom Styling
+              </h3>
               <p className="text-sm text-muted-foreground mb-4">
-                The toolbar can be customized with additional CSS classes for different layouts.
+                The toolbar can be customized with additional CSS classes for
+                different layouts.
               </p>
               <div className="w-full border rounded-lg p-4">
                 <div className="flex items-center justify-between space-x-2 py-4 bg-muted/50 rounded-md px-4">
@@ -110,7 +114,7 @@ export function DataTableToolbarDocs() {
             <div>
               <h3 className="text-lg font-semibold mb-2">Basic Usage</h3>
               <CodeBlock className="bg-muted p-4 rounded-lg text-sm overflow-x-auto">
-{`import { DataTableToolbar } from "@/components/ui/data-table-toolbar";
+                {`import { DataTableToolbar } from "@/components/ui/data-table-toolbar";
 import { useReactTable, getCoreRowModel, getFilteredRowModel } from "@tanstack/react-table";
 import { useState } from "react";
 
@@ -134,9 +138,11 @@ const table = useReactTable({
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-2">With Custom Styling</h3>
+              <h3 className="text-lg font-semibold mb-2">
+                With Custom Styling
+              </h3>
               <CodeBlock className="bg-muted p-4 rounded-lg text-sm overflow-x-auto">
-{`<DataTableToolbar
+                {`<DataTableToolbar
   table={table}
   globalFilter={globalFilter}
   setGlobalFilter={setGlobalFilter}
@@ -146,9 +152,11 @@ const table = useReactTable({
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-2">Integrated with DataTable</h3>
+              <h3 className="text-lg font-semibold mb-2">
+                Integrated with DataTable
+              </h3>
               <CodeBlock className="bg-muted p-4 rounded-lg text-sm overflow-x-auto">
-{`import { DataTable } from "@/components/ui/data-table";
+                {`import { DataTable } from "@/components/ui/data-table";
 
 function MyDataTable({ data, columns }) {
   return (
@@ -168,7 +176,7 @@ function MyDataTable({ data, columns }) {
             <div>
               <h3 className="text-lg font-semibold mb-2">Standalone Usage</h3>
               <CodeBlock className="bg-muted p-4 rounded-lg text-sm overflow-x-auto">
-{`import { DataTableToolbar } from "@/components/ui/data-table-toolbar";
+                {`import { DataTableToolbar } from "@/components/ui/data-table-toolbar";
 import { useReactTable, getCoreRowModel, getFilteredRowModel, getSortedRowModel, getPaginationRowModel } from "@tanstack/react-table";
 import { useState } from "react";
 
@@ -221,7 +229,9 @@ function MyDataTable({ data, columns }) {
             <div>
               <h3 className="text-lg font-semibold mb-2">When to Use</h3>
               <ul className="text-sm text-muted-foreground ml-4 space-y-1">
-                <li>• When you need to search across all columns in a data table</li>
+                <li>
+                  • When you need to search across all columns in a data table
+                </li>
                 <li>• For complex data tables with multiple columns</li>
                 <li>• When you want a clean, minimal search interface</li>
                 <li>• For applications requiring responsive design</li>
@@ -242,20 +252,27 @@ function MyDataTable({ data, columns }) {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-2">Integration with TanStack Table</h3>
+              <h3 className="text-lg font-semibold mb-2">
+                Integration with TanStack Table
+              </h3>
               <p className="text-sm text-muted-foreground mb-2">
-                The toolbar integrates seamlessly with TanStack Table's global filtering system:
+                The toolbar integrates seamlessly with TanStack Table's global
+                filtering system:
               </p>
               <ul className="text-sm text-muted-foreground ml-4 space-y-1">
                 <li>• Uses the table instance for state management</li>
                 <li>• Connects to globalFilter state</li>
                 <li>• Automatically updates filtered results</li>
-                <li>• Works with all table features (sorting, pagination, etc.)</li>
+                <li>
+                  • Works with all table features (sorting, pagination, etc.)
+                </li>
               </ul>
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-2">Accessibility Features</h3>
+              <h3 className="text-lg font-semibold mb-2">
+                Accessibility Features
+              </h3>
               <ul className="text-sm text-muted-foreground ml-4 space-y-1">
                 <li>• Proper ARIA labels for screen readers</li>
                 <li>• Semantic HTML structure</li>

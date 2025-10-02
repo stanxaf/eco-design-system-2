@@ -42,7 +42,11 @@ export function FontBlock({
             onClick={copyToClipboard}
             aria-label="Copy CSS variable to clipboard"
           >
-            {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+            {copied ? (
+              <Check className="h-3 w-3" />
+            ) : (
+              <Copy className="h-3 w-3" />
+            )}
             <span className="sr-only">Copy CSS variable</span>
           </Button>
         </div>

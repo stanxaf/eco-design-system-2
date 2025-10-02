@@ -42,7 +42,7 @@ function LoginForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
-  };
+  }
 
   return (
     <div className="grid gap-6">

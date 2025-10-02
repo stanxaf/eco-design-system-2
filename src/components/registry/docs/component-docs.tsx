@@ -7,16 +7,16 @@ import { BadgeDocs } from "./badge";
 import { ButtonDocs } from "./button";
 import { CheckboxDocs } from "./checkbox";
 import { ComboboxDocs } from "./combobox";
+import { DataTablePaginationDocs } from "./data-table-pagination";
+import { GenericDocs } from "./generic";
 import { HeaderDocs } from "./header";
 import { InputOTPDocs } from "./input-otp";
 import { NavigationMenuDocs } from "./navigation-menu";
+import { RadioGroupDocs } from "./radio-group";
+import { SelectDocs } from "./select";
+import { SkeletonDocs } from "./skeleton";
 import { SwitchDocs } from "./switch";
 import { TextareaDocs } from "./textarea";
-import { SkeletonDocs } from "./skeleton";
-import { SelectDocs } from "./select";
-import { RadioGroupDocs } from "./radio-group";
-import { DataTablePaginationDocs } from "./data-table-pagination";
-import { GenericDocs } from "./generic";
 
 interface ComponentDocsProps {
   component: Component;

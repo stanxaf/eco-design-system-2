@@ -1,8 +1,8 @@
 "use client";
 
-import * as React from "react";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import type * as React from "react";
 // Removed external component imports for v0 compatibility
 
 /**
@@ -50,7 +50,17 @@ import { Button } from "@/components/ui/button";
  * ```
  */
 
-type ColumnSize = "auto" | "1" | "2" | "3" | "4" | "5" | "6" | "12" | "full" | "fit";
+type ColumnSize =
+  | "auto"
+  | "1"
+  | "2"
+  | "3"
+  | "4"
+  | "5"
+  | "6"
+  | "12"
+  | "full"
+  | "fit";
 
 /**
  * Props for the Panel component
@@ -176,7 +186,7 @@ export function Panel({
         responsiveClasses,
         alignClasses[align],
         justifyClasses[justify],
-        className
+        className,
       )}
       {...props}
     >
@@ -188,8 +198,18 @@ export function Panel({
             <>
               <h6>{title}</h6>
               <Button variant="ghost" size="icon">
-                <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                <svg
+                  className="size-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                  />
                 </svg>
               </Button>
             </>
@@ -198,14 +218,16 @@ export function Panel({
       )}
 
       {children && (
-        <div className={cn(
-          "flex-1 w-full p-3 items-start self-stretch bg-background overflow-y-auto",
-          !hideHeader && "pt-12", // 48px for header + 12px spacing
-          !hideHeader && "pt-[60px]", // 48px for header + 12px spacing
-          hideHeader && "pt-0", // No top padding when header is hidden
-          !hideFooter && footer && "pb-12", // Bottom padding only when footer exists and not hidden
-          hideFooter && "pb-0" // No bottom padding when footer is hidden
-        )}>
+        <div
+          className={cn(
+            "flex-1 w-full p-3 items-start self-stretch bg-background overflow-y-auto",
+            !hideHeader && "pt-12", // 48px for header + 12px spacing
+            !hideHeader && "pt-[60px]", // 48px for header + 12px spacing
+            hideHeader && "pt-0", // No top padding when header is hidden
+            !hideFooter && footer && "pb-12", // Bottom padding only when footer exists and not hidden
+            hideFooter && "pb-0", // No bottom padding when footer is hidden
+          )}
+        >
           {children}
         </div>
       )}

@@ -1,10 +1,13 @@
 "use client";
 
-import * as React from "react";
-import { Check, ChevronsUpDown } from "lucide-react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   Command,
   CommandEmpty,
@@ -18,7 +21,10 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
+import { Check, ChevronsUpDown } from "lucide-react";
+import * as React from "react";
 
 import { CodeBlock } from "@/components/ui/code-block";
 const frameworks = [
@@ -94,7 +100,7 @@ function ComboboxDemo() {
                   <Check
                     className={cn(
                       "ml-auto",
-                      value === framework.value ? "opacity-100" : "opacity-0"
+                      value === framework.value ? "opacity-100" : "opacity-0",
                     )}
                   />
                 </CommandItem>
@@ -126,7 +132,7 @@ function ComboboxForm() {
             role="combobox"
             className={cn(
               "w-[200px] justify-between",
-              !value && "text-muted-foreground"
+              !value && "text-muted-foreground",
             )}
           >
             {value
@@ -154,7 +160,7 @@ function ComboboxForm() {
                     <Check
                       className={cn(
                         "ml-auto",
-                        language.value === value ? "opacity-100" : "opacity-0"
+                        language.value === value ? "opacity-100" : "opacity-0",
                       )}
                     />
                   </CommandItem>
@@ -183,7 +189,9 @@ export function ComboboxDocs() {
           <Card>
             <CardHeader>
               <CardTitle>Combobox Variants</CardTitle>
-              <CardDescription>Different combobox configurations and use cases</CardDescription>
+              <CardDescription>
+                Different combobox configurations and use cases
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
@@ -203,8 +211,10 @@ export function ComboboxDocs() {
               <div>
                 <h4 className="font-medium mb-3">Accessibility Features</h4>
                 <div className="text-sm text-muted-foreground p-3 bg-muted rounded-md">
-                  <strong>Note:</strong> The combobox includes proper ARIA attributes, keyboard navigation,
-                  and screen reader support. It's built using Popover and Command components for enhanced accessibility.
+                  <strong>Note:</strong> The combobox includes proper ARIA
+                  attributes, keyboard navigation, and screen reader support.
+                  It's built using Popover and Command components for enhanced
+                  accessibility.
                 </div>
               </div>
             </CardContent>
@@ -221,7 +231,7 @@ export function ComboboxDocs() {
               <div>
                 <h4 className="font-medium mb-2">Basic Combobox</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`const [open, setOpen] = useState(false);
+                  {`const [open, setOpen] = useState(false);
 const [value, setValue] = useState("");
 
 <Popover open={open} onOpenChange={setOpen}>
@@ -261,7 +271,7 @@ const [value, setValue] = useState("");
               <div>
                 <h4 className="font-medium mb-2">Combobox with Form</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<FormField
+                  {`<FormField
   control={form.control}
   name="language"
   render={({ field }) => (
@@ -308,7 +318,7 @@ const [value, setValue] = useState("");
               <div>
                 <h4 className="font-medium mb-2">Responsive Combobox</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`const isDesktop = useMediaQuery("(min-width: 768px)");
+                  {`const isDesktop = useMediaQuery("(min-width: 768px)");
 
 if (isDesktop) {
   return (
@@ -345,16 +355,30 @@ return (
           <Card>
             <CardHeader>
               <CardTitle>Combobox Guidelines</CardTitle>
-              <CardDescription>Best practices and design considerations</CardDescription>
+              <CardDescription>
+                Best practices and design considerations
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
                 <h4 className="font-medium mb-2">Design Specifications</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li><strong>Width:</strong> Minimum 200px for comfortable interaction</li>
-                  <li><strong>Height:</strong> Button height follows button component standards</li>
-                  <li><strong>Spacing:</strong> Consistent with other form components</li>
-                  <li><strong>Icons:</strong> Chevron down for closed state, up for open state</li>
+                  <li>
+                    <strong>Width:</strong> Minimum 200px for comfortable
+                    interaction
+                  </li>
+                  <li>
+                    <strong>Height:</strong> Button height follows button
+                    component standards
+                  </li>
+                  <li>
+                    <strong>Spacing:</strong> Consistent with other form
+                    components
+                  </li>
+                  <li>
+                    <strong>Icons:</strong> Chevron down for closed state, up
+                    for open state
+                  </li>
                 </ul>
               </div>
 
@@ -362,7 +386,9 @@ return (
                 <h4 className="font-medium mb-2">Usage Guidelines</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
                   <li>Use for single selection from a list of options</li>
-                  <li>Provide clear placeholder text when no option is selected</li>
+                  <li>
+                    Provide clear placeholder text when no option is selected
+                  </li>
                   <li>Include search functionality for long lists</li>
                   <li>Show selected state with checkmark icon</li>
                   <li>Consider responsive behavior on mobile devices</li>
@@ -372,8 +398,12 @@ return (
               <div>
                 <h4 className="font-medium mb-2">Accessibility</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li>Proper ARIA attributes (role="combobox", aria-expanded)</li>
-                  <li>Keyboard navigation support (Arrow keys, Enter, Escape)</li>
+                  <li>
+                    Proper ARIA attributes (role="combobox", aria-expanded)
+                  </li>
+                  <li>
+                    Keyboard navigation support (Arrow keys, Enter, Escape)
+                  </li>
                   <li>Screen reader compatible with Command component</li>
                   <li>Focus management between trigger and content</li>
                   <li>Clear labeling and descriptions</li>
@@ -383,22 +413,46 @@ return (
               <div>
                 <h4 className="font-medium mb-2">States</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li><strong>Default:</strong> Button with placeholder text and chevron</li>
-                  <li><strong>Open:</strong> Popover with search input and options list</li>
-                  <li><strong>Selected:</strong> Shows selected option with checkmark</li>
-                  <li><strong>Searching:</strong> Filters options based on input</li>
-                  <li><strong>Empty:</strong> Shows "No results found" message</li>
+                  <li>
+                    <strong>Default:</strong> Button with placeholder text and
+                    chevron
+                  </li>
+                  <li>
+                    <strong>Open:</strong> Popover with search input and options
+                    list
+                  </li>
+                  <li>
+                    <strong>Selected:</strong> Shows selected option with
+                    checkmark
+                  </li>
+                  <li>
+                    <strong>Searching:</strong> Filters options based on input
+                  </li>
+                  <li>
+                    <strong>Empty:</strong> Shows "No results found" message
+                  </li>
                 </ul>
               </div>
 
               <div>
                 <h4 className="font-medium mb-2">Component Composition</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li><strong>Popover:</strong> Handles positioning and overlay</li>
-                  <li><strong>Command:</strong> Provides search and keyboard navigation</li>
-                  <li><strong>Button:</strong> Serves as the trigger element</li>
-                  <li><strong>Check Icon:</strong> Indicates selected state</li>
-                  <li><strong>Chevron Icon:</strong> Shows open/closed state</li>
+                  <li>
+                    <strong>Popover:</strong> Handles positioning and overlay
+                  </li>
+                  <li>
+                    <strong>Command:</strong> Provides search and keyboard
+                    navigation
+                  </li>
+                  <li>
+                    <strong>Button:</strong> Serves as the trigger element
+                  </li>
+                  <li>
+                    <strong>Check Icon:</strong> Indicates selected state
+                  </li>
+                  <li>
+                    <strong>Chevron Icon:</strong> Shows open/closed state
+                  </li>
                 </ul>
               </div>
             </CardContent>

@@ -1,9 +1,15 @@
 "use client";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { CodeBlock } from "@/components/ui/code-block";
 export function CheckboxDocs() {
@@ -20,7 +26,9 @@ export function CheckboxDocs() {
           <Card>
             <CardHeader>
               <CardTitle>Checkbox Variants</CardTitle>
-              <CardDescription>Different checkbox states and configurations</CardDescription>
+              <CardDescription>
+                Different checkbox states and configurations
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
@@ -50,7 +58,9 @@ export function CheckboxDocs() {
                 <div className="space-y-3">
                   <div className="flex items-center space-x-2">
                     <Checkbox id="terms" />
-                    <Label htmlFor="terms">I agree to the terms and conditions</Label>
+                    <Label htmlFor="terms">
+                      I agree to the terms and conditions
+                    </Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Checkbox id="newsletter" />
@@ -66,8 +76,9 @@ export function CheckboxDocs() {
               <div>
                 <h4 className="font-medium mb-3">Accessibility Features</h4>
                 <div className="text-sm text-muted-foreground p-3 bg-muted rounded-md">
-                  <strong>Note:</strong> The checkbox includes proper ARIA attributes, keyboard navigation,
-                  and screen reader support. Use with Label components for best accessibility.
+                  <strong>Note:</strong> The checkbox includes proper ARIA
+                  attributes, keyboard navigation, and screen reader support.
+                  Use with Label components for best accessibility.
                 </div>
               </div>
             </CardContent>
@@ -84,7 +95,7 @@ export function CheckboxDocs() {
               <div>
                 <h4 className="font-medium mb-2">Basic Checkbox</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<Checkbox id="checkbox" />
+                  {`<Checkbox id="checkbox" />
 <Label htmlFor="checkbox">Checkbox label</Label>`}
                 </CodeBlock>
               </div>
@@ -92,7 +103,7 @@ export function CheckboxDocs() {
               <div>
                 <h4 className="font-medium mb-2">Controlled Checkbox</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`const [checked, setChecked] = useState(false);
+                  {`const [checked, setChecked] = useState(false);
 
 <Checkbox
   id="controlled"
@@ -106,7 +117,7 @@ export function CheckboxDocs() {
               <div>
                 <h4 className="font-medium mb-2">Checkbox with Form</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`<form className="space-y-4">
+                  {`<form className="space-y-4">
   <div className="flex items-center space-x-2">
     <Checkbox id="terms" required />
     <Label htmlFor="terms">I agree to the terms</Label>
@@ -119,7 +130,7 @@ export function CheckboxDocs() {
               <div>
                 <h4 className="font-medium mb-2">Component Implementation</h4>
                 <CodeBlock className="bg-muted p-3 rounded-md text-sm overflow-x-auto">
-{`function Checkbox({
+                  {`function Checkbox({
   className,
   ...props
 }: React.ComponentProps<typeof CheckboxPrimitive.Root>) {
@@ -151,16 +162,26 @@ export function CheckboxDocs() {
           <Card>
             <CardHeader>
               <CardTitle>Checkbox Guidelines</CardTitle>
-              <CardDescription>Best practices and design considerations</CardDescription>
+              <CardDescription>
+                Best practices and design considerations
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
                 <h4 className="font-medium mb-2">Design Specifications</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li><strong>Size:</strong> 16x16px (size-4 in Tailwind)</li>
-                  <li><strong>Border Radius:</strong> 2px rounded corners</li>
-                  <li><strong>Border:</strong> 1px border-interactive color</li>
-                  <li><strong>Focus Ring:</strong> 3px ring with 50% opacity</li>
+                  <li>
+                    <strong>Size:</strong> 16x16px (size-4 in Tailwind)
+                  </li>
+                  <li>
+                    <strong>Border Radius:</strong> 2px rounded corners
+                  </li>
+                  <li>
+                    <strong>Border:</strong> 1px border-interactive color
+                  </li>
+                  <li>
+                    <strong>Focus Ring:</strong> 3px ring with 50% opacity
+                  </li>
                 </ul>
               </div>
 
@@ -171,7 +192,9 @@ export function CheckboxDocs() {
                   <li>Use for multiple choice selections</li>
                   <li>Provide clear, concise label text</li>
                   <li>Group related checkboxes logically</li>
-                  <li>Consider using checkboxes for optional features or settings</li>
+                  <li>
+                    Consider using checkboxes for optional features or settings
+                  </li>
                 </ul>
               </div>
 
@@ -189,11 +212,25 @@ export function CheckboxDocs() {
               <div>
                 <h4 className="font-medium mb-2">States</h4>
                 <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li><strong>Default:</strong> Unchecked with border-interactive</li>
-                  <li><strong>Checked:</strong> Primary color background with check icon</li>
-                  <li><strong>Disabled:</strong> Reduced opacity and not-allowed cursor</li>
-                  <li><strong>Focus:</strong> Ring indicator for keyboard navigation</li>
-                  <li><strong>Invalid:</strong> Destructive color for form validation</li>
+                  <li>
+                    <strong>Default:</strong> Unchecked with border-interactive
+                  </li>
+                  <li>
+                    <strong>Checked:</strong> Primary color background with
+                    check icon
+                  </li>
+                  <li>
+                    <strong>Disabled:</strong> Reduced opacity and not-allowed
+                    cursor
+                  </li>
+                  <li>
+                    <strong>Focus:</strong> Ring indicator for keyboard
+                    navigation
+                  </li>
+                  <li>
+                    <strong>Invalid:</strong> Destructive color for form
+                    validation
+                  </li>
                 </ul>
               </div>
             </CardContent>

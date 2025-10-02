@@ -38,5 +38,6 @@ export const InterSans = Inter({
  * The Inter font is applied through the --font-sans CSS variable.
  */
 export const fontVariables = {
-  "--font-sans": "var(--font-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif",
+  "--font-sans":
+    "var(--font-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif",
 } as const;

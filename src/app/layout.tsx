@@ -1,13 +1,13 @@
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { Inter, Geist_Mono, Montserrat } from "next/font/google";
+import { Geist_Mono, Inter, Montserrat } from "next/font/google";
 import type { ReactNode } from "react";
 
-import { cn } from "@/lib/utils";
-import { Toaster } from "@/components/ui/sonner";
 import { GlobalSearchProvider } from "@/components/global-search/context";
 import { GlobalSearchDialog } from "@/components/global-search/dialog";
+import { Toaster } from "@/components/ui/sonner";
+import { cn } from "@/lib/utils";
 
 import "@/app/globals.css";
 
@@ -40,12 +40,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-              className={cn(
-          InterSans.variable,
-          GeistMono.variable,
-          MontserratSerif.variable,
-          "bg-background text-foreground",
-        )}
+      className={cn(
+        InterSans.variable,
+        GeistMono.variable,
+        MontserratSerif.variable,
+        "bg-background text-foreground",
+      )}
     >
       <meta
         name="robots"

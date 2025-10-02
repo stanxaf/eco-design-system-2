@@ -29,10 +29,11 @@ export default async function RegistryItemPage({
   }
 
   // Get the base URL for the registry
-  const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL ||
-                  process.env.NEXT_PUBLIC_SITE_URL ||
-                  process.env.VERCEL_URL ||
-                  "localhost:3000";
+  const baseUrl =
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ||
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    process.env.VERCEL_URL ||
+    "localhost:3000";
 
   return (
     <div className="container p-5 md:p-10">
