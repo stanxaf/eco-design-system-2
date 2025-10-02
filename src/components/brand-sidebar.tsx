@@ -223,7 +223,7 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                 >
                   <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                     <activeTeam.logo className="size-4" />
-                </div>
+                  </div>
                   <div className="grid flex-1 text-left text-sm leading-tight">
                     <span className="truncate font-semibold">
                       {activeTeam.name}
@@ -257,13 +257,13 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
               </DropdownMenuContent>
             </DropdownMenu>
           </SidebarMenuItem>
-              </SidebarMenu>
+        </SidebarMenu>
       </SidebarHeader>
 
       <SidebarContent>
-          <SidebarGroup>
+        <SidebarGroup>
           <SidebarGroupLabel>Platform</SidebarGroupLabel>
-              <SidebarMenu>
+          <SidebarMenu>
             {data.navMain.map((item) => (
               <Collapsible
                 key={item.title}
@@ -308,35 +308,35 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                     <span>{item.name}</span>
                   </a>
                 </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-          </SidebarGroup>
-        </SidebarContent>
+              </SidebarMenuItem>
+            ))}
+          </SidebarMenu>
+        </SidebarGroup>
+      </SidebarContent>
 
       <SidebarFooter>
-              <SidebarMenu>
-                <SidebarMenuItem>
+        <SidebarMenu>
+          <SidebarMenuItem>
             <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <SidebarMenuButton
+              <DropdownMenuTrigger asChild>
+                <SidebarMenuButton
                   size="lg"
                   className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                 >
                   <Avatar className="h-8 w-8 rounded-lg">
                     <AvatarImage src={data.user.avatar} alt={data.user.name} />
                     <AvatarFallback className="rounded-lg">CN</AvatarFallback>
-                        </Avatar>
+                  </Avatar>
                   <div className="grid flex-1 text-left text-sm leading-tight">
                     <span className="truncate font-semibold">
                       {data.user.name}
-                          </span>
+                    </span>
                     <span className="truncate text-xs">{data.user.email}</span>
                   </div>
                   <ChevronsUpDown className="ml-auto size-4" />
-                      </SidebarMenuButton>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent
+                </SidebarMenuButton>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
                 className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
                 side="bottom"
                 align="end"
@@ -361,22 +361,22 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                     </div>
                   </div>
                 </DropdownMenuLabel>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuGroup>
+                <DropdownMenuSeparator />
+                <DropdownMenuGroup>
                   <DropdownMenuItem>
                     <Settings2 />
                     Account
-                        </DropdownMenuItem>
-                      </DropdownMenuGroup>
-                      <DropdownMenuSeparator />
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
+                <DropdownMenuSeparator />
                 <DropdownMenuItem>
                   <LogOut />
                   Log out
-                        </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </SidebarMenuItem>
-              </SidebarMenu>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
