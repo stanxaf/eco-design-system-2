@@ -141,6 +141,11 @@
           "path": "postcss.config.mjs",
           "type": "registry:file",
           "target": "postcss.config.mjs"
+        },
+        {
+          "path": "src/lib/utils.ts",
+          "type": "registry:file",
+          "target": "src/lib/utils.ts"
         }
       ]
     },
@@ -192,6 +197,11 @@
           "target": "app/layout.tsx"
         },
         {
+          "path": "src/app/providers.tsx",
+          "type": "registry:file",
+          "target": "app/providers.tsx"
+        },
+        {
           "path": "src/app/demo/[name]/blocks/dashboard-page.tsx",
           "type": "registry:page",
           "target": "app/page.tsx"
@@ -220,6 +230,11 @@
           "path": "src/layouts/shell-layout.tsx",
           "type": "registry:file",
           "target": "app/layout.tsx"
+        },
+        {
+          "path": "src/app/providers.tsx",
+          "type": "registry:file",
+          "target": "app/providers.tsx"
         },
         {
           "path": "src/app/demo/[name]/blocks/starter-template-page.tsx",
@@ -257,6 +272,11 @@
           "target": "app/layout.tsx"
         },
         {
+          "path": "src/app/providers.tsx",
+          "type": "registry:file",
+          "target": "app/providers.tsx"
+        },
+        {
           "path": "src/app/demo/[name]/blocks/two-panel-layout-page.tsx",
           "type": "registry:page",
           "target": "app/page.tsx"
@@ -291,6 +311,11 @@
           "target": "app/layout.tsx"
         },
         {
+          "path": "src/app/providers.tsx",
+          "type": "registry:file",
+          "target": "app/providers.tsx"
+        },
+        {
           "path": "src/app/demo/[name]/blocks/three-panel-layout-page.tsx",
           "type": "registry:page",
           "target": "app/page.tsx"
@@ -322,6 +347,11 @@
           "path": "src/layouts/shell-layout.tsx",
           "type": "registry:file",
           "target": "app/layout.tsx"
+        },
+        {
+          "path": "src/app/providers.tsx",
+          "type": "registry:file",
+          "target": "app/providers.tsx"
         },
         {
           "path": "src/app/demo/[name]/blocks/single-panel-layout-page.tsx",
@@ -361,6 +391,11 @@
           "path": "src/layouts/shell-layout.tsx",
           "type": "registry:file",
           "target": "app/layout.tsx"
+        },
+        {
+          "path": "src/app/providers.tsx",
+          "type": "registry:file",
+          "target": "app/providers.tsx"
         },
         {
           "path": "src/app/demo/[name]/blocks/filtered-content-layout-page.tsx",
@@ -1545,6 +1580,11 @@
           "path": "src/layouts/shell-layout.tsx",
           "type": "registry:file",
           "target": "app/layout.tsx"
+        },
+        {
+          "path": "src/app/providers.tsx",
+          "type": "registry:file",
+          "target": "app/providers.tsx"
         },
         {
           "path": "src/app/demo/[name]/blocks/map-layout-page.tsx",

@@ -16,6 +16,12 @@ function buildV0Url(registryUrl: string, title?: string, prompt?: string) {
     params.append("prompt", prompt);
   }
 
+  // Add token if available
+  const token = process.env.NEXT_PUBLIC_REGISTRY_AUTH_TOKEN;
+  if (token) {
+    params.append("token", token);
+  }
+
   return `https://v0.dev/chat/api/open?${params.toString()}`;
 }
 
