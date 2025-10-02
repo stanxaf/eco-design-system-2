@@ -12,6 +12,7 @@ import {
   LogOut,
   Map,
   PieChart,
+  Search,
   Settings2,
   SquareTerminal,
 } from "lucide-react";
@@ -32,6 +33,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
 import {
   Sidebar,
   SidebarContent,
@@ -47,6 +49,7 @@ import {
   SidebarMenuSubItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import { useGlobalSearch } from "@/components/global-search/context";
 
 /**
  * Props for the BrandSidebar component
@@ -209,6 +212,7 @@ const data = {
  */
 export function BrandSidebar({ className }: BrandSidebarProps) {
   const [activeTeam, setActiveTeam] = React.useState(data.teams[0]);
+  const { toggle } = useGlobalSearch();
 
   return (
     <Sidebar collapsible="icon" className={className}>
@@ -261,6 +265,22 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
       </SidebarHeader>
 
       <SidebarContent>
+        {/* Global Search Trigger */}
+        <div className="px-2 py-2 group-data-[collapsible=icon]:hidden">
+          <div className="relative">
+            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+            <Input
+              type="search"
+              placeholder="Search everything... (⌘K)"
+              className="pl-8 cursor-pointer"
+              readOnly
+              onClick={toggle}
+              onFocus={toggle}
+              aria-label="Open global search"
+            />
+          </div>
+        </div>
+
         <SidebarGroup>
           <SidebarGroupLabel>Platform</SidebarGroupLabel>
           <SidebarMenu>

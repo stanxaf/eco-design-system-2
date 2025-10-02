@@ -6,6 +6,8 @@ import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
+import { GlobalSearchProvider } from "@/components/global-search/context";
+import { GlobalSearchDialog } from "@/components/global-search/dialog";
 
 import "@/app/globals.css";
 
@@ -50,7 +52,10 @@ export default function RootLayout({
         content="noindex, nofollow, noarchive, nosnippet, noimageindex"
       />
       <body className="flex grow">
-        {children}
+        <GlobalSearchProvider>
+          {children}
+          <GlobalSearchDialog />
+        </GlobalSearchProvider>
         <Toaster />
         <Analytics />
         <SpeedInsights />
