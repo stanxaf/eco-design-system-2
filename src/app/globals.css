@@ -1109,12 +1109,14 @@
   --color-button-secondary: var(--button-secondary);
   --color-button-secondary-foreground: var(--button-secondary-foreground);
   --color-button-secondary-hover: var(--button-secondary-hover);
+  --color-button-secondary-border: var(--button-secondary-border);
 
   --color-button-destructive: var(--button-destructive);
   --color-button-destructive-foreground: var(--button-destructive-foreground);
   --color-button-destructive-hover: var(--button-destructive-hover);
 
   --color-button-outline: var(--button-outline);
+  --color-button-outline-foreground: var(--button-outline-foreground);
   --color-button-outline-border: var(--button-outline-border);
   --color-button-outline-hover: var(--button-outline-hover);
   --color-button-outline-hover-foreground: var(--button-outline-hover-foreground);
