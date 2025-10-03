@@ -451,11 +451,13 @@
       "files": [
         {
           "path": "src/components/brand-sidebar.tsx",
-          "type": "registry:component"
+          "type": "registry:file",
+          "target": "components/brand-sidebar.tsx"
         },
         {
           "path": "src/components/global-search/context.tsx",
-          "type": "registry:component"
+          "type": "registry:file",
+          "target": "components/global-search/context.tsx"
         },
         {
           "path": "src/lib/global-search-items.ts",
