@@ -2,31 +2,17 @@
   "name": "dashboard",
   "type": "registry:block",
   "title": "Dashboard",
-  "description": "A dashboard application with your brand themed components",
+  "description": "A minimal dashboard application using only shadcn/ui components",
   "registryDependencies": [
-    "https://eco-design-system-2.vercel.app/r/styles/badge.json",
     "https://eco-design-system-2.vercel.app/r/styles/button.json",
-    "https://eco-design-system-2.vercel.app/r/styles/sidebar.json",
-    "https://eco-design-system-2.vercel.app/r/styles/icons.json",
-    "https://eco-design-system-2.vercel.app/r/components/logo.json",
-    "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
-    "https://eco-design-system-2.vercel.app/r/components/panel.json",
-    "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
-    "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
     "https://eco-design-system-2.vercel.app/r/themes/theme.json"
   ],
   "files": [
     {
-      "path": "src/layouts/shell-layout.tsx",
+      "path": "src/layouts/minimal-layout.tsx",
       "type": "registry:file",
       "target": "app/layout.tsx",
-      "content": "import { Geist_Mono, Inter, Montserrat } from \"next/font/google\";\nimport React, { type ReactNode } from \"react\";\n\nimport Providers from \"@/app/providers\";\nimport { cn } from \"@/lib/utils\";\n\nimport \"@/app/globals.css\";\n\nconst InterSans = Inter({\n  subsets: [\"latin\"],\n  variable: \"--font-sans\",\n});\n\nconst GeistMono = Geist_Mono({\n  subsets: [\"latin\"],\n  variable: \"--font-mono\",\n});\n\nconst MontserratSerif = Montserrat({\n  subsets: [\"latin\"],\n  variable: \"--font-serif\",\n});\n\nexport default function ShellLayout({\n  children,\n}: Readonly<{\n  children: ReactNode;\n}>) {\n  return (\n    <html\n      lang=\"en\"\n      className={cn(\n        InterSans.variable,\n        GeistMono.variable,\n        MontserratSerif.variable,\n        \"bg-background text-foreground\",\n      )}\n    >\n      <body>\n        <Providers>{children}</Providers>\n      </body>\n    </html>\n  );\n}\n"
-    },
-    {
-      "path": "src/app/providers.tsx",
-      "type": "registry:file",
-      "target": "app/providers.tsx",
-      "content": "\"use client\";\n\nimport { SidebarInset, SidebarProvider } from \"@/components/ui/sidebar\";\nimport { Toaster } from \"@/components/ui/sonner\";\nimport { BrandHeader } from \"@/components/brand-header\";\nimport { BrandSidebar } from \"@/components/brand-sidebar\";\nimport { GlobalSearchProvider } from \"@/components/global-search/context\";\nimport { type ReactNode } from \"react\";\n\nexport default function Providers({ children }: { children: ReactNode }) {\n  return (\n    <GlobalSearchProvider>\n      <SidebarProvider defaultOpen={false}>\n        <BrandSidebar />\n        <SidebarInset>\n          <BrandHeader />\n          <main className=\"flex w-full flex-1 flex-col\">{children}</main>\n        </SidebarInset>\n        <Toaster />\n      </SidebarProvider>\n    </GlobalSearchProvider>\n  );\n}\n"
+      "content": "import { Geist_Mono, Inter, Montserrat } from \"next/font/google\";\nimport React, { type ReactNode } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nimport \"@/app/globals.css\";\n\nconst InterSans = Inter({\n  subsets: [\"latin\"],\n  variable: \"--font-sans\",\n});\n\nconst GeistMono = Geist_Mono({\n  subsets: [\"latin\"],\n  variable: \"--font-mono\",\n});\n\nconst MontserratSerif = Montserrat({\n  subsets: [\"latin\"],\n  variable: \"--font-serif\",\n});\n\nexport default function RootLayout({\n  children,\n}: Readonly<{\n  children: ReactNode;\n}>) {\n  return (\n    <html\n      lang=\"en\"\n      className={cn(\n        InterSans.variable,\n        GeistMono.variable,\n        MontserratSerif.variable,\n        \"bg-background text-foreground\",\n      )}\n    >\n      <body>\n        <main className=\"flex w-full\">\n          <div className=\"w-full\">{children}</div>\n        </main>\n      </body>\n    </html>\n  );\n}\n"
     },
     {
       "path": "src/app/demo/[name]/blocks/dashboard-page.tsx",

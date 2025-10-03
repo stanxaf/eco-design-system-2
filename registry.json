@@ -182,29 +182,16 @@
       "name": "dashboard",
       "type": "registry:block",
       "title": "Dashboard",
-      "description": "A dashboard application with your brand themed components",
+      "description": "A minimal dashboard application using only shadcn/ui components",
       "registryDependencies": [
-        "badge",
         "button",
-        "sidebar",
-        "https://eco-design-system-2.vercel.app/r/styles/icons.json",
-        "https://eco-design-system-2.vercel.app/r/components/logo.json",
-        "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
-        "https://eco-design-system-2.vercel.app/r/components/panel.json",
-        "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
-        "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
         {
-          "path": "src/layouts/shell-layout.tsx",
+          "path": "src/layouts/minimal-layout.tsx",
           "type": "registry:file",
           "target": "app/layout.tsx"
-        },
-        {
-          "path": "src/app/providers.tsx",
-          "type": "registry:file",
-          "target": "app/providers.tsx"
         },
         {
           "path": "src/app/demo/[name]/blocks/dashboard-page.tsx",
