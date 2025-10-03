@@ -304,4 +304,4 @@ Your app should now be running on [localhost:3000](http://localhost:3000).
 
 `@/lib` contains all business logic & utils
 
-`@/layouts` contains all v0 layouts used in `registry.json`
+`@/layouts` contains all v0 layouts used in `registry.json`# Force deployment
