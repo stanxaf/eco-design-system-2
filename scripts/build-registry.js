@@ -66,7 +66,8 @@ function updateRegistryDependencies(items) {
           } else if (
             componentName.includes("blank") ||
             componentName.includes("dashboard") ||
-            componentName.includes("store")
+            componentName.includes("store") ||
+            componentName.includes("simple-card")
           ) {
             subDir = "blocks";
           } else if (componentName.includes("theme")) {
@@ -92,7 +93,8 @@ function updateRegistryDependencies(items) {
           } else if (
             dep.includes("blank") ||
             dep.includes("dashboard") ||
-            dep.includes("store")
+            dep.includes("store") ||
+            dep.includes("simple-card")
           ) {
             subDir = "blocks";
           } else if (dep.includes("theme")) {
