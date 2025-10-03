@@ -201,6 +201,28 @@
       ]
     },
     {
+      "name": "simple-card",
+      "type": "registry:block",
+      "title": "Simple Card",
+      "description": "A basic card component with no dependencies - perfect for v0 testing",
+      "registryDependencies": [
+        "card",
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/layouts/minimal-layout.tsx",
+          "type": "registry:file",
+          "target": "app/layout.tsx"
+        },
+        {
+          "path": "src/app/demo/[name]/blocks/simple-card-page.tsx",
+          "type": "registry:page",
+          "target": "app/page.tsx"
+        }
+      ]
+    },
+    {
       "name": "starter-template",
       "type": "registry:block",
       "title": "Starter Template",

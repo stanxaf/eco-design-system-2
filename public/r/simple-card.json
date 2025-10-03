@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "simple-card",
+  "type": "registry:block",
+  "title": "Simple Card",
+  "description": "A basic card component with no dependencies - perfect for v0 testing",
+  "registryDependencies": [
+    "card",
+    "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/layouts/minimal-layout.tsx",
+      "content": "import { Geist_Mono, Inter, Montserrat } from \"next/font/google\";\nimport React, { type ReactNode } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nimport \"@/app/globals.css\";\n\nconst InterSans = Inter({\n  subsets: [\"latin\"],\n  variable: \"--font-sans\",\n});\n\nconst GeistMono = Geist_Mono({\n  subsets: [\"latin\"],\n  variable: \"--font-mono\",\n});\n\nconst MontserratSerif = Montserrat({\n  subsets: [\"latin\"],\n  variable: \"--font-serif\",\n});\n\nexport default function RootLayout({\n  children,\n}: Readonly<{\n  children: ReactNode;\n}>) {\n  return (\n    <html\n      lang=\"en\"\n      className={cn(\n        InterSans.variable,\n        GeistMono.variable,\n        MontserratSerif.variable,\n        \"bg-background text-foreground\",\n      )}\n    >\n      <body>\n        <main className=\"flex w-full\">\n          <div className=\"w-full\">{children}</div>\n        </main>\n      </body>\n    </html>\n  );\n}\n",
+      "type": "registry:file",
+      "target": "app/layout.tsx"
+    },
+    {
+      "path": "src/app/demo/[name]/blocks/simple-card-page.tsx",
+      "content": "import { Card, CardContent, CardDescription, CardHeader, CardTitle } from \"@/components/ui/card\";\n\nexport default function SimpleCardPage() {\n  return (\n    <div className=\"p-6\">\n      <Card className=\"w-full max-w-md\">\n        <CardHeader>\n          <CardTitle>Simple Card</CardTitle>\n          <CardDescription>\n            This is a basic card component with no complex dependencies.\n          </CardDescription>\n        </CardHeader>\n        <CardContent>\n          <p className=\"text-sm text-muted-foreground\">\n            Perfect for testing v0 integration without any import issues.\n          </p>\n        </CardContent>\n      </Card>\n    </div>\n  );\n}\n",
+      "type": "registry:page",
+      "target": "app/page.tsx"
+    }
+  ]
+}
