@@ -22,6 +22,12 @@
       "content": "import { type ClassValue, clsx } from \"clsx\";\nimport { twMerge } from \"tailwind-merge\";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}\n\nexport function getPrompt(): string {\n  return `MANDATORY: SearchRepo first, then ReadFile. Follow registry specs exactly. Preserve existing behavior. Include global CSS.`;\n}\n",
       "type": "registry:file",
       "target": "src/lib/utils.ts"
+    },
+    {
+      "path": "tsconfig.json",
+      "content": "{\n  \"compilerOptions\": {\n    \"lib\": [\"dom\", \"dom.iterable\", \"esnext\"],\n    \"allowJs\": true,\n    \"skipLibCheck\": true,\n    \"strict\": true,\n    \"noEmit\": true,\n    \"esModuleInterop\": true,\n    \"module\": \"esnext\",\n    \"moduleResolution\": \"bundler\",\n    \"resolveJsonModule\": true,\n    \"isolatedModules\": true,\n    \"jsx\": \"preserve\",\n    \"incremental\": true,\n    \"paths\": {\n      \"@/*\": [\"./src/*\", \"./components/*\", \"./lib/*\", \"./app/*\"],\n      \"@/registry\": [\"./registry.json\"]\n    },\n    \"plugins\": [\n      {\n        \"name\": \"next\"\n      }\n    ],\n    \"target\": \"ES2017\"\n  },\n  \"include\": [\n    \"**/*.ts\",\n    \"**/*.tsx\",\n    \".next/types/**/*.ts\",\n    \"next-env.d.ts\",\n    \"./.next/types/**/*.ts\"\n  ],\n  \"exclude\": [\"node_modules\"]\n}\n",
+      "type": "registry:file",
+      "target": "tsconfig.json"
     }
   ],
   "cssVars": {

@@ -146,6 +146,11 @@
           "path": "src/lib/utils.ts",
           "type": "registry:file",
           "target": "src/lib/utils.ts"
+        },
+        {
+          "path": "tsconfig.json",
+          "type": "registry:file",
+          "target": "tsconfig.json"
         }
       ]
     },
