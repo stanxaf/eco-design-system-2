@@ -460,7 +460,7 @@
         {
           "path": "src/lib/global-search-items.ts",
           "type": "registry:file",
-          "target": "src/lib/global-search-items.ts"
+          "target": "lib/global-search-items.ts"
         },
         {
           "path": "src/layouts/shell-layout.tsx",
