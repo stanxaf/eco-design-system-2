@@ -26,7 +26,7 @@
       "path": "src/app/providers.tsx",
       "type": "registry:file",
       "target": "app/providers.tsx",
-      "content": "\"use client\";\n\nimport { SidebarInset, SidebarProvider } from \"@/components/ui/sidebar\";\nimport { Toaster } from \"@/components/ui/sonner\";\nimport { BrandHeader } from \"@/components/brand-header\";\nimport { BrandSidebar } from \"@/components/brand-sidebar\";\n// import { GlobalSearchProvider } from \"@/components/global-search/context\";\nimport { type ReactNode } from \"react\";\n\nexport default function Providers({ children }: { children: ReactNode }) {\n  return (\n    // <GlobalSearchProvider>\n      <SidebarProvider defaultOpen={false}>\n        <BrandSidebar />\n        <SidebarInset>\n          <BrandHeader />\n          <main className=\"flex w-full flex-1 flex-col\">{children}</main>\n        </SidebarInset>\n        <Toaster />\n      </SidebarProvider>\n    // </GlobalSearchProvider>\n  );\n}\n"
+      "content": "\"use client\";\n\nimport { SidebarInset, SidebarProvider } from \"@/components/ui/sidebar\";\nimport { Toaster } from \"@/components/ui/sonner\";\nimport { BrandHeader } from \"@/components/brand-header\";\nimport { BrandSidebar } from \"@/components/brand-sidebar\";\nimport { type ReactNode } from \"react\";\n\nexport default function Providers({ children }: { children: ReactNode }) {\n  return (\n    <SidebarProvider defaultOpen={false}>\n      <BrandSidebar />\n      <SidebarInset>\n        <BrandHeader />\n        <main className=\"flex w-full flex-1 flex-col\">{children}</main>\n      </SidebarInset>\n      <Toaster />\n    </SidebarProvider>\n  );\n}\n"
     },
     {
       "path": "src/app/demo/[name]/blocks/three-panel-layout-page.tsx",

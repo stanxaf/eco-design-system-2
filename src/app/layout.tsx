@@ -4,8 +4,6 @@ import type { Metadata } from "next";
 import { Geist_Mono, Inter, Montserrat } from "next/font/google";
 import type { ReactNode } from "react";
 
-// import { GlobalSearchProvider } from "@/components/global-search/context";
-// import { GlobalSearchDialog } from "@/components/global-search/dialog";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
 
@@ -52,10 +50,6 @@ export default function RootLayout({
         content="noindex, nofollow, noarchive, nosnippet, noimageindex"
       />
       <body className="flex grow">
-        {/* <GlobalSearchProvider>
-          {children}
-          <GlobalSearchDialog />
-        </GlobalSearchProvider> */}
         {children}
         <Toaster />
         <Analytics />
