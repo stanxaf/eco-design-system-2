@@ -4,12 +4,12 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Toaster } from "@/components/ui/sonner";
 import { BrandHeader } from "@/components/brand-header";
 import { BrandSidebar } from "@/components/brand-sidebar";
-import { GlobalSearchProvider } from "@/components/global-search/context";
+// import { GlobalSearchProvider } from "@/components/global-search/context";
 import { type ReactNode } from "react";
 
 export default function Providers({ children }: { children: ReactNode }) {
   return (
-    <GlobalSearchProvider>
+    // <GlobalSearchProvider>
       <SidebarProvider defaultOpen={false}>
         <BrandSidebar />
         <SidebarInset>
@@ -18,6 +18,6 @@ export default function Providers({ children }: { children: ReactNode }) {
         </SidebarInset>
         <Toaster />
       </SidebarProvider>
-    </GlobalSearchProvider>
+    // </GlobalSearchProvider>
   );
 }
