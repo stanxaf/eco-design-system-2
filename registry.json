@@ -455,16 +455,6 @@
           "target": "components/brand-sidebar.tsx"
         },
         {
-          "path": "src/components/global-search/context.tsx",
-          "type": "registry:file",
-          "target": "components/global-search/context.tsx"
-        },
-        {
-          "path": "src/lib/global-search-items.ts",
-          "type": "registry:file",
-          "target": "lib/global-search-items.ts"
-        },
-        {
           "path": "src/layouts/shell-layout.tsx",
           "type": "registry:file",
           "target": "app/layout.tsx"

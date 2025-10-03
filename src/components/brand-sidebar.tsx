@@ -18,7 +18,6 @@ import {
 } from "lucide-react";
 import * as React from "react";
 
-// import { useGlobalSearch } from "./global-search/context";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Collapsible,
@@ -219,7 +218,6 @@ export function BrandSidebar({
   forceTeamSwitcherVisible = false,
 }: BrandSidebarProps) {
   const [activeTeam, setActiveTeam] = React.useState(data.teams[0]);
-  // const { toggle } = useGlobalSearch();
 
   // Determine if team switcher should be visible
   const hasMultipleTeams = data.teams.length > 1;
@@ -298,21 +296,6 @@ export function BrandSidebar({
       </SidebarHeader>
 
       <SidebarContent>
-        {/* Global Search Trigger */}
-        {/* <div className="border-b border-sidebar-border px-2 py-2 group-data-[collapsible=icon]:hidden">
-          <div className="relative">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input
-              type="search"
-              placeholder="Search everything... (⌘K)"
-              className="pl-8 cursor-pointer border-none bg-neutral-black"
-              readOnly
-              onClick={toggle}
-              onFocus={toggle}
-              aria-label="Open global search"
-            />
-          </div>
-        </div> */}
 
         <SidebarGroup>
           <SidebarGroupLabel>Platform</SidebarGroupLabel>
