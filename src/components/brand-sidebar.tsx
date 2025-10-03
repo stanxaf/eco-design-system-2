@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import * as React from "react";
 
-import { useGlobalSearch } from "@/components/global-search/context";
+import { useGlobalSearch } from "./global-search/context";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Collapsible,

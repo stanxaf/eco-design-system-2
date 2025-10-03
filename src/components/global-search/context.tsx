@@ -3,7 +3,7 @@
 import {
   type GlobalSearchItem,
   getGlobalSearchItems,
-} from "@/lib/global-search-items";
+} from "../../lib/global-search-items";
 import type React from "react";
 import { createContext, useContext, useEffect, useState } from "react";
 
