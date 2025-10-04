@@ -1,12 +1,6 @@
-"use client";
-
 import { Geist_Mono, Inter, Montserrat } from "next/font/google";
 import React, { type ReactNode } from "react";
 
-import { BrandHeader } from "@/components/brand-header";
-import { BrandSidebar } from "@/components/brand-sidebar";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
 
 import "@/app/globals.css";
@@ -42,14 +36,9 @@ export default function ShellLayout({
       )}
     >
       <body>
-        <SidebarProvider defaultOpen={false}>
-          <BrandSidebar />
-          <SidebarInset>
-            <BrandHeader />
-            <main className="flex w-full flex-1 flex-col">{children}</main>
-          </SidebarInset>
-          <Toaster />
-        </SidebarProvider>
+        <main className="flex w-full">
+          <div className="w-full">{children}</div>
+        </main>
       </body>
     </html>
   );
