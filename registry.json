@@ -432,7 +432,7 @@
       ],
       "files": [
         {
-          "path": "src/app/demo/[name]/components/panel.tsx",
+          "path": "src/components/panel.tsx",
           "type": "registry:component"
         }
       ]
