@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import * as React from "react";
 
-import { useGlobalSearch } from "@/components/global-search/context";
+// import { useGlobalSearch } from "@/components/global-search/context";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Collapsible,
@@ -219,7 +219,11 @@ export function BrandSidebar({
   forceTeamSwitcherVisible = false,
 }: BrandSidebarProps) {
   const [activeTeam, setActiveTeam] = React.useState(data.teams[0]);
-  const { toggle } = useGlobalSearch();
+  // const { toggle } = useGlobalSearch();
+  const toggle = () => {
+    // Placeholder for global search functionality when disabled
+    console.log("Global search toggle (disabled)");
+  };
 
   // Determine if team switcher should be visible
   const hasMultipleTeams = data.teams.length > 1;

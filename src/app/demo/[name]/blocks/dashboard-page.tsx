@@ -1,49 +1,18 @@
 "use client";
 
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { BrandSidebar } from "@/components/brand-sidebar";
 import { Button } from "@/components/ui/button";
 import {
-  Home,
-  BarChart3,
-  Users,
-  Settings,
   Bell,
   Search
 } from "lucide-react";
-
-const sidebarItems = [
-  { title: "Dashboard", icon: Home, url: "#" },
-  { title: "Analytics", icon: BarChart3, url: "#" },
-  { title: "Users", icon: Users, url: "#" },
-  { title: "Settings", icon: Settings, url: "#" },
-];
 
 export default function DashboardPage() {
   return (
     <SidebarProvider>
       <div className="flex h-screen w-full">
-        <Sidebar>
-          <SidebarContent>
-            <SidebarGroup>
-              <SidebarGroupLabel>Navigation</SidebarGroupLabel>
-              <SidebarGroupContent>
-                <SidebarMenu>
-                  {sidebarItems.map((item) => (
-                    <SidebarMenuItem key={item.title}>
-                      <SidebarMenuButton asChild>
-                        <a href={item.url}>
-                          <item.icon className="h-4 w-4" />
-                          <span>{item.title}</span>
-                        </a>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  ))}
-                </SidebarMenu>
-              </SidebarGroupContent>
-            </SidebarGroup>
-          </SidebarContent>
-        </Sidebar>
+        <BrandSidebar />
 
         <main className="flex-1 flex flex-col">
           {/* Header */}

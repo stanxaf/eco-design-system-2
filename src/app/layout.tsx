@@ -8,6 +8,7 @@ import { GlobalSearchProvider } from "@/components/global-search/context";
 import { GlobalSearchDialog } from "@/components/global-search/dialog";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
+import { ENABLE_GLOBAL_SEARCH } from "@/lib/flags";
 
 import "@/app/globals.css";
 
@@ -52,10 +53,14 @@ export default function RootLayout({
         content="noindex, nofollow, noarchive, nosnippet, noimageindex"
       />
       <body className="flex grow">
-        <GlobalSearchProvider>
-          {children}
-          <GlobalSearchDialog />
-        </GlobalSearchProvider>
+        {ENABLE_GLOBAL_SEARCH ? (
+          <GlobalSearchProvider>
+            {children}
+            <GlobalSearchDialog />
+          </GlobalSearchProvider>
+        ) : (
+          children
+        )}
         <Toaster />
         <Analytics />
         <SpeedInsights />
