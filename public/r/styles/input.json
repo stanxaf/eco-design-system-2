@@ -2,16 +2,15 @@
   "name": "input",
   "type": "registry:ui",
   "title": "Input",
-  "description": "Displays a form input field or a component that looks like an input field.",
+  "description": "Displays a form input field or a component that looks like an input field",
   "registryDependencies": [
-    "https://eco-design-system-2.vercel.app/r/styles/input.json",
     "https://eco-design-system-2.vercel.app/r/themes/theme.json"
   ],
   "files": [
     {
-      "path": "src/components/ui/input.tsx",
+      "path": "src/app/demo/[name]/ui/input.tsx",
       "type": "registry:component",
-      "content": "import type * as React from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nfunction Input({ className, type, ...props }: React.ComponentProps<\"input\">) {\n  return (\n    <input\n      type={type}\n      data-slot=\"input\"\n      className={cn(\n        \"flex h-8 w-full min-w-0 rounded-md border border-input bg-transparent px-3 py-1 text-base outline-none transition-[color,box-shadow] selection:bg-primary selection:text-primary-foreground file:inline-flex file:h-7 file:border-0 file:bg-transparent file:font-medium file:text-foreground file:text-sm placeholder:text-muted-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm dark:bg-input/30\",\n        \"focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50\",\n        \"aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40\",\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Input };\n"
+      "content": "import { Button } from \"@/components/ui/button\";\nimport { Input } from \"@/components/ui/input\";\nimport { Label } from \"@/components/ui/label\";\n\nexport const input = {\n  name: \"input\",\n  components: {\n    Default: <Input placeholder=\"Default\" />,\n    Email: <Input type=\"email\" placeholder=\"Email\" />,\n    WithLabel: (\n      <div className=\"grid w-full max-w-sm items-center gap-1.5\">\n        <Label htmlFor=\"email\">Label</Label>\n        <Input type=\"email\" id=\"email\" placeholder=\"With label\" />\n      </div>\n    ),\n    WithButton: (\n      <div className=\"flex w-full max-w-sm items-center space-x-2\">\n        <Input type=\"email\" placeholder=\"With button\" />\n        <Button type=\"submit\">Button</Button>\n      </div>\n    ),\n\n    File: (\n      <div className=\"grid w-full max-w-sm items-center gap-1.5\">\n        <Label htmlFor=\"picture\">File</Label>\n        <Input id=\"picture\" type=\"file\" />\n      </div>\n    ),\n  },\n};\n"
     }
   ]
 }

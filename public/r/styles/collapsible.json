@@ -2,16 +2,15 @@
   "name": "collapsible",
   "type": "registry:ui",
   "title": "Collapsible",
-  "description": "An interactive component which expands/collapses a section.",
+  "description": "An interactive component which expands/collapses a panel",
   "registryDependencies": [
-    "https://eco-design-system-2.vercel.app/r/styles/collapsible.json",
     "https://eco-design-system-2.vercel.app/r/themes/theme.json"
   ],
   "files": [
     {
-      "path": "src/components/ui/collapsible.tsx",
+      "path": "src/app/demo/[name]/ui/collapsible.tsx",
       "type": "registry:component",
-      "content": "\"use client\";\n\nimport * as CollapsiblePrimitive from \"@radix-ui/react-collapsible\";\n\nfunction Collapsible({\n  ...props\n}: React.ComponentProps<typeof CollapsiblePrimitive.Root>) {\n  return <CollapsiblePrimitive.Root data-slot=\"collapsible\" {...props} />;\n}\n\nfunction CollapsibleTrigger({\n  ...props\n}: React.ComponentProps<typeof CollapsiblePrimitive.CollapsibleTrigger>) {\n  return (\n    <CollapsiblePrimitive.CollapsibleTrigger\n      data-slot=\"collapsible-trigger\"\n      {...props}\n    />\n  );\n}\n\nfunction CollapsibleContent({\n  ...props\n}: React.ComponentProps<typeof CollapsiblePrimitive.CollapsibleContent>) {\n  return (\n    <CollapsiblePrimitive.CollapsibleContent\n      data-slot=\"collapsible-content\"\n      {...props}\n    />\n  );\n}\n\nexport { Collapsible, CollapsibleTrigger, CollapsibleContent };\n"
+      "content": "import { Button } from \"@/components/ui/button\";\nimport {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from \"@/components/ui/collapsible\";\nimport { ChevronDown } from \"lucide-react\";\n\nexport const collapsible = {\n  name: \"collapsible\",\n  components: {\n    Default: (\n      <Collapsible className=\"w-[350px] space-y-2\">\n        <div className=\"flex items-center justify-between space-x-4 px-4\">\n          <h4 className=\"text-sm font-medium leading-none\">\n            @peduarte starred 3 repositories\n          </h4>\n          <CollapsibleTrigger asChild>\n            <Button variant=\"ghost\" size=\"sm\" className=\"w-9 p-0\">\n              <ChevronDown className=\"h-4 w-4\" />\n              <span className=\"sr-only\">Toggle</span>\n            </Button>\n          </CollapsibleTrigger>\n        </div>\n        <div className=\"rounded-md border px-4 py-3 font-mono text-sm\">\n          @radix-ui/primitives\n        </div>\n        <CollapsibleContent className=\"space-y-2\">\n          <div className=\"rounded-md border px-4 py-3 font-mono text-sm\">\n            @radix-ui/colors\n          </div>\n          <div className=\"rounded-md border px-4 py-3 font-mono text-sm\">\n            @stitches/react\n          </div>\n        </CollapsibleContent>\n      </Collapsible>\n    ),\n  },\n};\n"
     }
   ]
 }

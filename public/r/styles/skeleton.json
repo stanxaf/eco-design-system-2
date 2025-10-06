@@ -2,16 +2,15 @@
   "name": "skeleton",
   "type": "registry:ui",
   "title": "Skeleton",
-  "description": "Use to show a placeholder while content is loading.",
+  "description": "Use to show a placeholder while content is loading",
   "registryDependencies": [
-    "https://eco-design-system-2.vercel.app/r/styles/skeleton.json",
     "https://eco-design-system-2.vercel.app/r/themes/theme.json"
   ],
   "files": [
     {
-      "path": "src/components/ui/skeleton.tsx",
+      "path": "src/app/demo/[name]/ui/skeleton.tsx",
       "type": "registry:component",
-      "content": "import { cn } from \"@/lib/utils\";\n\nfunction Skeleton({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"skeleton\"\n      className={cn(\"animate-pulse rounded-md bg-muted\", className)}\n      {...props}\n    />\n  );\n}\n\nexport { Skeleton };\n"
+      "content": "import { Skeleton } from \"@/components/ui/skeleton\";\n\nexport const skeleton = {\n  name: \"skeleton\",\n  components: {\n    Default: (\n      <div className=\"flex items-center space-x-4\">\n        <Skeleton className=\"h-12 w-12 rounded-full\" />\n        <div className=\"space-y-2\">\n          <Skeleton className=\"h-4 w-[250px]\" />\n          <Skeleton className=\"h-4 w-[200px]\" />\n        </div>\n      </div>\n    ),\n    Card: (\n      <div className=\"mt-16 flex flex-col space-y-3\">\n        <Skeleton className=\"h-[125px] w-[250px] rounded-xl\" />\n        <div className=\"space-y-2\">\n          <Skeleton className=\"h-4 w-[250px]\" />\n          <Skeleton className=\"h-4 w-[200px]\" />\n        </div>\n      </div>\n    ),\n  },\n};\n"
     }
   ]
 }

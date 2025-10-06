@@ -2,8 +2,9 @@
   "name": "panel",
   "type": "registry:component",
   "title": "Panel",
-  "description": "A flexible panel component for creating responsive layouts and organizing content. Supports header, body, and footer content areas with customizable sizing and alignment.",
+  "description": "A panel component",
   "registryDependencies": [
+    "https://eco-design-system-2.vercel.app/r/styles/card.json",
     "https://eco-design-system-2.vercel.app/r/themes/theme.json"
   ],
   "files": [

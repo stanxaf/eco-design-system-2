@@ -2,25 +2,17 @@
   "name": "product-grid",
   "type": "registry:component",
   "title": "Product Grid",
-  "description": "Product grid displaying all products with API to fetch data",
+  "description": "A product grid component",
   "registryDependencies": [
+    "https://eco-design-system-2.vercel.app/r/styles/card.json",
+    "https://eco-design-system-2.vercel.app/r/styles/button.json",
     "https://eco-design-system-2.vercel.app/r/themes/theme.json"
   ],
   "files": [
     {
-      "path": "src/components/product-grid.tsx",
+      "path": "src/app/demo/[name]/components/product-grid.tsx",
       "type": "registry:component",
-      "content": "\"use client\";\n\nimport { ShoppingCart } from \"lucide-react\";\nimport Link from \"next/link\";\nimport { useState } from \"react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { Card, CardContent, CardFooter } from \"@/components/ui/card\";\nimport type { Product } from \"@/lib/products\";\n\nexport default function ProductGrid({\n  categories,\n  products,\n}: { categories: string[]; products: Product[] }) {\n  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);\n\n  const filteredProducts = selectedCategory\n    ? products.filter((product) => product.category === selectedCategory)\n    : products;\n\n  return (\n    <div className=\"space-y-6\">\n      <div className=\"flex flex-wrap gap-2\">\n        <Button\n          variant={selectedCategory === null ? \"default\" : \"outline\"}\n          onClick={() => setSelectedCategory(null)}\n          className=\"rounded-full\"\n        >\n          All\n        </Button>\n\n        {categories.map((category) => (\n          <Button\n            key={category}\n            variant={selectedCategory === category ? \"default\" : \"outline\"}\n            onClick={() => setSelectedCategory(category)}\n            className=\"rounded-full\"\n          >\n            {category}\n          </Button>\n        ))}\n      </div>\n\n      <div className=\"grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4\">\n        {filteredProducts.map((product) => (\n          <Card key={product.id} className=\"overflow-hidden p-0\">\n            <Link href={`/products/${product.id}`}>\n              <div className=\"flex aspect-square items-center justify-center bg-white p-6\" />\n            </Link>\n\n            <CardContent className=\"p-4\">\n              <Link href={`/products/${product.id}`}>\n                <h3 className=\"font-semibold\">{product.name}</h3>\n                <p className=\"line-clamp-2 text-gray-500 text-sm\">\n                  {product.description}\n                </p>\n              </Link>\n            </CardContent>\n\n            <CardFooter className=\"flex items-center justify-between p-4 pt-0\">\n              <div className=\"font-semibold\">${product.price.toFixed(2)}</div>\n              <Button size=\"sm\">\n                <ShoppingCart className=\"mr-2 size-4\" /> Add\n              </Button>\n            </CardFooter>\n          </Card>\n        ))}\n      </div>\n    </div>\n  );\n}\n"
-    },
-    {
-      "path": "src/lib/products.ts",
-      "type": "registry:lib"
-    },
-    {
-      "path": "src/layouts/minimal-layout.tsx",
-      "type": "registry:file",
-      "target": "app/layout.tsx",
-      "content": "import { Geist_Mono, Inter, Montserrat } from \"next/font/google\";\nimport React, { type ReactNode } from \"react\";\n\nimport { cn } from \"@/lib/utils\";\n\nimport \"@/app/globals.css\";\n\nconst InterSans = Inter({\n  subsets: [\"latin\"],\n  variable: \"--font-sans\",\n});\n\nconst GeistMono = Geist_Mono({\n  subsets: [\"latin\"],\n  variable: \"--font-mono\",\n});\n\nconst MontserratSerif = Montserrat({\n  subsets: [\"latin\"],\n  variable: \"--font-serif\",\n});\n\nexport default function RootLayout({\n  children,\n}: Readonly<{\n  children: ReactNode;\n}>) {\n  return (\n    <html\n      lang=\"en\"\n      className={cn(\n        InterSans.variable,\n        GeistMono.variable,\n        MontserratSerif.variable,\n        \"bg-background text-foreground\",\n      )}\n    >\n      <body>\n        <main className=\"flex w-full\">\n          <div className=\"w-full\">{children}</div>\n        </main>\n      </body>\n    </html>\n  );\n}\n"
+      "content": "import ProductGrid from \"@/components/product-grid\";\nimport { getCategories, getProducts } from \"@/lib/products\";\n\nconst products = await getProducts();\nconst categories = await getCategories();\n\nexport const productGrid = {\n  name: \"product-grid\",\n  components: {\n    Default: <ProductGrid products={products} categories={categories} />,\n  },\n};\n"
     }
   ]
 }
