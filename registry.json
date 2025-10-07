@@ -126,10 +126,9 @@
         "avatar",
         "input",
         "icons",
-        "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
-        "https://eco-design-system-2.vercel.app/r/components/panel.json",
-        "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
-        "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
+        "breadcrumb",
+        "dropdown-menu",
+        "collapsible",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -137,6 +136,16 @@
           "path": "src/layouts/shell-layout.tsx",
           "type": "registry:file",
           "target": "app/layout.tsx"
+        },
+        {
+          "path": "src/components/brand-sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/brand-sidebar.tsx"
+        },
+        {
+          "path": "src/components/ui/header.tsx",
+          "type": "registry:component",
+          "target": "components/ui/header.tsx"
         },
         {
           "path": "src/app/demo/[name]/blocks/two-panel-layout-page.tsx",
@@ -160,10 +169,9 @@
         "avatar",
         "input",
         "icons",
-        "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
-        "https://eco-design-system-2.vercel.app/r/components/panel.json",
-        "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
-        "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
+        "breadcrumb",
+        "dropdown-menu",
+        "collapsible",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -171,6 +179,16 @@
           "path": "src/layouts/shell-layout.tsx",
           "type": "registry:file",
           "target": "app/layout.tsx"
+        },
+        {
+          "path": "src/components/brand-sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/brand-sidebar.tsx"
+        },
+        {
+          "path": "src/components/ui/header.tsx",
+          "type": "registry:component",
+          "target": "components/ui/header.tsx"
         },
         {
           "path": "src/app/demo/[name]/blocks/three-panel-layout-page.tsx",

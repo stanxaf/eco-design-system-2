@@ -2,6 +2,7 @@
  * Two Panel Layout Page Component
  *
  * A layout with two side-by-side panels:
+ * - BrandSidebar for navigation
  * - Header with breadcrumbs for navigation
  * - Left panel: max 320px width with clean panel structure
  * - Right panel: 70% width with clean panel structure
@@ -13,15 +14,19 @@
  *
  * @returns JSX element with two-panel layout
  */
+import { BrandSidebar } from "@/components/brand-sidebar";
 import { Panel } from "@/components/panel";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/ui/header";
+import { SidebarProvider } from "@/components/ui/sidebar";
 
 export default function TwoPanelLayoutPage() {
   return (
-    <div className="w-full h-screen flex flex-col">
-      {/* Header with breadcrumbs */}
-      <Header
+    <SidebarProvider>
+      <BrandSidebar />
+      <main className="flex-1 flex flex-col">
+        {/* Header with breadcrumbs */}
+        <Header
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Weather Dashboard" },
@@ -62,6 +67,7 @@ export default function TwoPanelLayoutPage() {
           {/* Panel content area - ready for your content */}
         </Panel>
       </div>
-    </div>
+      </main>
+    </SidebarProvider>
   );
 }

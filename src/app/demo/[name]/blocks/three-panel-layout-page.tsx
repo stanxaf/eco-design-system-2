@@ -2,6 +2,7 @@
  * Three Panel Layout Page Component
  *
  * A layout with three side-by-side panels:
+ * - BrandSidebar for navigation
  * - Header with custom left content for navigation
  * - Left panel: Fixed width, max 280px with clean panel structure
  * - Center panel: Flexible width with clean panel structure
@@ -15,16 +16,20 @@
  *
  * @returns JSX element with three-panel layout
  */
+import { BrandSidebar } from "@/components/brand-sidebar";
 import { Panel } from "@/components/panel";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/ui/header";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { Inbox, Settings } from "lucide-react";
 
 export default function ThreePanelLayoutPage() {
   return (
-    <div className="w-full h-screen flex flex-col">
-      {/* Header with custom left content */}
-      <Header
+    <SidebarProvider>
+      <BrandSidebar />
+      <main className="flex-1 flex flex-col">
+        {/* Header with custom left content */}
+        <Header
         leftContent={
           <div className="flex items-center gap-3">
             <Button variant="ghost" size="icon">
@@ -90,6 +95,7 @@ export default function ThreePanelLayoutPage() {
           {/* Panel content area - ready for your content */}
         </Panel>
       </div>
-    </div>
+      </main>
+    </SidebarProvider>
   );
 }
