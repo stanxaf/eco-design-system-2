@@ -228,6 +228,11 @@
         "avatar",
         "input",
         "icons",
+        "breadcrumb",
+        "checkbox",
+        "label",
+        "select",
+        "slider",
         "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
         "https://eco-design-system-2.vercel.app/r/components/panel.json",
         "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
@@ -239,6 +244,11 @@
           "path": "src/layouts/shell-layout.tsx",
           "type": "registry:file",
           "target": "app/layout.tsx"
+        },
+        {
+          "path": "src/components/ui/header.tsx",
+          "type": "registry:component",
+          "target": "components/ui/header.tsx"
         },
         {
           "path": "src/app/demo/[name]/blocks/filtered-content-layout-page.tsx",
@@ -728,7 +738,7 @@
       "name": "context-menu",
       "type": "registry:ui",
       "title": "Context Menu",
-      "description": "Displays a menu to the user — such as a set of actions or functions — triggered by a right-click",
+      "description": "Displays a menu to the user \u2014 such as a set of actions or functions \u2014 triggered by a right-click",
       "registryDependencies": [
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
@@ -845,7 +855,7 @@
       "name": "dropdown-menu",
       "type": "registry:ui",
       "title": "Dropdown Menu",
-      "description": "Displays a menu to the user — such as a set of actions or functions — triggered by a button",
+      "description": "Displays a menu to the user \u2014 such as a set of actions or functions \u2014 triggered by a button",
       "registryDependencies": [
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
@@ -1029,7 +1039,7 @@
       "name": "radio-group",
       "type": "registry:ui",
       "title": "Radio Group",
-      "description": "A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time",
+      "description": "A set of checkable buttons\u2014known as radio buttons\u2014where no more than one of the buttons can be checked at a time",
       "registryDependencies": [
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
@@ -1074,7 +1084,7 @@
       "name": "select",
       "type": "registry:ui",
       "title": "Select",
-      "description": "Displays a list of options for the user to pick from—triggered by a button",
+      "description": "Displays a list of options for the user to pick from\u2014triggered by a button",
       "registryDependencies": [
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
@@ -1210,7 +1220,7 @@
       "name": "tabs",
       "type": "registry:ui",
       "title": "Tabs",
-      "description": "A set of layered sections of content—known as tab panels—that are displayed one at a time",
+      "description": "A set of layered sections of content\u2014known as tab panels\u2014that are displayed one at a time",
       "registryDependencies": [
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
