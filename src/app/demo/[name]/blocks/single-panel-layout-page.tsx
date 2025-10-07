@@ -2,8 +2,9 @@
  * Single Panel Layout Page Component
  *
  * A clean single-panel layout with:
+ * - BrandSidebar for navigation
+ * - Header for page context
  * - Full-width main content panel
- * - Sidebar navigation (via StarterLayout)
  * - Clean, content-focused design
  * - Footer area for pagination, status, or actions
  * - Perfect for documentation, articles, forms, or single-column applications
@@ -13,13 +14,26 @@
  *
  * @returns JSX element with single-panel layout
  */
+import { BrandSidebar } from "@/components/brand-sidebar";
 import { Panel } from "@/components/panel";
+import { Header } from "@/components/ui/header";
+import { SidebarProvider } from "@/components/ui/sidebar";
 
 export default function SinglePanelLayoutPage() {
   return (
-    <div className="w-full h-screen">
-      {/* Single Panel - Full width main content area */}
-      <Panel
+    <SidebarProvider>
+      <BrandSidebar />
+      <main className="flex-1 flex flex-col">
+        {/* Header */}
+        <Header
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Content" },
+          ]}
+        />
+        
+        {/* Single Panel - Full width main content area */}
+        <Panel
         size="full"
         title="Main Content"
         className="w-full h-full"
@@ -32,6 +46,7 @@ export default function SinglePanelLayoutPage() {
       >
         {/* Panel content area - ready for your content */}
       </Panel>
-    </div>
+      </main>
+    </SidebarProvider>
   );
 }

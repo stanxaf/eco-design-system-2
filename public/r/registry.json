@@ -92,10 +92,8 @@
         "https://eco-design-system-2.vercel.app/r/styles/avatar.json",
         "https://eco-design-system-2.vercel.app/r/styles/input.json",
         "https://eco-design-system-2.vercel.app/r/styles/icons.json",
-        "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
-        "https://eco-design-system-2.vercel.app/r/components/panel.json",
-        "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
-        "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
+        "https://eco-design-system-2.vercel.app/r/styles/dropdown-menu.json",
+        "https://eco-design-system-2.vercel.app/r/styles/collapsible.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -103,6 +101,11 @@
           "path": "src/layouts/shell-layout.tsx",
           "type": "registry:file",
           "target": "app/layout.tsx"
+        },
+        {
+          "path": "src/components/brand-sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/brand-sidebar.tsx"
         },
         {
           "path": "src/app/demo/[name]/blocks/starter-template-page.tsx",
@@ -212,10 +215,9 @@
         "https://eco-design-system-2.vercel.app/r/styles/avatar.json",
         "https://eco-design-system-2.vercel.app/r/styles/input.json",
         "https://eco-design-system-2.vercel.app/r/styles/icons.json",
-        "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
-        "https://eco-design-system-2.vercel.app/r/components/panel.json",
-        "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
-        "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
+        "https://eco-design-system-2.vercel.app/r/styles/breadcrumb.json",
+        "https://eco-design-system-2.vercel.app/r/styles/dropdown-menu.json",
+        "https://eco-design-system-2.vercel.app/r/styles/collapsible.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -223,6 +225,16 @@
           "path": "src/layouts/shell-layout.tsx",
           "type": "registry:file",
           "target": "app/layout.tsx"
+        },
+        {
+          "path": "src/components/brand-sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/brand-sidebar.tsx"
+        },
+        {
+          "path": "src/components/ui/header.tsx",
+          "type": "registry:component",
+          "target": "components/ui/header.tsx"
         },
         {
           "path": "src/app/demo/[name]/blocks/single-panel-layout-page.tsx",

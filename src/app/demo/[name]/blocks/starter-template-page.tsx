@@ -2,6 +2,7 @@
  * Starter Template Page Component
  *
  * A minimal starter page that provides:
+ * - BrandSidebar for navigation
  * - Clean, simple layout without panel wrapper
  * - Centered placeholder content
  * - Ready-to-customize foundation
@@ -11,12 +12,20 @@
  *
  * @returns JSX element with simple layout and placeholder content
  */
+import { BrandSidebar } from "@/components/brand-sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
+
 export default function StarterTemplatePage() {
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="text-center">
-        <p className="text-muted-foreground">Your content goes here</p>
-      </div>
-    </div>
+    <SidebarProvider>
+      <BrandSidebar />
+      <main className="flex-1 flex flex-col">
+        <div className="flex items-center justify-center h-full">
+          <div className="text-center">
+            <p className="text-muted-foreground">Your content goes here</p>
+          </div>
+        </div>
+      </main>
+    </SidebarProvider>
   );
 }
