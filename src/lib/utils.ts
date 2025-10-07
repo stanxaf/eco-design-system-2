@@ -6,5 +6,5 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getPrompt(): string {
-  return `MANDATORY: SearchRepo first, then ReadFile. Follow registry specs exactly. Preserve existing behavior. Include global CSS.`;
+  return `Use the Vercel registry URL (https://eco-design-system-2.vercel.app/r/...), NOT GitHub. All blocks are standalone with embedded components. Follow registry specs exactly. Preserve existing behavior. Include global CSS.`;
 }
