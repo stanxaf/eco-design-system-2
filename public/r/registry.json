@@ -251,6 +251,11 @@
           "target": "components/ui/header.tsx"
         },
         {
+          "path": "src/components/ui/sonner.tsx",
+          "type": "registry:component",
+          "target": "components/ui/sonner.tsx"
+        },
+        {
           "path": "src/app/demo/[name]/blocks/filtered-content-layout-page.tsx",
           "type": "registry:page",
           "target": "app/page.tsx"
