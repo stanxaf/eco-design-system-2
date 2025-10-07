@@ -3,20 +3,22 @@
 /**
  * Map Layout Page Component
  *
- * A clean full-screen map layout with panel wrapper:
+ * A full-screen map layout with sidebar navigation:
+ * - BrandSidebar for navigation
  * - Header with breadcrumbs and actions
  * - Full-screen interactive map wrapped in a panel (no panel header/footer)
  * - Panel provides content area only - maximum map space
  * - Responsive design for mobile and desktop
- * - Layout-agnostic - ready for integration with sidebar/header
- * - Uses Panel, Header, Button, and Map components
+ * - Uses Panel, Header, Button, Map, and BrandSidebar components
  *
- * @returns JSX element with full-screen map layout ready for layout integration
+ * @returns JSX element with full-screen map layout with sidebar navigation
  */
+import { BrandSidebar } from "@/components/brand-sidebar";
 import { Panel } from "@/components/panel";
 import { Button } from "@/components/ui/button";
 import { Header } from "@/components/ui/header";
 import { Map } from "@/components/ui/map";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { useState } from "react";
 
 export default function MapLayoutPage() {
@@ -38,41 +40,49 @@ export default function MapLayoutPage() {
   };
 
   return (
-    <div className="w-full h-screen flex flex-col">
-      {/* Header with breadcrumbs */}
-      <Header
-        breadcrumbs={[{ label: "Weather Hub", href: "/" }, { label: "Map" }]}
-        rightContent={<Button variant="outline">Settings</Button>}
-      />
+    <SidebarProvider>
+      <div className="flex h-screen w-full">
+        <BrandSidebar />
+        
+        <main className="flex-1 flex flex-col">
+          <div className="w-full h-screen flex flex-col">
+            {/* Header with breadcrumbs */}
+            <Header
+              breadcrumbs={[{ label: "Weather Hub", href: "/" }, { label: "Map" }]}
+              rightContent={<Button variant="outline">Settings</Button>}
+            />
 
-      {/* Full Screen Map Panel */}
-      <Panel
-        size="full"
-        hideHeader={true}
-        hideFooter={true}
-        className="w-full h-full"
-        borderRight={false}
-      >
-        {/* Map Component - Full screen */}
-        <div className="absolute inset-0 left-0 right-0 top-0 bottom-0">
-          <Map
-            accessToken={MAPBOX_TOKEN}
-            center={mapCenter}
-            zoom={mapZoom}
-            height="100%"
-            width="100%"
-            onMove={handleMapMove}
-            onZoom={handleMapZoom}
-            showControls={false}
-            showNavigation={false}
-            showZoom={false}
-            showGeolocation={false}
-            showReset={false}
-            className="h-full w-full"
-            aria-label="Interactive map"
-          />
-        </div>
-      </Panel>
-    </div>
+            {/* Full Screen Map Panel */}
+            <Panel
+              size="full"
+              hideHeader={true}
+              hideFooter={true}
+              className="w-full h-full"
+              borderRight={false}
+            >
+              {/* Map Component - Full screen */}
+              <div className="absolute inset-0 left-0 right-0 top-0 bottom-0">
+                <Map
+                  accessToken={MAPBOX_TOKEN}
+                  center={mapCenter}
+                  zoom={mapZoom}
+                  height="100%"
+                  width="100%"
+                  onMove={handleMapMove}
+                  onZoom={handleMapZoom}
+                  showControls={false}
+                  showNavigation={false}
+                  showZoom={false}
+                  showGeolocation={false}
+                  showReset={false}
+                  className="h-full w-full"
+                  aria-label="Interactive map"
+                />
+              </div>
+            </Panel>
+          </div>
+        </main>
+      </div>
+    </SidebarProvider>
   );
 }

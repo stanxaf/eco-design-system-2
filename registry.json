@@ -228,6 +228,8 @@
         "avatar",
         "input",
         "icons",
+        "collapsible",
+        "dropdown-menu",
         "breadcrumb",
         "checkbox",
         "label",
@@ -244,6 +246,11 @@
           "path": "src/layouts/shell-layout.tsx",
           "type": "registry:file",
           "target": "app/layout.tsx"
+        },
+        {
+          "path": "src/components/brand-sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/brand-sidebar.tsx"
         },
         {
           "path": "src/components/ui/header.tsx",
@@ -277,6 +284,8 @@
         "avatar",
         "input",
         "icons",
+        "collapsible",
+        "dropdown-menu",
         "breadcrumb",
         "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
         "https://eco-design-system-2.vercel.app/r/components/panel.json",
@@ -289,6 +298,11 @@
           "path": "src/layouts/shell-layout.tsx",
           "type": "registry:file",
           "target": "app/layout.tsx"
+        },
+        {
+          "path": "src/components/brand-sidebar.tsx",
+          "type": "registry:component",
+          "target": "components/brand-sidebar.tsx"
         },
         {
           "path": "src/components/ui/header.tsx",
