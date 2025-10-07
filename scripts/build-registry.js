@@ -228,12 +228,13 @@ registry.items.forEach((item) => {
     );
   }
 
-  // Add file content for component, page, and file types
+  // Add file content for component, page, style, and file types
   if (component.files) {
     component.files.forEach((file) => {
       if (
         (file.type === "registry:component" ||
           file.type === "registry:page" ||
+          file.type === "registry:style" ||
           file.type === "registry:file") &&
         file.path
       ) {
