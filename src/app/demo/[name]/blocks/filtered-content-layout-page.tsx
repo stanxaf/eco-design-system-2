@@ -72,7 +72,7 @@ export default function FilteredContentLayoutPage() {
             <div className="flex flex-col md:flex-row flex-1 overflow-hidden">
               {/* Left Panel - Filters & Controls (max 280px width) */}
               <div
-                className={\`transition-all duration-300 ease-in-out \${isLeftPanelOpen ? "w-full md:max-w-[280px] md:w-[280px] opacity-100" : "w-0 max-w-0 opacity-0 overflow-hidden"}\`}
+                className={`transition-all duration-300 ease-in-out ${isLeftPanelOpen ? "w-full md:max-w-[280px] md:w-[280px] opacity-100" : "w-0 max-w-0 opacity-0 overflow-hidden"}`}
               >
                 <Panel
                   size="fit"
