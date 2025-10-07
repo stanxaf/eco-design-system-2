@@ -35,11 +35,7 @@ export default function ShellLayout({
         "bg-background text-foreground",
       )}
     >
-      <body>
-        <main className="flex w-full">
-          <div className="w-full">{children}</div>
-        </main>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

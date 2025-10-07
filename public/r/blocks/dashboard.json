@@ -31,7 +31,7 @@
       "path": "src/app/demo/[name]/blocks/dashboard-page.tsx",
       "type": "registry:page",
       "target": "app/page.tsx",
-      "content": "\"use client\";\n\nimport { SidebarProvider, SidebarTrigger } from \"@/components/ui/sidebar\";\nimport { BrandSidebar } from \"@/components/brand-sidebar\";\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Bell,\n  Search\n} from \"lucide-react\";\n\nexport default function DashboardPage() {\n  return (\n    <SidebarProvider>\n      <div className=\"flex h-screen w-full\">\n        <BrandSidebar />\n\n        <main className=\"flex-1 flex flex-col\">\n          {/* Content */}\n          <div className=\"flex-1 p-6\">\n            <p className=\"text-sm text-muted-foreground\">Dashboard content placeholder</p>\n          </div>\n        </main>\n      </div>\n    </SidebarProvider>\n  );\n}\n"
+      "content": "\"use client\";\n\nimport { SidebarProvider, SidebarTrigger } from \"@/components/ui/sidebar\";\nimport { BrandSidebar } from \"@/components/brand-sidebar\";\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Bell,\n  Search\n} from \"lucide-react\";\n\nexport default function DashboardPage() {\n  return (\n    <SidebarProvider>\n      <BrandSidebar />\n      <main className=\"flex-1 flex flex-col\">\n        {/* Content */}\n        <div className=\"flex-1 p-6\">\n          <p className=\"text-sm text-muted-foreground\">Dashboard content placeholder</p>\n        </div>\n      </main>\n    </SidebarProvider>\n  );\n}\n"
     }
   ]
 }

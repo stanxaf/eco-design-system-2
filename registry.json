@@ -235,10 +235,6 @@
         "label",
         "select",
         "slider",
-        "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
-        "https://eco-design-system-2.vercel.app/r/components/panel.json",
-        "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
-        "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [
@@ -287,10 +283,6 @@
         "collapsible",
         "dropdown-menu",
         "breadcrumb",
-        "https://eco-design-system-2.vercel.app/r/styles/sonner.json",
-        "https://eco-design-system-2.vercel.app/r/components/panel.json",
-        "https://eco-design-system-2.vercel.app/r/components/brand-header.json",
-        "https://eco-design-system-2.vercel.app/r/components/brand-sidebar.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
       "files": [

@@ -41,13 +41,10 @@ export default function MapLayoutPage() {
 
   return (
     <SidebarProvider>
-      <div className="flex h-screen w-full">
-        <BrandSidebar />
-        
-        <main className="flex-1 flex flex-col">
-          <div className="w-full h-screen flex flex-col">
-            {/* Header with breadcrumbs */}
-            <Header
+      <BrandSidebar />
+      <main className="flex-1 flex flex-col">
+        {/* Header with breadcrumbs */}
+        <Header
               breadcrumbs={[{ label: "Weather Hub", href: "/" }, { label: "Map" }]}
               rightContent={<Button variant="outline">Settings</Button>}
             />
@@ -80,9 +77,7 @@ export default function MapLayoutPage() {
                 />
               </div>
             </Panel>
-          </div>
-        </main>
-      </div>
+      </main>
     </SidebarProvider>
   );
 }

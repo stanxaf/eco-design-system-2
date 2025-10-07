@@ -11,16 +11,13 @@ import {
 export default function DashboardPage() {
   return (
     <SidebarProvider>
-      <div className="flex h-screen w-full">
-        <BrandSidebar />
-
-        <main className="flex-1 flex flex-col">
-          {/* Content */}
-          <div className="flex-1 p-6">
-            <p className="text-sm text-muted-foreground">Dashboard content placeholder</p>
-          </div>
-        </main>
-      </div>
+      <BrandSidebar />
+      <main className="flex-1 flex flex-col">
+        {/* Content */}
+        <div className="flex-1 p-6">
+          <p className="text-sm text-muted-foreground">Dashboard content placeholder</p>
+        </div>
+      </main>
     </SidebarProvider>
   );
 }

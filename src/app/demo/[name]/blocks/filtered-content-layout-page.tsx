@@ -42,13 +42,10 @@ export default function FilteredContentLayoutPage() {
 
   return (
     <SidebarProvider>
-      <div className="flex h-screen w-full">
-        <BrandSidebar />
-        
-        <main className="flex-1 flex flex-col">
-          <div className="w-full h-screen flex flex-col">
-            {/* Header with breadcrumbs */}
-            <Header
+      <BrandSidebar />
+      <main className="flex-1 flex flex-col">
+        {/* Header with breadcrumbs */}
+        <Header
               leftContent={
                 <div className="flex items-center space-x-2">
                   <Button
@@ -396,11 +393,9 @@ export default function FilteredContentLayoutPage() {
                   <p>Content area - ready for your filtered results</p>
                 </div>
               </Panel>
-            </div>
-            <Toaster />
           </div>
-        </main>
-      </div>
+          <Toaster />
+      </main>
     </SidebarProvider>
   );
 }
