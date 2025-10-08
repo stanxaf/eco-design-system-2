@@ -331,7 +331,7 @@ export function BrandSidebarStacked({
       >
         <SidebarHeader className="sticky top-0 z-10 bg-sidebar border-b border-sidebar-border">
           <div className="py-2 px-2" role="banner">
-            <Logo collapsed={isCollapsed} inSidebar={true} />
+            <Logo />
           </div>
         </SidebarHeader>
 
