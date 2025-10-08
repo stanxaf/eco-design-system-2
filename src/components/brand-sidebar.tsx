@@ -65,25 +65,25 @@ interface BrandSidebarProps {
 // teams: [{ name: "Acme Inc", logo: GalleryVerticalEnd, plan: "Enterprise" }]
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "John Doe",
+    email: "john.doe@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
   teams: [
     {
       name: "DTN",
       logo: Logo,
-      plan: "Enterprise",
+      plan: "Identity Management",
     },
     {
       name: "Acme Corp.",
       logo: AudioWaveform,
-      plan: "Startup",
+      plan: "Fuel Hub",
     },
     {
       name: "Evil Corp.",
       logo: Command,
-      plan: "Free",
+      plan: "Weather Hub",
     },
   ],
   navMain: [
