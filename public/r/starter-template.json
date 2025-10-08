@@ -34,6 +34,12 @@
       "target": "components/logo.tsx"
     },
     {
+      "path": "src/components/ui/logo-container.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\n\ninterface LogoContainerProps {\n  logo: React.ComponentType;\n  className?: string;\n}\n\nexport function LogoContainer({\n  logo: LogoComponent,\n  className = \"size-4\",\n}: LogoContainerProps) {\n  return (\n    <div\n      className={cn(\n        \"flex items-center justify-center [&>svg]:max-h-full [&>svg]:max-w-full [&>svg]:h-auto [&>svg]:w-auto\",\n        className,\n      )}\n    >\n      <LogoComponent />\n    </div>\n  );\n}\n\n",
+      "type": "registry:component",
+      "target": "components/ui/logo-container.tsx"
+    },
+    {
       "path": "src/app/demo/[name]/blocks/starter-template-page.tsx",
       "content": "/**\n * Starter Template Page Component\n *\n * A minimal starter page that provides:\n * - BrandSidebar for navigation\n * - Clean, simple layout without panel wrapper\n * - Centered placeholder content\n * - Ready-to-customize foundation\n *\n * This component serves as a blank slate for users to build upon,\n * featuring the complete layout structure with sidebar and header.\n *\n * @returns JSX element with simple layout and placeholder content\n */\nimport { BrandSidebar } from \"@/components/brand-sidebar\";\nimport { SidebarProvider } from \"@/components/ui/sidebar\";\n\nexport default function StarterTemplatePage() {\n  return (\n    <SidebarProvider>\n      <BrandSidebar />\n      <main className=\"flex-1 flex flex-col\">\n        <div className=\"flex items-center justify-center h-full\">\n          <div className=\"text-center\">\n            <p className=\"text-muted-foreground\">Your content goes here</p>\n          </div>\n        </div>\n      </main>\n    </SidebarProvider>\n  );\n}\n",
       "type": "registry:page",

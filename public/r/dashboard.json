@@ -35,6 +35,12 @@
       "target": "components/logo.tsx"
     },
     {
+      "path": "src/components/ui/logo-container.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\n\ninterface LogoContainerProps {\n  logo: React.ComponentType;\n  className?: string;\n}\n\nexport function LogoContainer({\n  logo: LogoComponent,\n  className = \"size-4\",\n}: LogoContainerProps) {\n  return (\n    <div\n      className={cn(\n        \"flex items-center justify-center [&>svg]:max-h-full [&>svg]:max-w-full [&>svg]:h-auto [&>svg]:w-auto\",\n        className,\n      )}\n    >\n      <LogoComponent />\n    </div>\n  );\n}\n\n",
+      "type": "registry:component",
+      "target": "components/ui/logo-container.tsx"
+    },
+    {
       "path": "src/app/demo/[name]/blocks/dashboard-page.tsx",
       "content": "\"use client\";\n\nimport { SidebarProvider, SidebarTrigger } from \"@/components/ui/sidebar\";\nimport { BrandSidebar } from \"@/components/brand-sidebar\";\nimport { Button } from \"@/components/ui/button\";\nimport {\n  Bell,\n  Search\n} from \"lucide-react\";\n\nexport default function DashboardPage() {\n  return (\n    <SidebarProvider>\n      <BrandSidebar />\n      <main className=\"flex-1 flex flex-col\">\n        {/* Content */}\n        <div className=\"flex-1 p-6\">\n          <p className=\"text-sm text-muted-foreground\">Dashboard content placeholder</p>\n        </div>\n      </main>\n    </SidebarProvider>\n  );\n}\n",
       "type": "registry:page",
