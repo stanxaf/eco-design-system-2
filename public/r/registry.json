@@ -123,6 +123,11 @@
           "target": "components/brand-sidebar.tsx"
         },
         {
+          "path": "src/components/logo.tsx",
+          "type": "registry:component",
+          "target": "components/logo.tsx"
+        },
+        {
           "path": "src/app/demo/[name]/blocks/dashboard-page.tsx",
           "type": "registry:page",
           "target": "app/page.tsx"
@@ -154,6 +159,11 @@
           "path": "src/components/brand-sidebar.tsx",
           "type": "registry:component",
           "target": "components/brand-sidebar.tsx"
+        },
+        {
+          "path": "src/components/logo.tsx",
+          "type": "registry:component",
+          "target": "components/logo.tsx"
         },
         {
           "path": "src/app/demo/[name]/blocks/starter-template-page.tsx",
@@ -192,6 +202,11 @@
           "path": "src/components/brand-sidebar.tsx",
           "type": "registry:component",
           "target": "components/brand-sidebar.tsx"
+        },
+        {
+          "path": "src/components/logo.tsx",
+          "type": "registry:component",
+          "target": "components/logo.tsx"
         },
         {
           "path": "src/components/ui/header.tsx",
@@ -237,6 +252,11 @@
           "target": "components/brand-sidebar.tsx"
         },
         {
+          "path": "src/components/logo.tsx",
+          "type": "registry:component",
+          "target": "components/logo.tsx"
+        },
+        {
           "path": "src/components/ui/header.tsx",
           "type": "registry:component",
           "target": "components/ui/header.tsx"
@@ -278,6 +298,11 @@
           "path": "src/components/brand-sidebar.tsx",
           "type": "registry:component",
           "target": "components/brand-sidebar.tsx"
+        },
+        {
+          "path": "src/components/logo.tsx",
+          "type": "registry:component",
+          "target": "components/logo.tsx"
         },
         {
           "path": "src/components/ui/header.tsx",
@@ -327,6 +352,11 @@
           "target": "components/brand-sidebar.tsx"
         },
         {
+          "path": "src/components/logo.tsx",
+          "type": "registry:component",
+          "target": "components/logo.tsx"
+        },
+        {
           "path": "src/components/ui/header.tsx",
           "type": "registry:component",
           "target": "components/ui/header.tsx"
@@ -373,6 +403,11 @@
           "path": "src/components/brand-sidebar.tsx",
           "type": "registry:component",
           "target": "components/brand-sidebar.tsx"
+        },
+        {
+          "path": "src/components/logo.tsx",
+          "type": "registry:component",
+          "target": "components/logo.tsx"
         },
         {
           "path": "src/components/ui/header.tsx",

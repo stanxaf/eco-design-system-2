@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "logo-container",
+  "type": "registry:ui",
+  "title": "Logo Container",
+  "description": "A container component that constrains logo sizes while maintaining aspect ratio",
+  "registryDependencies": [
+    "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/logo-container.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\n\ninterface LogoContainerProps {\n  logo: React.ComponentType;\n  className?: string;\n}\n\nexport function LogoContainer({\n  logo: LogoComponent,\n  className = \"size-4\",\n}: LogoContainerProps) {\n  return (\n    <div\n      className={cn(\n        \"flex items-center justify-center [&>svg]:max-h-full [&>svg]:max-w-full [&>svg]:h-auto [&>svg]:w-auto\",\n        className,\n      )}\n    >\n      <LogoComponent />\n    </div>\n  );\n}\n\n",
+      "type": "registry:ui"
+    }
+  ]
+}
