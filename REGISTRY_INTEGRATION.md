@@ -4,6 +4,16 @@
 
 This guide provides **two proven approaches** to integrate the DTN Design System Registry with your React project. Both methods have been tested and will work regardless of your project setup.
 
+## ⚠️ v0.dev Compatibility
+
+This registry follows special requirements for v0.dev integration.
+**Read [`V0_INTEGRATION.md`](./V0_INTEGRATION.md) before making changes to:**
+- Theme configuration
+- Build scripts
+- Color system
+
+Breaking these requirements will cause v0 to render with default shadcn styles instead of our custom design.
+
 ## 🎯 **Choose Your Approach**
 
 ### **Method 1: Manual Installation (Recommended)**

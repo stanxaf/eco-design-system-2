@@ -16,6 +16,14 @@
 </p>
 <br/>
 
+## 🎨 v0.dev Integration
+
+This design system is optimized for [v0.dev](https://v0.dev).
+
+**Registry URL:** `https://eco-design-system-2.vercel.app/r/registry.json`
+
+⚠️ **Important for Developers:** If modifying the build process or theme, read [`V0_INTEGRATION.md`](./V0_INTEGRATION.md) to maintain v0 compatibility. This ensures v0 can correctly apply your custom styles and colors.
+
 ## Deploy Your Own
 
 You can deploy your own version of the Next.js Registry Starter to Vercel with one click:

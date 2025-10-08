@@ -229,12 +229,14 @@ registry.items.forEach((item) => {
   }
 
   // Add file content for component, page, style, and file types
+  // CRITICAL FOR v0: Must include registry:style to add CSS content to theme.json
+  // Without this, v0 cannot apply custom styles. See V0_INTEGRATION.md for details.
   if (component.files) {
     component.files.forEach((file) => {
       if (
         (file.type === "registry:component" ||
           file.type === "registry:page" ||
-          file.type === "registry:style" ||
+          file.type === "registry:style" ||    // ⚠️ DO NOT REMOVE - Required for v0
           file.type === "registry:file") &&
         file.path
       ) {

@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "biome check",
     "lint:fix": "biome check --write",
-    "registry:build": "npx shadcn@latest build && node scripts/build-registry.js"
+    "registry:build": "npx shadcn@latest build && node scripts/build-registry.js",
+    "verify:v0": "node -e \"const fs=require('fs'); const theme=JSON.parse(fs.readFileSync('public/r/themes/theme.json','utf8')); console.log(theme.cssVars ? '✅ cssVars present' : '❌ cssVars missing'); console.log(theme.files[0].content ? '✅ content present' : '❌ content missing');\""
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.0.0",
