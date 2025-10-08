@@ -425,6 +425,8 @@
         "https://eco-design-system-2.vercel.app/r/styles/avatar.json",
         "https://eco-design-system-2.vercel.app/r/styles/dropdown-menu.json",
         "https://eco-design-system-2.vercel.app/r/styles/collapsible.json",
+        "https://eco-design-system-2.vercel.app/r/styles/logo-container.json",
+        "https://eco-design-system-2.vercel.app/r/components/logo.json",
         "https://eco-design-system-2.vercel.app/r/styles/icons.json",
         "https://eco-design-system-2.vercel.app/r/themes/theme.json"
       ],
@@ -1056,6 +1058,21 @@
         {
           "path": "src/app/demo/[name]/ui/label.tsx",
           "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "logo-container",
+      "type": "registry:ui",
+      "title": "Logo Container",
+      "description": "A container component that constrains logo sizes while maintaining aspect ratio",
+      "registryDependencies": [
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/logo-container.tsx",
+          "type": "registry:ui"
         }
       ]
     },

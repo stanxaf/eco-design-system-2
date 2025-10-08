@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import * as React from "react";
 
+import { Logo } from "@/components/logo";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Collapsible,
@@ -32,6 +33,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { LogoContainer } from "@/components/ui/logo-container";
 import {
   Sidebar,
   SidebarContent,
@@ -70,19 +72,19 @@ const data = {
   teams: [
     {
       name: "DTN",
-      logo: GalleryVerticalEnd,
+      logo: Logo,
       plan: "Enterprise",
     },
-    // {
-    //   name: "Acme Corp.",
-    //   logo: AudioWaveform,
-    //   plan: "Startup",
-    // },
-    // {
-    //   name: "Evil Corp.",
-    //   logo: Command,
-    //   plan: "Free",
-    // },
+    {
+      name: "Acme Corp.",
+      logo: AudioWaveform,
+      plan: "Startup",
+    },
+    {
+      name: "Evil Corp.",
+      logo: Command,
+      plan: "Free",
+    },
   ],
   navMain: [
     {
@@ -223,7 +225,7 @@ export function BrandSidebar({
 
   return (
     <Sidebar collapsible="icon" className={className}>
-      <SidebarHeader className="border-b border-sidebar-border">
+      <SidebarHeader className="min-h-[48px] justify-center border-b border-sidebar-border">
         <SidebarMenu>
           <SidebarMenuItem>
             {showTeamSwitcher ? (
@@ -232,12 +234,10 @@ export function BrandSidebar({
                 <DropdownMenuTrigger asChild>
                   <SidebarMenuButton
                     size="lg"
-                    className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                    className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground group-data-[collapsible=icon]:gap-0 group-data-[collapsible=icon]:justify-center"
                   >
-                    <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                      <activeTeam.logo className="size-4" />
-                    </div>
-                    <div className="grid flex-1 text-left text-sm leading-tight">
+                    <LogoContainer logo={activeTeam.logo} className="size-6" />
+                    <div className="grid flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden group-data-[collapsible=icon]:flex-none">
                       <span className="truncate font-semibold">
                         {activeTeam.name}
                       </span>
@@ -245,7 +245,7 @@ export function BrandSidebar({
                         {activeTeam.plan}
                       </span>
                     </div>
-                    <ChevronsUpDown className="ml-auto" />
+                    <ChevronsUpDown className="ml-auto group-data-[collapsible=icon]:hidden" />
                   </SidebarMenuButton>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
@@ -263,9 +263,7 @@ export function BrandSidebar({
                       onClick={() => setActiveTeam(team)}
                       className="gap-2 p-2"
                     >
-                      <div className="flex size-6 items-center justify-center rounded-sm border">
-                        <team.logo className="size-4 shrink-0" />
-                      </div>
+                      <LogoContainer logo={team.logo} />
                       {team.name}
                     </DropdownMenuItem>
                   ))}
@@ -276,11 +274,10 @@ export function BrandSidebar({
               <SidebarMenuButton
                 size="lg"
                 tooltip={`${activeTeam.name} - ${activeTeam.plan}`}
+                className="group-data-[collapsible=icon]:gap-0 group-data-[collapsible=icon]:justify-center"
               >
-                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <activeTeam.logo className="size-4" />
-                </div>
-                <div className="grid flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden">
+                <LogoContainer logo={activeTeam.logo} className="size-6" />
+                <div className="grid flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden group-data-[collapsible=icon]:flex-none">
                   <span className="truncate font-semibold">
                     {activeTeam.name}
                   </span>
