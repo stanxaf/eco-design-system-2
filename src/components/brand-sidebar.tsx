@@ -315,7 +315,7 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                     className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                   >
                     <Grid3x3 />
-                    <span>DTN Apps</span>
+                    <span className="whitespace-nowrap">DTN Apps</span>
                     <ChevronsUpDown className="ml-auto size-4" />
                   </SidebarMenuButton>
                 </DropdownMenuTrigger>
@@ -352,14 +352,14 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <SidebarMenuButton
-                  size="lg"
+                  size="default"
                   className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                 >
                   <Avatar className="h-8 w-8 -ml-2 group-data-[collapsible=icon]:ml-0">
                     <AvatarImage src={data.user.avatar} alt={data.user.name} />
                     <AvatarFallback>JD</AvatarFallback>
                   </Avatar>
-                  <div className="grid flex-1 text-left text-sm leading-tight">
+                  <div className="grid flex-1 text-left text-sm leading-tight whitespace-nowrap">
                     <span className="truncate font-semibold">
                       {data.user.name}
                     </span>
