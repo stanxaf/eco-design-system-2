@@ -218,6 +218,93 @@ git push
     └── globals.css           # Source of truth for styles
 ```
 
+## How Blocks Work (Standalone with Embedded Components)
+
+Blocks are self-contained packages that include all custom component code directly in their JSON file. This ensures v0 has everything it needs to render the block without missing components.
+
+### Embedded vs Dependencies
+
+When v0 fetches a block JSON (e.g., `/r/blocks/dashboard.json`), it receives:
+
+**Embedded in the JSON (full source code):**
+- ✅ Custom components (BrandSidebar, Logo, Header, Panel, etc.)
+- ✅ Layout files (minimal-layout.tsx, shell-layout.tsx)
+- ✅ Page files (dashboard-page.tsx, etc.)
+
+**Listed as Dependencies (v0 fetches separately):**
+- Standard UI components (button, card, sidebar, input, etc.)
+- Theme configuration (theme.json)
+
+### Example: Dashboard Block Structure
+
+```json
+{
+  "name": "dashboard",
+  "type": "registry:block",
+  "registryDependencies": [
+    "button",     // v0 fetches separately
+    "sidebar",    // v0 fetches separately
+    "theme.json"  // v0 fetches separately
+  ],
+  "files": [
+    {
+      "path": "src/components/brand-sidebar.tsx",
+      "type": "registry:component",
+      "content": "... 400+ lines of full BrandSidebar code ..."
+    },
+    {
+      "path": "src/components/logo.tsx",
+      "type": "registry:component",
+      "content": "... complete Logo component code ..."
+    },
+    {
+      "path": "src/app/demo/[name]/blocks/dashboard-page.tsx",
+      "type": "registry:page",
+      "content": "... complete page implementation ..."
+    }
+  ]
+}
+```
+
+### Why This Matters for v0
+
+**Single Request Efficiency:**
+- v0 gets all custom DTN components in one JSON request
+- No missing components when rendering blocks
+- Custom brand components work out of the box
+
+**Build Script Ensures Content Embedding:**
+
+The `build-registry.js` script (lines 234-249) populates the `content` field for all file types:
+
+```javascript
+if (
+  (file.type === "registry:component" ||
+   file.type === "registry:page" ||
+   file.type === "registry:style" ||
+   file.type === "registry:file") &&
+  file.path
+) {
+  file.content = fs.readFileSync(sourcePath, "utf8");
+}
+```
+
+**Critical:** Don't remove any file types from this condition, or blocks will be missing component code and v0 won't be able to render them properly.
+
+### Verification
+
+To verify a block has all its component code embedded:
+
+```bash
+# Check that files have content
+cat public/r/blocks/dashboard.json | grep '"content"' | wc -l
+# Should match the number of files in the block
+
+# View embedded component
+cat public/r/blocks/dashboard.json | jq '.files[1].content' | head -20
+# Should show actual component source code
+```
+
 ## Registry Dependencies Structure
 
 When referencing dependencies, use FULL URLs for your own registry:
