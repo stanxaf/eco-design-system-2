@@ -348,12 +348,12 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
 
       <SidebarFooter className="p-0">
         <SidebarMenu>
-          <SidebarMenuItem className="border-t border-sidebar-border p-2">
+          <SidebarMenuItem className="border-t border-sidebar-border py-1 px-2">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <SidebarMenuButton
                   size="lg"
-                  className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                  className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground pl-0"
                 >
                   <Avatar className="h-8 w-8">
                     <AvatarImage src={data.user.avatar} alt={data.user.name} />
@@ -363,14 +363,14 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                     <span className="truncate font-semibold">
                       {data.user.name}
                     </span>
-                    <span className="truncate text-xs">{data.user.email}</span>
+                    {/* <span className="truncate text-xs">{data.user.email}</span> */}
                   </div>
                   <ChevronsUpDown className="ml-auto size-4" />
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
-                side="bottom"
+                side="right"
                 align="end"
                 sideOffset={4}
               >
