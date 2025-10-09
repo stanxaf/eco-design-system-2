@@ -355,7 +355,7 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                   size="default"
                   className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                 >
-                  <Avatar className="h-8 w-8 -ml-2 group-data-[collapsible=icon]:ml-0">
+                  <Avatar className="h-8 w-8 -ml-2">
                     <AvatarImage src={data.user.avatar} alt={data.user.name} />
                     <AvatarFallback>JD</AvatarFallback>
                   </Avatar>
