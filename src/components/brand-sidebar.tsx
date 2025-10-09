@@ -348,7 +348,7 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
 
       <SidebarFooter className="p-0">
         <SidebarMenu>
-          <SidebarMenuItem className="border-t border-sidebar-border p-2">
+          <SidebarMenuItem className="border-t border-sidebar-border py-1 px-2">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <SidebarMenuButton

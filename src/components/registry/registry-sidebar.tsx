@@ -16,6 +16,7 @@ import { useEffect, useState } from "react";
 
 import { RegistryLogo } from "@/components/registry/registry-logo";
 import { ModeToggle } from "@/components/registry/theme-toggle";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Collapsible,
@@ -127,7 +128,7 @@ export function RegistrySidebar() {
       </SidebarHeader>
 
       <SidebarContent>
-        <ScrollArea className="h-full w-full pr-2">
+        <ScrollArea className="h-full w-full">
           <Collapsible defaultOpen={true} className="group/collapsible">
             <SidebarGroup>
               <CollapsibleTrigger className="w-full">
@@ -203,7 +204,14 @@ export function RegistrySidebar() {
                             onClick={() => setOpenMobile(false)}
                             href={`/registry/${item.name}`}
                           >
-                            {item.title}
+                            <span className="flex items-center justify-between w-full">
+                              {item.title}
+                              {item.badge && item.badge.trim() && (
+                                <Badge variant="default">
+                                  {item.badge}
+                                </Badge>
+                              )}
+                            </span>
                           </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
@@ -241,7 +249,14 @@ export function RegistrySidebar() {
                             onClick={() => setOpenMobile(false)}
                             href={`/registry/${item.name}`}
                           >
-                            {item.title}
+                            <span className="flex items-center justify-between w-full">
+                              {item.title}
+                              {item.badge && item.badge.trim() && (
+                                <Badge variant="default">
+                                  {item.badge}
+                                </Badge>
+                              )}
+                            </span>
                           </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
@@ -278,7 +293,14 @@ export function RegistrySidebar() {
                             onClick={() => setOpenMobile(false)}
                             href={`/registry/${item.name}`}
                           >
-                            {item.title}
+                            <span className="flex items-center justify-between w-full">
+                              {item.title}
+                              {item.badge && item.badge.trim() && (
+                                <Badge variant="default">
+                                  {item.badge}
+                                </Badge>
+                              )}
+                            </span>
                           </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>

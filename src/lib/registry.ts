@@ -5,6 +5,7 @@ export interface Component {
   type: string;
   title: string;
   description?: string;
+  badge?: string;
   files?: { path: string; type: string; target: string }[];
 }
 
