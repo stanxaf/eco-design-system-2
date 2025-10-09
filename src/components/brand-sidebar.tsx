@@ -56,36 +56,19 @@ import {
 interface BrandSidebarProps {
   /** Additional CSS classes to apply to the sidebar container */
   className?: string;
-  /** Force the team switcher to be visible even with single team (for testing/admin) */
-  forceTeamSwitcherVisible?: boolean;
 }
 
 // This is sample data.
-// QA: To test single team behavior, change teams array to have only one item:
-// teams: [{ name: "Acme Inc", logo: GalleryVerticalEnd, plan: "Enterprise" }]
 const data = {
   user: {
     name: "John Doe",
     email: "john.doe@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
-  teams: [
-    {
-      name: "DTN",
-      logo: Logo,
-      plan: "Identity Management",
-    },
-    {
-      name: "Acme Corp.",
-      logo: AudioWaveform,
-      plan: "Fuel Hub",
-    },
-    {
-      name: "Evil Corp.",
-      logo: Command,
-      plan: "Weather Hub",
-    },
-  ],
+  product: {
+    name: "Fuel Hub",
+    logo: Logo,
+  },
   navMain: [
     {
       title: "Playground",
@@ -213,81 +196,19 @@ const data = {
  * </SidebarProvider>
  * ```
  */
-export function BrandSidebar({
-  className,
-  forceTeamSwitcherVisible = false,
-}: BrandSidebarProps) {
-  const [activeTeam, setActiveTeam] = React.useState(data.teams[0]);
-
-  // Determine if team switcher should be visible
-  const hasMultipleTeams = data.teams.length > 1;
-  const showTeamSwitcher = hasMultipleTeams || forceTeamSwitcherVisible;
+export function BrandSidebar({ className }: BrandSidebarProps) {
 
   return (
     <Sidebar collapsible="icon" className={className}>
       <SidebarHeader className="min-h-[48px] justify-center border-b border-sidebar-border">
-        <SidebarMenu>
-          <SidebarMenuItem>
-            {showTeamSwitcher ? (
-              // Full dropdown menu for multiple teams or forced visibility
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <SidebarMenuButton
-                    size="lg"
-                    className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground group-data-[collapsible=icon]:gap-0 group-data-[collapsible=icon]:justify-center"
-                  >
-                    <LogoContainer logo={activeTeam.logo} className="size-6" />
-                    <div className="grid flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden group-data-[collapsible=icon]:flex-none">
-                      <span className="truncate font-semibold">
-                        {activeTeam.name}
-                      </span>
-                      <span className="truncate text-xs">
-                        {activeTeam.plan}
-                      </span>
-                    </div>
-                    <ChevronsUpDown className="ml-auto group-data-[collapsible=icon]:hidden" />
-                  </SidebarMenuButton>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent
-                  className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
-                  align="start"
-                  side="bottom"
-                  sideOffset={4}
-                >
-                  <DropdownMenuLabel className="text-xs text-muted-foreground">
-                    Teams
-                  </DropdownMenuLabel>
-                  {data.teams.map((team, index) => (
-                    <DropdownMenuItem
-                      key={team.name}
-                      onClick={() => setActiveTeam(team)}
-                      className="gap-2 p-2"
-                    >
-                      <LogoContainer logo={team.logo} />
-                      {team.name}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
-              // Static display for single team (no dropdown functionality)
-              <SidebarMenuButton
-                size="lg"
-                tooltip={`${activeTeam.name} - ${activeTeam.plan}`}
-                className="group-data-[collapsible=icon]:gap-0 group-data-[collapsible=icon]:justify-center"
-              >
-                <LogoContainer logo={activeTeam.logo} className="size-6" />
-                <div className="grid flex-1 text-left text-sm leading-tight group-data-[collapsible=icon]:hidden group-data-[collapsible=icon]:flex-none">
-                  <span className="truncate font-semibold">
-                    {activeTeam.name}
-                  </span>
-                  <span className="truncate text-xs">{activeTeam.plan}</span>
-                </div>
-                {/* No chevron for single team - static display only */}
-              </SidebarMenuButton>
-            )}
-          </SidebarMenuItem>
-        </SidebarMenu>
+        <div className="flex items-center px-2 py-1.5">
+          <div className="w-6 shrink-0">
+            <LogoContainer logo={data.product.logo} className="size-6" />
+          </div>
+          <span className="ml-2 truncate text-sm font-normal flex-1 group-data-[collapsible=icon]:hidden">
+            {data.product.name}
+          </span>
+        </div>
       </SidebarHeader>
 
       <SidebarContent>
