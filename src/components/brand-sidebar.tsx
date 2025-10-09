@@ -19,6 +19,7 @@ import {
   Map,
   MessageSquare,
   PieChart,
+  Pin,
   Settings2,
   Shield,
   SquareTerminal,
@@ -56,6 +57,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarRail,
+  useSidebar,
 } from "@/components/ui/sidebar";
 
 /**
@@ -226,6 +228,7 @@ const dtnApps = [
  * ```
  */
 export function BrandSidebar({ className }: BrandSidebarProps) {
+  const { state, toggleSidebar } = useSidebar();
 
   return (
     <Sidebar collapsible="icon" className={className}>
@@ -343,9 +346,9 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="border-t border-sidebar-border">
+      <SidebarFooter className="p-0">
         <SidebarMenu>
-          <SidebarMenuItem>
+          <SidebarMenuItem className="border-t border-sidebar-border p-2">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <SidebarMenuButton
@@ -404,6 +407,15 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+          </SidebarMenuItem>
+          <SidebarMenuItem className="border-t border-sidebar-border p-2">
+            <SidebarMenuButton
+              onClick={toggleSidebar}
+              tooltip={state === "collapsed" ? "Pin Sidebar" : "Unpin Sidebar"}
+            >
+              <Pin />
+              <span>{state === "collapsed" ? "Pin Sidebar" : "Unpin Sidebar"}</span>
+            </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>
