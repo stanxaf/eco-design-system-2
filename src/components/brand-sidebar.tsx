@@ -20,6 +20,7 @@ import {
   MessageSquare,
   PieChart,
   Pin,
+  Search,
   Settings2,
   Shield,
   SquareTerminal,
@@ -33,6 +34,14 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import {
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -230,6 +239,18 @@ const dtnApps = [
  */
 export function BrandSidebar({ className }: BrandSidebarProps) {
   const { state, toggleSidebar } = useSidebar();
+  const [open, setOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setOpen((open) => !open);
+      }
+    };
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
+  }, []);
 
   return (
     <Sidebar collapsible="icon" className={className}>
@@ -245,6 +266,17 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
       </SidebarHeader>
 
       <SidebarContent>
+        <SidebarGroup>
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton onClick={() => setOpen(true)} tooltip="Search">
+                <Search />
+                <span>Search...</span>
+                <Kbd className="ml-auto">⌘K</Kbd>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarGroup>
         <SidebarGroup>
           <SidebarGroupLabel>Platform</SidebarGroupLabel>
           <SidebarMenu>
@@ -422,6 +454,73 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
         </SidebarMenu>
       </SidebarFooter>
       <SidebarRail />
+
+      <CommandDialog open={open} onOpenChange={setOpen}>
+        <CommandInput placeholder="Search..." />
+        <CommandList>
+          <CommandEmpty>No results found.</CommandEmpty>
+          <CommandGroup heading="Platform">
+            {data.navMain.map((item) => (
+              <CommandItem
+                key={item.title}
+                onSelect={() => {
+                  window.location.href = item.url;
+                  setOpen(false);
+                }}
+              >
+                {item.icon && <item.icon className="mr-2 h-4 w-4" />}
+                <span>{item.title}</span>
+              </CommandItem>
+            ))}
+          </CommandGroup>
+          <CommandGroup heading="Projects">
+            {data.projects.map((item) => (
+              <CommandItem
+                key={item.name}
+                onSelect={() => {
+                  window.location.href = item.url;
+                  setOpen(false);
+                }}
+              >
+                <item.icon className="mr-2 h-4 w-4" />
+                <span>{item.name}</span>
+              </CommandItem>
+            ))}
+          </CommandGroup>
+          <CommandGroup heading="Applications">
+            {dtnApps.map((app) => (
+              <CommandItem
+                key={app.title}
+                onSelect={() => {
+                  window.location.href = app.url;
+                  setOpen(false);
+                }}
+              >
+                <app.icon className="mr-2 h-4 w-4" />
+                <span>{app.title}</span>
+              </CommandItem>
+            ))}
+          </CommandGroup>
+          <CommandGroup heading="Settings">
+            <CommandItem
+              onSelect={() => {
+                setOpen(false);
+              }}
+            >
+              <Settings2 className="mr-2 h-4 w-4" />
+              <span>Account</span>
+            </CommandItem>
+            <CommandItem
+              onSelect={() => {
+                setOpen(false);
+              }}
+            >
+              <LogOut className="mr-2 h-4 w-4" />
+              <span>Log out</span>
+            </CommandItem>
+          </CommandGroup>
+        </CommandList>
+      </CommandDialog>
     </Sidebar>
   );
 }
