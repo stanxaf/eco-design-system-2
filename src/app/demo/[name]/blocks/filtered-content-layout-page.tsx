@@ -43,7 +43,7 @@ export default function FilteredContentLayoutPage() {
   return (
     <SidebarProvider>
       <BrandSidebar />
-      <main className="flex-1 flex flex-col">
+      <main className="h-screen flex-1 flex flex-col">
         {/* Header with breadcrumbs */}
         <Header
               leftContent={
