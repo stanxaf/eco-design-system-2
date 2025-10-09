@@ -42,6 +42,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Kbd } from "@/components/ui/kbd";
 import { LogoContainer } from "@/components/ui/logo-container";
 import {
   Sidebar,
@@ -415,6 +416,7 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
             >
               <Pin />
               <span>{state === "collapsed" ? "Pin Sidebar" : "Unpin Sidebar"}</span>
+              <Kbd className="ml-auto">⌘B</Kbd>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
