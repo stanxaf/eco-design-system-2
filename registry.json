@@ -1067,7 +1067,7 @@
       ],
       "files": [
         {
-          "path": "src/app/demo/[name]/ui/empty.tsx",
+          "path": "src/components/ui/empty.tsx",
           "type": "registry:component"
         }
       ]
