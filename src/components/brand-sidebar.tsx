@@ -348,16 +348,16 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
 
       <SidebarFooter className="p-0">
         <SidebarMenu>
-          <SidebarMenuItem className="border-t border-sidebar-border py-1 px-2">
+          <SidebarMenuItem className="border-t border-sidebar-border p-2">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <SidebarMenuButton
                   size="lg"
-                  className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground pl-0"
+                  className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                 >
-                  <Avatar className="h-8 w-8">
+                  <Avatar className="h-8 w-8 -ml-2 group-data-[collapsible=icon]:ml-0">
                     <AvatarImage src={data.user.avatar} alt={data.user.name} />
-                    <AvatarFallback>CN</AvatarFallback>
+                    <AvatarFallback>JD</AvatarFallback>
                   </Avatar>
                   <div className="grid flex-1 text-left text-sm leading-tight">
                     <span className="truncate font-semibold">
@@ -381,7 +381,7 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                         src={data.user.avatar}
                         alt={data.user.name}
                       />
-                      <AvatarFallback>CN</AvatarFallback>
+                      <AvatarFallback>JD</AvatarFallback>
                     </Avatar>
                     <div className="grid flex-1 text-left text-sm leading-tight">
                       <span className="truncate font-semibold">
