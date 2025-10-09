@@ -1,0 +1,16 @@
+{
+  "name": "empty",
+  "type": "registry:ui",
+  "title": "Empty",
+  "description": "Display empty states with optional actions and icons",
+  "registryDependencies": [
+    "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/app/demo/[name]/ui/empty.tsx",
+      "type": "registry:component",
+      "content": "import { Button } from \"@/components/ui/button\";\nimport {\n  Empty,\n  EmptyContent,\n  EmptyDescription,\n  EmptyHeader,\n  EmptyMedia,\n  EmptyTitle,\n} from \"@/components/ui/empty\";\nimport { FolderIcon, InboxIcon, SearchIcon } from \"lucide-react\";\n\nexport const empty = {\n  name: \"empty\",\n  components: {\n    Default: (\n      <Empty>\n        <EmptyHeader>\n          <EmptyMedia variant=\"icon\">\n            <InboxIcon />\n          </EmptyMedia>\n          <EmptyTitle>No messages</EmptyTitle>\n          <EmptyDescription>\n            You don't have any messages yet.\n          </EmptyDescription>\n        </EmptyHeader>\n      </Empty>\n    ),\n\n    WithAction: (\n      <Empty>\n        <EmptyHeader>\n          <EmptyMedia variant=\"icon\">\n            <FolderIcon />\n          </EmptyMedia>\n          <EmptyTitle>No projects</EmptyTitle>\n          <EmptyDescription>\n            Get started by creating your first project.\n          </EmptyDescription>\n        </EmptyHeader>\n        <EmptyContent>\n          <Button>Create Project</Button>\n        </EmptyContent>\n      </Empty>\n    ),\n\n    SearchResults: (\n      <Empty>\n        <EmptyHeader>\n          <EmptyMedia variant=\"icon\">\n            <SearchIcon />\n          </EmptyMedia>\n          <EmptyTitle>No results found</EmptyTitle>\n          <EmptyDescription>\n            Try adjusting your search terms.\n          </EmptyDescription>\n        </EmptyHeader>\n      </Empty>\n    ),\n  },\n};\n\n"
+    }
+  ]
+}

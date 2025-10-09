@@ -47,6 +47,7 @@ import { datePicker } from "@/app/demo/[name]/ui/date-picker";
 import { dialog } from "@/app/demo/[name]/ui/dialog";
 import { drawer } from "@/app/demo/[name]/ui/drawer";
 import { dropdownMenu } from "@/app/demo/[name]/ui/dropdown-menu";
+import { empty } from "@/app/demo/[name]/ui/empty";
 import { form } from "@/app/demo/[name]/ui/form";
 import { hoverCard } from "@/app/demo/[name]/ui/hover-card";
 import { icons } from "@/app/demo/[name]/ui/icons";
@@ -134,6 +135,7 @@ export const demos: { [name: string]: Demo } = {
   "data-table-toolbar": dataTableToolbar,
   drawer,
   "dropdown-menu": dropdownMenu,
+  empty,
   form,
   "hover-card": hoverCard,
   input,

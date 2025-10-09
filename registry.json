@@ -1039,6 +1039,21 @@
       ]
     },
     {
+      "name": "empty",
+      "type": "registry:ui",
+      "title": "Empty",
+      "description": "Display empty states with optional actions and icons",
+      "registryDependencies": [
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/app/demo/[name]/ui/empty.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "form",
       "type": "registry:ui",
       "title": "Form",
