@@ -2,17 +2,25 @@
 
 import {
   AudioWaveform,
+  Bell,
   BookOpen,
   Bot,
+  Check,
   ChevronRight,
   ChevronsUpDown,
+  CloudSun,
   Command,
+  Droplet,
   Frame,
   GalleryVerticalEnd,
+  Grid3x3,
+  Leaf,
   LogOut,
   Map,
+  MessageSquare,
   PieChart,
   Settings2,
+  Shield,
   SquareTerminal,
 } from "lucide-react";
 import * as React from "react";
@@ -175,6 +183,27 @@ const data = {
   ],
 };
 
+// Bottom navigation items
+const bottomNav = [
+  {
+    title: "Messages",
+    icon: MessageSquare,
+    url: "#",
+  },
+  {
+    title: "Notifications",
+    icon: Bell,
+    url: "#",
+  },
+];
+
+const dtnApps = [
+  { title: "Identity Management", url: "#", icon: Shield },
+  { title: "Weather Hub", url: "#", icon: CloudSun },
+  { title: "Fuel Hub", url: "#", icon: Droplet },
+  { title: "Sustainability Marketplace", url: "#", icon: Leaf },
+];
+
 /**
  * BrandSidebar - A navigation sidebar component
  *
@@ -261,6 +290,55 @@ export function BrandSidebar({ className }: BrandSidebarProps) {
                 </SidebarMenuButton>
               </SidebarMenuItem>
             ))}
+          </SidebarMenu>
+        </SidebarGroup>
+        <SidebarGroup className="mt-auto">
+          <SidebarMenu>
+            {bottomNav.map((item) => (
+              <SidebarMenuItem key={item.title}>
+                <SidebarMenuButton asChild tooltip={item.title}>
+                  <a href={item.url}>
+                    <item.icon />
+                    <span>{item.title}</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            ))}
+            <SidebarMenuItem>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <SidebarMenuButton
+                    tooltip="DTN Apps"
+                    className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                  >
+                    <Grid3x3 />
+                    <span>DTN Apps</span>
+                    <ChevronsUpDown className="ml-auto size-4" />
+                  </SidebarMenuButton>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
+                  side="right"
+                  align="end"
+                  sideOffset={4}
+                >
+                  <DropdownMenuLabel>DTN Applications</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  {dtnApps.map((app) => {
+                    const isActive = app.title === data.product.name;
+                    return (
+                      <DropdownMenuItem key={app.title} asChild>
+                        <a href={app.url}>
+                          <app.icon />
+                          {app.title}
+                          {isActive && <Check className="ml-auto size-4" />}
+                        </a>
+                      </DropdownMenuItem>
+                    );
+                  })}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </SidebarMenuItem>
           </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>
