@@ -1,18 +1,19 @@
-<a href="https://registry-starter.vercel.app/">
-  <h1 align="center">Registry Starter</h1>
+<a href="https://eco-design-system-2.vercel.app/">
+  <h1 align="center">DTN Design System</h1>
 </a>
 
 <p align="center">
-    Registry Starter is a free, open-source template built with Next.js and Shadcn/ui Registry to accelerate your AI-Native Design System.
+  The official design system registry for DTN, built with Next.js and shadcn/ui.
+  Serving hundreds of projects across different environments.
 </p>
 
 <p align="center">
-  <a href="#deploy-your-own"><strong>Deploy Your Own</strong></a> ·
   <a href="#open-in-v0"><strong>Open in v0</strong></a> ·
+  <a href="#documentation"><strong>Documentation</strong></a> ·
   <a href="#theming"><strong>Theming</strong></a> ·
   <a href="#running-locally"><strong>Running Locally</strong></a> ·
   <a href="#file-structure"><strong>File Structure</strong></a> ·
-  <a href="https://ui.shadcn.com/docs/registry"><strong>Read Docs</strong></a>
+  <a href="https://ui.shadcn.com/docs/registry"><strong>shadcn Docs</strong></a>
 </p>
 <br/>
 
@@ -24,24 +25,19 @@ This design system is optimized for [v0.dev](https://v0.dev).
 
 ⚠️ **Important for Developers:** If modifying the build process or theme, read [`V0_INTEGRATION.md`](./V0_INTEGRATION.md) to maintain v0 compatibility. This ensures v0 can correctly apply your custom styles and colors.
 
-## Deploy Your Own
+## Documentation
 
-You can deploy your own version of the Next.js Registry Starter to Vercel with one click:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fregistry-starter&project-name=my-registry&repository-name=my-registry&demo-title=Registry%20Starter&demo-description=Registry%20Starter%20is%20a%20free%2C%20open-source%20template%20built%20with%20Next.js%20and%20Shadcn%2Fui%20Registry%20to%20accelerate%20your%20AI-Native%20Design%20System.&demo-url=https%3A%2F%2Fregistry-starter.vercel.app&demo-image=%2F%2Fregistry-starter.vercel.app%2Fpreview.png)
+- **[ADDING_SHADCN_COMPONENTS.md](./ADDING_SHADCN_COMPONENTS.md)** - Step-by-step guide for adding new shadcn components
+- **[V0_INTEGRATION.md](./V0_INTEGRATION.md)** - v0.dev compatibility requirements and troubleshooting
+- **[REGISTRY_INTEGRATION.md](./REGISTRY_INTEGRATION.md)** - Using this registry in your projects
 
 ## Open in v0
 
-[![Open in v0](https://registry-starter.vercel.app/open-in-v0.svg)](https://v0.dev/chat/api/open?title=Dashboard+Kit&prompt=These+are+existing+design+system+styles+and+files.+Please+utilize+them+alongside+base+components+to+build.&url=https%3A%2F%2Fregistry-starter.vercel.app%2Fr%2Fdashboard.json)
+[![Open in v0](https://eco-design-system-2.vercel.app/open-in-v0.svg)](https://v0.dev/chat/api/open?title=DTN+Design+System&prompt=These+are+existing+design+system+styles+and+files.+Please+utilize+them+alongside+base+components+to+build.&url=https%3A%2F%2Feco-design-system-2.vercel.app%2Fr%2Fdashboard.json)
 
-This registry application also exposes `Open in v0` buttons for each component. Once this application is deployed, the
-`Open in v0` button redirects to [`v0.dev`](https://v0.dev) with a prepopulated prompt and a URL pointing back to this
-registry's `/r/${component_name}.json` endpoint. This endpoint will provide v0 the necessary file information, content,
-and metadata to start your v0 chat with your component, theme, and other related code.
+This registry application exposes `Open in v0` buttons for each component. The `Open in v0` button redirects to [`v0.dev`](https://v0.dev) with a prepopulated prompt and a URL pointing back to this registry's `/r/${component_name}.json` endpoint. This endpoint provides v0 with the necessary file information, content, and metadata to start your v0 chat with your component, theme, and other related code.
 
-These `/r/${component_name}.json` files are generated using `shadcn/ui` during the `build` and `dev` based on the
-repository's [`registry.json`](./registry.json). For more information, refer to the
-[documentation](https://ui.shadcn.com/docs/registry/registry-json).
+These `/r/${component_name}.json` files are generated using `shadcn/ui` during the `build` and `dev` based on the repository's [`registry.json`](./registry.json). For more information, refer to the [shadcn registry documentation](https://ui.shadcn.com/docs/registry/registry-json).
 
 ## Theming
 
@@ -160,132 +156,9 @@ your custom font variables to Tailwind fonts. Refer to this
 - **Consistency**: Use CSS variables for all colors, maintain clear naming conventions
 - **Accessibility**: Ensure sufficient contrast ratios, test both themes
 
-### **v0 Integration Best Practices**
+### **Adding New Components**
 
-Based on real-world testing, here are the key lessons for successful v0 integration:
-
-#### **Critical v0 Workflow**
-
-1. **Always Search First**: v0 must search the repository before making changes
-2. **Persist with ReadFile**: v0 often gets redacted content initially - it must persist until it gets actual file content
-3. **Import Registry Files**: When you provide registry components, v0 should use `ImportReadOnlyFile` to bring them in
-4. **Use Existing CSS Variables**: Never create hardcoded colors (like `emerald-500`) - only use design system CSS variables
-5. **Work Within Constraints**: Don't expand component variants unless explicitly requested
-
-#### **Common v0 Failures & Solutions**
-
-❌ **What v0 Does Wrong:**
-- Creates hardcoded color variants instead of using CSS custom properties
-- Gives up on redacted content instead of persisting with ReadFile
-- Ignores provided registry files and tries to recreate components
-- Expands design system beyond documented constraints
-
-✅ **What v0 Should Do:**
-- Search repository first with `SearchRepo`
-- Use `ReadFile` repeatedly until getting actual content (not redacted)
-- Import registry components when provided via `ImportReadOnlyFile`
-- Use only existing CSS variables from `globals.css`
-- Follow registry specifications exactly
-- Preserve existing APIs and TypeScript types
-
-#### **Testing v0 Integration**
-
-```bash
-# Test with simple requests first
-"Show me an alert component"
-
-# Then test with more complex requests
-"Create a badge with different variants"
-
-# Verify v0 follows design system rules
-# - Uses existing CSS variables
-# - Doesn't create new variants
-# - Imports registry files when provided
-```
-
-#### **Troubleshooting v0 JSON Usage:**
-
-**If v0 ignores the registry JSON files:**
-1. **Direct v0 to registry**: "Check the public/r/ directory for button.json"
-2. **Ask v0 to search**: "Search for button component in the registry files"
-3. **Verify registry structure**: "Look in public/r/styles/ and public/r/components/"
-4. **Force registry usage**: "Don't create a new button, use the one from the registry JSON"
-
-**Common v0 mistakes:**
-- ❌ Creating new components instead of using JSON
-- ❌ Ignoring the provided registry files
-- ❌ Using hardcoded colors instead of CSS variables
-- ❌ Expanding variants beyond what's documented
-
-**Correct v0 behavior:**
-- ✅ Imports JSON file with `ImportReadOnlyFile`
-- ✅ Uses exact component code from JSON
-- ✅ References CSS variables from the code
-- ✅ Works within documented constraints
-
-#### **Button Component Specific Rules for v0:**
-
-- **Secondary vs Outline**: These variants look identical but use different CSS variables
-- **CSS Variables**: Always use button-specific variables (--button-* not --primary, --secondary)
-- **Border Handling**: Secondary and outline variants both have borders
-- **No Hardcoded Colors**: Use only the button-specific CSS variables defined in globals.css
-
-#### **Critical: Use Registry JSON Files**
-
-When working with components, v0 **MUST**:
-1. **Find and import registry JSON files** from the `public/r/` directory using `ImportReadOnlyFile` command
-2. **Use the exact component code** from the JSON file
-3. **NEVER recreate components** from scratch
-4. **Follow the CSS variables** exactly as defined in the JSON
-
-**Example workflow:**
-```
-1. v0 searches for button.json in public/r/styles/ or public/r/components/
-2. v0 runs: ImportReadOnlyFile button.json
-3. v0 uses the exact Button component from the file
-4. v0 does NOT create a new Button component
-```
-
-#### **Button CSS Variables Reference for v0:**
-
-```css
-/* Available button variables for v0 to use */
---button-primary, --button-primary-foreground, --button-primary-hover
---button-secondary, --button-secondary-foreground, --button-secondary-hover, --button-secondary-border
---button-outline, --button-outline-foreground, --button-outline-hover, --button-outline-border
---button-destructive, --button-destructive-foreground, --button-destructive-hover
---button-ghost-hover, --button-ghost-hover-foreground
---button-link, --button-link-hover
-```
-
-**v0 Button Usage Examples:**
-- ✅ `className="bg-button-primary text-button-primary-foreground hover:bg-button-primary-hover"`
-- ❌ `className="bg-primary text-primary-foreground"` (don't use generic variables)
-- ✅ `className="bg-button-secondary border border-button-secondary-border text-button-secondary-foreground"`
-- ❌ `className="bg-secondary border border-gray-300"` (don't hardcode colors)
-
-#### **JSON File Structure for v0:**
-
-When v0 receives a component JSON file, it contains:
-```json
-{
-  "name": "button",
-  "type": "registry:ui",
-  "files": [
-    {
-      "path": "src/components/ui/button.tsx",
-      "content": "// Complete component code here",
-      "type": "registry:component"
-    }
-  ]
-}
-```
-
-**v0 MUST:**
-- Extract the `content` field from the JSON
-- Use that exact code as the component implementation
-- Reference the CSS variables used in the code
-- NOT create alternative implementations
+For detailed instructions on adding new shadcn components to the registry, see [ADDING_SHADCN_COMPONENTS.md](./ADDING_SHADCN_COMPONENTS.md).
 
 ## Running locally
 
@@ -306,7 +179,7 @@ Your app should now be running on [localhost:3000](http://localhost:3000).
 
 `@/components/ui` contains all `shadcn/ui` UI Primitives used in the registry
 
-`@/components/registry` contains all components for this Registry Starter application
+`@/components/registry` contains all components for this design system registry application
 
 `@/hooks` contains all React hooks
 
