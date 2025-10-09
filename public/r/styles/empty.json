@@ -2,6 +2,7 @@
   "name": "empty",
   "type": "registry:ui",
   "title": "Empty",
+  "badge": "New",
   "description": "Display empty states with optional actions and icons",
   "registryDependencies": [
     "https://eco-design-system-2.vercel.app/r/themes/theme.json"

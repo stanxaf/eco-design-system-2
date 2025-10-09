@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kbd",
+  "type": "registry:ui",
+  "title": "Kbd",
+  "description": "Used to display textual user input from keyboard",
+  "registryDependencies": [
+    "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/app/demo/[name]/ui/kbd.tsx",
+      "content": "import { Button } from \"@/components/ui/button\";\nimport { Kbd, KbdGroup } from \"@/components/ui/kbd\";\n\nexport const kbd = {\n  name: \"kbd\",\n  components: {\n    Default: (\n      <div className=\"flex flex-col items-center gap-4\">\n        <KbdGroup>\n          <Kbd>⌘</Kbd>\n          <Kbd>⇧</Kbd>\n          <Kbd>⌥</Kbd>\n          <Kbd>⌃</Kbd>\n        </KbdGroup>\n        <KbdGroup>\n          <Kbd>Ctrl</Kbd>\n          <span>+</span>\n          <Kbd>B</Kbd>\n        </KbdGroup>\n      </div>\n    ),\n\n    Group: (\n      <p className=\"text-muted-foreground text-sm\">\n        Use{\" \"}\n        <KbdGroup>\n          <Kbd>Ctrl + B</Kbd>\n          <Kbd>Ctrl + K</Kbd>\n        </KbdGroup>{\" \"}\n        to open the command palette\n      </p>\n    ),\n\n    InButton: (\n      <div className=\"flex flex-wrap items-center gap-4\">\n        <Button variant=\"outline\" size=\"sm\" className=\"pr-2\">\n          Accept <Kbd>⏎</Kbd>\n        </Button>\n        <Button variant=\"outline\" size=\"sm\" className=\"pr-2\">\n          Cancel <Kbd>Esc</Kbd>\n        </Button>\n      </div>\n    ),\n  },\n};\n\n",
+      "type": "registry:component"
+    }
+  ]
+}

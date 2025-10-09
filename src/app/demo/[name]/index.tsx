@@ -53,6 +53,7 @@ import { hoverCard } from "@/app/demo/[name]/ui/hover-card";
 import { icons } from "@/app/demo/[name]/ui/icons";
 import { input } from "@/app/demo/[name]/ui/input";
 import { inputOtp } from "@/app/demo/[name]/ui/input-otp";
+import { kbd } from "@/app/demo/[name]/ui/kbd";
 import { label } from "@/app/demo/[name]/ui/label";
 import { panel } from "@/app/demo/[name]/ui/panel";
 
@@ -141,6 +142,7 @@ export const demos: { [name: string]: Demo } = {
   input,
   "input-otp": inputOtp,
   icons,
+  kbd,
   label,
 
   menubar: menubar,
