@@ -1135,6 +1135,22 @@
       ]
     },
     {
+      "name": "input-group",
+      "type": "registry:ui",
+      "title": "Input Group",
+      "badge": "New",
+      "description": "Display additional information or actions to an input or textarea",
+      "registryDependencies": [
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/app/demo/[name]/ui/input-group.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "icons",
       "type": "registry:ui",
       "title": "Icons",
