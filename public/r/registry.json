@@ -782,6 +782,22 @@
       ]
     },
     {
+      "name": "button-group",
+      "type": "registry:ui",
+      "title": "Button Group",
+      "badge": "New",
+      "description": "A container that groups related buttons together with consistent styling",
+      "registryDependencies": [
+        "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+      ],
+      "files": [
+        {
+          "path": "src/app/demo/[name]/ui/button-group.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
       "name": "calendar",
       "type": "registry:ui",
       "title": "Calendar",

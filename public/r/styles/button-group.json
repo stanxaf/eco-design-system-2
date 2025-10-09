@@ -1,0 +1,17 @@
+{
+  "name": "button-group",
+  "type": "registry:ui",
+  "title": "Button Group",
+  "badge": "New",
+  "description": "A container that groups related buttons together with consistent styling",
+  "registryDependencies": [
+    "https://eco-design-system-2.vercel.app/r/themes/theme.json"
+  ],
+  "files": [
+    {
+      "path": "src/app/demo/[name]/ui/button-group.tsx",
+      "type": "registry:component",
+      "content": "import { CopyIcon, MinusIcon, PlusIcon, ScissorsIcon } from \"lucide-react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { ButtonGroup } from \"@/components/ui/button-group\";\n\nexport const buttonGroup = {\n  name: \"button-group\",\n  components: {\n    Default: (\n      <ButtonGroup>\n        <Button variant=\"outline\">Archive</Button>\n        <Button variant=\"outline\">Report</Button>\n        <Button variant=\"outline\">Snooze</Button>\n      </ButtonGroup>\n    ),\n\n    WithIcons: (\n      <ButtonGroup>\n        <Button variant=\"outline\" size=\"icon\">\n          <ScissorsIcon />\n        </Button>\n        <Button variant=\"outline\" size=\"icon\">\n          <CopyIcon />\n        </Button>\n        <Button variant=\"outline\" size=\"icon\">\n          <PlusIcon />\n        </Button>\n      </ButtonGroup>\n    ),\n\n    Vertical: (\n      <ButtonGroup orientation=\"vertical\" className=\"h-fit\">\n        <Button variant=\"outline\" size=\"icon\">\n          <PlusIcon />\n        </Button>\n        <Button variant=\"outline\" size=\"icon\">\n          <MinusIcon />\n        </Button>\n      </ButtonGroup>\n    ),\n  },\n};\n\n"
+    }
+  ]
+}

@@ -31,6 +31,7 @@ import { avatar } from "@/app/demo/[name]/ui/avatar";
 import { badge } from "@/app/demo/[name]/ui/badge";
 import { breadcrumb } from "@/app/demo/[name]/ui/breadcrumb";
 import { button } from "@/app/demo/[name]/ui/button";
+import { buttonGroup } from "@/app/demo/[name]/ui/button-group";
 import { calendar } from "@/app/demo/[name]/ui/calendar";
 import { card } from "@/app/demo/[name]/ui/card";
 import { carousel } from "@/app/demo/[name]/ui/carousel";
@@ -119,6 +120,7 @@ export const demos: { [name: string]: Demo } = {
   badge,
   breadcrumb,
   button,
+  "button-group": buttonGroup,
   calendar,
   card,
   carousel,
